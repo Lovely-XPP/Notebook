@@ -1,0 +1,285 @@
+\chapter{Matlab数据分析与多项式计算}
+\thispagestyle{empty}
+\section{数据统计分析}
+\subsection{最大值与最小值}
+以最大值函数为例子，介绍函数的用法，最小值函数的调用完全一致。
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+	\begin{tabular}{cl}
+		\toprule
+		 函数 & 说明\\
+		\midrule
+		 \lstinline|max(A)| & 返回一个行向量，向量的第$i$个元素是矩阵$\bm{A}$第$i$列的最大值\\
+		 \hline
+		 \lstinline|max(A,[ ],2)| & 返回一个列向量，向量的第$i$个元素是矩阵$\bm{A}$第$i$行的最大值\\
+		 \hline
+		 \lstinline|[Y,U] = max(A)| & \makecell[l]{$\bm{Y}$行向量记录矩阵$\bm{A}$每列的最大值\\$\bm{U}$矩阵记录每列最大值的行号}\\
+		 \hline
+		\lstinline|U = max(A,B)| & \makecell[l]{$\bm{A}, \bm{B}$是同型的向量或矩阵\\$\bm{U}$的每个元素等于$\bm{A}, \bm{B}$对应元素的最大值}\\
+		\hline
+		\lstinline|U = max(A,n)| & \makecell[l]{$n$是一个标量，$\bm{U}$的每个元素等于$\bm{A}$对应元素与$n$中的最大值}\\
+		\bottomrule
+	\end{tabular}	
+	}
+\end{table}
+
+\subsection{求和与求积}
+求和函数用\lstinline|sum|，求积函数用\lstinline|prod|.两者调用方式完全一致，以\lstinline|sum|为例：
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{cl}
+			\toprule
+			函数 & 说明\\
+			\midrule
+			\lstinline|sum(X)| & 返回向量$\bm{X}$的元素之和\\
+			\hline
+			\lstinline|sum(A)| & 返回一个行向量，向量的第$i$个元素是矩阵$\bm{A}$第$i$列元素之和\\
+			\hline
+			\lstinline|sum(A,2)| & 返回一个列向量，向量的第$i$个元素是矩阵$\bm{A}$第$i$行元素之和\\
+			\bottomrule
+		\end{tabular}	
+	}
+\end{table}
+
+\subsection{平均值和中值}
+平均值函数用\lstinline|mean|，中值函数用\lstinline|median|.两者调用方式完全一致，以\lstinline|mean|为例：
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{cl}
+			\toprule
+			函数 & 说明\\
+			\midrule
+			\lstinline|mean(X)| & 返回向量$\bm{X}$的平均值\\
+			\hline
+			\lstinline|mean(A)| & 返回一个行向量，向量的第$i$个元素是矩阵$\bm{A}$第$i$列元素的平均值\\
+			\hline
+			\lstinline|mean(A,2)| & 返回一个列向量，向量的第$i$个元素是矩阵$\bm{A}$第$i$行元素的平均值\\
+			\bottomrule
+		\end{tabular}	
+	}
+\end{table}
+
+\subsection{累加和与累乘积}
+设$\bm{U} = (u_1, u_2, \cdots, u_n)$是一个向量，$\bm{V},\bm{W}$是与$\bm{U}$等长的另外两个向量，并且
+\begin{align}
+	\bm{V} = \left(\sum_{i = 1}^{1} u_i,\sum_{i = 1}^{2} u_i, \cdots ,\sum_{i = 1}^{n} u_i  \right)\\[0.5em]
+	\bm{W} = \left(\prod_{i = 1}^{1} u_i,\prod_{i = 1}^{2} u_i, \cdots ,\prod_{i = 1}^{n} u_i  \right)
+\end{align}
+称$\bm{V}$为$\bm{U}$的累加和向量，$\bm{W}$为$\bm{U}$的累乘积向量。求矩阵元素的累加和的函数为\lstinline|cumsum|，累乘积的函数为\lstinline|cumprod|.两者调用方式完全一致，以\lstinline|cumsum|为例：
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{cl}
+			\toprule
+			函数 & 说明\\
+			\midrule
+			\lstinline|cumsum(X)| & 返回向量$\bm{X}$的累加和向量\\
+			\hline
+			\lstinline|cumsum(A)| & 返回一个矩阵，其第$i$列是矩阵$\bm{A}$第$i$列元素的累加和\\
+			\hline
+			\lstinline|cumsum(A,2)| & 返回一个矩阵，其第$i$行是矩阵$\bm{A}$第$i$行元素的累加和\\
+			\bottomrule
+		\end{tabular}	
+	}
+\end{table}
+
+\subsection{标准差与相关系数}
+标准差的计算公式
+\begin{align}
+	S_1 = \sqrt{\dfrac{1}{n -1} \sum_{i = 1}^{n} \left(x_i - \overline{x}\right)^2}\\
+	S_2 =  \sqrt{\dfrac{1}{n} \sum_{i = 1}^{n} \left(x_i - \overline{x}\right)^2}
+\end{align}
+其中
+\begin{align*}
+	\overline{x} = \dfrac{1}{n} \sum_{i = 1}^{n} x_i
+\end{align*}
+相关系数的计算公式为
+\begin{align}
+	r = \dfrac{\displaystyle \sum_{i = 1}^{n}(x_i - \overline{x})(y_i - \overline{y})}{\displaystyle \sqrt{\sum_{i = 1}^{n}(x_i - \overline{x})^2\sum_{i = 1}^n (y_i - \overline{y})^2}}
+\end{align}
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{8mm}{
+		\begin{tabular}{ccl}
+			\toprule
+			功能 & 函数 & 说明\\
+			\midrule
+			标准差 & \lstinline|std(A,flag,dim)| & \makecell[l]{dim = 1 \quad 求各列元素的标准差\\ dim = 2 \quad 求各行元素的标准差\\ flag = 0 \quad 按$S_1$计算标准差 \\ flag = 1 \quad 按$S_2$计算标准差}\\
+			\hline
+			& & \vspace*{-1.5em }\\
+			相关系数 & \lstinline|corrcoef(X, Y)| & 返回一个$2 \times 2$矩阵：
+			$
+			\begin{bmatrix}
+				r(\bm{X}) & r(\bm{X, Y})\\
+				r(\bm{Y, X}) & r(\bm{Y})
+			\end{bmatrix}
+			$
+			\\
+			\bottomrule
+		\end{tabular}	
+	}
+\end{table}
+\newpage
+
+相关系数是反映两组数据序列之间的相互关系的指标，类似的指标还有协方差，计算公式为
+\begin{align}
+	c = \dfrac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x})(y_i - \overline{y})
+\end{align}
+Matlab的函数为\lstinline|cov|，其调用格式与\lstinline|corrcoef|函数类似。
+\vspace*{0.5em}
+
+\subsection{排序}
+\lstinline|sort|函数对矩阵$\bm{A}$对各列或各行重新排序，其调用格式为
+\begin{center}
+	\lstinline|[Y, I] = sort(A, dim, mode)|
+\end{center}
+其中
+\begin{itemize}
+	\item $\bm{Y}$为排序后对矩阵
+	\item $\bm{I}$记录$\bm{Y}$中对元素在$A$中对位置
+	\item \lstinline|dim|指明对$\bm{A}$进行列/行排序
+	\begin{itemize}
+		\item \lstinline|dim = 1| \quad 列排序
+		\item \lstinline|dim = 2| \quad 行排序
+	\end{itemize}
+	\item \lstinline|mode|表示升序/降序
+	\begin{itemize}
+		\item \lstinline|mode = 'ascend'| \quad 升序（默认）
+		\item \lstinline|mode = 'descend'| \quad 降序
+	\end{itemize}
+\end{itemize}
+
+
+
+\section{多项式计算}
+$n$次多项式
+\begin{align}
+	P(x) = a_nx^n + a_{n-1}x^{n-1} + a_{n-2}x^{n-2} + \cdots a_1x + a_0
+\end{align}
+在Matlab中，$P(x)$表达为向量形式：
+\begin{align}
+	[a_n,a_{n-1},a_{n-2},\cdots,a_1,a_0]
+\end{align}
+\subsection{多项式的四则运算}
+多项式的四则运算等价于多项式系数\lstinline|P1, P2|之间的运算，详细见下表
+\begin{table}[!htb]
+		\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{ccc}
+			\toprule
+			功能 & 函数 & 说明 \\
+			\midrule
+			多项式加法 & \lstinline|P = P1 + P2| & 直接相加即可\\
+			多项式减法 & \lstinline|P = P1 - P2| & 直接相减即可\\
+			多项式乘法 & \lstinline|P = conv(P1, P2)| & ——\\
+			多项式除法 & \lstinline|[Q, r] = deconv(P1, P2)| & Q返回商值，r返回余式\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{多项式的导函数}
+求多项式的导函数用\lstinline|polyder|函数，其调用格式为
+\begin{enumerate}[\hspace*{3em} (1)]
+	\item \lstinline|p = polyder(P)|\quad 求多项式P的导函数
+	\item \lstinline|p = polyder(P, Q)|\quad 求P$\cdot$Q的导函数
+	\item \lstinline|[p, q] = polyder(P, Q)|\quad 求P/Q的导函数，导函数分子存入p，分母存入q
+\end{enumerate}
+
+
+\subsection{多项式求值}
+\begin{enumerate}
+	\item \textbf{代数多项式求值}
+	\begin{center}
+		\lstinline|polval(P, x)|
+	\end{center}
+	若x为一数值，则求多项式在该点的值；若x为向量或矩阵，则对向量或矩阵中的每个元素求其多项式的值。
+	\item \textbf{矩阵多项式求值}
+	\begin{center}
+		\lstinline|polyvalm(P, A)|
+	\end{center}
+	其中$A$为方阵。
+\end{enumerate}
+
+\subsection{多项式求根}
+求根函数和已知根$x$构造多项式的函数：
+\begin{center}
+	\lstinline|x = roots(P)|\\
+	\lstinline|P = poly(x)|
+\end{center}
+
+
+\section{数据插值}
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{4mm}{
+		\begin{tabular}{ccc}
+			\toprule
+			功能 & 函数 & 说明 \\
+			\midrule
+			一维插值 & \lstinline|Y1 = interp1(X, Y, X1, method)| & $\bm{X,Y}$为等长向量，分别为采样点和采样值\\
+			二维插值 & \lstinline|Y2 = interp2(X, Y, Z, X1, X2, method)| & $X,Y$是采样点，$Z$是采样值\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+method有四种，见下表
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{4mm}{
+		\begin{tabular}{cc}
+			\toprule
+			方法 & 说明 \\
+			\midrule
+			\lstinline|'linear'| & 线性插值（默认），两点连线，不外插\\
+			\lstinline|'nearest'| & 最近点插值，插值点优先选择较近的数据点插值，不外插 \\
+			\lstinline|'pchip'| & 分段3次埃米尔插值，不适用于二维插值\\
+			\lstinline|'spline'| & 3次样条插值，每个分段内构造一个3次多项式，可外插\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\section{曲线拟合}
+最小二乘实现曲线拟合，使用\lstinline|polyfit|函数：
+\begin{center}
+	\lstinline|P = polyfit(X, Y, m)|\\
+	\lstinline|[P, S] = polyfit(X, Y, m)|\\
+	\lstinline|[P, S, mu] = polyfit(X, Y, m)|
+\end{center}
+函数根据采样点$\bm{X}$和采样点函数$\bm{Y}$，产生一个$m$次多项式$\bm{P}$及其在采样点的误差向量$\bm{S}$。其中
+\begin{itemize}
+	\item $\bm{X, Y}$ \quad 等长向量
+	\item $\bm{P}$ \quad 长度为$m + 1$的向量，其为多项式系数
+	\item \lstinline|mu| \quad 二元向量，mu(1)是mean(X)，而mu(2)是std(X)
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

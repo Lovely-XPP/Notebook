@@ -1,0 +1,510 @@
+\chapter{热力学关系式}
+\thispagestyle{empty}
+
+\section{热力学关系式的数学基础}
+对于定质量简单可压系，其独立参数仅有两个，设独立参数为$x,y$，状态函数为$z$，则有
+\begin{align}
+	z= z (x, y)
+\end{align}
+状态函数的全微分为
+\begin{align}
+	\d z = M \d x + N \d y
+\end{align}
+其中\footnote{注：$ \left(\dfrac{\partial z}{\partial y} \right)_x$ 代表在$x$为定值的情况下对$y$作偏微分}
+\begin{align}
+	M = \left(\dfrac{\partial z}{\partial x}\right)_y  \quad  N = \left(\dfrac{\partial z}{\partial y} \right)_x
+\end{align}
+
+\subsection{偏导数的性质}
+\begin{enumerate}[\textbf{性质}1\quad]
+	\item \textbf{混合偏导数的关系}\\
+	\begin{align}
+		\dfrac{\partial^2 z}{\partial x \partial y} &= \dfrac{\partial^2 z}{\partial y \partial x}\\[0.5em]
+		\dfrac{\partial M}{\partial y} &= \dfrac{\partial N}{\partial x}
+	\end{align}
+	\item \textbf{偏导数的循环关系}\\
+	若状态函数$z$保持不变，即$\d z = 0$，则
+	\begin{align*}
+		\left(\dfrac{\partial z}{\partial x}\right)_y (\d x)_z + \left(\dfrac{\partial z}{\partial y}  \right)_x (\d y)_z= 0
+	\end{align*}
+两边同时除以$\left(\dfrac{\partial z}{\partial y}\right)_x (\d y)_z $，即
+\begin{align}
+	\left(\dfrac{\partial z}{\partial x}\right)_y \cdot \left(\dfrac{\partial x}{\partial y}\right)_z \cdot \left(\dfrac{\partial y}{\partial z}\right)_x = -1
+\end{align}
+
+\item \textbf{偏导数的换底公式}
+\begin{align}
+	\begin{cases}
+		\d z = \left(\dfrac{\partial z}{\partial x}\right)_y \d x + \left(\dfrac{\partial z}{\partial y}\right)_x \d y\\[1em]
+		\d x = \left(\dfrac{\partial x}{\partial \alpha}\right)_y \d \alpha + \left(\dfrac{\partial x}{\partial y}\right)_\alpha \d y
+	\end{cases}
+\quad \Longrightarrow \quad 
+\begin{aligned}
+	\d z &=\left(\dfrac{\partial z}{\partial x}\right)_y \left[\left(\dfrac{\partial x}{\partial \alpha}\right)_y \d \alpha + \left(\dfrac{\partial x}{\partial y}\right)_\alpha \d y\right] + \left(\dfrac{\partial z}{\partial y}\right)_x \d y \\[0.5em]
+	& = \left(\dfrac{\partial z}{\partial x}\right)_y\left(\dfrac{\partial x}{\partial \alpha}\right)_y \d \alpha  + \left[\left(\dfrac{\partial z}{\partial x}\right)_y \left(\dfrac{\partial x}{\partial y}\right)_\alpha + \left(\dfrac{\partial z}{\partial y}\right)_x  \right]\d y
+\end{aligned}
+\label{偏导数推导}
+\end{align}
+令$\alpha $是常数，则
+\begin{align}
+	(\d z)_\alpha = \left[\left(\dfrac{\partial z}{\partial x}\right)_y \left(\dfrac{\partial x}{\partial y}\right)_\alpha + \left(\dfrac{\partial z}{\partial y}\right)_x  \right](\d y)_\alpha
+\end{align}
+或
+\begin{align}
+	\left(\dfrac{\partial z}{\partial y}\right)_\alpha = \left(\dfrac{\partial z}{\partial x}\right)_y \left(\dfrac{\partial x}{\partial y}\right)_\alpha + \left(\dfrac{\partial z}{\partial y}\right)_x 
+\end{align}
+
+\item \textbf{偏导数的链式关系}\\
+若对式\eqref{偏导数推导}中令$y$为常数，则有
+\begin{align}
+	(\d z)_y = \left(\dfrac{\partial z}{\partial x}\right)_y\left(\dfrac{\partial x}{\partial \alpha}\right)_y (\d \alpha)_y  \notag\\
+	\left(\dfrac{\partial z}{\partial x}\right)_y\left(\dfrac{\partial x}{\partial \alpha}\right)_y \left(\dfrac{\partial \alpha}{\partial z}\right)_y = 1
+\end{align}
+特别地，若令$\alpha = z$，则链式关系变为
+\begin{align}
+	\left(\dfrac{\partial z}{\partial x}\right)_y\left(\dfrac{\partial x}{\partial \alpha}\right)_y = 1
+\end{align}
+
+\end{enumerate}
+
+\section{基本热力学关系}
+\subsection{基本热力学关系式}
+对于简单可压缩的定质量气体物质系统，由前面两章的知识，可得
+\begin{itemize}
+	\item 热力学第一定律
+	\begin{itemize}
+		\item 静止闭系\vspace*{-1em}
+		\begin{align}
+			\delta q = \d u +p \d v
+		\end{align}
+		\item 稳定流动的开系（或运动闭系）\vspace*{-1em}
+		\begin{align}
+			\delta q = \d h - v \d p
+		\end{align}
+	\end{itemize}
+	\item 热力学第二定律（可逆过程）\vspace*{-1em}
+	\begin{align}
+		\delta q = T \d s
+	\end{align}
+	\item 比内能和比自由能的关系
+	\begin{align}
+		\d u = \d f + \d (Ts) = \d f + T \d s + s \d T 
+	\end{align}
+	
+	\item 比焓和比自由焓的关系
+	\begin{align}
+		\d h = \d g + \d (TS) = \d g + T \d s + s \d T
+	\end{align}
+\end{itemize}
+具体关系式如下：
+
+\textbf{1. 内能函数$u = u(s,v)$}
+\begin{align}
+	\begin{aligned}
+		\delta q &= \d u + p \d v\\
+		\delta q &= T \d s
+	\end{aligned}
+\quad \Rightarrow \quad 
+T \d s = \d u + p \d v
+\quad \Rightarrow \quad 
+\d u = T \d s - p \d v
+\end{align}
+
+\textbf{2. 焓变函数$h = h(s,p)$}
+\begin{align}
+	\begin{aligned}
+		\delta q &= \d h - v \d p\\
+		\delta q &= T \d s
+	\end{aligned}
+	\quad \Rightarrow \quad 
+	T \d s = \d h - v \d p
+	\quad \Rightarrow \quad 
+	\d h = T \d s + v \d p
+\end{align}
+
+\textbf{3. 自由能函数$f = f(T,v)$}
+\begin{align}
+	\begin{aligned}
+		\delta u & = \d f + T \d s + s \d T\\
+		\delta u &= T \d s - p \d v
+	\end{aligned}
+	\quad \Rightarrow \quad 
+	T \d s  - p\d v = \d f + T \d s + s \d T
+	\quad \Rightarrow \quad 
+	\d f = - s \d T - p \d v
+\end{align}
+
+\textbf{4. 自由焓函数$g = g(T,p)$}
+\begin{align}
+	\begin{aligned}
+		\delta h & = \d g + T \d s + s \d T\\
+		\delta h &= T \d s + v \d p
+	\end{aligned}
+	\quad \Rightarrow \quad 
+	T \d s  + v\d p = \d g + T \d s + s \d T
+	\quad \Rightarrow \quad 
+	\d g = - s \d T + v \d p
+\end{align}
+热力学基本关系式总结如下
+\begin{table}[!htb]
+	\centering\setlength{\tabcolsep}{14mm}{
+		\begin{tabular}{cc}
+			\toprule
+			状态函数 & 表达式 \\
+			\midrule
+			$u = u (s, v)$ & $\d u = T \d s - p \d v$ \\[0.5em]
+			$h = h(s, p)$ & $\d h = T \d s + v \d p$\\[0.5em]
+			$f = f (T, v)$ & $\d f = - s \d T - p \d v$\\[0.5em]
+			$g = g(T, p)$ & $\d g = -s \d T + v \d p$\\[0.5em]
+			\bottomrule
+		\end{tabular}
+		\caption{热力学基本关系式}
+	}
+\end{table}
+
+由全微分混合偏导数的关系，可以得到
+\begin{align}
+	\left(\dfrac{\partial T}{\partial v}\right)_s &= -\left(\dfrac{\partial p}{\partial s}\right)_v\\[0.5em]
+	\left(\dfrac{\partial T}{\partial p}\right)_s &= \left(\dfrac{\partial v}{\partial s}\right)_p\\[0.5em]
+	\left(\dfrac{\partial s}{\partial v}\right)_T &= \left(\dfrac{\partial p}{\partial T}\right)_v\\[0.5em]
+	\left(\dfrac{\partial s}{\partial p} \right)_T &= -\left(\dfrac{\partial v}{\partial T}\right)_p
+\end{align}
+这四个偏导数关系称为\dy[麦克斯韦关系]{MKSWGX}。这个关系在实施参数转换方面有着重要的作用。
+
+对于四个状态函数$u=u(s,v), h =h(s, p), f = f(T, v), g = g(T, p)$，它们都由特定的独立变量表示的相应的状态函数，具有特殊的功能，被称为\dy[特性函数]{TXHS}。
+
+\subsection{参数方程}
+\begin{enumerate}[1. ]
+	\item  \textbf{内能函数$u = u(s, v)$的参数方程}
+		\begin{align*}
+			\d u  = T \d s - p \d v  \quad \Longrightarrow \quad 
+			\begin{cases}
+				T = \left(\dfrac{\partial u}{\partial s}\right)_v \\[1em]
+				p  = -\left(\dfrac{\partial u}{\partial v}\right)_s
+			\end{cases}
+		\end{align*}
+	由$h,f,g$的定义式，可得
+	\begin{align*}
+		\begin{aligned}
+			h &= u +pv\\
+			f &= u -Ts\\
+			g &= h -Ts
+		\end{aligned} 
+	\quad \Longrightarrow \quad
+	\begin{aligned}
+		h &= u +pv= u - v\left(\dfrac{\partial u}{\partial v}\right)_s\\[0.5em]
+		f &= u - Ts = u - s\left(\dfrac{\partial u}{\partial s}\right)_v\\[0.5em]
+		g &= u + pv -Ts = u - v\left(\dfrac{\partial u}{\partial v}\right)_s - s\left(\dfrac{\partial u}{\partial s}\right)_v
+	\end{aligned}
+	\end{align*}
+
+\item  \textbf{熵变函数$h = h(s, p)$的参数方程}
+\begin{align*}
+	\d h = T \d s + v \d p  \quad \Longrightarrow \quad 
+	\begin{cases}
+		T = \left(\dfrac{\partial h}{\partial s}\right)_p \\[1em]
+		v = \left(\dfrac{\partial h}{\partial p}\right)_s
+	\end{cases}
+\end{align*}
+由$h,f,g$的定义式，可得
+\begin{align*}
+	\begin{aligned}
+		h &= u +pv\\
+		f &= u -Ts\\
+		g &= h -Ts
+	\end{aligned} 
+	\quad \Longrightarrow \quad
+	\begin{aligned}
+		u &= h - pv= h - p\left(\dfrac{\partial h}{\partial p}\right)_s\\[0.5em]
+		f &= h - pv - Ts = h - p\left(\dfrac{\partial h}{\partial p}\right)_s - s\left(\dfrac{\partial h}{\partial s}\right)_p\\[0.5em]
+		g &= h -Ts = h - s \left(\dfrac{\partial h}{\partial s}\right)_p
+	\end{aligned}
+\end{align*}
+
+	\item \textbf{自由能函数$f = f(T, v)$的参数方程}
+\begin{align*}
+	\d f  = -s \d T - p \d v  \quad \Longrightarrow \quad 
+	\begin{cases}
+		s = -\left(\dfrac{\partial f}{\partial T}\right)_v \\[1em]
+		p  = -\left(\dfrac{\partial f}{\partial v}\right)_T
+	\end{cases}
+\end{align*}
+由$h,f,g$的定义式，可得
+\begin{align*}
+	\begin{aligned}
+		h &= u +pv\\
+		f &= u -Ts\\
+		g &= h -Ts
+	\end{aligned} 
+	\quad \Longrightarrow \quad
+	\begin{aligned}
+		h &= f + Ts +pv= f - T\left(\dfrac{\partial f}{\partial T}\right)_v - v\left(\dfrac{\partial f}{\partial v}\right)_T\\[0.5em]
+		u &= f + Ts = f - T\left(\dfrac{\partial f}{\partial T}\right)_v \\[0.5em]
+		g &= f + pv = f - v\left(\dfrac{\partial f}{\partial v}\right)_T
+	\end{aligned}
+\end{align*}
+
+	\item \textbf{自由焓函数$g = g(T, p)$的参数方程}
+\begin{align*}
+	\d g  = -s \d T + v \d p  \quad \Longrightarrow \quad 
+	\begin{cases}
+		s = -\left(\dfrac{\partial g}{\partial T}\right)_p \\[1em]
+		p  = \left(\dfrac{\partial g}{\partial p}\right)_T
+	\end{cases}
+\end{align*}
+由$h,f,g$的定义式，可得
+\begin{align*}
+	\begin{aligned}
+		h &= u +pv\\
+		f &= u -Ts\\
+		g &= h -Ts
+	\end{aligned} 
+	\quad \Longrightarrow \quad
+	\begin{aligned}
+		u &= g + Ts - pv= g - T\left(\dfrac{\partial g}{\partial T}\right)_p - p\left(\dfrac{\partial g}{\partial p}\right)_T\\[0.5em]
+		f &= g - pv = g - p\left(\dfrac{\partial g}{\partial p}\right)_T\\[0.5em]
+		h &= g + Ts = g - T\left(\dfrac{\partial g}{\partial T}\right)_p
+	\end{aligned}
+\end{align*}
+\end{enumerate}
+
+以上由特性函数确定的各类参数的关系式称为\dy[参数方程]{CSFC}。
+
+\section{热力学能、焓、熵的热力学关系式}
+
+\subsection{熵方程}
+\begin{enumerate}[1.]
+	\item $s = s(T,v)$
+	\\熵的全微分为
+	\begin{align}
+		\d s = \left(\dfrac{\partial s}{\partial T}\right)_v \d T + \left(\dfrac{\partial s}{\partial v}\right)_T \d v
+	\end{align}
+	由能量方程级定容过程
+	\begin{align}
+		\begin{aligned}
+			\delta q &= \d u + p \d v \\
+			\delta q &= C_V \d T\\
+			\delta w &= p \d v = 0
+		\end{aligned}
+		\quad &\Rightarrow \quad 
+		(\d u)_v = C_V (\d T)_v \notag\\
+		&\Rightarrow \quad 
+		C_V = \left(\dfrac{\partial u}{\partial T}\right)_v 
+	\end{align}
+	由参数方程，可得
+	\begin{align*}
+		\left(\dfrac{\partial u}{\partial s}\right)_v = T
+	\end{align*}
+	由链式法则，可得
+	\begin{align}
+		\left(\dfrac{\partial s}{\partial T}\right)_v \left(\dfrac{\partial T}{\partial u}\right)_v \left(\dfrac{\partial u}{\partial s}\right)_v = 1 \quad \Rightarrow \quad \left(\dfrac{\partial s}{\partial T}\right)_v  = \dfrac{1}{\displaystyle \left(\dfrac{\partial T}{\partial u}\right)_v \left(\dfrac{\partial u}{\partial s}\right)_v } = \dfrac{C_V}{T}
+	\end{align}
+	由麦克斯韦关系，可知
+	\begin{align*}
+		\left(\dfrac{\partial s}{\partial v}\right)_T = \left(\dfrac{\partial p}{\partial T}\right)_v
+	\end{align*}
+	所以
+	\begin{align}
+		\d s = C_V \dfrac{\d T}{T} + \left(\dfrac{\partial p}{\partial T}\right)_v \d v
+		\label{1熵}
+	\end{align}
+	公式\eqref{1熵}称为\dy[第一熵方程]{DYSFC}。
+	
+	\noindent 同理可得
+		\item $s = s(T,p)$\\
+		\dy[第二熵方程]{DESFC}
+		\begin{align}
+			\d s = C_P \dfrac{\d T}{T} - \left(\dfrac{\partial v}{\partial T}\right)_p \d p
+			\label{2熵}
+		\end{align}
+		\item $s = s(p,v)$\\
+		 \dy[第三熵方程]{DSSFC}
+		\begin{align}
+			\d s = \dfrac{C_V}{T} \left(\dfrac{\partial T}{\partial p}\right)_v \d p + \dfrac{C_p}{T}\left(\dfrac{\partial T}{\partial v}\right)_p \d v
+			\label{3熵}
+		\end{align}
+\end{enumerate}
+
+
+\subsection{内能方程}
+\begin{enumerate}[1.]
+	\item $u = u(T,u)$\\
+	将第一熵方程\eqref{1熵}代入内能的定义式$\d u = T \d s - p \d v$，得
+	\begin{align}
+		\d u = C_V \d T + \left[T \left(\dfrac{\partial p}{\partial T}\right)_v - p\right]\, \d v
+		\label{1内能}
+	\end{align}
+	公式\eqref{1内能}称为\dy[第一内能方程]{DYNNFC}。同理可得
+	\item $u = u(T,p)$\\
+	\dy[第二内能方程]{DENEFC}
+	\begin{align}
+		\d u = \left[C_P - p \left(\dfrac{\partial T}{\partial T}\right)_p\right]\,\d T - \left[C_P \left(\dfrac{\partial v}{\partial T}\right)_ p + p\left( \dfrac{\partial v}{\partial p}\right)_T\right]\, \d p
+		\label{2内能}
+	\end{align}
+	\item $u = u(p,v)$\\
+	\dy[第三内能方程]{DSNNFC}
+	\begin{align}
+		\d u = C_V\left(\dfrac{\partial T}{\partial p}\right)_v \d p + \left[C_P\left(\dfrac{\partial T}{\partial v}\right)_p - p\right]\, \d v
+		\label{3内能}
+	\end{align}
+\end{enumerate}
+
+\subsection{焓方程}
+\begin{enumerate}[1.]
+	\item $h = h(T,v)$\\
+	将第一熵方程\eqref{1熵}代入焓的定义式$\d s = T \d s + v \d p$，可得
+	\begin{align*}
+		\d h = C_V \d T + T \left(\dfrac{\partial p}{\partial T}\right)_v \d v + v \d p
+	\end{align*}
+	又由$p = p(T,v)$的全微分，得
+	\begin{align*}
+		\d p = \left(\dfrac{\partial p}{\partial T}\right)_v \d T + \left(\dfrac{\partial p}{\partial v}\right)_T \d v
+	\end{align*}
+	所以
+	\begin{align}
+		\d h = \left[C_V + v \left(\dfrac{\partial p}{\partial T}\right)_v\right]\,\d T + \left[T \left(\dfrac{\partial p}{\partial T}\right)_v + v \left(\dfrac{\partial p}{\partial v}\right)_T\right]\, \d v
+		\label{1焓}
+	\end{align}
+	公式\eqref{1焓}称为\dy[第一焓方程]{DYHFC}。同理可得
+	
+	\item $h = h(T, p)$\\
+	\dy[第二焓方程]{DEHFC}
+	\begin{align}
+		\d h = C_P \d T - \left[T \left(\dfrac{\partial v}{\partial T}\right)_p - v\right]\, \d p
+	\end{align}
+
+	\item $h = h(p,v)$\\
+	\dy[第三焓方程]{DSHFC}
+	\begin{align}
+		\d h = C_P \left(\dfrac{\partial T}{\partial v}\right)_p \d v + \left[c_v \left(\dfrac{\partial T}{\partial p}\right)_v\right]\, \d p
+	\end{align} 
+\end{enumerate}
+
+\section{比热容的一般关系式}
+
+\subsection{比热容关系式}
+\noindent \textbf{1. 定容比热容}
+
+根据第一内能方程
+\begin{align*}
+	\d u = c_V \,\d T + \left[T \left(\dfrac{\partial p}{\partial T}\right)_v - p \right]\,\d v
+\end{align*}
+及混合偏导数的关系，可得
+\begin{align}
+	\left(\dfrac{\partial C_V}{\partial v}\right)_T &= \dfrac{\partial }{\partial T}\left[T \left(\dfrac{\partial p}{\partial T}\right)_v - p\right]_v\notag \\[0.5em]
+	\left(\dfrac{\partial C_V}{\partial v}\right)_T &= T \left(\dfrac{\partial^2 p}{\partial T^2}\right)_v
+	\label{比定容热容的热力学关系式1}
+\end{align}
+定义物质的\dy[压力温度系数]{YLWDXS}$\displaystyle \kappa = \dfrac{1}{p} \left(\dfrac{\partial p}{\partial T}\right)_v$，所以
+\begin{align}
+	\left(\dfrac{\partial C_V}{\partial v}\right)_T = Tp\left[\kappa^2 + \left(\dfrac{\partial \kappa}{\partial T}\right)_v\right]
+	\label{比定容热容的热力学关系式2}
+\end{align}
+公式\eqref{比定容热容的热力学关系式1}和公式\eqref{比定容热容的热力学关系式2}称为\dy[比定容热容的热力学关系式]{BDRRRDRLXGXS}。
+\vspace*{0.5em}
+
+\noindent \textbf{2. 定压比热容}
+
+根据第二焓方程
+\begin{align*}
+	\d h =c_p \, \d T - \left[T \left(\dfrac{\partial v}{\partial T}\right)_p - v\right]\, \d p
+\end{align*}
+及混合偏导数的关系，可得
+\begin{align}
+	\left(\dfrac{\partial C_P}{\partial p}\right)_T &= \dfrac{\partial }{\partial T}\left[v - T \left(\dfrac{\partial v}{\partial T}\right)_p\right]_p \notag\\[0.5em]
+	\left(\dfrac{\partial C_P}{\partial p}\right)_T &= - T \left(\dfrac{\partial^2 v}{\partial T^2}\right)_p
+	\label{比定压热容的热力学关系式1}
+\end{align}
+定义\dy[定压热膨胀系数]{RYPZXS}$\alpha_p = \dfrac{1}{v} \left(\dfrac{\partial v}{\partial T}\right)_p$，则有
+\begin{align}
+	\left(\dfrac{\partial C_P}{\partial p}\right)_T = - Tv\left[\alpha_p^2 + \left(\dfrac{\partial \alpha_p}{\partial T}\right)_p\right]
+	\label{比定压热容的热力学关系式2}
+\end{align}
+公式\eqref{比定压热容的热力学关系式1}和公式\eqref{比定压热容的热力学关系式2}称为\dy[比定压热容的热力学关系式]{BDYRRDRLXGXS}。
+\vspace*{0.5em}
+
+\noindent \textbf{3. 特殊情形的比热容具体表达式}
+\begin{align*}
+	\left(\dfrac{\partial C_v}{\partial v}\right)_T &=  T \left(\dfrac{\partial^2 p}{\partial T^2}\right)_v\\
+	\left(\dfrac{\partial C_P}{\partial p}\right)_T &= - T \left(\dfrac{\partial^2 v}{\partial T^2}\right)_p
+\end{align*}
+\begin{itemize}
+	\item 对于理想气体\\
+	\hspace*{2em} 满足条件
+	\begin{align*}
+	 \left(\dfrac{\partial^2 p}{\partial T^2}\right)_v = 0, \quad \left(\dfrac{\partial^2 v}{\partial T^2}\right)_p = 0
+	\end{align*}
+	因此
+	\begin{align}
+		\left(\dfrac{\partial C_V}{\partial v}\right)_T  &= 0 \quad \quad \Leftrightarrow \quad \quad c_{v_0} = c_{v_0}(T)\\[0.5em]
+		\left(\dfrac{\partial C_P}{\partial p}\right)_T &= 0 \quad \quad \Leftrightarrow \quad \quad c_{p_0} = c_{p_0}(T)
+	\end{align}
+	\item 对于可压缩物质\\
+	\hspace*{2em} 从理想气体状态积分到指定状态，有
+	\begin{align}
+		c_v &= c_{v_0}(T) + T \int_{\infty}^{v} \left(\dfrac{\partial^2 p}{\partial T^2}\right)_v \, \d v\\[0.5em]
+		c_p &= c_{p_0}(T) + T \int_{0}^{p} \left(\dfrac{\partial^2 v}{\partial T^2}\right)_p \, \d p
+	\end{align}
+\end{itemize}
+
+\subsection{比热容差的热力学公式}
+第二焓方程减去第一热力学能方程，得
+\begin{align*}
+	\begin{cases}
+		\,\d u = c_V \,\d T + \left[T \left(\dfrac{\partial p}{\partial T}\right)_v - p \right]\,\d v\\
+		\,\d h =c_p \, \d T - \left[T \left(\dfrac{\partial v}{\partial T}\right)_p - v\right]\, \d p \\
+		\,h = u + pv \,\, \Rightarrow \,\, \d h = \d u +\d(pv)
+	\end{cases}
+	\quad \Rightarrow \quad
+	\d h - \d u = (c_p -c_V)\, \d T - T \left[\left(\dfrac{\partial p}{\partial T}\right) + \left(\dfrac{\partial v}{\partial T}\right)_p \right] + (v\,\d p + p \, \d v)
+\end{align*}
+即
+\begin{align}
+	\d T = \dfrac{T \left(\dfrac{\partial v}{\partial T}\right)_p}{c_p - c_V}\, \d p +  \dfrac{T \left(\dfrac{\partial p}{\partial T}\right)_v}{c_p - c_V}\, \d v
+\end{align}
+由混合偏导数的性质，可得
+\begin{align*}
+	\left(\dfrac{\partial T}{\partial p}\right)_v = \dfrac{T \left(\dfrac{\partial v}{\partial T}\right)_p}{c_p - c_V}, \quad \left(\dfrac{\partial T}{\partial v}\right)_p = \dfrac{T \left(\dfrac{\partial p}{\partial T}\right)_v}{c_p - c_V}
+\end{align*}
+因此
+\begin{align}
+	c_p - c_V = T\left(\dfrac{\partial v}{\partial T}\right)_p\left(\dfrac{\partial p}{\partial T}\right)_v
+\end{align}
+这个公式称为\dy[比热容差的热力学关系式]{BRRCDRLXGXS}。
+
+由物质的压力温度系数$\displaystyle \kappa = \dfrac{1}{p} \left(\dfrac{\partial p}{\partial T}\right)_v$，定压热膨胀系数$\alpha_p = \dfrac{1}{v} \left(\dfrac{\partial v}{\partial T}\right)_p$，得
+\begin{align}
+	c_p - c_V = pvT \kappa \alpha_p
+\end{align}
+
+\subsection{比热容比的热力学关系式}
+由第三熵方程
+\begin{align*}
+	\d s = \dfrac{c_V}{T}\left(\dfrac{\partial T}{\partial p}\right)_v \, \d p + \dfrac{c_p}{T}\dfrac{\partial T}{\partial v}_p \, \d v
+\end{align*}
+考虑等熵情形，即
+\begin{align*}
+	\dfrac{c_V}{T} \left(\dfrac{\partial T}{\partial p}\right)_v (\d p)_s + \dfrac{c_p}{T}\left(\dfrac{\partial T}{\partial v}\right)_p (\d v)_s =0
+\end{align*}
+所以，
+\begin{align}
+	\gamma = \dfrac{c_p}{c_v} = - \left(\dfrac{\partial T}{\partial p}\right)_v \left(\dfrac{\partial v}{\partial T}\right)_p \left(\dfrac{\partial p}{\partial v}\right)_s = - \left(\dfrac{\partial v}{\partial T}\right)_p \left(\dfrac{\partial T}{\partial v}\right)_s
+\end{align}
+这个公式称为\dy[比热容比的热力学关系式]{BRRBDRLXGXS}。
+\vspace*{0.5em}
+
+定义\dy[等温压缩系数]{DWYSXS}$\beta_T = -\dfrac{1}{v}\left(\dfrac{\partial v}{\partial p}\right)_T$和\dy[等熵压缩系数]{DSYSXS}$\beta_s = -\dfrac{1}{v}\left(\dfrac{\partial v}{\partial p}\right)_s$则用热系数将比热容比表示为
+\begin{align}
+	\gamma = \dfrac{\beta_T}{\beta_s}
+\end{align}
+
+
+
+
+
+
+
+
+
+
+

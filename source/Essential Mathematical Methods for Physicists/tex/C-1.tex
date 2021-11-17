@@ -1,0 +1,409 @@
+\chapter{基本方程的建立}
+\thispagestyle{empty}
+\section{弦的横振动方程}
+有一个完全柔软的轻质均匀弦，沿水平直线绷紧，而后以某种方法激发，使弦在同一平面上作小振动，列出弦的振动方程。
+
+以弦的平衡位置为$x$轴，弦的一端为原点，建立平面直角坐标系$u-x$，如图。
+
+描述弦的物理量：设$u(x,t)$是坐标为$x$的弦上一点在$t$时刻的位移。
+\begin{enumerate}[\hspace*{3em} 1.]
+		\item 假设
+	\begin{itemize}
+		\item 在弦上隔离出长为$\d x$的一小段（弧元）。弧元的长度足够小，以至于能看作质点。
+		\item 由于弦是完全柔软且绷紧，它在两个端点$x$及$x + \d x$处受到张力的作用而没有法向应力。
+		\item 略去重力的作用（轻质）。
+	\end{itemize}
+	\item 物理方程\\
+	由假设和受力分析，
+	\begin{enumerate}[]
+		\item $x$方向：
+		\begin{equation}
+			T_1 \cos \theta_1 = T_2 \cos\theta_2
+			\label{1x}
+		\end{equation}
+		\item $u$方向：
+		\begin{equation}
+			T_2 \sin \theta_2 - T_1 \sin\theta_1 = \rho \d x \cdot \frac{\partial^2 u}{\partial t^2}
+			\label{1u}
+		\end{equation}
+		其中，$\rho$是线密度[kg/m].
+	\end{enumerate}
+	\item 简化
+	\begin{enumerate}[]
+		\item 小振动$\longrightarrow \theta_1, \theta_2$是小量，由$\cos \theta$的泰勒展开：
+		\begin{equation}
+			\cos \theta = 1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!}- \cdots \approx 1
+		\end{equation}
+		结合\eqref{1x}，可以得到
+		\begin{equation}
+			T_1\cos\theta_1\approx T_2 \cos \theta_2 \approx T_1 \approx T_2
+		\end{equation}
+		结合\eqref{1u}，可以得到
+		\[
+		\frac{T_2 \sin \theta_2}{T} - \frac{T_1 \sin\theta_1}{T} = \frac{\rho \d x}{T} \frac{\partial^2 u}{\partial t^2}
+		\,\,\,\, \Rightarrow
+		\,\,\,\,
+		\frac{T_2 \sin \theta_2}{T_2 \cos\theta_2} - \frac{T_1 \sin\theta_1}{T_1\cos\theta_1} = \frac{\rho \d x}{T} \frac{\partial^2 u}{\partial t^2} 
+		\,\,\,\, \Rightarrow
+		\,\,\,\,
+		\tan\theta_2 - \tan\theta_1 = \frac{\rho \d x}{T} \frac{\partial^2 u}{\partial t^2} 
+		\]
+		即：
+		\begin{equation}
+			\left. \frac{\partial u}{\partial x}\right|_{x \,+\, \d x} - \left. \frac{\partial u}{\partial x}\right|_{x} = \frac{\rho \d x}{T} \frac{\partial^2 u}{\partial t^2} 
+		\end{equation}
+	经变形，得：
+	\[
+	\frac{\left. \frac{\partial u}{\partial x}\right|_{x \,+\, \d x} - \left. \frac{\partial u}{\partial x}\right|_{x}}{\d x}=\frac{\rho}{T}\frac{\partial^2 u}{\partial t^2} \,\,\,\, \Rightarrow
+	\,\,\,\,
+	\frac{\partial^2 u}{\partial x^2}=\frac{\rho}{T}\frac{\partial^2 u}{\partial t^2} 
+	\]
+	根据一阶导数的定义：
+	\begin{equation}
+		\rho \frac{\partial^2 u}{\partial t^2}  - T \frac{\partial^2 u}{\partial x^2} = 0
+	\end{equation}
+	定义$a = \sqrt{\dfrac{T}{\rho}}$，则方程改写为
+	\begin{equation}
+		\frac{\partial^2 u}{\partial t^2}  - a^2 \frac{\partial^2 u}{\partial x^2} = 0
+	\end{equation}
+	其中，$a$是弦的振动传播速度。
+	\end{enumerate}
+\item 扩展\\
+如果弦在位移$u$的方向上还受到外力的作用，设单位长度所受的外力为$f$，则有：
+\begin{equation}
+	\left. \frac{\partial u}{\partial x}\right|_{x \,+\, \d x} - \left. \frac{\partial u}{\partial x}\right|_{x} + f \d x= \frac{\rho \d x}{T} \frac{\partial^2 u}{\partial t^2} 
+\end{equation}
+因此，
+\begin{equation}
+	\frac{\partial^2 u}{\partial t^2}  - a^2 \frac{\partial^2 u}{\partial x^2} = \frac{f}{\rho}
+\end{equation}
+
+与未知函数$u$无关的自由项$\dfrac{f}{\rho}$，称为\dy[非其次项]{FQCX}。$\dfrac{f}{\rho}$为单位质量所受的外力。
+\end{enumerate}
+
+\theorem[三维空间中的波动方程]
+更一般地，在三维空间中的波动方程为
+\begin{equation}
+	\frac{\partial^2 u}{\partial t^2} = a^2\left[\frac{\partial^2 u}{\partial x^2}  + \frac{\partial^2 u}{\partial y^2}  +\frac{\partial^2 u}{\partial z^2} \right]
+\end{equation}
+
+
+\section{梯度与散度}
+\subsection{梯度}
+\tdefination[梯度]
+对于标量$u(x,y,z)$，定义\dy[梯度]{TD}运算
+\begin{equation}
+	\textbf{grad} u= \nabla u = \left(\frac{\partial u}{\partial x},\frac{\partial u}{\partial y}, \frac{\partial u}{\partial z}\right)= \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y}, \frac{\partial }{\partial z}\right)u
+\end{equation}
+即
+\begin{equation}
+	\nabla = \left(\frac{\partial }{\partial x},\frac{\partial }{\partial y}, \frac{\partial }{\partial z}\right)
+\end{equation}
+
+\subsection{散度}
+\tdefination[散度]
+对于矢量$\bm{u} = (u,v,w)$，定义\dy[散度]{SD}运算
+\begin{equation}
+	\nabla\cdot \bm{u} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z}
+\end{equation}
+
+\subsection{Laplace算子}
+对于标量场$u(x,y,z)$，定义运算
+\begin{equation}
+	\Delta u= \nabla^2 u= \frac{\partial^2 }{\partial x^2},\frac{\partial^2 }{\partial y^2}, \frac{\partial^2 }{\partial z^2}
+\end{equation}
+其中，记号$\Delta$称为\dy[Laplace算子]{LaplaceSZ}
+
+
+\section{热传导方程}
+\subsection{热传导的Fourier定律}
+\ttheorem[一维Fourier定律]
+设有一块连续介质。取一定坐标系，并用$u(x,y,z,t)$表示介质内空间坐标为$(x,y,z)$的一点在$t$时刻的温度。从宏观上看，\textbf{单位时间内通过垂直$x$方向的单位面积的热量$q$与空间的温度变化率成正比。}
+\begin{equation}
+	q = - k\frac{\partial u}{\partial x}
+\end{equation}
+其中，$q$称为热流密度，$k$称为导热率。$k$与材料的性质有关。如果温度变化的范围不大，则可以近似地将$k$看成与$u$无关。
+
+\theorem[三维Fourier定律]
+在介质中三个方向上都存在温度差，则有：
+\begin{equation}
+	\begin{cases}
+		q_x = - k_x\dfrac{\partial u}{\partial x}\\[1em]
+		q_y = - k_y\dfrac{\partial u}{\partial y}\\[1em]
+		q_z = - k_z\dfrac{\partial u}{\partial z}
+	\end{cases}
+\end{equation}
+
+\subsection{热传导方程的推导}
+\noindent 1. 假设
+\begin{myitemize}
+	\item 材料均匀且统一\vspace*{-0.5em}
+	\item 材料具有各向同性\vspace*{0.3em}
+\end{myitemize}
+
+\noindent 2. 分析
+\begin{itemize}
+	\item 理论基础和推论：由Fourier定律和材料的各向均匀性，可以得到
+	\begin{equation}
+		\begin{cases}
+			q_x = - k\dfrac{\partial u}{\partial x}\\[1em]
+			q_y = - k\dfrac{\partial u}{\partial y}\\[1em]
+			q_z = - k\dfrac{\partial u}{\partial z}
+		\end{cases}
+	\end{equation}
+	其中，$k$是常数。
+	\item 建立微元体：在介质内隔离出一个平行六面体，六个面都和坐标面重合。
+	\item 原理：能量守恒，即六面体内无热量来源或消耗
+	\begin{equation}
+		\mbox{通过六个面的净热量流入} \, = \, \mbox{微元体总能量增加}
+	\end{equation}
+	\begin{itemize}
+		\item $x$方向能量分析：$\Delta t$时间内沿着$x$方向流入六面体的热量
+		\begin{equation*}
+			\begin{split}
+				\Delta Q_x &= \Delta q_x \cdot S \cdot \Delta t\\
+				& = \big[(q_x)_x - (q_x)_{x + \Delta x}\big] \cdot \Delta y \Delta z \cdot \Delta t\\[0.5em]
+				& = \left[k \left(\frac{\partial u}{\partial x}\right)_{x+\Delta x} - k \left(\frac{\partial u}{\partial x}\right)_{x} \right]\cdot \Delta y \Delta z \cdot \Delta t\\[1em]
+				& = \frac{\left[k \left(\dfrac{\partial u}{\partial x}\right)_{x+\Delta x} - k \left(\dfrac{\partial u}{\partial x}\right)_{x} \right]}{\Delta x} \Delta x \Delta y \Delta z \Delta t\\[0.5em]
+				& = k \frac{\partial^2 u}{\partial x^2}\Delta x \Delta y \Delta z \Delta t
+			\end{split}
+		\end{equation*}
+		\item 各方向能量：同理可得
+		\begin{equation}
+			\begin{split}
+				\Delta Q_x &= k \frac{\partial^2 u}{\partial x^2}\Delta x \Delta y \Delta z \Delta t\\[0.5 em]
+				\Delta Q_y &= k \frac{\partial^2 u}{\partial y^2}\Delta x \Delta y \Delta z \Delta t\\[0.5em]
+				\Delta Q_z &= k \frac{\partial^2 u}{\partial z^2}\Delta x \Delta y \Delta z \Delta t\\[0.5em]
+				\Delta Q &= \Delta Q_x + \Delta Q_y + \Delta Q_z = (k \nabla^2 u)\Delta x \Delta y \Delta z \Delta t
+			\end{split}
+		\end{equation}
+		\item 微元体总能量增加：
+		\begin{equation}
+			\begin{split}
+				\Delta Q &= \Delta m \cdot c \cdot \Delta u\\
+				& = \rho \Delta V \cdot c \cdot \Delta u \\
+				& = \rho \Delta x \Delta y \Delta z \cdot c \cdot \Delta u
+			\end{split}
+		\end{equation}
+	\item 由能量守恒，得
+	\begin{equation}
+		\Delta Q = (k \nabla^2 u)\Delta x \Delta y \Delta z \Delta t = \rho \Delta x \Delta y \Delta z \cdot c \cdot \Delta u
+	\end{equation}
+	\end{itemize}
+\item 结论：
+\begin{equation}
+	\rho c \dfrac{\partial u}{\partial t} - k \nabla^2 u = 0
+\end{equation}
+引入扩散率$D = \dfrac{k}{\rho c}$：
+\begin{equation}
+	\dfrac{\partial u}{\partial t} - D \nabla^2 u = 0
+\end{equation}
+
+\item 扩展
+\begin{itemize}
+	\item 有热源的情形\\
+	如果在介质内有热量产生，单位时间内单位体积介质中产生的热量为$F(x,y,z,t)$：
+	\begin{equation}
+			(k \nabla^2 u)\Delta x \Delta y \Delta z \Delta t + F(s,y,z,t) \Delta x \Delta y \Delta z \Delta t  = \rho \Delta x \Delta y \Delta z \cdot c \cdot \Delta u
+	\end{equation}
+	\begin{equation}
+			\dfrac{\partial u}{\partial t} - D \nabla^2 u = \frac{F(x,y,z,t)}{\rho c} = f(x,y,z,t)
+	\end{equation}
+\item 介质扩散\\
+		微观机理的相似性，就决定了扩散方程和热传导方程有相同的形式：
+		\begin{equation}
+			\dfrac{\partial u}{\partial t} - D \nabla^2 u = f
+		\end{equation}
+\end{itemize}
+其中，
+\begin{myitemize}
+	\item $u$代表分子浓度\vspace*{-0.5em}
+	\item $D$代表浓度扩散率\vspace*{-0.5em}
+	\item $f$代表单位时间内在单位体积中该种分子的产率\vspace*{0.3em}
+\end{myitemize}
+\end{itemize}
+
+\section{稳定问题}
+\noindent 以热传导问题为例
+\begin{equation*}
+	\dfrac{\partial u}{\partial t} - D \nabla^2 u = f
+\end{equation*}
+\begin{itemize}
+	\item 在一定条件下，物体的温度达到相对稳定，即不随时间的变化而变化，则温度分布满足Poission方程
+	\begin{equation}
+		\nabla^2 u = - \frac{f}{D}
+	\end{equation}
+	\item 特别地，当$f = 0$，则有Laplace方程
+	\begin{equation}
+		\nabla^2 u = 0
+	\end{equation}
+\end{itemize}
+
+\section{三类方程总结}
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{15mm}{
+	\begin{tabular}{ccc}
+		\toprule
+		方程名称 & 数学表达式 & 物理过程\\
+		\midrule
+		\vspace*{-1.5em}\\
+		波动方程 & $\dfrac{\partial^2 u}{\partial t^2} = a^2 \nabla^2 u$ &波动过程\\[1.5em]
+		热传导方程 & $\dfrac{\partial u}{\partial t} = D \nabla^2 u$ & 扩散过程\\[1em]
+		Poission方程 & $\nabla^2 u = f$ & \multirow{2}*{稳恒状态}\\
+		Laplace方程 & $\nabla^2 u = 0$ &\\[0.5em]
+		\bottomrule
+	\end{tabular}
+}
+	\caption{建立的方程总结}
+\end{table}
+
+\section{方程的定解条件}
+\subsection{定解条件}
+\begin{myitemize}
+	\item 偏微分方程反映了一般的物理规律 $\rightarrow$ \dyn{共性}\vspace*{-0.5em}
+	\item 定解条件 $\rightarrow$ \dyn{个性}\vspace*{0.3em}
+\end{myitemize}
+定解条件可以分为两类
+\begin{equation*}
+	\mbox{定解条件}
+	\begin{cases}
+		\mbox{初始条件：\dyn{反映“历史状况”}}\\
+		\mbox{边界条件：\dyn{反映“通过表面和外界的相互作用”}}
+	\end{cases}
+\end{equation*}
+
+\subsection{初始条件}
+\tdefination[初始条件]
+物理过程的初始状况的数学表达式称为\dy[初始条件]{CSTJ}。\\
+\dyn{总原则}：初始条件应该完全描写初始时刻$t=0$时介质内部及边界上任意一点的状况。
+\begin{myitemize}
+	\item 波动方程的初始条件：由于方程中出现温度对时间t的
+二阶偏微分，应该给出初始时刻的位移和速度
+\begin{equation}
+	\begin{cases}
+		u|_{t=0} = \varphi (x,y,z)\\[0.5em]
+		\left. \dfrac{\partial u}{\partial t}\right|_{t=0} = \psi (x,y,z)
+	\end{cases}
+\quad (x,y,z) \in \overline{V}
+\end{equation}
+
+	\item 热传导方程的初始条件：由于方程中只出现温度对时间
+t的一阶偏微分，只需给出初始时刻的温度\vspace*{-1em}
+\begin{equation}
+	u|_{t=0} = \varphi (x,y,z) \quad (x,y,z) \in \overline{V}
+\end{equation}
+\end{myitemize}
+\vspace*{-1em}
+\warn[
+\begin{itemize}
+	\item 必须是整个介质的初始状况。\vspace*{-0.5em}
+	\item 初始条件个数与时间偏导数的阶数相等。
+	\begin{myitemize}
+		\item 波动方程 $\rightarrow$ 二阶时间偏导 $\rightarrow$ 两个初始条件\vspace*{-0.5em}
+		\item 热传导方程 $\rightarrow$ 一阶时间偏导 $\rightarrow$ 一个初始条件\vspace*{-0.5em}
+		\item 稳定问题（Poisson 方程、Laplace 方程）无初始条件\vspace*{0.3em}
+	\end{myitemize}
+\end{itemize}
+]
+
+\subsection{边界条件}
+物理过程的边界状况的数学表达式称为\dy[边界条件]{BJTJ}。\\
+\dyn{总原则}：边界条件应该完全描写边界上各点在任意时刻$t \ge 0$的状况。
+
+\defination[第一类边界条件]
+\begin{myitemize}
+	\item 定义：给定所研究物理量在边界上的值，也称为\dy[Dirichlet边界条件]{Dirichlet}。\index{DYLBJTJ@第一类边界条件}\vspace*{-0.5em}
+	\item 数学表达式（边界面$S$）：
+	\begin{equation}
+		\left. u\right|_S = f_1
+	\end{equation}
+\vspace*{-3em}
+	\item 例子：\vspace*{-1em}
+	\begin{itemize}
+		\item 振动中的固定端\vspace*{-0.5em}
+		\item 热传导中已知边界温度
+	\end{itemize}
+\end{myitemize}
+
+\defination[第二类边界条件]
+\begin{myitemize}
+	\item 定义：给定所研究物理量在边界的外法向导数的值，也称为\dy[Neumann边界条件]{Neumann}。\index{DELBJTJ@第二类边界条件}\vspace*{-0.5em}
+	\item 数学表达式（边界面$S$）：
+	\begin{equation}
+		\left. \dfrac{\partial u}{\partial n} \right|_S = f_2
+	\end{equation}
+\vspace*{-2em}
+	\item 例子：\vspace*{-1em}
+\begin{itemize}
+	\item 热传导中已知热流密度
+\end{itemize}
+\end{myitemize}
+
+\defination[第三类边界条件]
+\begin{myitemize}
+	\item 定义：给定所研究物理量及其外法向导数的线性组合在边界上的值，也称为\dy[Robin边界条件]{Robin}或\dy[Mixed边界条件]{Mixed}。\index{DSLBJTJ@第三类边界条件}\vspace*{-0.5em}
+	\item 数学表达式（边界面$S$）：
+	\begin{equation}
+		\left. \left(\dfrac{\partial u}{\partial n} + \sigma u \right)\right|_S = f_3
+	\end{equation}
+\vspace*{-2em}
+	\item 例子：\vspace*{-1em}
+\begin{itemize}
+	\item 热传导中热流密度服从牛顿冷却定律
+\end{itemize}
+\end{myitemize}
+\vspace*{0.5em}
+
+边界条件等号右侧的函数如果为0，则称为\dy[齐次边界条件]{QCBJTJ}。
+\vspace*{0.5em}
+
+\subsection{定解问题总结}
+定解问题总结框架如图\ref{定解问题总结框架图}.
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node(A) [draw, inner sep = 6pt] {方程类型};
+		\node(A1) [draw, inner sep = 5pt, right of = A, node distance = 4cm, yshift = 1cm] {波动方程}; 
+		\node(A2) [draw, inner sep = 5pt, right of = A, node distance = 4cm, yshift = 0cm] {扩散方程}; 
+		\node(A3) [draw, inner sep = 5pt, right of = A, node distance = 5.05cm, yshift = -1cm] {Laplace或Possion方程}; 
+		\node(B) [draw, inner sep = 5pt, below of = A, node distance = 3cm]{初始条件};
+		\node(B1) [draw, inner sep = 5pt, right of = B, node distance = 6.75cm, yshift = 0cm] {初始条件个数$\,=\,$初始条件时间偏导数的阶数};
+		\node(C)  [draw, inner sep = 5pt, below of = B, node distance = 3cm]{边界条件};
+		\node(C1) [draw, inner sep = 5pt, right of = C, node distance = 5.35cm, yshift = 0cm] {边界条件个数$\,=\,$边界数目};
+		\node(C11) [draw, inner sep = 5pt, right of = C1, node distance = 6cm, yshift = 1cm] {第一类边界条件}; 
+		\node(C12) [draw, inner sep = 5pt, right of = C1, node distance = 6cm, yshift = 0cm] {第二类边界条件}; 
+		\node(C13) [draw, inner sep = 5pt, right of = C1, node distance = 6cm, yshift = -1cm] {第三类边界条件}; 
+		
+		\draw (A) -- +(2.3cm, 0cm) --+(2.3cm, 1cm) -- (A1);
+		\draw (A) --  (A2);
+		\draw (A) -- +(2.3cm, 0cm) --+(2.3cm, -1cm) -- (A3);
+		\draw[arrows={-Stealth[scale=0.8]}] (A) -- (B);
+		\draw (B) -- (B1);
+		\draw[arrows={-Stealth[scale=0.8]}] (B) -- (C);
+		\draw (C) -- (C1);
+		\draw (C1) -- +(3.8cm, 0cm) --+(3.8cm, 1cm) -- (C11);
+		\draw (C1) --  (C12);
+		\draw (C1) -- +(3.8cm, 0cm) --+(3.8cm, -1cm) -- (C13);
+	\end{tikzpicture}
+	\vspace*{-1em}
+	\caption{定解问题总结框架图}
+	\label{定解问题总结框架图}
+\end{figure}
+\vspace*{-2em}
+
+\section{定解问题的适定性}
+如果一个定解问题存在唯一且稳定的解，则这个问题是\dy[适定]{SD2}的。
+\begin{enumerate}
+	\item 解的\dy[存在性]{CZX}——定解问题有解\\
+	\hspace*{2em}如果定解条件过多，或相互矛盾，则定解问题无解。
+	\item 解的\dy[唯一性]{WYX}——定解问题的解是唯一的\\
+	\hspace*{2em} 如果定解条件不足，则解就不是唯一的。
+	\item 解的\dy[稳定性]{WDX}
+	\begin{enumerate}
+		\item 如果定解条件中的已知条件（例如方程和定解条件中的已知参数和函数）有微小改变时，解也只有微小改变；
+		\item 对于线性偏微分方程 ，解都是稳定的。
+	\end{enumerate}
+\end{enumerate}
+
+

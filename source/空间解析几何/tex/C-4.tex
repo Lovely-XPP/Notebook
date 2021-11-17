@@ -1,0 +1,1123 @@
+\chapter{一般二次曲面的简化与坐标变换} 
+\section{二次曲面的一般方程及不变量}
+\thispagestyle{empty}
+\subsection{空间直角坐标变换简介}
+\tdefination[空间直角坐标变换公式]
+已知\footnote{本章涉及线性代数的部分知识且大量的证明，由于时间的缘故，主要整理不变量以及相关定理。}：$\uppercase\expandafter{\romannumeral1}=\{O;\bm{i},\bm{j},\bm{k}\}$及$\uppercase\expandafter{\romannumeral2}=\{O';\bm{i'},\bm{j'},\bm{k'}\}$是空间的两个右手坐标系，点$O'$在\uppercase\expandafter{\romannumeral1}下的坐标为$(x_0,y_0,z_0),\,$$\bm{i'}=(c_{11},c_{21},\,c_{31}),\bm{j'}=(c_{12},c_{22},c_{32}),\,\bm{k'}=(c_{31},c_{32},c_{33})$,用方程组表示为：
+\begin{equation}
+\label{坐标变换}
+\begin{cases}
+x = c_{11}x'+c_{12}y'+c_{13}z'+x_0;\\
+y = c_{21}x'+c_{22}y'+c_{23}z'+y_0;\\
+z = c_{31}x'+c_{32}y'+c_{33}z' +z_0.
+\end{cases}
+\end{equation}
+\par 用矩阵表示为：
+\begin{equation}
+\label{坐标变换1}
+\bm{x}=T\bm{x'}+\bm{x}_0 \quad \Longleftrightarrow \quad
+\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right]
+=
+\left[
+\begin{array}{ccc}
+c_{11} & c_{12} & c_{13} \\
+c_{21} & c_{22} & c_{23} \\
+c_{31} & c_{32} & c_{33} \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x'\\
+y' \\
+z'
+\end{array}
+\right]
++
+\left[
+\begin{array}{c}
+x_0 \\
+y_0 \\
+z_0
+\end{array}
+\right]
+\end{equation}
+\par 其中，
+\par\kg \kg 矩阵$T$表示{\color{dy}旋转矩阵}\index{XZJZ@旋转矩阵}（也称{\color{dy}过渡矩阵}\index{GDJZ@过渡矩阵}），其几何意义为{\color{dy}旋转变换}\index{XZBH@旋转变换}，\label{旋转变换}简称{\color{dy}转轴}\index{ZZ@转轴}；
+\par \kg \kg  矩阵$\bm{x}_0$表示{\color{dy}平移矩阵}\index{PYJZ@平移矩阵}，其几何意义为{\color{dy}平移变换}\index{PYBH@平移变换}，\label{平移变换}简称{\color{dy}移轴}\index{YZ@移轴}。
+\par 由于坐标向量$\bm{i},\bm{j},\bm{k}$和坐标向量$\bm{i'},\bm{j'},\bm{k'}$都是单位向量，所以单位矩阵$T$可以写为夹角的形式：
+\begin{equation}
+\label{坐标变换2}
+\left[
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right]
+=
+\left[
+\begin{array}{ccc}
+\cos\,\alpha_1 & \cos\,\alpha_2 & \cos\,\alpha_3 \\
+\cos\,\beta_1 & \cos\,\beta_2 & \cos\,\beta_3 \\
+\cos\,\gamma_1 & \cos\,\gamma_2 & \cos\,\gamma_3 \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x'\\
+y' \\
+z'
+\end{array}
+\right]
++
+\left[
+\begin{array}{c}
+x_0 \\
+y_0 \\
+z_0
+\end{array}
+\right]
+\end{equation}
+
+\par 式$\,$\eqref{坐标变换} $-$ \eqref{坐标变换2}$\,$称为{\color{dy}直角变换公式}\index{ZJBHGS@直角变换公式}.
+
+\subsection{二次曲面的一般方程及特征方程}
+\tdefination[二次曲面的一般方程]
+一般的二次曲面可以表示成三元二次方程\footnote[1]{相关记号请参见本章$\,4.7\,$节，下同}：
+\begin{equation}
+\label{二次曲面的一般方程}
+\begin{split}
+F(x,y,z)&=a_{11} \, x^2+a_{12} \, y^2+a_{13} \, z^2+2a_{12} \, xy+2a_{13}xz+2a_{23}yz\\
+&+2a_{14}x+2a_{24}y+2a_{34}z+a_{44}=0
+\end{split}
+\end{equation}
+
+\ttheorem[二次曲面的特征方程]
+为了化简一般的二次曲面，消去其中的交叉项，可以得到\footnote[2]{证明略，证明可以参考：李养成.空间解析几何，P125$\,-\,$P126.北京：科学出版社，2007.下同.}：
+\begin{equation}
+\label{主方向}
+\left( A^* - \lambda E \right)
+\left[
+\begin{array}{c}
+l \\
+m \\
+n
+\end{array}
+\right] 
+= \bm{0}.
+\end{equation}
+\begin{equation}
+\label{特征方程}
+\Longleftrightarrow
+\quad
+\det(A^* - \lambda E) = -\lambda^3 +I_1\lambda^2 - I_2\lambda + I_3 = 0.
+\end{equation}
+
+\begin{equation}
+I_1=a_{11}+a_{22}+a_{33} = \lambda_1 +\lambda_2 +\lambda_3
+\end{equation}
+
+\begin{equation}
+I_2=
+\left| 
+\begin{array}{cc}
+a_{11} & a_{12} \\
+a_{12} & a_{22} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{11} & a_{13} \\
+a_{13} & a_{33} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{22} & a_{23} \\
+a_{23} & a_{33}
+\end{array}
+\right| 
+= \lambda_1\lambda_2 +\lambda_2\lambda_3 +\lambda_3\lambda_1
+\end{equation}
+
+\begin{equation}
+I_3=
+\left| 
+\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23}  \\
+a_{31} & a_{32} & a_{33}  \\
+\end{array}
+\right| 
+= \lambda_1\lambda_2\lambda_3
+\end{equation}
+\par 其中，
+\par \kg \kg \kg 式\eqref{特征方程}叫做一般二次曲面的{\color{dy}特征方程}\index{TZFC@特征方程}，它的根称为二次曲面的{\color{dy}特征根}\index{TZG@特征根}；
+\par \kg \kg \kg  式\eqref{主方向}中若$(l,m,n)^{\text{T}}$为非零向量，则$l:m:n$叫做对应于二次曲面的特征根$\lambda$的一个{\color{dy}主方向}\index{ZFX@主方向}.
+
+\theorem[二次曲面特征根的性质]
+\sj
+\begin{enumerate}
+	\setlength{\itemindent}{1em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 二次曲面的三个特征根都是实数.
+	\item 二次曲面的三个特征根不全为$0$.
+	\item 二次曲面的两个不同的特征根对应的主方向一定垂直.
+\end{enumerate}
+
+\subsection{二次曲面的不变量}
+\ttheorem[二次曲面的不变量]
+$I_1,I_2,I_3,I_4$是二次曲面的不变量（与直角坐标变换无关）.\index{ECQMDBBL@二次曲面的不变量}引入
+\begin{equation}
+I_4=\det(A)=
+\left| 
+\begin{array}{ccc}
+\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{array}
+\end{array}
+\right| 
+\end{equation}
+
+\theorem[二次曲面的半不变量]
+$K_1,K_2$是二次曲面的不变量（与转轴变换无关）.\index{ECQMDBBBL@二次曲面的半不变量}引入
+\begin{equation}
+K_1=
+\left| 
+\begin{array}{cc}
+a_{11} & a_{14} \\
+a_{14} & a_{44} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{22} & a_{24} \\
+a_{24} & a_{44} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{33} & a_{34} \\
+a_{34} & a_{44}
+\end{array}
+\right| 
+\end{equation}
+
+\begin{equation}
+K_2=
+\left| 
+\begin{array}{ccc}
+a_{11} & a_{12} & a_{14}  \\
+a_{12} & a_{22} & a_{24}  \\
+a_{14} & a_{24} & a_{44}  \\
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{ccc}
+a_{11} & a_{13} & a_{14}  \\
+a_{13} & a_{33} & a_{34}  \\
+a_{14} & a_{34} & a_{44}  \\
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{ccc}
+a_{22} & a_{23} & a_{24}  \\
+a_{23} & a_{33} & a_{34}  \\
+a_{24} & a_{34} & a_{44}  \\
+\end{array}
+\right| 
+\end{equation}
+
+\section{二次曲面的分类与简化方程}
+由二次曲面的不变量可以将一般的二次曲面化简并分为五类，如下表：
+\begin{center}
+	\renewcommand\arraystretch{1.5}
+	\begin{longtable}{|c|c|c|c|c|}% @{\extracolsep{\fill}} 
+		%\caption{caption}
+		%\label{table:label}  %\\ % add \\ command to tell LaTeX to start a new line
+		% Appear table header at the first page as well
+		\hline
+		种类 & 条件 & 简化方程 & \multicolumn{2}{c|}{所有类型列举} \\
+		
+		\hline
+		\endfirsthead
+		
+		% Appear the table header at the top of every page
+		\multicolumn{5}{l}{续表}  \\
+		\hline
+		种类 & 条件 & 简化方程 & \multicolumn{2}{c|}{所有类型列举 } \\
+		
+		\hline
+		\endhead
+		
+		% Appear \hline at the bottom of every page
+		\hline
+		\endfoot
+		
+		\multirow{6}{*}{$\,$第\uppercase\expandafter{\romannumeral1}类$\,$} & \multirow{6}{*}{$\,I_3 \ne 0\,$}    &   \multirow{6}{*}{$\,\,\displaystyle \lambda_1x^2+\lambda_2y^2+\lambda_3z^2+\frac{I_4}{I_3} = 0\,\,$}   &    椭球面  & $\displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}+\frac{z'^2}{c^2}=1. $  \\
+		\cline{4-5} 
+		&    &      &   虚椭球面  & $ \,\,\displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}+\frac{z'^2}{c^2}=-1. \,\,$   \\
+		\cline{4-5} 
+		&    &      &    点   &   $\displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}+\frac{z'^2}{c^2}=0.$  \\
+		\cline{4-5} 
+		&    &      &    单叶双曲面  &  $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}-\frac{z'^2}{c^2}=1. $     \\
+		\cline{4-5} 
+		&    &      &    双叶双曲面  &  $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}-\frac{z'^2}{c^2}=-1. $   \\
+		\cline{4-5} 
+		&    &      &        二次锥面   &  $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}-\frac{z'^2}{c^2}=0. $ \\
+		\multirow{2}{*}{第\uppercase\expandafter{\romannumeral2}类} & \multirow{2}{*}{\makecell[c]{$\,I_3 = 0\,$ \\$\,I_4 \ne 0\,$}}    &   \multirow{2}{*}{$\displaystyle \lambda_1x^2+\lambda_2y^2 \pm 2\sqrt{-\frac{I_4}{I_2}} = 0\,$}   &    椭圆抛物面   &    $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}=2z. $\\
+		\cline{4-5} 
+		&    &      & 双曲抛物面   &  $ \displaystyle \frac{x'^2}{a^2}-\frac{y'^2}{b^2}=2z. $  \\
+		\hline
+		\multirow{5}{*}{第\uppercase\expandafter{\romannumeral3}类} & \multirow{5}{*}{\makecell[c]{$\,I_3 = 0\,$ \\$\,I_4 = 0\,$\\$\,I_2 \ne 0\,$}}    &   \multirow{5}{*}{$\,\displaystyle \lambda_1x^2+\lambda_2y^2+\frac{K_2}{I_2} = 0\,$}   &    椭圆柱面   &  $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}=1. $  \\
+		\cline{4-5} 
+		&    &      & 虚椭圆柱面   &   $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}=-1. $ \\
+		\cline{4-5} 
+		&    &      &   \makecell[c]{一对相交于实\\直线的虚平面} &  $ \displaystyle \frac{x'^2}{a^2}+\frac{y'^2}{b^2}=0. $ \\
+		\cline{4-5} 
+		&    &      &  双曲柱面    &  $ \displaystyle \frac{x'^2}{a^2}-\frac{y'^2}{b^2}=1. $  \\
+		\cline{4-5} 
+		&    &      &     一对相交平面  & $ \displaystyle \frac{x'^2}{a^2}-\frac{y'^2}{b^2}=0. $  \\
+		\hline
+		第\uppercase\expandafter{\romannumeral4}类 & \makecell[c]{$\,I_3 = 0\,$ \\$\,I_4 = 0\,$\\$\,I_2 = 0\,$\\$\,K_2 \ne 0\,$}  &  $\,\displaystyle \lambda_1x^2 \pm 2\sqrt{-\frac{K_2}{I_1}}y= 0 \, $   &    抛物柱面  &  $ \displaystyle \lambda_1 x'^2 + 2\sqrt{a_{24}^2 + a_{34}^2 } = 0 $  \\
+		\hline
+		\multirow{3}{*}{第\uppercase\expandafter{\romannumeral5}类} & \multirow{3}{*}{\makecell[c]{$\,I_3 = 0\,$ \\$\,I_4 = 0\,$\\$\,I_2 = 0\,$\\$K_2 = 0$}}    &   \multirow{3}{*}{$\,\displaystyle \lambda_1x^2 + \frac{K_1}{I_1}= 0 \, $}   &    一对平行平面  &  $ \displaystyle x'^2=a^2  (x'= \pm a)$   \\
+		\cline{4-5} 
+		&    &      &    一对重合平面  &   $ \displaystyle x'^2=0(x'=0)$ \\
+		\cline{4-5}
+		&    &      & 一对虚平行平面 &  $ \displaystyle x'^2=-a^2$  \\
+	\end{longtable}
+\end{center}
+\vspace*{-4em}
+\section{二次曲线的中心与渐近方向}
+\subsection{二次曲线与直线的位置关系}
+设过点$P_0(x_0,y_0,z_0)$,方向向量为$\overrightarrow{v}=(X,Y,Z)$的直线$l$的参数方程为：
+\begin{equation}
+\label{直线参数方程}
+\begin{cases}
+x=x_0+Xt,\\
+y=y_0+Yt,\\
+z=z_0+Zt
+\end{cases}
+\end{equation}
+\par 联立方程$F(x,y,z)=0$\footnote[1]{方程$F(x,y,z)$代表的是方程\eqref{二次曲面的一般方程}，下同}与方程\eqref{直线参数方程}并整理得：
+\begin{equation}
+\label{二次曲线与直线的关系方程}
+\begin{split}
+\varPhi(X,Y,Z) \, t^2+2\left[  XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0) \right]  \,t+F(x_0,y_0,z_0)=0
+\end{split}
+\end{equation}
+\begin{enumerate}
+	%\setlength{\itemindent}{1em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $\varPhi(X,Y,Z) \ne 0.$
+	\begin{equation}
+	\Delta = \left[  XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0) \right]^2-\varPhi(X,Y,Z) \cdot F(x_0,y_0,z_0)
+	\end{equation}
+	\begin{enumerate}
+		%\setlength{\itemindent}{1em}
+		\setlength{\topsep}{0.01em}
+		\setlength{\itemsep}{0.01em}
+		\item 当$\Delta>0$时，方程\eqref{二次曲线与直线的关系方程}有两个不相等的实根，所以$l$与$S$有两个不同的交点；
+		\item 当$\Delta=0$时，方程\eqref{二次曲线与直线的关系方程}有两个相等的实根，所以$l$与$S$有两个重合的交点；
+		\item 当$\Delta<0$时，方程\eqref{二次曲线与直线的关系方程}有一对共轭虚根，所以$l$与$S$有一对共轭虚交点；
+	\end{enumerate}
+	\item $\varPhi(X,Y,Z) = 0.$
+	\begin{enumerate}
+		\item 若$XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0) \ne 0$，
+		\par \kg 则方程\eqref{二次曲线与直线的关系方程}有唯一解，所以$l$与$S$有唯一的交点；
+		\item 若$XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0) = 0 , F_(x_0,y_0,z_0) \ne 0 $，
+		\par \kg 则方程\eqref{二次曲线与直线的关系方程}为矛盾方程，所以$l$与$S$无交点；
+		\item 若$XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0) = 0 , F_(x_0,y_0,z_0) = 0 $，
+		\par \kg 则方程\eqref{二次曲线与直线的关系方程}为恒等方程，所以$l$在$S$上，即$l$是$S$的一条母线.
+	\end{enumerate}
+\end{enumerate}
+
+\defination[渐近方向]
+满足$\varPhi(X,Y,Z) = 0.$的方向$X:Y:Z$叫做二次曲面$S$的{\color{dy}渐近方向}\index{JJFX@渐近方向}，否则就叫做$S$的{\color{dy}非渐近方向}\index{FJJFX@非渐近方向}.
+\par \kg  \kg 非渐近方向直线：与二次曲面$S$总有两个交点;
+\par \kg \kg 渐近方向直线：与二次曲面$S$无交点，或有唯一交点，或整条直线都在二次曲面$S$上;
+\par {\color{dy}渐近方向锥面}\index{JJFXZM@渐近方向锥面}：取定点（锥面顶点）$P_0(x_0,y_0,z_0)$，过点$P_0$并且以二次曲面的渐近方向$X:Y:Z$为方向的直线组成的曲面：
+$$
+\varPhi(x-x_0,y-y_0,z-z_0) = 0
+$$
+\par {\color{dy}渐近锥面}\index{JJZM@渐近锥面}：以二次曲面的中心为顶点的渐近方向锥面.
+\par {\color{dy}渐近线}\index{JJX@渐近线}：通过中心二次曲面的中心并具有渐近方向的直线.
+
+\subsection{二次曲面的中心}
+\tdefination[二次曲面的中心]
+如果$S$上任意点$M_1$关于点$C$的对称点$M_2$仍然在曲面$S$上，点$C$叫做二次曲面$S$的{\color{dy}中心}\index{EXQMDZX@二次曲面的中心}.
+
+\theorem[中心方程组]
+设二次曲面$S$的方程为$F(x,y,z)=0$，则点$C(x_0,y_0,z_0)$是曲面$S$的中心的充要条件为
+\begin{equation}
+\label{中心方程组}
+\begin{cases}
+F_1(x_0,y_0,z_0)=a_{11} \, x_0 + a_{12} \, y_0 + a_{13} \, z_0 + a_{14} = 0 \\
+F_2(x_0,y_0,z_0)=a_{12} \, x_0 + a_{22} \, y_0 + a_{23} \, z_0 + a_{24} = 0 \\
+F_3(x_0,y_0,z_0)=a_{13} \, x_0 + a_{23} \, y_0 + a_{33} \, z_0 + a_{34} = 0
+\end{cases}
+\end{equation}
+{\color{dy}原理}：
+\par 1. \kg 作直线$l$与曲面$S$，联立方程，得到方程\eqref{二次曲线与直线的关系方程},
+\par 2. \kg  由两个交点对应直线的参数值$t_1,t_2$以及直线参数方程中参数$t$的几何意义可以得
+$$
+t_1+t_2=0
+$$
+\par 3. \kg 由方程\eqref{二次曲线与直线的关系方程}的韦达定理得
+\begin{equation}
+\label{中心方程的推导}
+t_1+t_2=XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0)=0
+\end{equation}
+由于非渐近方向$X:Y:Z$的任意性即得.
+
+\theorem[二次曲面中心分类]
+二次曲面$S$的中心坐标是方程组\eqref{中心方程组}的解，考虑其系数矩阵和增广矩阵
+\begin{equation*}
+A^*=
+\left[
+\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23}  \\
+a_{31} & a_{32} & a_{33}  \\
+\end{array}
+\right]
+,\quad
+B = 
+\left[
+\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & -a_{14} \\
+a_{21} & a_{22} & a_{23} & -a_{24} \\
+a_{31} & a_{32} & a_{33} & -a_{34} \\
+a_{41} & a_{42} & a_{43} & -a_{44}
+\end{array}
+\right]
+\end{equation*}
+分别记它们的秩为$r(A^*),r(B)$，那么
+\begin{enumerate}
+	%\setlength{\itemindent}{1em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 当$r(A^*)=r(B)=3$，即$I3=-|B|\ne 0$时，方程组\eqref{中心方程组}有唯一解，所以曲面$S$有唯一中心.
+	\par \kg $S$称为{\color{dy}中心二次曲面}.\index{EXQMDZX@二次曲面的中心!ZXECQM@中心二次曲面}
+	\item 当$r(A^*)=r(B)=2$时，方程组\eqref{中心方程组}的解组成一条直线，该直线上的点都是曲面$S$的中心.
+	\par \kg 该直线称为曲面$S$的{\color{dy}中心直线}.\index{EXQMDZX@二次曲面的中心!ZXZX@中心直线}，$S$叫做{\color{dy}线心二次曲面}.\index{EXQMDZX@二次曲面的中心!XXECQM@线心二次曲面}
+	\item 当$r(A^*)=r(B)=1$时，方程组\eqref{中心方程组}的解构成一个平面，该平面上的点都是曲面$S$的中心.
+	\par \kg 该平面称为曲面$S$的{\color{dy}中心平面}.\index{EXQMDZX@二次曲面的中心!ZXPM@中心平面}，$S$叫做{\color{dy}线心二次曲面}.\index{EXQMDZX@二次曲面的中心!XXECQM@面心二次曲面}
+	\item 当$r(A^*)\ne r(B)$时，方程组\eqref{中心方程组}无解，曲面$S$没有中心，称为{\color{dy}无心二次曲面}.\index{EXQMDZX@二次曲面的中心!WXECQM@无心二次曲面}
+\end{enumerate}
+\par 线心二次曲面、面心二次曲面、无心二次曲面统称为{\color{dy}非中心二次曲面}.\index{EXQMDZX@二次曲面的中心!FZXECQM@非中心二次曲面}
+
+\inference[中心曲面的充要条件]
+二次曲面为中心曲面的充要条件是$I_3 \ne 0$，二次曲面为非中心曲面的充要条件是$I_3 = 0$.
+
+
+
+\section{二次曲线简化的坐标变换}
+\subsection{二次曲面的径面}\index{ECQMDJM@二次曲面的径面}
+\tdefination[二次曲面的弦]
+二次曲面上不位于同一个母线上的两个点的连线段叫做二次曲面的弦.\index{ECQMDX@二次曲面的弦}
+
+\theorem[二次曲面平行弦定理]
+二次曲面的一族平行弦的中点所称轨迹在一个平面上.\\
+{\color{dy}证明} \kg 任取沿非渐近方向$X:Y:Z$的一条弦$M_1M_2$，由中心方程推导中的方程\eqref{中心方程的推导}可知\\弦$M_1M_2$中点也满足下列方程
+\begin{equation}
+\label{径面方程1}
+XF_1(x,y,z)  +YF_2(x,y,z)+ZF_3(x,y,z)=0
+\end{equation}
+整理化简得：
+\begin{equation}
+\label{径面方程2}
+\varPhi_1(X,Y,Z) \, x+\varPhi_2(X,Y,Z) \, y+\varPhi_3(X,Y,Z) \, z +\varPhi_4(X,Y,Z)=0.
+\end{equation}
+
+\defination[二次曲面的径面]
+二次曲面沿非渐近方向$X:Y:Z$的所有平行弦中点所在的平面叫做二次曲面共轭于方向$X:Y:Z$的{\color{dy}径面}.
+
+\inference[二次曲面中心与径面的关系]
+1.中心二次曲面的任何径面必通过它的中心.
+\par 2.二次曲面的任何径面通过它的中心直线.
+\par 3.面心二次曲面的径面与它的中心平面重合.\\
+{\color{dy}原理}：比较径面方程\eqref{径面方程1}和中心方程推导中的方程\eqref{中心方程的推导}即可.\\
+{\color{dy}特殊情况}：若方向$X:Y:Z$为渐近方向，那么平行于它的弦不存在，若$\varPhi_i(X,Y,Z)$不全为$0$，我们称这个平面为共轭于渐近方向$X:Y:Z$的径面.
+
+\defination[二次曲面的奇异方向]
+若二次曲面的渐近方向$X:Y:Z$满足
+\begin{equation}
+	\begin{cases}
+	\varPhi_1(X,Y,Z)=0,\\
+	\varPhi_2(X,Y,Z)=0,\\
+	\varPhi_3(X,Y,Z)=0.
+	\end{cases}
+\end{equation}
+那么$X:Y:Z$叫做二次曲面的{\color{dy}奇异方向}\index{QYFX@奇异方向}，简称{\color{dy}奇向}\index{QX@奇向}.
+\par 这时，径面方程\eqref{径面方程2}不表示任何平面，所以没有共轭与奇向的径面这个说法.
+\par \kg \kg 二次曲面$S$有奇向的充要条件是$I_3 = 0$.
+\par \kg \kg 二次曲面$S$的奇向平行于$S$的任意径面.\\
+{\color{dy}特殊情况} \quad \colorbox{文字底色}{对于中心二次曲面，通过曲面中心的任何平面都是径面.}
+
+\defination[主径面]
+如果二次曲面的径面垂直于它所共轭的方向，那么这个径面就叫做二次曲面的{\color{dy}主径面}\index{ZJM@主径面}.\\
+{\color{dy}主径面的求法}
+	\par 1. 主径面$\pi $的方程为
+	$$
+	\varPhi_1(X,Y,Z) \, x+\varPhi_2(X,Y,Z) \, y+\varPhi_3(X,Y,Z) \, z +\varPhi_4(X,Y,Z)=0.
+	$$
+	\par 2. 由于$X:Y:Z \perp \pi  $则$\pi $的法向量与方向$X:Y:Z$平行，即
+	\begin{equation}
+	\frac{\varPhi_1(X,Y,Z)}{X}=\frac{\varPhi_2(X,Y,Z)}{Y}=\frac{\varPhi_3(X,Y,Z)}{Z}=\lambda.
+	\quad
+	\Longleftrightarrow
+	\quad
+	\begin{cases}
+	\varPhi_1(X,Y,Z) = \lambda X,\\
+	\varPhi_2(X,Y,Z) = \lambda Y,\\
+	\varPhi_3(X,Y,Z) = \lambda Z.
+	\end{cases}
+	\end{equation}
+
+	\par 3. 写成矩阵形式
+	$$
+	A^*
+	\left[ 
+	\begin{array}{c}
+	X \\
+	Y \\
+	Z
+	\end{array}
+	\right] 
+	=
+	\lambda
+	\left[ 
+	\begin{array}{c}
+	X \\
+	Y \\
+	Z
+	\end{array}
+	\right] 
+	\,
+	\Longleftrightarrow
+	\,
+	\left( A^*-\lambda E \right) 
+		\left[ 
+	\begin{array}{c}
+	X \\
+	Y \\
+	Z
+	\end{array}
+	\right] 
+	= 0.
+	\,
+	\Longleftrightarrow
+	\,
+	\det(A^* - \lambda E) = -\lambda^3 +I_1\lambda^2 - I_2\lambda + I_3 = 0.
+	$$
+\par 这与\link[二次曲面的特征方程]是一致的，所以\colorbox{文字底色}{$X:Y:Z$是对应于二次曲面非零特征根$\lambda$的一个主}\\ 
+\colorbox{文字底色}{方向}，并且\colorbox{文字底色}{$X:Y:Z$还是曲面$S$的一个非渐近方向}.二次曲面至少有一个主径面.
+\par 4. 解特征方程，得到特征根，然后解出主方向，代入到径面方程\eqref{径面方程2}即可.
+
+\section{二次曲面化简的直角坐标变换}
+\subsection{化简二次曲面的具体方法}\label{化简二次曲面的具体方法}
+% 流程图定义基本形状
+\tikzstyle{ellipse}=[draw, rectangle, minimum width=2.8em, rounded corners=6pt,line width=0.5pt]% minimum height=1.5em, fill=red!20
+\tikzstyle{pxsbx}=[trapezium, trapezium left angle=75, trapezium right angle=105, minimum width=3em, text centered, draw = black, fill=white,line width=0.5pt]
+\tikzstyle{lingxing}=[draw,diamond,shape aspect=3,inner sep = 0.4pt,thick,font=\itshape,line width=0.5pt]%,minimum size=8mm
+\begin{center}
+	\begin{tikzpicture}[node distance=1.2cm]
+	%定义流程图具体形状
+	\node (A) [minimum height=0cm,draw, node distance=1cm,inner sep=8pt] {\quad $I_3=0?$\quad \quad };
+	\node (A1) [minimum height=0cm,draw, below of=A,node distance=1cm,inner sep=8pt,xshift =4cm] {第\uppercase\expandafter{\romannumeral1}类};
+	\node (A2) [minimum height=0cm,draw, below of=A,node distance=1cm,inner sep=8pt,xshift =9cm] {$\displaystyle \lambda_1x^2+\lambda_2y^2+\lambda_3z^2+\frac{I_4}{I_3} = 0$};
+	\node (B) [minimum height=0cm,draw, below of=A,node distance=2cm,inner sep=8pt] {\quad   $I_4=0?$\quad \quad  };
+	\node (B1) [minimum height=0cm,draw, below of=B,node distance=1cm,inner sep=8pt,xshift =4cm] {第\uppercase\expandafter{\romannumeral2}类};
+	\node (B2) [minimum height=0cm,draw, below of=B,node distance=1cm,inner sep=8pt,xshift =8.8cm] {$\displaystyle \lambda_1x^2+\lambda_2y^2 \pm 2\sqrt{-\frac{I_4}{I_2}} = 0$};
+	\node (C) [minimum height=0cm,draw, below of=B,node distance=2cm,inner sep=8pt] {\quad   $I_2=0?$\quad \quad  };
+	\node (C1) [minimum height=0cm,draw, below of=C,node distance=1cm,inner sep=8pt,xshift =4cm] {第\uppercase\expandafter{\romannumeral3}类};
+	\node (C2) [minimum height=0cm,draw, below of=C,node distance=1cm,inner sep=8pt,xshift =8.45cm] {$\displaystyle \lambda_1x^2+\lambda_2y^2+\frac{K_2}{I_2} = 0$};
+	\node (D) [minimum height=0cm,draw, below of=C,node distance=2cm,inner sep=8pt] {\quad   $K_2=0?$\quad \quad  };
+	\node (D1) [minimum height=0cm,draw, below of=D,node distance=1cm,inner sep=8pt,xshift =4cm] {第\uppercase\expandafter{\romannumeral4}类};
+	\node (D2) [minimum height=0cm,draw, below of=D,node distance=1cm,inner sep=8pt,xshift =8.65cm] {$\displaystyle \lambda_1 x^2 + 2\sqrt{a_{24}^2 + a_{34}^2 } = 0 $};
+	\node (E) [minimum height=0cm,draw, below of=D,node distance=2cm,inner sep=8pt] {第\uppercase\expandafter{\romannumeral5}类};
+	\node (E2) [minimum height=0cm,draw, below of=E,node distance=1cm,inner sep=8pt,xshift =7.8cm] {$\displaystyle \lambda_1x^2 + \frac{K_1}{I_1}= 0$};
+	
+	%连接具体形状
+	\draw[arrows={-Stealth[scale=0.8]}](A) -- (B) node[midway,left=0.3cm,above=-0.5cm]{Y} ;
+	\draw[arrows={-Stealth[scale=0.8]}](A) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(A1) ;
+	\draw[arrows={-Stealth[scale=0.8]}](A1) -- (A2) ;
+	\draw[arrows={-Stealth[scale=0.8]}](B) -- (C) node[midway,left=0.3cm,above=-0.5cm]{Y} ;
+	\draw[arrows={-Stealth[scale=0.8]}](B) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(B1) ;
+	\draw[arrows={-Stealth[scale=0.8]}](B1) -- (B2) ;
+	\draw[arrows={-Stealth[scale=0.8]}](C) -- (D)node[midway,left=0.3cm,above=-0.5cm]{Y} ;
+	\draw[arrows={-Stealth[scale=0.8]}](C) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(C1) ;
+	\draw[arrows={-Stealth[scale=0.8]}](C1) -- (C2) ;
+	\draw[arrows={-Stealth[scale=0.8]}](D) -- (E) node[midway,left=0.3cm,above=-0.5cm]{Y} ;
+	\draw[arrows={-Stealth[scale=0.8]}](D) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(D1) ;
+	\draw[arrows={-Stealth[scale=0.8]}](D1) -- (D2) ;
+	\draw[arrows={-Stealth[scale=0.8]}](E) --+(0,-1cm) |-(E2) ;
+	\end{tikzpicture}
+\end{center}
+
+\subsection{先转后移法}
+求二次曲线化简应用的直角坐标的第一种方法是先利用\link[主方向]作\link[旋转变换]，然后再配方求解，具体方法如下：
+\par 1. 按照\link[化简二次曲面的具体方法]先化简二次曲面，得到三个特征根$\lambda_1,\lambda_2,\lambda_3$对应的三个主方向$X_1:Y_1:Z_1,X_2:Y_2:Z_2,X_3:Y_3:Z_3$.\\
+{\color{dy} 注\kg 如果特征根中存在二重根，则可以得到一个确定的主方向，
+	\\ \kg \kg 剩下两个主方向在重特征根对应的主方向中任取两个互相垂直的方向即可.}
+\par 然后\textbf{单位化}旋转变换矩阵：
+\begin{equation}
+T=
+\left[ 
+\begin{array}{ccc}
+X_1 & X_2 & X_3\\
+Y_1 & Y_2 & Y_3\\
+Z_1 & Z_2 & Z_3
+\end{array}
+\right] 
+\end{equation}
+
+\par 2. 计算$\det(T)$的值：
+\par \kg \kg 若$\det(T)>0$，则说明变换后的坐标系为右手坐标系;
+\par \kg \kg 若$\det(T)<0$，则说明变换后的坐标系为左手坐标系，这时需要将任意两个主方向调换一次（利用行列式的性质）使$\det(T)>0$，即保证变换后的坐标系为右手坐标系;
+
+\par 3. 将旋转矩阵代入化简前的方程，即
+\begin{equation}
+\left[ 
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] 
+=
+T
+\left[ 
+\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}
+\right] 
+=
+\left[ 
+\begin{array}{ccc}
+X_1 & X_2 & X_3\\
+Y_1 & Y_2 & Y_3\\
+Z_1 & Z_2 & Z_3
+\end{array}
+\right] 
+\left[ 
+\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}
+\right] 
+\end{equation}
+\par 4. 化简式子（{\color{dy}计算技巧：由于没有交叉项，计算的时候不用考虑交叉项！}）
+\par 5. 以化简后的二次曲面为参考，对化简后的式子进行配方
+\par 6. 作移轴变换，并将结构合并到旋转变换中，即
+\begin{equation}
+\left[ 
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] 
+=
+T
+\left[ 
+\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}
+\right] 
++
+\bm{x}_0
+=
+\left[ 
+\begin{array}{ccc}
+X_1 & X_2 & X_3\\
+Y_1 & Y_2 & Y_3\\
+Z_1 & Z_2 & Z_3
+\end{array}
+\right] 
+\left[ 
+\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}
+\right] 
++
+\left[ 
+\begin{array}{c}
+x_0 \\
+y_0 \\
+z_0
+\end{array}
+\right]
+\end{equation}
+
+
+\subsection{主径面法}
+\noindent{\color{dy} \large 1. 中心二次曲面（$I_3 \ne 0$）}
+\vspace*{1em}
+\par (1) 按照\link[化简二次曲面的具体方法]先化简二次曲面，得到三个特征根$\lambda_1,\lambda_2,\lambda_3$对应的三个主方向$X_1:Y_1:Z_1,X_2:Y_2:Z_2,X_3:Y_3:Z_3$，以及三个对应的主径面
+\begin{equation*}
+\begin{array}{c}
+\pi_1 : A_1x+B_1y+C_1z+D_1=0,\\
+\pi_2 : A_2x+B_2y+C_2z+D_2=0,\\
+\pi_3 : A_3x+B_3y+C_3z+D_3=0,
+\end{array}
+\end{equation*}
+
+\par (2) 计算$\det(T)$的值：
+\par \kg \kg 若$\det(T)>0$，则说明变换后的坐标系为右手坐标系;
+\par \kg \kg 若$\det(T)<0$，则说明变换后的坐标系为左手坐标系，这时需要将任意两个主方向调换一次（利用行列式的性质）使$\det(T)>0$（{\color{dy}注意：相应的主径面也要调换}），即保证变换后的坐标系为右手坐标系;
+
+\par (3) 将主径面的法向量单位化，就得到右手直角坐标变换（从几何意义上理解为该点到新坐标系各坐标平面的距离，用正负表示方向）
+\begin{equation*}
+	\begin{cases}
+	\displaystyle x'=\frac{A_1x+B_1y+C_1z+D_1}{\sqrt{A_1^2+B_1^2+C_1^2}}, \\
+	\displaystyle y'=\frac{A_2x+B_2y+C_2z+D_2}{\sqrt{A_2^2+B_2^2+C_2^2}}, \\
+	\displaystyle z'=\frac{A_3x+B_3y+C_3z+D_3}{\sqrt{A_3^2+B_3^2+C_3^2}}.
+	\end{cases}
+\end{equation*}
+\par (4) 反解出$x,y,z$，即用$x',y',z'$表示$x,y,z$.
+
+\noindent{\color{dy} \large 2. 非中心二次曲面（$I_3 = 0$）}
+\vspace*{0.5em}
+
+\par (1) 按照\link[化简二次曲面的具体方法]先化简二次曲面，得到三个特征根$\lambda_1,\lambda_2,\lambda_3$对应的三个主方向$X_1:Y_1:Z_1,X_2:Y_2:Z_2,X_3:Y_3:Z_3$.\\
+{\color{dy} 注\kg 如果特征根中存在二重根，则可以得到一个确定的主方向，
+	\\ \kg \kg 剩下两个主方向在重特征根对应的主方向中任取两个互相垂直的方向即可.}
+\par 然后\textbf{单位化}旋转变换矩阵：
+\begin{equation}
+T=
+\left[ 
+\begin{array}{ccc}
+X_1 & X_2 & X_3\\
+Y_1 & Y_2 & Y_3\\
+Z_1 & Z_2 & Z_3
+\end{array}
+\right] 
+\end{equation}
+
+\par (2) 计算$\det(T)$的值：
+\par \kg \kg 若$\det(T)>0$，则说明变换后的坐标系为右手坐标系;
+\par \kg \kg 若$\det(T)<0$，则说明变换后的坐标系为左手坐标系，这时需要将任意两个主方向调换一次（利用行列式的性质）使$\det(T)>0$，即保证变换后的坐标系为右手坐标系;
+
+\par (3) {\color{dy}移轴}：
+\par \kg \kg 二次线心曲面和二次面心曲面：可以在{\color{dy}对称轴}或{\color{dy}对称平面}上{\color{dy}任意选取一个中心}作为新的坐标原点$O'(x_0,y_0,z_0)$.
+\par \kg \kg 二次无心曲面：选取曲面的顶点（即对称轴与曲面的交点）作为新的坐标原点$O'(x_0,y_0,z_0)$.
+
+\par (4) 综合：旋转矩阵加上平移矩阵（即新坐标原点的三个分量）,即
+\begin{equation}
+\left[ 
+\begin{array}{c}
+x \\
+y \\
+z
+\end{array}
+\right] 
+=
+T
+\left[ 
+\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}
+\right] 
++
+\bm{x}_0
+=
+\left[ 
+\begin{array}{ccc}
+X_1 & X_2 & X_3\\
+Y_1 & Y_2 & Y_3\\
+Z_1 & Z_2 & Z_3
+\end{array}
+\right] 
+\left[ 
+\begin{array}{c}
+x' \\
+y' \\
+z'
+\end{array}
+\right] 
++
+\left[ 
+\begin{array}{c}
+x_0 \\
+y_0 \\
+z_0
+\end{array}
+\right]
+\end{equation}
+
+\section{二次曲面的切线和切平面}
+设过点$P_0(x_0,y_0,z_0)$,方向向量为$\overrightarrow{v}=(X,Y,Z)$的直线$l$的参数方程为：
+\begin{equation}
+\begin{cases}
+x=x_0+Xt,\\
+y=y_0+Yt,\\
+z=z_0+Zt
+\end{cases}
+\end{equation}
+
+\defination[二次曲线的切线]
+非渐近方向：如果直线$l$与曲面$S$有两个相重的实交点，则直线$l$是曲面$S$的一条{\color{dy}切线}\index{QX2@切线}，重合交点$P_0$为{\color{dy}切点}\index{QD@切点}，当且仅当
+$$
+\varPhi(X,Y,Z)\ne 0,\quad XF_1(x,y,z)  +YF_2(x,y,z)+ZF_3(x,y,z)=0
+$$
+\par 渐近方向：如果$l$整个在曲面$S$上，即$l$为$S$的一条母线，则直线$l$是曲面$S$的一条{\color{dy}切线}，直线$l$上的每一点都可以称为{\color{dy}切点}\index{QD@切点}，当且仅当
+$$
+\varPhi(X,Y,Z) = 0,\quad XF_1(x,y,z)  +YF_2(x,y,z)+ZF_3(x,y,z)=0
+$$
+\par 因此过曲线上一点$P_0(x_0,y_0,z_0)$的直线$l$是曲面$S$的切线当且仅当
+\begin{equation}
+XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0)=0
+\end{equation}
+
+\defination[正常点与奇异点]
+设点$P_0(x_0,y_0,z_0)$在二次曲面$S$上，如果$F_i(x_0,y_0,z_0)(i=1,2,3)$不全为$0$，那么点$P_0(x_0,y_0,z_0)$称为二次曲面$S$的{\color{dy} 正常点} \index{ZCD@正常点}，否则称为{\color{dy} 奇异点}\index{YCD@异常点}，简称{\color{dy} 异点}\index{YD@异点}.
+
+\defination[切平面与法线]
+通过二次曲面$S$上的正常点$P_0$的所有切线组成的平面叫做曲面$S$在点$P_0$处的{\color{dy} 切平面} \index{QPM@切平面}.并把过点$P_0$且与该点处的切平面垂直的直线叫做二次曲面在点$P_0$处的{\color{dy} 法线} \index{FX@法线}.
+
+\theorem[切平面方程]
+若点$P_0(x_0,y_0,z_0)$是二次曲面$S$的正常点，则$S$在点$P_0$处的切平面方程为
+\begin{equation}
+xF_1(x_0,y_0,z_0)  +yF_2(x_0,y_0,z_0)+zF_3(x_0,y_0,z_0)+F_4(x_0,y_0,z_0)=0
+\end{equation}
+{\color{dy} 证明} \kg 直线方程可以写为
+$$X:Y:Z=(x-x_0):(y-y_0):(z-z_0)$$
+代入
+$$XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0)=0$$
+得
+\begin{equation}
+\begin{split}
+&\quad (x_0-x_0)F_1(x_0,y_0,z_0)  +(y_0-y_0)F_2(x_0,y_0,z_0)+(z_0-z_0)F_3(x_0,y_0,z_0)\\
+&=xF_1(x_0,y_0,z_0)  +yF_2(x_0,y_0,z_0)+zF_3(x_0,y_0,z_0)\\
+&\quad -\left( x_0F_1(x_0,y_0,z_0)+y_0F_2(x_0,y_0,z_0)+z_0F_3(x_0,y_0,z_0)\right) \\
+&=xF_1(x_0,y_0,z_0)  +yF_2(x_0,y_0,z_0)+zF_3(x_0,y_0,z_0)-\left( F(x_0,y_0,z_0)-F_4(x_0,y_0,z_0)\right) \\
+&=xF_1(x_0,y_0,z_0)  +yF_2(x_0,y_0,z_0)+zF_3(x_0,y_0,z_0)+F_4(x_0,y_0,z_0)=0
+\end{split}
+\end{equation}
+{\color{dy}注} \kg 上式写成矩阵形式为
+\begin{equation}
+\left[\,x,y,z,1\,\right] 
+A
+\left[ 
+\begin{array}{c}
+x_0 \\
+y_0 \\
+z_0 \\
+1
+\end{array}
+\right] 
+=0
+\end{equation}
+
+\theorem[切锥面]
+若点$P_0(x_0,y_0,z_0)$在二次曲面$S$外，则$S$过点$P_0$的直线$l$为曲面$S$切线的充要条件为
+\begin{equation}
+\begin{cases}
+\varPhi(X,Y,Z)\ne 0,\\
+\Delta = \left[ \,XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0)\,\right] ^2-\varPhi(X,Y,Z)\cdot F(x_0,y_0,z_0) = 0
+\end{cases}
+\end{equation}
+直线方程可以写为
+$$X:Y:Z=(x-x_0):(y-y_0):(z-z_0)$$
+代入上式得
+\begin{equation}
+\begin{split}
+&[\, (x-x_0)F_1(x_0,y_0,z_0)+(y-y_0)F_2(x_0,y_0,z_0)+(z-z_0)F_3(x_0,y_0,z_0)\,]^2\\
+&-\varPhi(x-x_0,y-y_0,z-z_0)F(x_0,y_0,z_0) = 0
+\end{split}
+\end{equation}
+\par 这是关于$x-x_0,y-y_0,z-z_0$的二次齐次方程，表示以$P_0$为顶点的二次锥面（可能是虚锥面），称为二次曲面$S$的{\color{dy}切锥面}\index{QZM@切锥面}.
+
+\section{章节公式总结}\label{章节公式总结}
+\par 由于本章公式有点多，这里汇总了基本的公式，方便查阅。
+\begin{equation}
+\begin{split}
+F(x,y,z)&=a_{11} \, x^2+a_{12} \, y^2+a_{13} \, z^2+2a_{12} \, xy+2a_{13}xz+2a_{23}yz\\
+&+2a_{14}x+2a_{24}y+2a_{34}z+a_{44}=0
+\end{split}
+\end{equation}
+\par 基本记号：
+\begin{equation}
+\label{A}
+A = 
+\left[
+\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{array}
+\right]
+,\quad
+A^*=
+\left[
+\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23}  \\
+a_{31} & a_{32} & a_{33}  \\
+\end{array}
+\right]
+\end{equation}
+\jg
+\begin{equation}
+\label{varPhi}
+\varPhi(x,y,z)=
+\left[\,x,y,z\,\right] 
+\left[
+\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23}  \\
+a_{31} & a_{32} & a_{33}  \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x \\
+y \\
+z 
+\end{array}
+\right]
+\end{equation}
+\jg
+\begin{equation}
+F(x,y,z)=
+\left[\,x,y,z,1\,\right] 
+\left[
+\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x \\
+y \\
+z \\
+1
+\end{array}
+\right]
+\end{equation}
+\jg
+\begin{equation}
+\label{varPhi_i}
+\begin{split}
+&
+\hspace{5em}
+\begin{cases}
+\varPhi_1(x,y,z)=a_{11} \, x + a_{12} \, y + a_{13} \, z \\
+\varPhi_2(x,y,z)=a_{12} \, x+ a_{22} \, y + a_{23} \, z \\
+\varPhi_3(x,y,z)=a_{13} \, x+ a_{23} \, y + a_{33} \, z \\
+\varPhi_4(x,y,z)=a_{14} \, x+ a_{24} \, y + a_{34} \, z \\
+\end{cases}\\
+&
+\Longrightarrow
+\quad
+\varPhi(x,y,z) = x \, \varPhi_1(x,y,z)+y \, \varPhi_2(x,y,z)+z \, \varPhi_3(x,y,z).
+\end{split}
+\end{equation}
+\jg
+\begin{equation}
+\label{F_i}
+\begin{split}
+&
+\hspace{6.5em}
+\begin{cases}
+F_1(x,y,z)=a_{11} \, x + a_{12} \, y + a_{13} \, z + a_{14} \\
+F_2(x,y,z)=a_{12} \, x+ a_{22} \, y + a_{23} \, z + a_{24} \\
+F_3(x,y,z)=a_{13} \, x+ a_{23} \, y + a_{33} \, z + a_{34} \\
+F_4(x,y,z)=a_{13} \, x+ a_{23} \, y + a_{33} \, z + a_{34} \\
+\end{cases}\\
+&
+\Longrightarrow
+\quad
+F(x,y,z) = x \, F_1(x,y,z)+y \, F_2(x,y,z)+z \, F_3(x,y,z) + F_4(x,y,z).
+\end{split}
+\end{equation}
+
+\par 特征方程：
+\begin{equation}
+\left( A^* - \lambda E \right)
+\left[
+\begin{array}{c}
+l \\
+m \\
+n
+\end{array}
+\right] 
+= \bm{0}.
+\end{equation}
+\begin{equation}
+\Longleftrightarrow
+\quad
+\det(A^* - \lambda E) = -\lambda^3 +I_1\lambda^2 - I_2\lambda + I_3 = 0.
+\end{equation}
+\par 不变量：
+\begin{equation}
+I_1=a_{11}+a_{22}+a_{33} = \lambda_1 +\lambda_2 +\lambda_3
+\end{equation}
+
+\begin{equation}
+I_2=
+\left| 
+\begin{array}{cc}
+a_{11} & a_{12} \\
+a_{12} & a_{22} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{11} & a_{13} \\
+a_{13} & a_{33} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{22} & a_{23} \\
+a_{23} & a_{33}
+\end{array}
+\right| 
+= \lambda_1\lambda_2 +\lambda_2\lambda_3 +\lambda_3\lambda_1
+\end{equation}
+
+\begin{equation}
+I_3=
+\left| 
+\begin{array}{ccc}
+a_{11} & a_{12} & a_{13}  \\
+a_{21} & a_{22} & a_{23}  \\
+a_{31} & a_{32} & a_{33}  \\
+\end{array}
+\right| 
+= \lambda_1\lambda_2\lambda_3
+\end{equation}
+
+\begin{equation}
+I_4=
+\left| 
+\begin{array}{ccc}
+\begin{array}{cccc}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{array}
+\end{array}
+\right| 
+\end{equation}
+
+\par 半不变量（只转轴不改变其值）：
+\begin{equation}
+K_1=
+\left| 
+\begin{array}{cc}
+a_{11} & a_{14} \\
+a_{14} & a_{44} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{22} & a_{24} \\
+a_{24} & a_{44} 
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{cc}
+a_{33} & a_{34} \\
+a_{34} & a_{44}
+\end{array}
+\right| 
+\end{equation}
+
+\begin{equation}
+K_2=
+\left| 
+\begin{array}{ccc}
+	a_{11} & a_{12} & a_{14}  \\
+	a_{12} & a_{22} & a_{24}  \\
+	a_{14} & a_{24} & a_{44}  \\
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{ccc}
+a_{11} & a_{13} & a_{14}  \\
+a_{13} & a_{33} & a_{34}  \\
+a_{14} & a_{34} & a_{44}  \\
+\end{array}
+\right| 
++
+\left| 
+\begin{array}{ccc}
+a_{22} & a_{23} & a_{24}  \\
+a_{23} & a_{33} & a_{34}  \\
+a_{24} & a_{34} & a_{44}  \\
+\end{array}
+\right| 
+\end{equation}
+
+\par 中心方程组：
+\begin{equation}
+\begin{cases}
+F_1(x_0,y_0,z_0)=a_{11} \, x_0 + a_{12} \, y_0 + a_{13} \, z_0 + a_{14} = 0 \\
+F_2(x_0,y_0,z_0)=a_{12} \, x_0 + a_{22} \, y_0 + a_{23} \, z_0 + a_{24} = 0 \\
+F_3(x_0,y_0,z_0)=a_{13} \, x_0 + a_{23} \, y_0 + a_{33} \, z_0 + a_{34} = 0
+\end{cases}
+\end{equation}
+
+\par 径面方程
+\begin{equation}
+\varPhi_1(X,Y,Z) \, x+\varPhi_2(X,Y,Z) \, y+\varPhi_3(X,Y,Z) \, z +\varPhi_4(X,Y,Z)=0.
+\end{equation}
+
+\par 曲线上一点$P_0(x_0,y_0,z_0)$的直线$l$是曲面$S$的切线当且仅当
+\begin{equation}
+XF_1(x_0,y_0,z_0)  +YF_2(x_0,y_0,z_0)+ZF_3(x_0,y_0,z_0)=0
+\end{equation}
+
+\par 切平面方程（$P_0(x_0,y_0,z_0)$是曲面$S$上的正常点）
+\begin{equation}
+xF_1(x_0,y_0,z_0)  +yF_2(x_0,y_0,z_0)+zF_3(x_0,y_0,z_0)+F_4(x_0,y_0,z_0)=0
+\end{equation}
+
+\par 切锥面方程（$P_0(x_0,y_0,z_0)$在曲面$S$外）
+\begin{equation}
+\begin{split}
+&[\, (x-x_0)F_1(x_0,y_0,z_0)+(y-y_0)F_2(x_0,y_0,z_0)+(z-z_0)F_3(x_0,y_0,z_0)\,]^2\\
+&-\varPhi(x-x_0,y-y_0,z-z_0)F(x_0,y_0,z_0) = 0
+\end{split}
+\end{equation}

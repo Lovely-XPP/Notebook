@@ -1,0 +1,251 @@
+										% |-----------------------------------------------------------------------------------------------|%
+										% |                                            Shevon Kuan 课程笔记基本模板                                              |%
+										% |                                                         版本号:3.15b                                                            |%
+										% |                                               页面配置:A4 paper侧栏设计                                                 |%
+										% |-----------------------------------------------------------------------------------------------|%
+\documentclass[10pt,a4paper]{book}
+\usepackage{array}
+\usepackage{babel}
+\usepackage{ctex}
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}
+\usepackage{newtxtext}
+\usepackage{amsmath,ntheorem}
+\usepackage{amssymb} 
+\usepackage{newtxmath,bm}
+\usepackage{bbding}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{framed}
+\usepackage{fontspec}
+\usepackage{ntheorem}
+\usepackage{nomencl}
+\usepackage{nicematrix}
+\usepackage{multicol}
+\usepackage[bookmarks=true,colorlinks,linkcolor=black]{hyperref}
+\usepackage{CJKfntef}
+\usepackage{amsmath,bm}%重要宏包,粗斜体\bm
+\usepackage{makeidx}%重要宏包，用于添加索引
+\usepackage{pgf,tikz,pgfplots}%一般绘图宏包
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{tikz-3dplot}%3d绘图宏包
+\usepackage{tcolorbox}%box宏包
+\tcbuselibrary{most}
+\usepackage{subfig}
+\usepackage{autobreak}
+\usepackage{enumerate}
+\usepackage{wasysym}
+\usepackage{makecell}%跨页表格
+\usepackage{textcomp}
+\usepackage{marginnote}
+\usepackage{colortbl,booktabs}%第二个包定义了几个*rule  
+\usepackage{ulem}%下划线宏包用法和样式如下：
+%\uuline{双下划线}
+%\uwave{波浪线}
+%\sout{中间删除线}
+%\xout{斜删除线}
+%\dashuline{虚线}
+%\dotuline{加点}
+\usepackage{titletoc}%目录页的宏包
+\usepackage[center]{titlesec}%改变章节或标题的样式的宏包
+\makenomenclature
+%\titleformat{command}[shape]{format}{label}{sep}{before}[after]
+
+%1.command 是要重新定义的各种标题命令,比如 \part，\chapter，\section，\subsection，\subsubsection，\paragraph，\subparagraph等；
+%2.shape 是用来设定段落形状的,可选的参数有 hang 、 block 、 display 等,详见 titlesec 文档,位于：TEXLIVE/VERSION/texmf-dist/doc/latex/titlesec
+%3.format 用于定义标题外观,比如使标题居中、字体加粗等；
+%4.label 用于定义定义标题的标签,就是标题内容前面的标号；
+%5.sep 定义标题的标签与标题内容之间的间隔距离。
+%6.before 用于在标题内容前再加些内容；
+%7.after 用于在标题内容后再加些内容。
+
+%调整间距（倍数）
+\linespread{1.5}
+
+\usetikzlibrary{shapes,arrows}
+\makeindex%添加索引
+%缺省页面
+\geometry{inner=2cm,outer=2cm,bottom=2cm,top=2cm,marginparwidth=3.5cm,marginparsep=0.5cm,includemp}
+%\geometry{showframe,showcrop}%此句用于显示排版文本框
+%字体设置-------------------------------
+\setCJKmainfont[BoldFont={PingFangSC-Medium}]{PingFangSC-Regular}%需要查看电脑字体查找对应字体的文件
+%颜色设置-——————————
+\definecolor{f8766d}{HTML}{ff9f1a}
+\definecolor{1a9850}{HTML}{0097e6}
+\definecolor{ffa725}{HTML}{1289A7}
+\definecolor{2a7ae2}{HTML}{7158e2}
+\definecolor{6a3d9a}{HTML}{ED4C67}
+\definecolor{53a9ab}{HTML}{487eb0}
+\definecolor{titlepurple}{HTML}{5758BB}
+\definecolor{titlepurpleb}{HTML}{833471}
+\definecolor{titlepurplec}{HTML}{006266}
+\definecolor{md}{HTML}{EA2027}
+\definecolor{eq}{HTML}{F0F0F0}
+\definecolor{dya}{HTML}{FFFFFF}
+\definecolor{dy}{HTML}{FFFFFF}%夹杂在文本中的定义词的颜色1（目前：深红色）
+\definecolor{dy0}{HTML}{FF8040}
+
+%geogebra颜色
+\definecolor{zzttqq}{rgb}{0.6,0.2,0}
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{ududff}{rgb}{0.30196078431372547,0.30196078431372547,1}
+\definecolor{xdxdff}{rgb}{0.49019607843137253,0.49019607843137253,1}
+%定理定义环境设置--------------------
+\newtheorem{theorem}{\color{2a7ae2}$ \Square  $定理}[section]
+\newtheorem{defination}{\color{f8766d}$ \Square  $定义}[section]
+\newtheorem{feature}{\color{ffa725}$ \Square  $性质}[section]
+\newtheorem{inference}{\color{1a9850}$ \Square  $推论}[section]
+\newtheorem{method}{\color{6a3d9a}$ \Square  $方法}[section]
+\newtheorem{example}{\color{53a9ab}$ \Square  $例}[section]
+\newtcolorbox{mybox}[2][]{colbacktitle=red!10!white, colback=blue!10!white,coltitle=red!70!black, title={#2},fonttitle=\bfseries,#1}
+%符号设置-------------------------------
+{\color{titlepurple}}
+%标题配置—————————————
+\title{{\Huge 大学物理上册}\\[1em]
+	概念\&公式集
+\vspace{5cm}}
+\author{
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\begin{minipage}{0.5\linewidth}
+		\centering 
+		\color{titlepurple}关舒文\\
+		{\color{titlepurple} \CJKfamily{kai}{华南理工大学}}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.5\linewidth}
+		\centering 
+		\color{titlepurple}易鹏\\
+		{\color{titlepurple} \CJKfamily{kai}{中山大学}}
+	\end{minipage}
+\quad \\[1em]}
+\date{版本号：V10.04.43（正式版） \\[1em]\color{titlepurple}{2020年7月17日}}
+
+%章节或标题的样式-------------------
+\titleformat{\chapter}{\CJKfamily{hei}\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
+\titleformat{\section}{\CJKfamily{hei}\large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
+\titleformat{\subsection}{\CJKfamily{hei}\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
+\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
+%格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
+\titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
+
+\renewcommand{\nomname}{符号说明}
+%自定义优化命令-----------------------
+\renewcommand{\a}{\ensuremath A}%
+\renewcommand{\b}{\ensuremath B}%
+\renewcommand{\c}{\ensuremath C}%
+\renewcommand{\o}{\ensuremath \varnothing}%
+\renewcommand{\textbf}[1]{{\CJKfamily{heiti}#1}}%
+\newcommand{\margin}[1]{{\marginpar{\footnotesize\CJKfamily{kai}\hspace*{18pt}#1}}}
+
+%\renewcommand{\chapter}[1]{{\chapter{#1}\thispagestyle{empty}} }%
+
+%目录调整
+\newcounter{mycontents}
+\newcommand{\thecontents}{\refstepcounter{mycontents} \alph{mycontents}.}
+%\titlecontents{标题名}[左间距]{标题格式}{标题标志}{无序号标题}{指引线与页码}[下间距]
+\titlecontents{chapter}
+[0cm]
+{\bf \large \vspace{0.8em} }{\contentspush{第 \thecontentslabel\ 章 \hspace*{0.8em}}}{}{\titlerule*[0.3pc]{$\cdot$}\contentspage}
+\titlecontents{section}[1.7cm]{\bf  \vspace{0.5em} }{\contentslabel{2.4em}}{\hspace*{-2.5em} \thecontents \hspace*{0.8em}}{\titlerule*[0.3pc]{$\cdot$}\contentspage}
+\titlecontents{subsection}[2.5cm]{\small \vspace{0.2em} }{\contentslabel{3em}}{}{\titlerule*[0.3pc]{$\cdot$}\contentspage}
+
+%使用了自定义页眉页脚---------------
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\;第\ \thechapter\ 章\quad#1\;}{}}
+\renewcommand{\sectionmark}[1]{\markright{\;\thesection\ #1\;}}
+\fancyhf{}
+%\fancyfoot[C]{\bfseries\thepage}
+\fancyhead[LO]{\small\CJKfamily{heilight}\rightmark}
+\fancyhead[RE]{\small\CJKfamily{heilight}\leftmark}
+\fancyhead[RO,LE]{\;\thepage\;}
+\fancyfoot[RO,LE]{\small\CJKfamily{heilight}{大学物理学}}
+\fancyfoot[RE,LO]{\footnotesize\CJKfamily{heilight}College Physicss}
+\renewcommand{\headrulewidth}{0.4pt} % 注意不用\setlength 
+%\renewcommand{\footrulewidth}{0pt}
+\fancyheadoffset[LE,RO]{4cm}
+\fancyfootoffset[LE,RO]{4cm}
+%正文部分—————————————
+\begin{document}
+
+
+%目录与公式编号生成——————————
+\numberwithin{equation}{chapter}
+\allowdisplaybreaks%强制自动换行
+\newgeometry{left=2cm,right=2cm,marginparwidth=0cm,marginparsep=0cm}%封面设置
+\maketitle
+\thispagestyle{empty}
+\cleardoublepage
+\thispagestyle{empty}
+\restoregeometry
+%页面重新配置----------------------------
+\setcounter{page}{1}
+\pagenumbering{Roman}
+\tableofcontents
+\cleardoublepage
+
+
+%自定义命令-------------------------------
+\newcommand{\eq}[1][]{\colorbox{eq}{$\displaystyle #1$}}
+\newcommand{\dy}[2][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}}  \index{#2@#1} \hspace*{1em}}
+\newcommand{\dya}[1][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate, colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}} \hspace*{1em} }
+\newcommand{\n}{\par}
+\newcommand{\rd}{\rm{d}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\jg}{\vspace*{0.5em}}
+\renewcommand{\d}{{\rm{d}}}
+\newcommand{\kg}{\hspace*{18pt}}
+\newcommand{\tkg}{\quad \quad }
+\newcommand{\e}{{\rm{e}}}
+
+%正文开始—————————————---------------------------------------------------------------------------------------可以使用\boldmath输入粗斜体与\unboldmath合用
+%第一章：质点运动学
+\include{tex/C-1}
+
+%第二章:运动运动与力
+\include{tex/C-2}
+
+%第三章：动量与角动量
+\include{tex/C-3}
+
+%第四章：功和能
+\include{tex/C-4}
+
+%第五章：刚体的转动
+\include{tex/C-5}
+
+%第六章：振动
+\include{tex/C-6}
+
+%第七章：波动
+\include{tex/C-7}
+
+%第八章：温度和气体动理论
+\include{tex/C-8}
+
+%第九章：热力学第一定律
+\include{tex/C-9}
+
+%第十章：热力学第二定律
+\include{tex/C-10}
+
+
+
+
+%打印索引—————————————
+\newgeometry{left=2cm,right=2cm,bottom=2cm,top=2cm,marginparwidth=0cm,marginparsep=0cm}%索引设置
+\pagestyle{headings}
+\newpage
+\addcontentsline{toc}{chapter}{附录}
+\addcontentsline{toc}{section}{索引}
+\appendix
+\CJKfamily{kai}
+\color{titlepurple}
+\printindex
+%———————————————
+\end{document}

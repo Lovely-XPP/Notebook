@@ -1,0 +1,491 @@
+\chapter{常微分方程}
+\section{一阶微分方程}
+\sj
+\begin{equation}
+\frac{\d y}{\d x}=f(x,y)
+\end{equation} 
+\subsection{可分离变量的方程}
+\sj
+一般地，如果一个一阶微分方程能写成
+\begin{equation}
+P(x,y)\d x=Q(x,y) \d y
+\end{equation}
+那么原方程称为可分离变量的微分方程.
+
+\example[可分离变量的方程1]
+形如
+\begin{equation}
+\frac{\d y}{\d x}=f(ax+by+c)
+\end{equation}
+\par 解法：作变量替换$z=ax+by+c$即可.
+\begin{equation}
+\frac{\d z}{\d x}=a+b\frac{\d y}{\d x}=a+bf(z)
+\end{equation}
+
+\example[可分离变量的方程2]
+形如
+\begin{equation}
+\frac{\d y}{\d x}=f(x,y)
+\end{equation}
+其中，$f(x,y)$是齐次函数.
+\par 解法：将$f(x,y)$写成$\displaystyle \frac{y}{x}$或$\displaystyle h\left( \frac{y}{x}\right) $的形式
+\begin{equation}
+y'=h(\frac{y}{x})
+\end{equation}
+作变量替换$\displaystyle u=\frac{y}{x}$,
+\begin{equation}
+y'=u+xu'=h(u)
+\end{equation}
+即
+\begin{equation}
+\frac{\d u}{\d x}=\frac{h(u)-u}{x}
+\end{equation}
+这是一个可分离变量的方程.
+\newpage 
+
+\example[可分离变量的方程3]
+形如
+\begin{equation}
+\frac{\d y}{\d x}=f\left(\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}\right) 
+\end{equation}
+分两种情况讨论：
+\jg
+\par 1. $\displaystyle \frac{a_1}{a_2}=\frac{b_1}{b_2}$.则存在常数$k$，使得$(a_2,b_2)=k(a_1,b_1)$,作变量替换$z=a_1x+b_1y$,则
+\begin{equation*}
+\frac{\d z}{\d x}=a_1+b_1\frac{\d y}{\d x}=a_1+b_1f\left( \frac{z+c_1}{kz+c_2}\right) 
+\end{equation*}
+这是一个可分离变量的方程.
+\jg 
+\par 2. $\displaystyle \frac{a_1}{a_2} \ne \frac{b_1}{b_2}$.
+\jg
+\par \quad \quad (1) 当$c_1=c_2$时,$f(x,y)$是齐次方程.
+\par \quad \quad (2) 当$c_1\ne c_2$时,将式子改写为:(可以用待定系数法求出$x_0,y_0$)
+\begin{equation*}
+f\left( \frac{a_1x+b_1y+c_1}{z_2x+b_2y+c_2}\right) =f\left( \frac{a_1(x-x_0)+b_1(y-y_0)}{a_2(x-x_0)+b_2(y-y_0)}\right) 
+\end{equation*}
+\par 作变量替换$u=x-x_0,v=y-y_0.$
+\begin{equation*}
+\frac{\d y}{\d x}=f\left( \frac{a_1u+b_1v}{a_2u+b_2v}\right) 
+\end{equation*}
+\par 这是一个齐次方程.
+
+\section{一阶线性微分方程}
+形如
+\begin{equation}
+\frac{\d y}{\d x}+P(x)y=Q(x)
+\end{equation}
+的方程称为一阶线性微分方程.
+\jg
+
+\subsection{一阶线性齐次微分方程}
+\begin{equation}
+\frac{\d y}{\d x}+P(x)y=0
+\end{equation}
+\par 解法：可分离变量的微分方程.
+\par 通解：
+\begin{equation}
+y^*(x)=C_0\e^{-\int_{x_0}^{x}P(t)\,\,\d t}
+\end{equation}
+
+\theorem[线性齐次微分方程通解定理]
+一阶线性齐次微分方程的通解包含了它的一切解.
+\jg
+
+\subsection{一阶线性非齐次微分方程}
+\begin{equation}
+\frac{\d y}{\d x}+P(x)y=Q(x)
+\end{equation}
+是对应齐次方程$\displaystyle  \frac{\d y}{\d x}+P(x)y=0$的线性非齐次方程.
+\par 解法：常数变易法.作变量替换
+\begin{equation}
+y(x)=u(x)\e^{-\int_{x_0}^{x}P(t)\,\,\d t}
+\end{equation}
+求出一阶导数$y'$然后将$y,y'$反代回$y'+P(x)y=Q(x)$求出$u(x)$再反代回$y(x)$即可求出一阶线性非齐次微分方程的通解.
+\jg
+
+\theorem[线性非齐次微分方程通解定理]
+线性非齐次方程的一个特解与相应的齐次方程的通解之和，构成非齐次方程的通解.
+\par 线性非齐次方程的两个特解之差构成齐次方程的通解.
+\par 线性非齐次方程的两个特解之和仍为 线性非齐次方程的特解.
+\jg
+
+\example[伯努利方程]
+\begin{equation}
+\frac{\d y}{\d x}+P(x)y=Q(x)y^\alpha
+\end{equation}
+其中$\alpha \ne 0,1$且为常数.
+\par 解法：两端同时除以$y^\alpha$
+\begin{equation*}
+y^{-\alpha}\frac{\d y}{\d x}+P(x)\cdot y^{1-\alpha}=Q(x) \quad \Longleftrightarrow \quad \frac{1}{1-\alpha}\cdot \frac{\d y^{1-\alpha}}{\d x}+P(x)\cdot y^{1-\alpha}=Q(x)
+\end{equation*}
+\par 作变量替换$z=y^{1-\alpha}$
+\begin{equation}
+\frac{1}{1-\alpha}\cdot \frac{\d z}{\d x}+P(x)\cdot z=Q(x)
+\end{equation}
+\par 这是一个一阶线性非齐次方程.
+
+\section{全微分方程与积分因子}
+\begin{equation}
+\frac{\d y}{\d x}=\frac{-P(x,y)}{Q(x,y)}
+\end{equation}
+它可以写成$P(x,y)\d x+Q(x,y)\d y=0$的形式.
+\jg
+\subsection{全微分方程}
+如果$P(x,y)\d x+Q(x,y)\d y=0$满足
+\begin{equation}
+\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}
+\end{equation}
+则可以表示成全微分方程的形式.求全微分方程的方法有：
+\par 1. 路径无关的曲线积分
+\begin{equation}
+\int_{(x_0,y_0)}^{(x,y)}P\,\d x+Q\,\d y
+\end{equation}
+\par 2. 现将$P(x,y)$看作是$x$的函数，由$\displaystyle \frac{\partial u}{\partial x}=P$求出$P(x,y)$关于$x$的原函数$u_1(x,y)$,令
+\begin{equation*}
+u(x,y)=u_1(x,y)+\varphi (y)
+\end{equation*}
+然后将$u(x,y)$代入$\displaystyle \frac{\partial u}{\partial y}=Q$求出$\varphi(y)$后代入$u(x,y)$即可.
+\jg
+
+\subsection{积分因子}
+\tdefination[积分因子]
+设方程
+$$
+M(x,y)\d x+N(x,y)\d y=0
+$$
+不是全微分方程.若存在函数$\mu (x,y) \ne 0$,使
+$$
+\mu M\d x+\mu N\d y=0
+$$
+是全微分方程.则称$\mu$是积分因子.
+
+\theorem[特殊积分因子的求法1]
+如果
+\begin{equation}
+\frac{\displaystyle \frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N(x,y)}
+\end{equation}
+仅是$x$的函数,记为$F(x)$,则
+\begin{equation}
+\mu(x)=\e ^{\int_{x_0}^{x}F(t) \,\d t}
+\end{equation}
+
+\theorem[特殊积分因子的求法2]
+如果
+\begin{equation}
+\frac{\displaystyle \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}}{M(x,y)}
+\end{equation}
+仅是$y$的函数,记为$G(y)$,则
+\begin{equation}
+\mu(y)=\e ^{\int_{y_0}^{y}G(t) \,\d t}
+\end{equation}
+
+\section{可降阶的二阶微分方程}
+\sj
+\example[不显含未知函数$y$的方程]
+不显含未知函数$y$的方程
+\begin{equation}
+F(x,y',y'')=0
+\end{equation}
+\par 解法:作变量替换$z=y'$,得到关于新未知函数$z$的一阶方程
+\begin{equation}
+F(x,z,z')=0
+\end{equation}
+求出$z$后再求积分$\displaystyle y=\int z \d x$即可.
+
+\example[不显含未知函数$x$的方程]
+不显含未知函数$x$的方程
+\begin{equation}
+F(yy',y'')=0
+\end{equation}
+\par 解法:作变量替换$p=y'$,并将$y$看作是自变量
+\begin{equation}
+y''=\frac{\d p}{\d x}=\frac{\d p}{\d y}\cdot \frac{\d y}{\d x}=p \frac{\d p}{\d y}
+\end{equation}
+反代回原方程,
+\begin{equation}
+F(x,p,p\frac{\d p}{\d y})=0
+\end{equation}
+求出$p$后再求积分$\displaystyle y=\int p \d x$即可.
+
+\section{高阶线性微分方程}
+高阶线性微分方程的形式如下:
+\begin{equation}
+y^{(n)}(x)+p_1(x)\,y^{n-1}(x)+\cdots+p_{n_1}\,y'(x)+p_n(x)\,y(x)=f(x) 
+\end{equation}
+\subsection{二阶线性齐次微分方程}
+二阶线性微分方程的形式为
+\begin{equation}
+y''(x)+p(x)\,y'(x)+q(x)\,y(x)=f(x)
+\end{equation}
+其中$f(x)\equiv 0$,则为二阶线性齐次微分方程，若$f(x) \not \equiv 0$,则为二阶线性非齐次微分方程.
+\jg
+
+\theorem[二阶线性微分方程解的唯一性定理]
+设函数$p(x),q(x),f(x)$在$[a,b]$上连续,则初值问题
+\begin{equation}
+\begin{cases}
+y''+p(x)+q(x)y=f(x),\\
+y(x_0)=y_0,\,\,y'(x_0)=y_1
+\end{cases}
+\end{equation}
+在区间$[a,b]$内存在唯一解$y(x)$.可以推广到一般$n$阶线性微分方程解的唯一性.
+\jg
+
+\defination[线性相关性]
+设$m$个函数$\varphi_1(x),\varphi_2(x),\cdots,\varphi_m(x)$在区间$[a,b]$上有定义,若存在$m$个不全为0的常数$k_1,k_2,\cdots,k_m$,使
+\begin{equation}
+k_1\varphi_1(x)+k_2\varphi_2(x)+\cdots+k_m\varphi_m(x)\equiv 0,\quad x\in[a,b]
+\end{equation}
+则称函数组$\varphi_1(x),\varphi_2(x),\cdots,\varphi_m(x)$在区间$[a,b]$上线性相关,否则称函数组$\varphi_1(x),\varphi_2(x),\cdots,\varphi_m(x)$在区间$[a,b]$上线性无关.
+\jg
+\newpage
+\theorem[二阶线性齐次方程解的性质]
+若$y_1(x),y_2(x)$是二阶线性齐次方程的两个通解,则它们的任意一个线性组合($C_1,C_2$为任意常数)
+\begin{equation}
+C_1y_1(x)\pm C_2y_2(x)
+\end{equation}
+也是这个二阶线性齐次方程的解.
+
+
+\theorem[二阶线性齐次方程通解的线性相关性]
+设$\varphi_1(x),\varphi_2(x),\,\, x\in(a,b)$是二阶线性齐次方程的两个解.则$\varphi_1(x),\varphi_2(x)$在$(a,b)$上线性相关的充要条件是:它们确定的朗斯基行列式
+\begin{equation}
+W(x)=
+\left| 
+\begin{array}{cc}
+\varphi_1(x) & \varphi_2(x)\\
+\varphi'_1(x) & \varphi'_2(x)
+\end{array}
+\right| 
+\equiv 0
+\quad 
+x \in (a,b)
+\end{equation}
+当$W(x)\not \equiv 0$时,$\varphi_1(x),\varphi_2(x)$在$(a,b)$上线性无关.
+\jg
+
+\theorem[二阶线性齐次方程通解的结构]
+若$\varphi_1(x),\varphi_2(x)$是二阶线性齐次方程的两个线性无关解,则它们的任意一个线性组合($C_1,C_2$为任意常数)
+\begin{equation}
+C_1\varphi_1(x)+C_2\varphi_2(x)
+\end{equation}
+也是这个二阶线性齐次方程的通解.
+\jg
+
+\theorem[$n$阶线性齐次方程通解的结构]
+若$\varphi_1(x),\varphi_2(x),\cdots,\varphi_n(x)$是$n$阶线性齐次方程
+$$
+y^{(n)}(x)+p_1(x)\,y^{n-1}(x)+\cdots+p_{n_1}\,y'(x)+p_n(x)\,y(x)=f(x) 
+$$
+的$n$个线性无关解,则它们的任意一个线性组合
+\begin{equation}
+C_1\varphi_1(x)+C_2\varphi_2(x)+\cdots+C_n\varphi_n(x)
+\end{equation}
+是这个$n$阶线性齐次方程的通解,其中$C_1,C_2,\cdots,C_n$为任意常数.
+\jg
+\jg
+
+\subsection{二阶线性非齐次微分方程}
+\ttheorem[二阶线性非齐次方程通解的结构]
+若$y^*(x)$是二阶线性非齐次方程的一个特解,又$C_1\varphi_1(x)+C_2\varphi_2(x)$是对应的二阶线性齐次方程的通解($C_1,C_2$为任意常数),则
+\begin{equation}
+y(x)=C_1\varphi_1(x)+C_2\varphi_2(x)+y^*(x)
+\end{equation}
+是这个二阶线性非齐次方程的通解.
+\jg
+\newpage
+\theorem[二阶线性非齐次方程解的性质1]
+若$y_1(x),y_2(x)$是二阶线性非齐次方程的两个特解,则
+\begin{equation*}
+y_1(x)+y_2(x)
+\end{equation*}
+是这个二阶线性非齐次方程的解,而
+\begin{equation*}
+y_1(x)-y_2(x)
+\end{equation*}
+是这个二阶线性非齐次方程对应的二阶线性齐次方程的解.
+\jg
+
+\theorem[二阶线性非齐次方程解的性质2]
+若$y_1(x),y_2(x)$分别是二阶线性非齐次方程
+\begin{equation*}
+\begin{split}
+y''+py'+q=f_1(x)\\
+y''+py'+q=f_2(x)
+\end{split}
+\end{equation*}
+的解,则函数$y(x)=y_1(x)+y_2(x)$是二阶线性非齐次方程
+\begin{equation}
+y''+py'+q=f_1(x)+f_2(x)
+\end{equation}
+的解.
+\par 也就是说求方程$y''+py'+q=f_1(x)+f_2(x)$的特解可以先分别求出
+\begin{equation*}
+\begin{split}
+y''+py'+q=f_1(x)\\
+y''+py'+q=f_2(x)
+\end{split}
+\end{equation*}
+的特解$y_1(x),y_2(x)$再相加.
+
+\section{二阶线性常系数微分方程}
+\subsection{二阶线性常系数齐次微分方程}
+\tdefination[特征根与与特征方程]
+考虑方程
+\begin{equation}
+y''+py'+qy=0
+\end{equation}
+其中,$p,q$是常数.考虑这个方程解的形式为
+\begin{equation*}
+y=\e^{\lambda x}
+\end{equation*}
+代入原方程,消去$\e^{\lambda x}$则得到特征方程
+\begin{equation}
+\lambda^2+p\lambda+q=0
+\end{equation}
+特征方程的根
+\begin{equation}
+\lambda=\frac{1}{2}(-p\pm\sqrt{p^2-4q})
+\end{equation}
+称为特征根.
+\jg
+\newpage
+
+\theorem[二阶线性常系数齐次微分方程的通解]
+\begin{table}[!htb]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\setlength{\tabcolsep}{20mm}{
+		\begin{tabular}{cc}
+			\toprule[1.5pt] 
+			\rowcolor[gray]{0.9}   特征根 &  通解形式 \\  
+			\midrule
+			两相异实根$\lambda_1,\lambda_2$& $\displaystyle C_1\e^{\lambda _1x}+C_2\e^{\lambda _2x}$\\
+			二重根$\lambda_1$ & $\displaystyle (C_1+C_2x)\e^{\lambda _1x}$ \\
+			共轭复根$\lambda_{1,2}=\alpha \pm \beta \rm{i}$& $\displaystyle \e^{\alpha x}(C_1\cos \beta x+C_2\sin \beta x)$ \\
+			\bottomrule[1.5pt]
+		\end{tabular}  
+	}
+	\caption{二阶线性常系数齐次微分方程的通解}
+	\renewcommand{\arraystretch}{1}
+	\label{二阶线性常系数齐次微分方程的通解}
+\end{table} 
+
+\theorem[$n$阶线性常系数齐次微分方程的通解]
+对于$n$阶线性齐次常系数微分方程
+\begin{equation}
+y^{(n)}+a_1y^{(n-1)}+a_2y^{(n-2)}+\cdots+a_{n-1}y'+a_ny=0
+\end{equation}
+对应的特征方程为
+\begin{equation}
+\lambda^n+a_1\lambda^{n-1}+a_2\lambda^{n-2}+\cdots +a_{n-1}\lambda +a_n=0
+\end{equation}
+每个特征根所对应的线性无关的特解如下表\ref{n阶线性常系数齐次微分方程的通解}.
+\begin{table}[!htb]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\setlength{\tabcolsep}{15mm}{
+		\begin{tabular}{cc}
+			\toprule[1.5pt] 
+			\rowcolor[gray]{0.9} 特征根 &  对应的线性无关的特解 \\  
+			\midrule
+			单实根$\lambda$& $\displaystyle e^{\lambda x}$\\
+			$k$重实根$\lambda(k>1)$ & $\displaystyle e^{\lambda x},xe^{\lambda x},\cdot ,x^{k-1}e^{\lambda x}$ \\
+			单共轭复根$\lambda_{1,2}=\alpha \pm \beta \rm{i}$& $\displaystyle \e^{\alpha x}\cos \beta x,\e^{\alpha x}\sin \beta x$ \\
+			\makecell[c]{$m$重共轭复根$(m>1)$\\$\lambda_{1,2}=\alpha \pm \beta \rm{i}$}& \makecell[c]{$\displaystyle \e^{\alpha x}\cos \beta x,\e^{\alpha x}\sin \beta x,x\e^{\alpha x}\cos \beta x,x\e^{\alpha x}\sin \beta x,\cdots$,\\$x^m\e^{\alpha x}\cos \beta x,x^m\e^{\alpha x}\sin \beta x$}\\
+			\bottomrule[1.5pt]
+		\end{tabular}  
+	}
+	\caption{$n$阶线性常系数齐次微分方程的通解}
+	\renewcommand{\arraystretch}{1}
+	\label{n阶线性常系数齐次微分方程的通解}
+\end{table} 
+\par 由下表\ref{n阶线性常系数齐次微分方程的通解}可得到相应的$n$个线性无关的特解.然后作它们的线性组合,即可得到$n$阶线性齐次常系数微分方程的通解.
+
+\subsection{二阶线性常系数非齐次微分方程}
+\begin{table}[!htb]
+	\centering
+	\renewcommand{\arraystretch}{1}
+	\setlength{\tabcolsep}{9mm}{
+		\begin{tabular}{ccc}
+			\toprule[1.5pt] 
+			\rowcolor[gray]{0.9}  $f(x)$的形式& 条件 &  特解的形式 \\  
+			\midrule
+			\multirow{3}{*}{$P_n(x)$} & 0不是特征根& $Q_n(x)$\\
+			& 0是单特征根 &$xQ_n(x)$ \\
+			& 0是重特征根& $x^2Q_n(x)$\\
+			\midrule
+			\multirow{3}{*}{$a\e^{\alpha x} $} & $\alpha $不是特征根& $A\e^{\alpha x} $\\
+			& $\alpha $是单特征根 &$Ax\e^{\alpha x} $ \\
+			& $\alpha $是重特征根& $Ax^2\e^{\alpha x} $\\
+			\midrule
+			\multirow{2}{*}{$a\cos \beta x+b\sin \beta x$} & $\pm \beta \rm{i}$不是特征根 &$A\cos \beta x+B\sin \beta x$ \\
+			& $\pm \beta \rm{i}$是特征根 &$x(A\cos \beta x+B\sin \beta x)$ \\
+			\midrule
+			\multirow{3}{*}{$P_n(x)\e^{\alpha x}$} & $\alpha $不是特征根& $Q_n(x)\e^{\alpha x} $\\
+			& $\alpha $是单特征根 &$xQ_n(x)\e^{\alpha x} $ \\
+			& $\alpha $是重特征根& $x^2Q_n(x)\e^{\alpha x} $\\
+			\midrule
+			\multirow{2}{*}{\makecell[c]{$P_n(x)\e^{\alpha x}(a\cos \beta x+b\sin \beta x)$\\$\beta \ne 0$}} & $\alpha \pm \beta \rm{i}$不是特征根 &$\e^{\alpha x }[Q_n\cos \beta x+R_n\sin \beta x]$ \\
+			& $\alpha \pm \beta \rm{i}$是特征根 &$x\e^{\alpha x }[Q_n\cos \beta x+R_n\sin \beta x]$ \\
+			\bottomrule[1.5pt]
+		\end{tabular}  
+	}
+	\caption{多种特殊线性常系数非齐次微分方程的特解}
+	\renewcommand{\arraystretch}{1}
+	\label{多种特殊线性常系数非齐次微分方程的特解}
+\end{table} 
+
+\tdefination[二阶线性常系数非齐次微分方程]
+方程
+\begin{equation}
+y''+py'+qy=f(x)
+\end{equation}
+其中,$p,q$为常数,$f(x)\not \equiv 0$.
+\jg
+
+\theorem[多种特殊线性常系数非齐次微分方程的特解]
+$f(x)$满足一定特殊条件的情况下,可以求得特解如上页表\ref{多种特殊线性常系数非齐次微分方程的特解}.其中$P_n,Q_n,R_n$是$n$次多项式.可以用待定系数法代定系数然后反代回原线性常系数非齐次微分方程通过比对系数可以求出所有参数.
+\par 常系数非齐次微分方程的通解就等于其对应的常系数齐次微分方程的通解加上常系数非齐次微分方程的一个特解.
+\jg
+
+\inference[常数变易法求二阶线性常系数非齐次微分方程的通解]
+1. 求出相应二阶线性常系数齐次微分方程$y''+p(x)y'+q(x)y=f(x)$的两个线性无关的解$\varphi_1(x),\varphi_1(x)$,即齐次方程的通解为($C_1,C_2$为任意常数)
+\begin{equation}
+y^*(x)=C_1\varphi_1(x)+C_2\varphi_2(x)
+\end{equation}
+\par 2. 将上述的任意常数$C_1,C_2$替换为待定的函数$C_1(x),C_2(x)$,即
+\begin{equation}
+y(x)=C_1(x)\varphi_1(x)+C_2(x)\varphi_2(x)
+\label{常数变易法求二阶线性常系数非齐次微分方程的通解}
+\end{equation}
+\par 3. 解下列方程,求出待定的函数$C_1(x),C_2(x)$
+\begin{equation}
+\begin{cases}
+C'_1(x)\varphi_1(x)+C'_2(x)\varphi_2(x)=0\\
+C'_1(x)\varphi'_1(x)+C'_2(x)\varphi'_2(x)=f(x)
+\end{cases}
+\end{equation}
+\par 4. $C_1(x),C_2(x)$代入原式\eqref{常数变易法求二阶线性常系数非齐次微分方程的通解}即求出通解
+\begin{equation}
+y(x)=C_1(x)\varphi_1(x)+C_2(x)\varphi_2(x)
+\end{equation}
+\newpage
+
+\example[欧拉方程]
+形如
+\begin{equation}
+a_0x^ny^{(n)}+a_1x^{n-1}y^{(n-1)}+\cdots +a_{n-1}xy'+a_n=9
+\end{equation}
+的方程称为欧拉方程.
+\par 解法：当$x>0$时,令$\displaystyle x=\e^{t}$ ,当$x<0$时,令$\displaystyle x=-\e^{t}$ 即可化为线性常系数微分方程.
+\begin{equation}
+b_0\,\frac{\d^n y}{\d t^n}+b_1\,\frac{\d^{n-1} y}{\d t^{n-1}}+\cdots+b_{n-1}\,\frac{\d y}{\d t}+b_n=0
+\end{equation}
+注：由$\displaystyle x=\e^{t}$可得
+\begin{equation}
+\frac{\d^k y}{\d x^k}=\left(C_1\,\frac{\d y}{\d t}+C_2\frac{\d^2 y}{\d t^2}+\cdots+C_k\frac{\d^k y}{\d x^k} \right) \e^{-kt},\quad k=1,2,\cdots,n
+\end{equation}
+其中,$C_i(i=1,2,\cdots,k)$为常数.
+
+

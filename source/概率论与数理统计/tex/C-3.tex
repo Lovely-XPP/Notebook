@@ -1,0 +1,310 @@
+\chapter{随机向量}
+\section{随机向量的分布}
+\subsection{随机向量及其分布函数}
+\tdefination[随机向量]
+设$X_1,X_2,\cdots,X_n$是定义在概率空间$\Omega ,P$上的$n$个随机变量,则称$(X_1,X_2,\cdots,X_n)$是$(\Omega,P)$上的一个$n$维随机向量.\index{SJBL@随机变量}\index{NWSJBL@$n$维随机变量}
+
+\defination[联合分布函数]
+设$(X_1,X_2,\cdots,X_n)$是$(\Omega,P)$上的一个$n$维随机向量,则称$n$元函数
+\begin{equation}
+F(x_1,x_2,\cdots,x_n)=P\lbrace \, X_1 \le x_1,X_2 \le x_2,\cdots ,X_n \le x_n \, \rbrace
+\end{equation}
+为随机向量$(X_1,X_2,\cdots,X_n)$的分布函数或$n$个随机变量$X_1,X_2,\cdots,X_n$的联合分布函数\index{LHFBHS@联合分布函数}.\\
+其中$\lbrace \, X_1 \le x_1,X_2 \le x_2,\cdots ,X_n \le x_n \, \rbrace$表示$ X_1 \le x_1,X_2 \le x_2,\cdots ,X_n \le x_n $的交事件.\jg\\
+\dya[二维联合分布函数的性质]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $0\le F(x,y)\le 1$.
+	\item $F(x,y)$关于$x$和$y$均单调递增,且右连续.
+	\item 归零性和归一性\sj
+	\begin{equation*}
+	\begin{split}
+	&F(-\infty,y)=\lim\limits_{x\to -\infty } F(x,y)=0\\
+	&F(x,-\infty )=\lim\limits_{y \to -\infty }F(x,y)=0\\
+	&F(-\infty ,-\infty )=\lim\limits_{(x,y)\to (-\infty,-\infty)}F(x,y)=0\\
+	&F(+\infty,+\infty)=\lim\limits_{(x,y)\to(+\infty,+\infty)}F(x,y)=1
+	\end{split}
+	\end{equation*}
+\end{enumerate}
+
+\defination[边缘分布函数]
+随机向量中分量各自的概率分布称为边缘分布函数\index{BYFBHS@边缘分布函数},其表达式为
+\begin{equation}
+\begin{split}
+&F_X(x)=P \lbrace \,X \le x\, \rbrace=P\lbrace X \le x, Y <+ \infty \, \rbrace=F(x,+\infty )\\
+&F_Y(y)=P \lbrace \,Y \le y\, \rbrace=P\lbrace X < + \infty , Y \le  y \, \rbrace=F(+\infty,y )
+\end{split}
+\end{equation}
+
+\subsection{离散型随机向量的概率分布}
+\noindent \dy[离散型随机向量的概率分布]{LSXSJXLDGLFB}\jg
+\par 随机向量$(X,Y)$的概率分布($X$和$Y$的联合概率分布)为
+\begin{equation}
+P \lbrace\, X=x_i,Y=y_i \, \rbrace=p_{ij},\,\,i,j=1,2,\cdots
+\end{equation}
+\noindent \dya[离散型随机向量的概率分布的性质]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $\displaystyle p_{ij} = 0,\,\,i,j=1,2\cdots$
+	\item $\displaystyle \sum\limits_{i}\sum\limits_{j}p_{ij}=1$
+\end{enumerate}
+
+\subsection{连续型随机向量的概率密度函数}
+\noindent \dy[连续型随机向量的概率密度函数]{LXSSJBLDGLMDHS}\jg
+\par 若$(X,Y)$是二维连续型随机变量,$f(x,y)$为$(X,Y)$的概率密度函数($X$与$Y$的联合密度函数),必满足
+\begin{equation}
+F(x,y)=\int_{-\infty }^{x}\int_{-\infty }^{y}f(s,t)\,\,\d s\d t
+\end{equation}
+\noindent \dya[离散型随机向量的概率分布的性质]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $\displaystyle f(x,y)>0$\jg
+	\item $\displaystyle \int_{-\infty }^{+\infty}\int_{-\infty }^{+\infty }f(x,y)\,\,\d x\d y=1$\jg
+	\item 若$D$是平面上的一个区域,则
+	$$
+	P\lbrace \, (X,Y) \in D\, \rbrace=\iint\limits_{D}f(x,y)\,\,\d x\d y
+	$$
+\end{enumerate}
+
+\noindent \dy[边缘密度函数]{BYMDHS}
+\sj
+\begin{equation}
+\begin{split}
+&f_X(x)=\int_{-\infty}^{+\infty}f(x,y)\,\d y\\
+&f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)\,\d x
+\end{split}
+\end{equation}
+
+\example[二元正态分布]
+二元正态分布\index{EYZTFB@二元正态分布}的概率密度函数如下:
+\begin{equation}
+\varphi(x,y)=\frac{1}{2\pi \sigma_1\sigma_2\sqrt{1-\rho^2}}\,\e^{\displaystyle -\frac{1}{2(1-\rho^2)}\left[ \frac{(x-\mu_1)^2}{\sigma_1^2} -2\rho\frac{(x-\mu_1)(y-\mu_2)}{\sigma_1\sigma_2}+\frac{(y-\mu_2)^2}{\sigma_2^2} \right] }
+\end{equation}
+记做$(X,Y)\sim N(\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho)$
+
+\section{条件分布与随机变量的独立性}
+\subsection{条件分布与独立性的一般概念}
+\tdefination[条件分布与独立性的一般概念]
+我们记条件概率$P \lbrace \, X \le x|A\,\rbrace$为$F( x |A ),-\infty <x<+\infty $为在$A$发生的条件下$X$的条件分布函数\index{TJFBHS@条件分布函数}
+\begin{equation}
+F(X|Y\le y)=\frac{P\lbrace\,X \le x,Y \le y \rbrace}{P\lbrace\, Y \le y \, \rbrace}=\frac{F(x,y)}{F_Y(y)}
+\end{equation}
+若$F(x,y)=F_X(x)\cdot F_Y(y)$,则称随机变量$X$和$Y$相互独立\index{XHDL@相互独立}.\jg
+
+\subsection{离散型随机变量的条件概率分布与独立性}
+\tdefination[离散型随机变量的条件概率分布与独立性]
+已知$Y=y_i$的条件下$X$的条件概率分布为
+\begin{equation}
+P\lbrace\,X=x_i|Y=y_i\,\rbrace =\frac{P\lbrace\,X \le x,Y \le y \rbrace}{P\lbrace\, Y \le y \, \rbrace}=\frac{p_{ij}}{p_j^y}=p_{i|j},\,\,i=1,2,\cdots
+\end{equation}
+$X$与$Y$相互独立的充要条件是
+\begin{equation}
+p_{ij}=p_i^X\cdot p_j^Y,\,\,i,j=1,2,\cdots
+\end{equation}
+\jg
+
+\subsection{连续型随机变量的条件概率密度函数与独立性}
+\tdefination[连续型随机变量的条件概率密度函数与独立性]
+已知$Y=y$的条件下$X$的条件概率密度函数\index{TJGLMDHS@条件概率密度函数}记为$f_{X|Y}(x|y)$,由$\displaystyle F_{X|Y}(x|y)=\int_{-\infty}^{x}\frac{f(u,v)}{f_Y(y)}\,\,\d u$可知其表达式为
+\begin{equation}
+f_{X|Y}(x|y)=\frac{x,y}{f_Y(y)}
+\end{equation}
+进而可以得到密度函数的乘法公式
+\begin{equation}
+\begin{split}
+f(x,y)&=f_X(x)\cdot f_{Y|X}(x,y)\\
+&=f_Y(y)\cdot f_{X|Y}(x,y)
+\end{split}
+\end{equation}
+$X$与$Y$相互独立的充要条件是
+\begin{equation}
+f(x,y)=f_X(x)\cdot f_Y(y)
+\end{equation}
+
+\section{随机向量的函数的分布与数学期望}
+\dy[离散型随机向量的函数的分布]{LSXSJXLDHSFB}
+\par 设随机变量$Z=g(X,Y)$,则$Z$的概率分布为
+\begin{equation}
+F_Z(z)=P \lbrace \, Z = z_k \, \rbrace=P \lbrace \, g(X,Y) = z_k \, \rbrace = \sum\limits_{g(x_i,y_j)=z_k}P \lbrace \, X=x_i,Y=y_i\,\rbrace,\,\,k=1,2,\cdots
+\end{equation}
+
+\noindent \dy[连续型随机向量的函数的分布]{LXXSJXLDHSFB}
+\par 设随机变量$Z=g(X,Y)$,则$Z$的概率分布为
+\begin{equation}
+F_Z(z)=P \lbrace \, Z\le  z \, \rbrace=P \lbrace \, g(X,Y) \le  z \, \rbrace = P \lbrace \,(X,Y)\in D_z \rbrace = \iint\limits_{D_z}f(x,y)\,\,\d x\d y
+\end{equation}
+其中,$D_z= \lbrace \, (x,y) | g(x,y) \le z \, \rbrace$.特别地,如果$Z=X+Y$,且$X$和$Y$是相互独立的随机变量,则有
+\begin{equation}
+\begin{split}
+f_Z(z)&=\int_{- \infty }^{+\infty }f_X(x)\cdot f_Y(z-x)\,\,\d x\\
+&=\int_{- \infty }^{+\infty }f_X(z-y)\cdot f_Y(y)\,\,\d y
+\end{split}
+\end{equation}
+上式分别称为函数$f_X(x)$和$f_Y(y)$的卷积\index{JJ@卷积}.\jg
+
+\subsection{随机向量的函数的数学期望}
+\dy[二维离散型随机向量的数学期望]{EWLSXSJXLDSXQW}
+\par 设$(X,Y)$是二维离散型随机变量,所以其数学期望为
+\begin{equation}
+EZ=Eg(X,Y)=\sum\limits_{i,j}g(x_i,y_i)p_{ij}
+\end{equation}
+
+\noindent \dy[二维连续型随机向量的数学期望]{EWLXXSJXLDSXQW}
+\par 设$(X,Y)$是二维连续型随机变量,所以其数学期望为
+\begin{equation}
+EZ=Eg(X,Y)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)\,f(x,y)\,\,\d x \d y
+\end{equation}
+
+\noindent \dya[数学期望的性质]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $E(X+Y)=EX+EY$
+	\item $X,Y$为任意两个相互独立的随机变量,则$EXY=EX\cdot EY$
+\end{enumerate}
+
+\section{随机向量的数字特征}
+\subsection{协方差}
+\defination[协方差]
+随机变量$X$与$Y$的协方差\index{XFC@协方差}为
+\begin{equation}
+\begin{split}
+cov(X,Y)&=E[\,(X-EX)(Y-EY)\,]\\
+&=E(XY)-EX\cdot EY
+\end{split}
+\end{equation}
+
+\noindent \dya[协方差的性质]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $cov(X,X)=DX$.
+	\item $cov(X,Y)=cov(Y,X)$.
+	\item $cov(aX,bY)=ab\cdot cov(X,Y),a,b$为任意常数.
+	\item $cov(C,X)=0,C$为任意常数.
+	\item $cov(X_1+X_2Y)=cov(X_1,Y)+cov(X_2,Y)$.
+	\item $X,Y$为任意两个相互独立的随机变量,则$cov(X,Y)=0$.
+\end{enumerate}
+
+\theorem[方差与协方差]
+方差与协方差的关系为
+\begin{equation}
+D(X+Y)=D(X)+D(Y)+2cov(X,Y)
+\end{equation}
+特别地,如果$X$与$Y$相互独立,则
+\begin{equation}
+D(X+Y)=D(X)+D(Y)
+\end{equation}
+
+\subsection{协方差矩阵}
+参见课本$\rm{P}_{107}$\jg\jg
+
+\subsection{相关系数}
+\tdefination[相关系数]
+相关系数\index{XGXS@相关系数}是研究变量之间线性相关程度的量,用来度量两个变量间的线性关系,其数学表达式为
+\begin{equation}
+\rho_{X,Y}=\frac{cov(X,Y)}{\sqrt{DX}\cdot \sqrt{DY}},\,\,|\rho_{X,Y}|\le 1
+\end{equation}\jg
+\par $|\rho_{X,Y}|= 1$的充要条件是$X$与$Y$具有线性关系,即存在常数$a\ne 0$及常数$b$,使得$P\lbrace \, Y = ax+b \, \rbrace=1$.
+\par \quad \quad 当$a>0$时,$\rho_{X,Y}= 1$.
+\par \quad \quad 当$a<0$时,$\rho_{X,Y}= -1$.\jg\jg
+\par $\rho_{X,Y}= 0$表明$X$与$Y$之间不存在线性联系,$X$与$Y$不相关等价下列的任何一个条件:
+\par \quad \quad 1.  $cov(X,Y)=0.$
+\par \quad \quad 2.  $E(XY)=EX\cdot EY$.
+\par \quad \quad 3.  $D(X+Y)=DX+DY.$\jg\jg
+
+\subsection{条件数学期望}
+\dy[离散性随机变量的条件数学期望]{LSXSJBLDSXQW}
+\par 设$(X,Y)$为离散性随机变量,则$X$在$Y=y_i$条件下的条件数学期望\index{TJSXQW@条件数学期望}记为$E[\, X|Y=y_i \,]$,其表达式为
+\begin{equation}
+E[\, X|Y=y_i \,]=\sum\limits_{i}|x_i|\,p_{i|j}
+\end{equation}\jg
+
+\noindent \dy[连续性随机变量的条件数学期望]{LXXSJBLDSXQW}
+\par 设$(X,Y)$为连续性随机变量,则$X$在$Y=y_i$条件下的条件数学期望\index{TJSXQW@条件数学期望}记为$E[\, X|Y=y_i \,]$,其表达式为
+\begin{equation}
+E[\, X|Y=y_i \,]=\int_{- \infty }^{+\infty }x\,f_{X|Y}(x|y)\,\d x
+\end{equation}
+
+\noindent \dya[条件数学期望的性质]\jg
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $E[C|Y]=C,C$为任意常数.
+	\item $E[(k_1X_1+k_2X_2)|Y]=k_1E[X_1|Y]+k_2E[X_2|Y],k_1,k_2$是常数.
+	\item $X,Y$为任意两个相互独立的随机变量,则$E[X|Y]=EX$.
+	\item $g(x)$是一个任意函数,则$E[g(Y)\cdot X|Y]=g(Y)E[X|Y]$,特别地,有$E[g(Y)|Y]=g(Y)$.
+	\item 全期望公式：$E(\,E[X|Y]\,)=EX$.
+\end{enumerate}
+
+\subsection{条件期望的预测含义}
+
+
+\section{大数定律与中心极限定理}
+\subsection{依概率收敛}
+\ttheorem[依概率收敛]
+设$X,X_1,X_2,\cdots,X_n,\cdots$是一列随机变量,如果对任意的$\varepsilon>0$,恒有
+\begin{equation}
+\lim\limits_{n \to \infty }\lbrace\,|X_n-X| >\varepsilon \, \rbrace=0
+\end{equation}
+则称$\lbrace X_n \rbrace$依概率收敛到$X$,记做$X_n\stackrel{P}{\longrightarrow}X$或$P-\lim\limits_{n \to \infty }X_n=X.$\jg\jg
+
+\subsection{大数定律}
+\ttheorem[伯努利大数定律]
+\index{BNLDSDL@伯努利大数定律}设$\mu_n$是$n$重伯努利试验中事件$A$的发生的次数,已知在每次试验中$A$发生的概率为$p(0<p<1)$,则对任意的$\varepsilon>0$都有
+\begin{equation}
+\lim\limits_{n \to \infty}P\left\lbrace \left| \frac{\mu_n}{n} - p\right|>\varepsilon \right\rbrace = 0 
+\end{equation}
+即
+\begin{equation*}
+\frac{\mu_n}{n}\stackrel{P}{\longrightarrow}p \huo P - \lim\limits_{n \to \infty } \frac{\mu_n}{n}=p
+\end{equation*}\jg
+
+\ttheorem[切比雪夫大数定律]
+\index{QBXFDSDL@切比雪夫大数定律}设$\xi_1,\xi_2,\cdots,\xi_n,\cdots$是一列两两不相关的随机变量,它们的数学期望$E\xi_i$和方差$D\xi_i$均存在,且方差有界,即存在常数$C$,使得$D\xi_i\le C(i=1,2,\cdots)$,则对任意的$\varepsilon>0$,有
+\begin{equation}
+\lim\limits_{n \to \infty }P\left\lbrace \, \frac{1}{n}\sum_{i=1}^{n}\xi_i-\frac{1}{n}\sum_{i=1}^{n}E\xi_i < \varepsilon\, \right\rbrace = 1
+\end{equation}\jg
+
+\ttheorem[辛钦大数定律]
+\index{XQDSDL@辛钦大数定律}设$\xi_1,\xi_2,\cdots,\xi_n,\cdots$是一列相互独立同分布的随机变量,且数学期望存在.记$E\xi_i=\mu$,则有
+\begin{equation}
+\lim\limits_{n \to \infty}P\left\lbrace \, \frac{1}{n}\sum_{i=1}^{n}\xi_i-\mu < \varepsilon\, \right\rbrace = 1
+\end{equation}
+
+\subsection{中心极限定律}
+\ttheorem[林德伯格-列维定律]
+\index{LDBGLWDL@林德伯格-列维定律}设$\xi_1,\xi_2,\cdots,\xi_n,\cdots$是一列相互独立同分布的随机变量,且$E\xi_i=\mu,D(\xi_i)=\sigma^2 >0,i=1,2,\cdots$,则有
+\begin{equation}
+\lim\limits_{n \to \infty }P\left\lbrace \,\frac{1}{\sqrt{n}\sigma}\left( \sum_{i=1}^{n}\xi_i-n\mu\right) \le x\,\right\rbrace =\frac{1}{\sqrt{2\pi}}\int_{-\infty }^{x}\,\e^{ -\frac{t^2}{2}} \,\d t
+\end{equation}
+或者写成
+\begin{equation}
+\frac{\displaystyle \sum_{i=1}^{n}\xi_i-n\mu}{\sqrt{n}\sigma} \sim N(0,1)
+\end{equation}
+
+\ttheorem[棣莫弗-拉普拉斯中心极限定理]
+\index{LMFLPLSZXJXDL@棣莫弗-拉普拉斯中心极限定理}设$X_n \sim b(n,p),0<p<1$,则
+\begin{equation}
+\lim\limits_{n \to \infty }P\left\lbrace \,\frac{x_n-np}{\sqrt{np(1-p)}}\le x\,\right\rbrace =\frac{1}{\sqrt{2\pi}}\int_{-\infty }^{x}\,\e^{-\frac{t^2}{2}} \,\d t
+\end{equation}
+或者写成
+\begin{equation}
+\frac{x_n-np}{\sqrt{np(1-p)}} \sim N(0,1)
+\end{equation}
+
+
+
+
+
+
+

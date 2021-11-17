@@ -1,0 +1,155 @@
+\chapter{热力学第二定律}
+\thispagestyle{empty}
+\section{自然过程的方向}
+\thispagestyle{empty}
+各种自然的宏观过程都是不可逆的，而且它们的不可逆性又是相互沟通的。
+\par 三个实例\jg
+\margin{可逆的过程有：1.无摩擦的缓慢绝热压缩过程；2.传热：系统和外界温差为无限小的热传导（等温热传导）。}
+\margin{不可逆的过程有：1.有摩擦的缓慢绝热压缩过程 ；2.快速绝热压缩过程；3.系统和外界温差为有限大小的热传导}
+\par \dy[功热转换]{GRZH}  热自动地转变为为功的过程是不可能发生的。即通过摩擦而使功变热的过程是不可逆转的。也可表述为：不引起其他任何变化，因而唯一效果是一定量的内能（热）全部转变成了机械能（功）的过程是不可能发生的。所以，自然界里的功热转换过程具有方向性。\jg
+\par \dy[热传导]{RCD} 两个温度不同的物体相互接触，热量总是自动地由高温物体传向低温物体。热量由高温物体传向低温物体的过程也是不可逆的。\jg
+\par \dya[气体的绝热自由膨胀] 气体向真空中绝热自由膨胀的过程是不可逆的。
+
+\section{热力学第二定律的宏观表述}
+\dy[热力学第二定律]{RLXDEDL} 自然宏观过程进行的方向的规律.\jg
+\margin{第一类永动机：不需要能量输入而能继续工作的机器；第二类永动机：有能量输入但只利用一个恒温热源工作的机器（单热源热机）。}
+\par \dya[克劳休斯表述] 热量不能自动地由低温物体传向高温物体.\jg
+\par \dya[开尔文表述] 其唯一效果是热全部转变为功的过程是不可能的（第二类永动机不可能造成）.\jg
+\par \dya[微观意义] 自然过程总是沿着使分子运动更加无序的方向进行。这是一条关于大量分子集体行为的统计规律。
+
+\section{热力学第二定律的微观表述}
+\dy[玻尔兹曼的微观—宏观关系]{BEZMDWGHGGX} 从微观上来看，对于一个系统状态的宏观表述是非常不完善的，系统的同一个宏观状态可能对应于非常多的微观状态，而这些微观状态是粗略的宏观描述所不能加以区别的。\jg
+\par \dy[热力学概率]{RLXGL} 系统的任一宏观状态所对应的微观状态数称为该宏观状态的热力学概率，以$\Omega$表示。它是分子运动无序性的种量度.\jg
+\par \dya[基本统计假设] 对于孤立系，各个微观状态岀现的概率是相同的。由此推论得\jg
+\par \quad (1) 对孤立系，在一定条件下的平衡态对应于$Q$为最大的状态，即分子运动最无序的状态。对于实际的系统来说,$\Omega $的最大值实际上就等于该系统在给定条件下的所有微观状态总数。
+\par \quad (2) 系统在非平衡态(即$\Omega$不是最大值)时将自发地向平衡态过渡。
+\par \quad \quad 对于孤立系，自然过程总是向着增大的方向进行的最大值对应于平衡态。这是热力学第二定律的微观表述。
+
+\section{卡诺定理}
+\margin{\\\quad}
+\margin{\scriptsize{
+\begin{equation*}
+\eta = 1-\frac{T_2}{T_1}
+\end{equation*}}}
+\margin{\scriptsize{
+		\begin{equation*}
+		\eta'  \le \eta = 1-\frac{T_2}{T_1}
+		\end{equation*}}}
+\par \dy[卡诺定理]{KNDL}\jg
+\par \quad \quad 1. 在相同高温热源和低温热源之间工作的任意的可逆机都具有相同的效率。
+\par \quad \quad 2. 工作在相同的高温热源和低温热源之间的一切不可逆机的效率都不可能大于可逆机的效率。
+
+
+\section{玻尔兹曼公式与熵增加原理}
+\dy[玻尔兹曼熵公式]{BEZMSGS} 定义熵为
+\begin{equation}
+\eq[S=k\ln \Omega]
+\end{equation}
+此熵具有可加性，即对于有两个子系统的系统有
+\begin{equation*}
+S=S_1+S_2
+\end{equation*}
+\par 对于理想气体，有
+\begin{equation}
+S=R\ln V+C_{V,m}\ln T+S_0
+\end{equation}
+故$\Delta S$也可以表示为
+\begin{equation}
+\Delta S=S_2-S_1=R\ln \frac{V_2}{V_1}+C_{V,m}\ln \frac{T_2}{T_1}
+\end{equation}
+\par \dy[熵增加原理]{SZJYL} 由玻尔兹曼熵公式表示的$S$和$\Omega$关系可知，在孤立系中进行的自然过程总是沿着熵增大的方向进行，它是不可逆的，即
+\margin{熵增加原理是用熵概念表述的热力学第二定律.}
+\begin{equation*}
+\Delta S>0 \quad \mbox{（孤立系，自然过程）}
+\end{equation*}
+\par 熵增加原理是一条统计规律，只适用于大量分子组成的集体。孤立系的熵减小的过程不是原则上不可能，而是概率非常小，实际上不会发生。
+
+\section{克劳修斯熵公式}
+\margin{\\ \kg 可逆过程都是准静态过程，但是准静态过程不一定是可逆过程。}
+\dy[可逆过程]{KNGC} 一个过程进行时，如果使外界改变一无穷小的量，这个过程可以反向进行（其结果是系统和外界能同时回到初态）。这样的过程叫做可逆过程。这需要系统在过程中无内外摩擦并与外界进行等温热传导。\jg
+\par \dy[克劳修斯熵公式]{KLXSSGS} 一个系统进行一可逆过程时，
+\begin{equation}
+\eq[\d S = \frac{\d Q_R}{T}]
+\end{equation}
+和
+\margin{对于任意系统的绝热等熵过程，由于$\d Q= 0$，所以$\d S = 0$.因此，任何系统的可逆绝热过程都是等熵过程。}
+\begin{equation}
+\eq[\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}]
+\end{equation}
+
+\par \dy[克劳修斯不等式]{KLXSBDS} 对于任意系统的不可逆过程，
+\begin{equation*}
+\d S>\frac{\d Q}{T}
+\end{equation*}
+和
+\begin{equation*}
+S_2-S_1>\sideset{_{Ir}}{}{\int_{1}^{2}}\frac{\d Q}{T}
+\end{equation*}
+
+
+\section{解题要点}
+主要是利用克劳修斯煽公式积分求熵变。对具体题目的分析求解要注意以下几点:
+\par (1) 明确要计算其熵变的系统。它可以是一个特定的系统,也可能是包括所有参与变化的几个系统组成的``孤立系统"。\jg
+\par (2) 要明确过程的初态和末态。用克劳修斯嫡公式求熵变时，初末态都应是平衡态。
+\par (3) 要明用来计算熵变的过程必须是可逆过程。遇到实际的过程不可逆时，也要选一个可逆过程。对初末态温度相同的过程，可以选一个连接初末态的等温过程进行计算。如果初末态温度不同，则必须用克修斯熵公式原形进行积分运算，这时$\d Q$可用$\d E+pV$.
+
+\section{常见等值可逆过程的熵变计算}
+\dya[等体可逆过程的熵变]
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\int_{T_1}^{T_2}\frac{\nu C_{V,m}\d T}{T}=\nu C_{V,m}\ln{\frac{T_2}{T_1}}=\nu C_{V,m}\ln{\frac{p_2}{p_1}}
+\end{equation*}
+
+\par \dya[等压可逆过程的熵变]
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\int_{T_1}^{T_2}\frac{\nu C_{p,m}\d T}{T}=\nu C_{p,m}\ln{\frac{T_2}{T_1}}=\nu C_{p,m}\ln{\frac{V_2}{V_1}}
+\end{equation*}
+
+\par \dya[等温可逆过程的熵变]
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\frac{1}{T}\int_{0}^{Q}\frac{\d Q}{T}=\frac{Q}{T}=\nu R \ln{\frac{V_2}{V_1}}=\nu R \ln{\frac{p_2}{p_1}}
+\end{equation*}
+
+\par \dya[绝热可逆过程的熵变]
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=0 \quad  \Longleftrightarrow \quad \Delta S =0
+\end{equation*}
+
+\section{不可逆过程熵的计算}
+\dya[绝热自由膨胀] 绝热容器中的理想气体是一孤立系统，气体的体积由$V_1$膨胀到$V_2$,而始末温度相同，设都是$T_0$，故可以设计一个可逆等温膨胀过程，使气体与温度也是$T_0$的一恒温热库接触吸热而体积由$V_1$缓慢膨胀到$V_2$，
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\frac{1}{T}\int_{0}^{Q}\frac{\d Q}{T}=\frac{Q}{T}=\nu R \ln{\frac{V_2}{V_1}}
+\end{equation*}
+
+\margin{\\\\ $m$\quad 物质的质量}
+\margin{\\ $l$\quad 物质的汽化热(J/kg)}
+\dya[气液相变] 
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\frac{1}{T}\int_{0}^{Q}\frac{\d Q}{T}=\pm \frac{lm}{T}
+\end{equation*}
+
+\margin{\\\\\\ $\lambda $\quad 物质的融化热(J/kg)}
+\dya[固液相变] 
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\frac{1}{T}\int_{0}^{Q}\frac{\d Q}{T}=\pm \frac{\lambda m}{T}
+\end{equation*}
+
+\margin{\\\\\\ $c$\quad 物质的比热 $(\text{J}/\text{kg} \cdot \text{K})$}
+\dya[同相温变] 
+\begin{equation*}
+\Delta S=S_2-S_1=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\int_{T_1}^{T_2}\frac{ cm\d T}{T}=cm\ln{\frac{T_2}{T_1}}
+\end{equation*}
+
+\margin{\\\\\\ $\nu$\quad 物质的摩尔数 \\ $C_{V,m}$  \quad 摩尔定体热容\\$R$\quad 普适气体常量 }
+\dya[气体熵变（任意过程）]
+\begin{equation*}
+\begin{split}
+\Delta S=S_2-S_1&=\sideset{_R}{}{\int_{1}^{2}}\frac{\d Q}{T}=\nu \sideset{_R}{}{\int_{1}^{2}}\frac{\d E + p\d V}{T}\\
+&=\nu \int_{1}^{2}\frac{C_{V,m}\d T+ p\d V}{T}=\nu \int_{1}^{2}\frac{C_{V,m}\d T}{T}+\nu \int_{1}^{2}\frac{RT}{V}\cdot \frac{\d V}{T}\\
+&=\nu \, C_{V,m} \int_{1}^{2}\frac{\d T}{T} + \nu R \int_{1}^{2}\frac{\d V}{V}\\
+&=\nu \left(C_{V,m} \ln{\frac{T_2}{T_1}} +R \ln{\frac{V_2}{V_1}} \right) 
+\end{split}
+\end{equation*}
+
+
+
+

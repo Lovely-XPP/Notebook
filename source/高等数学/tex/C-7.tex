@@ -1,0 +1,257 @@
+\chapter{重积分}
+\section{二重积分}
+\subsection{二重积分的定义}
+\thispagestyle{empty}
+
+\tdefination[二重积分的定义]
+设$z=f(x,y)$是定义在平面上的有界闭区域$D$上的函数，若对$D$的任意分割$\{D_1,D_2,\cdots,D_n\}$及任意选择的$(x_i,y_i) \in D_i (i=1,2,\cdots,n)$，当$\lambda \rightarrow 0$时，极限
+\begin{equation}
+\lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} f(x_i,y_i)\,\Delta \sigma_i
+\footnote{$\lambda$表示$n$个区域$D_i$其中的最大直径，$\Delta \sigma_i$表示$D_i$的最大面积.}
+\end{equation}
+
+总存在，则这个极限称为$f(x,y)$在$D$上的二重积分，记做
+\begin{equation}
+\iint\limits_{D}f(x,y) \, \, \d \sigma \huo  \iint\limits_{D}f(x,y) \, \, \d x \d y
+\end{equation}
+
+\par 其中，$D$称作积分区域，而$f(x,y)$称作被积函数，$\d\sigma$称为面积元素.
+
+\subsection{二重积分的性质}\label{二重积分的性质}
+
+\ttheorem[二重积分的三个基本性质]
+\vspace*{-1.5em}
+\begin{enumerate}
+	\setlength{\itemindent}{1em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	
+	\item 常数因子可以提取：($k$为常数)
+	\begin{equation}
+	\iint\limits_{D}kf(x,y) \, \, \d \sigma =k\iint\limits_{D}f(x,y) \, \, \d \sigma 
+	\end{equation}
+	\eqsj
+	\item 被积函数的可拆可合性：
+	\begin{equation}
+	\iint\limits_{D}\left[ f(x,y)\pm g(x,y)\right]  \, \, \d \sigma =\iint\limits_{D}f(x,y) \, \, \d \sigma \pm \iint\limits_{D}g(x,y) \, \, \d \sigma
+	\end{equation}
+	\eqsj
+	\item 积分区域的可拆可合性：(设$D \rightarrow D_1+D_2$)
+	\begin{equation}
+	\iint\limits_{D}f(x,y) \, \, \d \sigma =\iint\limits_{D_1}f(x,y) \, \, \d \sigma + \iint\limits_{D_2}f(x,y) \, \, \d \sigma 
+	\end{equation}
+\end{enumerate}
+
+\theorem[积分的保号性]
+若函数$f$及$g$在$D$上满足不等式
+\[
+f(x,y) \le g(x,y), \quad \forall (x,y) \in D 
+\]
+则
+\begin{equation}
+\iint\limits_{D}f(x,y) \, \, \d \sigma \le \iint\limits_{D}g(x,y) \, \, \d \sigma
+\label{积分的保号性}
+\end{equation}
+\par 特别地，由于$-|f(x,y)| \le f(x,y) \le |f(x,y)|$，带入式\eqref{积分的保号性}，得到
+\begin{equation}
+\left| \iint\limits_{D}f(x,y) \, \, \d \sigma \right|  \le \iint\limits_{D}|f(x,y)| \, \, \d \sigma
+\end{equation}
+
+\theorem[积分中值定理]
+若函数$f(x,y)$在有界闭区域$D$上连续，则在$D$上至少存在一点$(x_0,y_0)$，使
+\begin{equation}
+\iint\limits_{D}f(x,y) \, \, \d \sigma=f(x_0,y_0) \cdot S
+\end{equation}
+\par 其中$S$为区域$D$的面积.
+
+\subsection{二重积分的计算}
+
+\ttheorem[$X$型积分与$Y$型积分]
+对于不同的积分区域主要可以划分为两种：$X$型积分与$Y$型积分
+\begin{equation}
+\begin{split}
+\iint\limits_{D}f(x,y)\,\, \d x \d y &= \int_{a}^{b}\left[ \int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)\,\, \d x\right] \d y \\
+&= \int_{a}^{b}\left[ \int_{\varphi_1(y)}^{\varphi_2(y)}f(x,y)\,\, \d y\right] \d x 
+\end{split}
+\end{equation}
+
+\ttheorem[极坐标变换]
+设$x,y$的极坐标方程为
+$
+\begin{cases}
+x = r \cos \theta,\\
+y = r\sin \theta . \\
+\end{cases}
+$
+则
+\begin{equation}
+\iint\limits_{D}f(x,y)\,\, \d x \d y= \int_{\alpha}^{\beta }\d \theta \int_{r_1(\theta)}^{r_2(\theta)}f(r \cos \theta , r \sin \theta )r\,\,\d r
+\end{equation}
+
+\ttheorem[广义极坐标变换]
+设$x,y$的极坐标方程为
+$
+\begin{cases}
+x = ar \cos \theta,\\
+y = br\sin \theta . \\
+\end{cases}
+$
+则
+\begin{equation}
+\iint\limits_{D}f(x,y)\,\, \d x \d y= \int_{\alpha}^{\beta }\d \theta \int_{r_1(\theta)}^{r_2(\theta)}f(ar \cos \theta , br \sin \theta )abr\,\,\d r
+\end{equation}
+
+\ttheorem[一般变换]
+设$x,y$满足
+$
+\begin{cases}
+x = x(\xi,\eta),\\
+y = y(\xi,\eta). \\
+\end{cases}
+$
+则
+\begin{equation}
+\iint\limits_{D}f(x,y)\,\, \d x \d y= \iint\limits_{D‘}f[x(\xi,\eta),y(\xi,\eta)]\,|J|\, \d \xi \d \eta
+\end{equation}
+其中$J$是变换的雅克比行列式，即
+\renewcommand{\arraystretch}{1.5}
+\begin{equation*}
+|J|=\frac{D(x,y)}{D(\xi,\eta)}=
+\left| 
+\begin{array}{cc}
+\displaystyle \frac{\partial x}{\partial \xi} & \displaystyle \frac{\partial y}{\partial \xi} \\
+\displaystyle \frac{\partial x}{\partial \eta} & \displaystyle \frac{\partial y}{\partial \eta} 
+\end{array}
+\right| 
+\end{equation*}
+\renewcommand{\arraystretch}{1}
+
+\subsection{二重积分的几何应用}
+\sj
+\example[求隐函数的平面面积]
+由二重积分的定义，记隐函数所围成的封闭曲面的面积为$S_D$，那么可以得到
+\begin{equation}
+\iint\limits_{D} \, \, \d \sigma=\iint\limits_{D}\, \, \d x \d y=S_D
+\end{equation}
+
+\example[求空间曲面的面积]
+若$S$由参数方程
+$
+\begin{cases}
+x = x(u,v),\\
+y = y(u,v),\\
+z= z(u,v).
+\end{cases}
+$
+确定，记
+$
+\begin{cases}
+E = x_u^2 + y_u^2 +z_u^2,\\
+F = x_ux_v + y_uy_v + z_uz_v,\\
+G = x_v^2 + y_v^2 +z_v^2.
+\end{cases}
+$
+则
+\begin{equation}
+S=\iint\limits_{D'} \sqrt{EG-F^2}\, \, \d \sigma
+\end{equation}
+
+\section{三重积分}
+\subsection{三重积分的定义}
+
+\tdefination[三重积分的定义]
+设三元函数$f(x,y,z)$是定义在光滑曲面所围成的空间区域$\Omega$上，若对$\Omega$的任意分割$\{\Omega_1,\Omega_2,\cdots,\Omega_n\}$及任意选择的$(x_i,y_i,z_i) \in \Omega_i (i=1,2,\cdots,n)$，当$\lambda \rightarrow 0$时，极限
+\begin{equation}
+\lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} f(x_i,y_i,z_i)\,\Delta V_i
+\footnote[1]{$\lambda$表示$n$个区域$\Omega_i$其中的最大直径，$\Delta V_i$表示$\Omega_i$的最大体积.}
+\end{equation}
+
+总存在，则这个极限称为$f(x,y)$在$D$上的三重积分，记做
+\begin{equation}
+\iiint\limits_{\Omega}f(x,y,z) \, \, \d V \huo  \iiint\limits_{\Omega}f(x,y,z) \, \, \d x \d y \d z
+\end{equation}
+
+\par 其中，$\Omega$称作积分区域，而$f(x,y,z)$称作被积函数，$\d V$称为体积元素.
+
+\subsection{三重积分的性质}
+三重积分的基本性质和二重积分完全类似。具体请参见\ref{二重积分的性质}.
+
+
+\subsection{三重积分的计算}
+
+\ttheorem[投影法]
+投影法可以认为是平行于$z$轴的线在投影区域内运动，连续地切割立体得到得到一条条立体内的线段$z_1(x,y) \rightarrow z_2(x,y)$，然后再把所有在投影区域内的所有线段进行积分，即
+\begin{equation}
+\iiint\limits_{\Omega} \,\d x \d y  \d z = \iint\limits_{D_{xOy}}\,\d x \d y \int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z) \,\d z
+\end{equation}
+
+\theorem[切片法]
+切片法可以认为是用平行于$xOy$的平面$z=z_0\in [a,b]$去截立体得到的截面$D_{z_0}$，求出$D_{z_0}$后再把一片片截面积分拼成一个立体，即
+\begin{equation}
+\iiint\limits_{\Omega} \,\d x \d y  \d z = \int_{a}^{b} \, \d z  \iint\limits_{D_{z}} f(x,y,z) \,\d x \d y
+\end{equation}
+
+
+\theorem[柱坐标变换]
+柱坐标变换
+$
+\begin{cases}
+x =r \cos \theta,\\
+y = r \sin \theta ,\\
+z = z.
+\end{cases}
+$
+下的三重积分计算公式为
+\begin{equation}
+\iiint\limits_{\Omega} \,\d x \d y  \d z = \iiint\limits_{\Omega'} f(r\cos\theta,r\sin\theta,z)\,r \,\,\d r \d \theta  \d z
+\end{equation}
+
+\ttheorem[球坐标变换]
+球坐标变换
+$
+\begin{cases}
+x =\rho \,\sin \varphi \cos \theta,\\
+y = \rho \,\sin \varphi \sin \theta ,\\
+z = \rho \,\cos \varphi .
+\end{cases}
+$
+下的三重积分计算公式为
+\begin{equation}
+\iiint\limits_{\Omega} \,\d x \d y  \d z = \iiint\limits_{\Omega'} f(\rho \,\sin \varphi \cos \theta,\rho \,\sin \varphi \sin \theta , \rho \,\cos \varphi)\, \rho^2 \sin \varphi \,\,\d \rho \d \varphi  \d \theta 
+\end{equation}
+
+\ttheorem[一般变换]
+设$x,y,z$满足
+$
+\begin{cases}
+x = x(u,v,w),\\
+y = y(u,v,w), \\
+z = z(u,v,w).
+\end{cases}
+$
+则
+\begin{equation}
+\iiint\limits_{\Omega }f(x,y,z)\,\, \d x \d y= \iiint\limits_{\Omega‘}f[x(u,v,w),y(u,v,w),z(u,v,w)]\,|J|\, \,\d u \d v \d w
+\end{equation}
+其中$J$是变换的雅克比行列式，即
+\renewcommand{\arraystretch}{1.5}
+\begin{equation*}
+|J|=\frac{D(x,y,z)}{D(u,v,w)}=
+\left| 
+\begin{array}{ccc}
+\displaystyle \frac{\partial x}{\partial u} & \displaystyle \frac{\partial y}{\partial u} & \displaystyle \frac{\partial z}{\partial u} \\
+\displaystyle \frac{\partial x}{\partial v} & \displaystyle \frac{\partial y}{\partial v} & \displaystyle \frac{\partial z}{\partial v} \\
+\displaystyle \frac{\partial x}{\partial w} & \displaystyle \frac{\partial y}{\partial w} & \displaystyle \frac{\partial z}{\partial w} 
+\end{array}
+\right| 
+\end{equation*}
+\renewcommand{\arraystretch}{1}
+
+
+\subsection{三重积分的几何应用}
+\sj
+\example[求立体的体积]
+由三重积分的定义，记隐函数围成的封闭立体的体积为$V$，那么可以得到
+\begin{equation}
+\iiint\limits_{\Omega} \, \, \d V=\iiint\limits_{\Omega}\, \, \d x \d y \d z=V
+\end{equation}

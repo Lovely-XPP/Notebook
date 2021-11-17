@@ -1,0 +1,370 @@
+\chapter{随机变量的分布与数字特征}
+\thispagestyle{empty}
+\section{随机变量及其分布}
+\subsection{随机变量的概念}
+\tdefination[随机变量]
+定义在概率空间$(\Omega,P)$上，取值为实数的函数$X=X(\omega)(\omega\in \Omega)$称为$(\Omega,P)$上的一个随机变量.\index{SJBL@随机变量}
+\jg
+\subsection{离散型随机变量的概率分布}
+\tdefination[离散型随机变量]
+设$X$是定义在概率空间$(\Omega,P)$上的一个随机变量，如果$X$的全部可能取值只有有限个或可数无穷个，则称$X$是一个离散型随机变量\index{LSXSJBL@离散型随机变量}.
+
+\defination[离散型随机变量的概率分布]
+设$X$是离散型随机变量，其全部可能取值为$\lbrace x_i,i=1,2,\cdots,\rbrace$，记$p(x_i )=P{X=x_i },i=1,2,\cdots$，则称$\lbrace p(x_i ),i=1,2,\cdots \rbrace$为$X$的概率分布.
+\index{GLFB@概率分布}.
+
+\subsection{分布函数}
+\tdefination[分布函数]
+设$X$是一随机变量，则称函数$F(x)=P\lbrace X\le x\rbrace,x\in (-\infty ,+\infty )$为随机变量$X$的分布函数\index{FBHS@分布函数}，记作$X\sim F(x)$.\jg
+
+\dya[分布函数的性质]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{4em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 单调性：若$x_1<x_2$，则$F(x_2)≤F(x_1)$.
+	\item 归零性与归一性
+	\begin{equation}
+	F(-\infty )=\lim\limits_{x \to -\infty }F(x)=0
+	\end{equation}
+		\begin{equation}
+	F(+\infty )=\lim\limits_{x \to +\infty }F(x)=1
+	\end{equation}
+	\item 右连续性
+	\begin{equation}
+	F(x+0)=F(x)
+	\end{equation}
+\end{enumerate}
+
+\subsection{离散型随机变量的分布函数}
+一般不同题不同，通常是离散的点.\jg
+
+\subsection{连续性随机变量及其概率密度}
+\tdefination[概率密度]
+一个随机变量X称为连续型随机变量，如果存在一个非负可积函数$f(x)$，使得$X$的分布函数
+\begin{equation}
+F(x)=P\lbrace\, X\le x \,\rbrace=\int_{-\infty}^{x}\, \d t
+\end{equation}
+称$f(x)$为$X$的概率密度函数\index{GLMDHS@概率密度函数}，简称密度函数\index{MDHS@密度函数}.\jg
+
+\dya[密度函数的性质]
+密度函数有以下两个性质：
+\begin{equation}
+f(x)\ge 0,x\in (-\infty,\infty)
+\end{equation}
+\begin{equation}
+\int_{-\infty}^{+\infty }f(x)\,\d x=1
+\end{equation}
+
+\section{随机变量的数字特征}
+\subsection{数学期望}
+\dy[离散型随机变量的数学期望]{LSXSJBLDSXQW}
+若离散型随机变量$X$的可能值为$x_i (i=1,2,\cdots)$，其概率分布为$P\lbrace X=x_i \rbrace =p_i,i=1,2,\cdots $，如果$\displaystyle \sum_{i=1}^{\infty }|x_i|\,p_i<\infty $，则称
+\begin{equation}
+ E(X)=\sum_{i=1}^{\infty }x_ip_i
+\end{equation} 
+为随机变量$X$的数学期望（简称期望），也称为$X$的均值，记作$EX$或$E(X)$.\jg\\
+\dy[连续型随机变量的数学期望]{LSXSJBLDSXQW2}
+若$X$为连续型随机变量，$f(x)$为其密度函数，如果$\displaystyle \int_{-\infty}^{+\infty }|x|\,f(x)\,\d x<\infty $，称
+\begin{equation}
+E(X)=\int_{-\infty}^{+\infty }xf(x)\,\d x
+\end{equation} 
+为随机变量$X$的数学期望（简称期望），也称为$X$的均值，记作$EX$或$E(X)$.\jg\\
+\dy[随机变量函数的数学期望]{SJBLHSDSXQW2}
+\sj
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+\item 若$X$为离散型随机变量，其概率分布为$P\lbrace X=x_i \rbrace =p_i,i=1,2,\cdots $，如果$\displaystyle \int_{-\infty}^{+\infty }|g(x_i)|\,f(x)\,\d x<\infty $时，则$Eg(x)$存在，且
+\begin{equation}
+Eg(x)=\sum_{i=1}^{\infty }g(x_i)p_i
+\end{equation} 
+\item 若$X$为连续型随机变量，$f(x)$为其密度函数，如果$\displaystyle \int_{-\infty}^{+\infty }|g(x)|\,f(x)\,\d x<\infty $，则$Eg(x)$存在，且
+\begin{equation}
+E(X)=\int_{-\infty}^{+\infty }g(x)f(x)\,\d x
+\end{equation} 
+\end{enumerate}
+
+\subsection{数学期望的性质}
+\begin{enumerate}
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 对任意常数$a$，有
+	\begin{equation}
+	Ea=a
+ 	\end{equation}
+	\item 设$\alpha_1,\alpha_2$为任意实数，$g_1 (x),g_2 (x)$为任意实函数，如果$Eg_1 (X),Eg_2 (X)$均存在，则
+	\begin{equation}
+	E[\,\alpha_1\,g_1(x)+\alpha_2\,g_2(x)\,]=\alpha_1Eg_1(x)+\alpha_2Eg_2(x)
+	\end{equation}
+	\item 如果$EX$存在，则对任意实数$a$，有
+	\begin{equation}
+	E(x+a)=EX+a
+	\end{equation}
+\end{enumerate}
+
+\subsection{方差}
+\dy[离散型随机变量的方差]{LSXSJBLDFC}
+若$X$为离散型随机变量，其概率分布为$P\lbrace X=x_i \rbrace =p_i,i=1,2,\cdots $，则
+\begin{equation}
+	DX=E(X-EX)^2=\sum\limits_{i}(x_i-EX)^2p_i
+\end{equation}
+\dy[连续型随机变量的方差]{LSXSJBLDFC}
+若$X$为连续型随机变量，$f(x)$为其密度函数，则
+\begin{equation}
+DX=E(X-EX)^2==\int_{-\infty}^{+\infty }(X-EX)^2f(x)\,\d x
+\end{equation}
+
+\subsection{方差的性质}
+\begin{enumerate}
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 对任意常数$a$，有
+	\begin{equation}
+	Da=0
+	\end{equation}
+	\item 对任意常数$a$，有
+	\begin{equation}
+	D(x+a)=DX
+	\end{equation}
+	\item 对任意常数$a$，有
+	\begin{equation}
+	D(aX)=a^2DX
+	\end{equation}
+	\item 可以用以下公式简化方差的计算
+	\begin{equation}
+	DX=EX^2-(EX)^2
+	\end{equation}
+\end{enumerate}
+
+\subsection{随机变量的矩与切比雪夫不等式}
+\tdefination[$k$阶原点矩]
+$X$为一随机变量，$k$为正整数，如果$EX^k$存在（即$E|X|^k<-\infty $），则称$E|X|^k$为$X$的$k$阶原点矩\index{KJYDJ@$k$阶原点矩}，称$E|X|^k$为$X$的$k$阶绝对矩\index{KJJDJ@$k$阶绝对矩}.\jg\\
+\tdefination[$k$阶原点矩]
+$X$为一随机变量，$k$为正整数，如果$EX^k$存在，则称$E\left( E-EX\right) ^k$为$X$的$k$阶中心矩\index{KJZXJ@$k$阶中心矩}，称$E\left| E-EX\right| ^k$为$X$的$k$阶绝对中心矩\index{KJJDZXJ@$k$阶绝对中心矩}.
+
+\theorem[马尔可夫不等式]
+设$X$的$k$阶矩存在（$k$为正整数），即$E|X|^k<\infty$，则对任意$\varepsilon>0$有
+\begin{equation}
+P \big\lbrace |X-EX|\ge \varepsilon \big\rbrace \le \frac{E|X|^k}{\varepsilon^k}
+\end{equation}
+
+\theorem[切比雪夫不等式]
+设$X$的方差存在，则对任意$\varepsilon>0$有
+\begin{equation}
+P\lbrace\, |X-EX|\ge \varepsilon \,\rbrace \le \frac{DX}{\varepsilon^k}
+\end{equation}
+
+\section{常用的离散型分布}
+\sj \sj
+\begin{table}[!htb]
+	\centering
+		\caption{常用的离散型分布及其数字特征}
+	\renewcommand{\arraystretch}{2.1}
+	\setlength{\tabcolsep}{3.5mm}{
+		\begin{tabular}{cccc}
+			\toprule[2pt] 
+			\rowcolor[gray]{0.3}  {\color{dy}分布类型}  & {\color{dy}分布律}  & {\color{dy}数学期望} & {\color{dy}方差} \\  
+			\midrule[1.3pt]
+			退化分布 \index{THFB@退化分布}
+			& $P\lbrace X = a\rbrace=1$
+			& $E(X)=a$
+			& $D(X)=0$\\
+			\hline 
+			两点分布 
+			& 
+			\makecell[c]{$P\lbrace X = x_1\rbrace=p$\\$P\lbrace X = x_2\rbrace=1-p$}
+			& $E(X)=px_1+(1-p)x_2$
+			& $D(X)=p(1-p)(x_1-x_2)^2$\\
+			\hline 
+			$(0-1)$分布 \index{01FB@$(0-1)$分布}
+			& 
+			\makecell[c]{$P\lbrace X = 1\rbrace=p$\\$P\lbrace X = 0\rbrace=1-p$}
+			& $E(X)=p$
+			& $D(X)=p(1-p)$\\
+			\hline
+			均匀分布 \index{JYFB@均匀分布}
+			& 
+			\makecell[c]{$\displaystyle P\lbrace X = x_i\rbrace=\frac{1}{n}$\\$i=1,2,\cdots,n$}
+			& $\displaystyle E(X)=\frac{1}{n} \sum_{i=1}^{n}x_i=\overline{x}$
+			& $\displaystyle D(X)=\frac{1}{n} \sum_{i=1}^{n}(x_i-\overline{x})^2$\\
+			\hline
+			\makecell[c]{二项分布$^1$\\$X\sim b(n,p)$}\index{EXFB@二项分布}
+			& 
+			\makecell[c]{$\displaystyle P\lbrace X = k\rbrace=C_n^k\,p^k(1-p)^{n-k}$\\$i=0,1,\cdots,n$}
+			& $\displaystyle E(X)=np$
+			& $\displaystyle D(X)=np(1-p)$\\
+			\hline
+			几何分布$^2$\index{JHFB@几何分布}
+			& 
+			\makecell[c]{$\displaystyle P\lbrace X = k\rbrace=q^{k-1}p,k\le 1$\\$q^kp\xlongequal{\text{def}}g(k,p)$ }
+			& $\displaystyle E(X)=\frac{1}{p}$
+			& $\displaystyle D(X)=\frac{p}{q^2}$\\
+			\hline
+			超几何分布\index{CJHFB@超几何分布}
+			& 
+			\makecell[c]{$\displaystyle P\lbrace X = k\rbrace=\frac{C_{N_1}^k\,C_{N_2}^{n-k}}{C_N^n}$\\$0 \le k\le n,N=N_1+N_2$ }
+			& $\displaystyle E(X)=n\cdot \frac{N_1}{N}$
+			& $\displaystyle D(X)=n\cdot \frac{N_1}{N}\cdot \frac{N_2}{N}\cdot\frac{N-n}{N-1}$\\
+			\hline
+			\makecell[c]{泊松分布\\$X\sim P(\lambda )$}\index{PSFB@泊松分布}
+			& 
+			\makecell[c]{$\displaystyle P\lbrace X = k\rbrace=\frac{\lambda^k }{k!}\e^{-\lambda }$\\$k=0,1,\cdots,\,\lambda >0$}
+			& $\displaystyle E(X)=\lambda$
+			& $\displaystyle D(X)=\lambda$\\
+			\bottomrule[2pt]
+		\end{tabular}
+	}
+\begin{tablenotes}
+	\footnotesize
+	\item[1] $^1$二项分布中$C_n^k\,p^k(1-p)^{n-k}\xlongequal{\text{def}}b(k;n,p)$
+	\item[2] $^2$几何分布的统计意义为:在独立重复试验中，事件$A$发生的概率为$p$，设$X$为直到$A$发生为止所进行的试验的次数.
+\end{tablenotes}
+	\renewcommand{\arraystretch}{1}
+	\label{常用的离散型分布及其数字特征}
+\end{table} 
+
+\theorem[泊松定理]
+\index{PSDL@泊松定理}在$n$重伯努利试验中，事件$A$在每次试验中发生的概率为$p_n$（注意这与试验的次数$n$有关），如果$n\to \infty $时,$np_n\to \lambda(\lambda > 0\mbox{且为常数})$,则对任意给定的正整数$k$,都有
+\begin{equation}
+\lim\limits_{n\to \infty }b(k;n,p_n)=\frac{\lambda^k}{k!}\e^{-\lambda}
+\end{equation}
+
+\section{常用的连续型分布}
+\sj \sj
+\begin{table}[!htb]
+	\centering
+	\caption{常用的连续型分布及其数字特征}
+	\renewcommand{\arraystretch}{2}
+	\setlength{\tabcolsep}{1.7mm}{
+		\begin{tabular}{ccccc}
+			\toprule[2pt] 
+			\rowcolor[gray]{0.3}  {\color{dy}分布类型}  & {\color{dy}分布函数}  & {\color{dy}密度函数}  & {\color{dy}数学期望} & {\color{dy}方差} \\  
+			\midrule[1.3pt]
+			\makecell[c]{均匀分布 \\$X\sim U(a,b)$}\index{JYFB@均匀分布}
+			& 
+			$
+			F(x)=
+			\begin{cases}
+			\quad \quad 0,\,x \le b\\
+			\displaystyle \frac{x-a}{b-a},x\in[a,b]\\
+			\quad \quad 1,\,x \ge a
+			\end{cases}
+			$
+			& 
+			$
+			f(x)=
+			\begin{cases}
+			\displaystyle \frac{1}{b-a},\,a \le x \le b\\
+			\quad \quad 0,\,\mbox{ others}
+			\end{cases}
+			$
+			& $\displaystyle E(X)=\frac{a+b}{2}$
+			& $\displaystyle D(X)=\frac{(b-a)^2}{12}$
+			\\
+			\hline
+			\makecell[c]{指数分布 \\$X\sim e[\lambda]$}\index{ZSFB@指数分布}
+			& 
+			$
+			F(x)=
+			\begin{cases}
+			\displaystyle 1-\e^{-\lambda x},\,x \ge 0\\
+			\quad \quad 0,\,x < 0
+			\end{cases}
+			$
+			& 
+			$
+			f(x)=
+			\begin{cases}
+			\displaystyle \lambda \e^{-\lambda x} , x\ge 0\\
+			\quad \quad 0,\,x<0
+			\end{cases}
+			$
+			& $\displaystyle E(X)=\frac{1}{\lambda}$
+			& $\displaystyle D(X)=\frac{1}{\lambda^2}$
+			\\
+			\hline
+			\makecell[c]{正态分布 \\$X\sim N(\mu,\sigma)$}\index{ZTFB@正态分布}
+			& 
+			$
+			F(x)=\displaystyle \frac{1}{\sqrt{2\pi }\sigma }\int_{- \infty }^{x} \e^{-\frac{(t-\mu)^2}{2\sigma^2}} \,\d t
+			$
+			& 
+			$
+			f(x)=\displaystyle \frac{1}{\sqrt{2\pi }\sigma } \e^{-\frac{(x-\mu)^2}{2\sigma^2}} 
+			$
+			& $\displaystyle E(X)=\mu$
+			& $\displaystyle D(X)=\sigma^2$
+			\\
+			\hline
+			\makecell[c]{标准正态分布 \\$X\sim N(0,1)$}\index{BZZTFB@标准正态分布}
+			& 
+			$
+			F(x)=\displaystyle \frac{1}{\sqrt{2\pi } }\int_{- \infty }^{x} \e^{-\frac{t^2}{2}} \,\d t
+			$
+			& 
+			$
+			f(x)=\displaystyle \frac{1}{\sqrt{2\pi }} \e^{-\frac{x^2}{2}} 
+			$
+			& $\displaystyle E(X)=0$
+			& $\displaystyle D(X)=1$
+			\\
+			\bottomrule[2pt]
+		\end{tabular}
+	}
+	\renewcommand{\arraystretch}{1}
+	\label{常用的连续型分布及其数字特征}
+\end{table} 
+\theorem[标准正态分布的性质]
+设$X\sim N(0,1)$,设标准正态分布的分布函数为$\Phi_0(x)$,密度函数为$\varphi _0(x)$,则
+\begin{equation}
+\varphi_0(-x)=\varphi_0(x)
+\end{equation}
+\begin{equation}
+\Phi_0(x)+\Phi_0(-x)=1
+\end{equation}
+
+\theorem[正态分布的性质]
+设$X\sim N(\mu ,\sigma^2 ),$标准正态分布的分布函数为$\Phi_0(x)$,密度函数为$\varphi_0(x)$,正态分布的分布函数为$\Phi(x)$,密度函数为$\varphi(x)$,则
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{2em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 设$Y=ax+b,a,b$为常数，且$a \ne 0$，那么
+	\begin{equation}
+	Y\sim N(a\mu +b,a^2\sigma^2)
+	\end{equation}
+	\item 正态分布的标准化$\xi$
+	\begin{equation}
+	\xi = \frac{X-\mu }{\sigma }\sim N(0,1)
+	\end{equation}
+	\item $X\sim N(\mu ,\sigma^2 )$的充要条件是存在一个随机变量$\xi \sim N(0,1)$,使得$X=\sigma \xi +\mu $
+	\item 由正态分布的标准化,
+	\begin{equation}
+	\Phi(x)=\Phi_0\left(\frac{X-\mu }{\sigma } \right)
+	\end{equation}
+	\begin{equation}
+	\varphi(x)=\frac{1}{\sigma }\varphi_0\left(\frac{X-\mu}{\sigma } \right) 
+	\end{equation}
+\end{enumerate}
+
+\section{随机变量函数的分布}
+\dy[随机变量的函数]{SJBLDHS}
+若随机变量$Y$满足$Y=g(x)$的形式,则称随机变量$Y$是随机变量$X$的函数.\jg\\
+\dya[离散型随机变量的分布]\jg\\
+\dya[连续型随机变量的分布]\jg
+\par 已知$X$的分布函数$F_X(x)$或密度函数$f_X(x)$,为求$Y=g(X)$的分布函数,则
+\begin{equation}
+\begin{split}
+F_Y(x)&=P \lbrace Y \le x \rbrace\\
+&=P \lbrace g(X) \le x \rbrace \\
+&= P\lbrace x \in C_x \rbrace,\quad C_x= \lbrace \, t | g(t) \le x \,\rbrace 
+\end{split}
+\end{equation}
+\dya[$\bm{\chi^2}$分布和对数正态分布]\jg
+\par 参见书$\rm{P}_{72}$.
+
+

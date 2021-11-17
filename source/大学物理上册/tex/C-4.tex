@@ -1,0 +1,173 @@
+\chapter{功和能}
+\thispagestyle{empty}
+\section{功}
+\dy[功]{G}
+\margin{\\ \kg 在数学上,功是力沿着质点运动轨道的线积分.}
+\begin{equation}
+\d A=\bm{F} \cdot \d \bm{r},\quad A_{AB}=\sideset{_L}{}{\int_{A}^{B}}\bm{F}\cdot \d \bm{r}
+\end{equation}
+\par 功是力和位移的点积,没有方向但有正负,一个力的功是负值表示质点在反坑此力的条件下运动.合力的功等于各分力的代数和.
+
+
+\section{对质点的动能定理}
+\dy[质点动能]{ZDDN}
+\begin{equation}
+E_k=\frac{1}{2}mv^2=\frac{p^2}{2m}
+\end{equation}
+\par \dy[质点的动能定理]{ZDDDNDL}
+\margin{\\[1em] \kg 动能定理说明力对质点作用的空间累积效果表现为质点动能的增加,它是牛顿第二定律的直接推论,所以它也只适用于惯性参考系.}
+\begin{equation}
+\d A = \bm{F}\cdot \d \bm{r}=\d \left(\frac{1}{2} m v^2 \right) 
+\end{equation}
+\par 或积分形式
+\begin{equation}
+A_{AB}=\sideset{_L}{}{\int_{A}^{B}}\bm{F}\cdot \d \bm{r}=\frac{1}{2}mv_B^2-\frac{1}{2}mv_A^2\,(=E_{kB}-E_{kA})
+\end{equation}
+
+\section{对质点系的动能定理}
+\dy[质点系动能]{ZDXDN}
+\dy[柯尼希定理]{KNXDL}
+\margin{\\[1.5em]\kg$E_{kC}\,\,$质心动能.\\\kg$E_{\text{k,in}}$质点系相对于质心参考系的总动能.}
+\begin{equation}
+\begin{split}
+E_{k}&=E_{kC}+E_{\text{k,in}}\\
+&=\frac{1}{2}mv_C^2+\sum\frac{1}{2}m_i{v'_i}^{2}
+\end{split}
+\end{equation}
+\par \dy[质点系的动能定理]{ZDXDDNDL}\jg
+\par 在以惯性系中,所有外力对质点做的功和内力对质点做的功之和等于这个质点系总动能的增量.
+\margin{\\\kg$A_{\text{ex}}\,\,$外力对质点做功.\\\kg$A_{\text{in}}\,\,$内力对质点做功.}
+\begin{equation}
+A_{\text{ex}}+A_{\text{in}}=E_{kB}-E_{kA}
+\end{equation}
+
+\dya[一对内力的功] 两个质点间一对内力$\bm{f}_1$和$\bm{f}_2$的功之和等于其中一个质点受的力沿着该质点相对于另一个质点所移动的路径所作的功.
+\begin{equation}
+A_{AB}=\int_{A}^{B}\bm{f}_2 \d \bm{r}_{21}
+\end{equation}
+
+\section{势能}
+\margin{保守力的另一个等价定义:如果力作用在物体上,当物体沿闭合路径移动一周时,力的做功为零.}
+\par \dy[保守力]{BSL}做功与路径无关,只决定于系统的始末位置的力称为保守力.\jg
+\par \dy[势能]{SN} 对保守力可以引进势能的概念.一个系统的势能$E_p$决定于系统的位形
+\begin{equation}
+-\Delta E_p=E_{pA}-E_{pB}=A_{AB}=\int_{A}^{B}\bm{f}_2 \d \bm{r}_{21}
+\end{equation}
+取$B$点为势能零点$E_{pB}=0$,则
+\margin{势能属于相互有保守力的系统,势能的值与参考系的选择无关.}
+\begin{equation}
+E_{pA}=A_{AB}
+\end{equation}
+\par \dy[引力势能]{YLSN}  \jg
+\par 以距离两质点无穷远作为势能零点
+\begin{equation}
+E_p=-\frac{Gm_1m_2}{r_1^2}
+\end{equation}
+\par 以地球表面作为势能零点
+\margin{$R$为地球半径,\\\kg $M$为地球质量\\\kg$h$为质点距地表的高度}
+\begin{equation}
+E_p=\frac{GmM}{R}-\frac{GmM}{R+h}=GmM\frac{h}{R(R+h)}
+\end{equation}
+
+\par \dy[重力势能]{ZLSN} \jg
+\par 以地球表面作为势能零点
+\begin{equation}
+E_p=mgh
+\end{equation}
+
+\par \dy[弹簧的弹性势能]{THDTXSN} \jg
+\par 以弹簧处于自然长度作为势能零点
+\begin{equation}
+E_p=\frac{1}{2}kx^2
+\end{equation}
+
+\par \dya[由势能求保守力]
+\begin{equation}
+\bm{F}_l=-\frac{\d E_p}{\d t}
+\end{equation}
+即保守力沿某一方向的分量等于势能沿此方向的空间变化率的负值.在直角坐标下
+\begin{equation}
+\bm{F}=F_x\bm{i}+F_y\bm{j}+F_z\bm{k}=-\left( \frac{\partial E_p}{\partial x}\bm{i}+\frac{\partial E_p}{\partial y}\bm{j}+\frac{\partial E_p}{\partial z}\bm{k}\right) 
+\end{equation}
+保守力等于势能梯度的负值.
+
+\newpage
+\section{机械能守恒定律}
+\margin{\\ \kg 机械能守恒定律是普遍的能量守恒定律的力学特例.}
+\dy[机械能守恒定律]{JXNSHDL}\jg
+\par 相对于一个惯性参考系
+\margin{\\[1em]$A_{\text{in,n-cons}}\,\,$非保守内力的功 $E=E_k+E_p\,\,$为机械能}
+\begin{equation}
+A_{\text{ex}}+A_{\text{in,n-cons}}=E_B-E_A
+\end{equation}
+由柯尼希定理,得
+\begin{equation}
+E=E_k+E_p=E_{kC}+E_{\text{k,in}}+E_p=E_{kC}+E_{\text{in}}
+\end{equation}
+即系统的机械能等于系统的轨道动能与系统的内能$(E_{\text{in}}=E_{\text{k,in}+E_p})$之和 .
+\margin{系统的轨道动能指的就是质心的动能.}
+对于一个系统,如果只有保守内力做功,那么系统的机械能保持不变.
+\newpage
+
+\dy[质心系的机械能守恒定律]{JXNSHDL}\jg
+\par 对于保守系统(内部各点间只有保守力相互作用的系统),相对于其质心参考系,外力对系统做的功$A'_{\text{ex}}$等于系统内能的增量,
+\margin{此结论与质心的运动形式(匀速或变速)无关}
+\begin{equation}
+A'_{\text{ex}}=E_{\text{in},B}-E_{\text{in},A}
+\end{equation}
+
+\section{守恒定律的意义}
+不究过程的细节而对系统的出末状态下结论；相应与自然界的每一种对称性,都存在着一个守恒定律.
+
+\section{碰撞}
+\dy[弹性碰撞]{TXPZ}碰撞前后系统无动能损失.对于对心碰撞
+\begin{equation}
+\begin{cases}
+m_1v_{10}+m_2v_{20}=m_1v_1+m_2v_2\\
+\frac{1}{2}m_1v_{10}^2+\frac{1}{2}m_2v_{20}^2=\frac{1}{2}m_1v_{1}^2+\frac{1}{2}m_2v_{2}^2
+\end{cases}
+\end{equation}
+联立解得
+\margin{\\[1em] \kg 特例1:当$m_2=m_1$时,$v_1=v_{10},v_2=v_{20}$.}
+\margin{特例2:当$m_2\gg m_1$时,$v_1=-v_{10},v_2\approx 0$.}
+\begin{equation}
+\begin{split}
+&v_1=\frac{m_1-m_2}{m_1+m_2}v_{10}+\frac{2m_2}{m_1+m_2}v_{20}\\
+&v_2=\frac{m_1-m_2}{m_1+m_2}v_{20}+\frac{2m_2}{m_1+m_2}v_{10}
+\end{split}
+\end{equation}
+
+\par \dy[完全非弹性碰撞]{WQFTXPZ}碰撞前后合在一起.
+\begin{equation}
+m_1\bm{v}_1+m_2\bm{v}_2=(m_1+m_2)\bm{V}
+\end{equation}
+解得
+\begin{equation}
+\bm{V}=\frac{m_1\bm{v}_1+m_2\bm{v}_2}{m_1+m_2}
+\end{equation}
+
+\section{理想流体的稳定运动}
+\dy[理想流体的稳定运动]{LXLTDWDYD}理想流体不可压缩性(在压强的作用下体积不变)和无黏滞性(各部分都自由流动,与管壁之间无相互曳拉的作用力).\jg\jg
+\par \dy[连续性方程]{LXXFC}\jg
+\par 管中的流速和管子的横截面积成反比.
+\margin{\\[1em]\kg$S$是管的横截面积,\\\kg $v$是流体的流速}
+\begin{equation}
+S_1v_1=S_2v_2
+\end{equation}
+
+\par \dy[伯努利方程]{BNLFC}
+\margin{\\\kg $p\,\,$流体压强.\\\kg $v$ 流体流速.\\\kg $h$流体距地高度.}
+\begin{equation}
+p_1+\frac{1}{2}\rho v_1^2+\rho gh_1=p_2+\frac{1}{2}\rho v_2^2+\rho gh_2
+\end{equation}
+也可以写成
+\begin{equation}
+p+\frac{1}{2}\rho v^2+\rho gh=C(\mbox{常量})
+\end{equation}
+\par 伯努利方程实际上是理想流体流动的机械能守恒定律的特殊形式.\jg\jg
+\par \dy[流体静压强公式]{LTJYQGS}特别地,伯努利方程中取$v_1=v_2=0$,用液体深度$D=H-h$代替高度$h$,则
+\begin{equation}
+p_2-p_1=\rho g (D_2-D_1)
+\end{equation}
+
+

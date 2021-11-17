@@ -1,0 +1,745 @@
+\chapter{热力学第一定律}
+\thispagestyle{empty}
+\section{能量守恒概述}
+\ttheorem[能量守恒定律]
+自然界一切物质具有能量，能量既不能凭空创造，也不能自我消灭，而只能在一定条件下从一种形式转换为另一种形式，或从一个物体传递到另一个物体。在转换和传递的过程中，能量的总量恒定不变。\index{NLSHDL@能量守恒定律}
+
+\begin{itemize}
+	\item 能量的不同形式：能量的转换
+	\item 能量的不同载体：能量的传递 
+\end{itemize}
+
+\section{热力学第一定律的总体方程}
+针对热力系统，应用能量守恒，有
+\begin{equation}
+	\mbox{系统输入能量}-\mbox{系统输出能量}=\mbox{系统能量的增量}
+\end{equation}
+考虑系统与外界能量传递的三条途径：
+\begin{itemize}
+	\item 热量传递：通过传热的形式传递热量$Q$;
+	\item 功量传递：通过作功的形式传递能量$W$;
+	\item 因质量传递而带入或带出能量$\psi$。
+\end{itemize}
+可以得到
+\begin{equation}
+	\left(Q_{\mbox{\tiny 入}}+W_{\mbox{\tiny 入}}+\varPsi_{\mbox{\tiny 入}}\right)\,-\,\left(Q_{\mbox{\tiny 出}}+W_{\mbox{\tiny 出}}+\varPsi_{\mbox{\tiny 出}}\right) = \Delta E
+\end{equation}
+记$Q = Q_{\mbox{\tiny 入}}-Q_{\mbox{\tiny 出}}, \, W = W_{\mbox{\tiny 入}} -W_{\mbox{\tiny 出}}, \, \varPsi_2 = \varPsi_{\mbox{\tiny 出}}, \, \varPsi_1 = \varPsi_{\mbox{\tiny 入}}$，则有
+\begin{equation}
+	Q = \Delta E + W + (\varPsi_2 - \varPsi_1) 
+	\label{热一总体方程}
+\end{equation}
+
+\begin{itemize}
+	\item $Q,W$符号的意义
+	\begin{itemize}
+		\item $Q > 0$：系统从外界吸热
+		\item $Q < 0$：外界从系统吸热
+		\item $W > 0$：系统对外界作功
+		\item $W < 0$：外界对系统作功
+	\end{itemize}
+	\item 热力学第一定律总体方程\eqref{热一总体方程}的物理意义\\
+	\hspace*{2em}系统从外界吸收的热量等于系统能量的增量、系统对外界所作的功量、质量迁移带出能量与带入能量之差这三个部分之和。
+\end{itemize}
+
+\section{能量形式详述}
+\subsection{系统能量及其增量}
+系统能量总括
+\begin{itemize}
+	\item \dy[内部储存能]{NBCCN}\\
+	\hspace*{2em} 简称\dy[内能]{NN}，又称\dy[热力学能]{RLXN}。
+	\vspace*{-0.5em}
+	\begin{itemize}
+		\item 分类
+		\begin{itemize}
+			\item \dy[分子能]{FZN}：包括分子动能、分子势能，又称\dy[热能]{RN}，或称\dy[物理能]{WLN}。
+			\item \dy[分子动能]{FZDN}：包括分子平均动能、分子转动动能、分子振动动能。
+			\item 辨析：热能与热力学能\\
+			\hspace*{1.5em} 热能即分子能。\\
+			\hspace*{1.5em} 热力学能不仅包括热能，还包括化学能、核能等。
+			\item 辨析：分子动能与宏观动能\\
+			\hspace*{1.5em} 分子动能是分子运动的动能。\\
+			\hspace*{1.5em} 宏观动能是宏观运动的动能。
+		\end{itemize}
+	\item 特点
+	\begin{itemize}
+		\item \textbf{内能是状态参数}\\
+		\hspace*{2em}根据分子运动论，在一定的热力状态下，分子有一定的均方根速率和平均距离，就有一定的内能，而与达到这一热力状态的路径无关。
+		\item \textbf{内能的绝对值无法测量}\\
+		\hspace*{2em}可选取某一热力状态的内能为零值，作为基准，计算内能的变化量。
+		\item \textbf{内能的变化量是工程的中心}\\
+		\hspace*{2em} 无化学反应、核反应等时，内能的变化可不考虑化学能、核能。
+	\end{itemize}
+	\end{itemize}
+	\item \dy[外部储存能]{WBCCN}\\
+		\hspace*{2em} 又称\dy[机械能]{JXN}。
+		\vspace*{-0.5em}
+	\begin{itemize}
+		\item 分类
+		\begin{itemize}
+			\item 宏观动能
+			\item 宏观势能
+		\end{itemize}
+		\item 特点\\
+			\hspace*{2em} 对于不同的系统，能量的含义不同，能量的增量也不同。
+	\end{itemize}
+	\item \dy[总储存能]{ZCCN}\\
+		\hspace*{2em} 包括内部储存能和外部储存能。
+\end{itemize}
+
+\newpage
+\noindent 不同系统的外部储存能分析，设宏观势场为重力场，则系统的宏观势能为$E_{\text{p}}=mgz$
+\begin{itemize}
+	\item \dy[静止封闭系统]{JZFBXT}\\
+	该系统中$E_{\text{k}} = 0, E_{\text{p}}=mgz_0$为常数。
+	\vspace*{-0.5em}
+	\begin{itemize}
+		\item 总能$E=U+mgz_0$
+		\item 微元过程中能量增量为$\d E = \d U$
+	\end{itemize}
+	\item \dy[运动封闭系统]{YDFBXT}\\
+	若该系统质心速度为$c$，则该系统中$E_{\text{k}}=\dfrac{mc^2}{2}, E_{\text{p}} = mgz$
+	\vspace*{-0.5em}
+	\begin{itemize}
+		\item 总能为$E = U + \dfrac{mc^2}{2} + mgz$
+		\item 微元过程中能量增量为$\d E = \d U + mc\d c + mg \d z$
+	\end{itemize}
+	\item \dy[工质流动的开放系统]{GZLDDKFXT}
+	\begin{itemize}
+		\item 该系统通常取一个固定的空间（控制体）进行研究。
+		\item 微元过程中能量增量为$\d E = \d E_{\text{C.V.}}$，其中$\d E_{\text{C.V.}}$为控制体能量增量。
+	\end{itemize}
+	\item \dy[质量转换系统]{ZLZHXT}
+	\begin{itemize}
+		\item 若该系统无宏观运动，则微元过程中非质量转化引起的能量增量为$\d U$.
+		\item 再考虑质量转化引起的能量增量：转化单位质量的第$i$种物质所引起的能量变化为$\mu_i$，称为\dy[化学势]{HXS}，故微元过程中的第$i$种物质质量转化失去质量$\d m_i$引起的能量增量为$-\mu_i \d m_i$.
+		\item 因此微元过程中的能量增量为$\displaystyle \d E = \d U - \sum_i\mu_i \,\d m_i.$
+	\end{itemize}
+\end{itemize}
+
+\subsection{功量}
+\noindent 1. \dy[膨胀功]{PZG}、\dy[压缩功]{YSG}
+	\begin{itemize}
+		\item 系统容积变化所完成的膨胀功或压缩功统称为\dy[容积功]{RJG}。
+		\item 可逆容积功可计算如下
+		\begin{equation}
+			W= \int_{1}^{2} \delta W = \int_{1}^{2} F \, \d x = \int_{1}^{2} pA\,\d x =\int_{1}^{2} p\,\d V
+		\end{equation}
+	\item 单位质量可逆容积功在$p - v$图上可表示为过程曲线下的面积。
+	\item \textbf{封闭系统往往会关注膨胀功和压缩功。}
+	\end{itemize}
+\noindent 2. \dy[推进功]{TJG}、\dy[流动功]{LDG}
+\begin{itemize}
+	\item 工质流动等开放系统中，工质流进或流出系统时，外界与系统传递的功量称为\dy[推进功]{TJG}。
+	\begin{equation}
+		\begin{cases}
+			\delta W_1 = -p_1 A \,\d x = -p_1 \, \d V_1 = -p_1 v_1 \,\d m_1\\
+			\delta W_2 = p_2 A \,\d x = p_2 \, \d V_2 = p_2 v_2 \,\d m_2
+		\end{cases}
+	\end{equation}
+即
+	\begin{equation}
+		\begin{cases}
+			\displaystyle W_1 = - \int_{0}^{V_1}p_1 \, \d V_1 = - p_1 V_1\\[1em]
+			\displaystyle W_2 = \int_{0}^{V_2}p_2 \, \d V_2 = p_2 V_2\\
+		\end{cases}
+	\end{equation}
+	\item 工质流进流出的过程中，系统与外界传递的推动功之和称为\dy[流动功]{LDG}。
+	\begin{equation}
+		\delta W_{\text{f}}=\delta W_1+\delta W_2 =p_2 \,\d V_2 - p_1 \,\d V_1 = p_2 v_2 \,\d m_2 - p_1 v_1 \,\d m_1
+	\end{equation}
+	即
+	\begin{equation}
+		W_{\text{f}} = W_1 +W_2 = p_2V_2 -p_1V_1
+	\end{equation}
+	\item \textbf{开放系统往往会关注推进功和流动功。}
+\end{itemize}
+
+\noindent 3. \dy[内部功]{NBG}、\dy[轴功]{ZG}
+\begin{itemize}
+	\item 工质在热力装置内部所作的功量称为\dy[内部功]{NBG}。
+	\item 热力装置通过轴与外界传递的功量称为\dy[轴功]{ZG}。
+	\item 若不计轴承的摩擦，则轴功等于内部功。
+	\item \textbf{开放系统往往会关注内部功和轴功。}
+\end{itemize}
+\vspace*{1.5em}
+
+\subsection{热量}
+\noindent 1. 热量的定义
+
+\defination[热量]
+\dy[热量]{RL}是热力过程中系统与外界之间依靠温差传递的能量。\rgap
+
+\noindent 2.热量的属性
+\begin{itemize}
+	\item 热量不是状态参数，而是过程参数
+	\item 热量的微分量表示为$\delta Q$，热量的积分量表示为$\displaystyle \int_{1}^{2} \,\delta Q.$
+\end{itemize}
+
+\noindent 3. 符号的规定
+\par 系统从外界吸热时取正值，外界从系统吸热时取负值。\rgap
+
+\noindent 4. 热量的符号
+\par 热量：$Q$；微分热量：$\delta Q$；对于单位质量的工质分别为：$q, \,\,\delta q.$\rgap
+
+\noindent 5. 热量的单位
+\par 焦耳：J；对于单位质量的工质有焦耳每千克：J/kg.\rgap
+
+\noindent 6. 常见过程的热量计算
+\begin{itemize}
+	\item 系统经历微元准平衡过程所传递的微元热量可表示为：
+	\begin{equation}
+		\delta Q = mC \,\d T
+	\end{equation}
+	\item 对于$C$为常数的特定过程：
+	\begin{equation}
+		Q = \int_{1}^{2} \,\delta Q =mC \int_{1}^{2} \,\d T =mC(T_2 -T_1)
+	\end{equation}
+\end{itemize}
+
+\subsection{物质迁移能}
+\noindent 1. 物质迁移能的定义
+
+\defination[物质迁移能]
+由于物质的流动而使系统与外界产生能量的传递，称为\dy[物质迁移能]{WZQYN}。\rgap
+
+\noindent 2. 进出口流动系统的物质迁移能
+\par 若在$\delta t$时间内，由进口流进系统的质量为$\delta m_1$，由出口流出系统的质量为$\delta m_2$，则两处的物质迁移能分别为：
+\begin{equation}
+	\begin{cases}
+		\displaystyle \delta \varPsi_1 = e_1 \delta m_1 = \left(u_1 + \frac 1 2 c_1^2 +g z_1\right)\delta m_1\\[1em]
+			\displaystyle \delta \varPsi_2 = e_2 \delta m_2 = \left(u_2 + \frac 1 2 c_2^2 +g z_2\right)\delta m_2
+	\end{cases}
+\end{equation}
+
+\section{热力学第一定律的具体方程}
+我们知道总体方程\eqref{热一总体方程}，也将方程中的各项能量分别详述。接下来我们将总体方程的各项具体化，得到具体方程。而各项的具体形式将依系统的类型而决定。\rgap
+
+\subsection{静止封闭系统}
+
+\noindent 1. \dya[一般情况]\rgap
+\par 由于该系统满足
+\begin{equation}
+	\begin{cases}
+		\displaystyle \d E =\d U\\
+		\displaystyle \delta \varPsi_1 = \delta \varPsi_2=0
+	\end{cases}
+\end{equation}
+因此，各个形式的具体方程如下
+\begin{myitemize}
+		\item 微元过程
+	\begin{equation}
+		\delta Q =\d U + \delta W
+	\end{equation}
+	\item 有限过程
+	\begin{equation}
+		Q = \Delta U +W
+	\end{equation}
+	\item 单位质量工质
+	\begin{equation}
+		\begin{split}
+			\displaystyle \delta q = \d u + \delta w\\
+			\displaystyle q = \Delta u + w
+		\end{split}
+	\end{equation}
+\end{myitemize}
+\vspace*{1em}
+
+\noindent 2. \dya[简单可压缩静止封闭系统的可逆过程]\rgap
+\par 由于系统还满足
+\begin{equation}
+	\delta W =p \,\d V
+\end{equation}
+因此，各个形式的具体方程如下
+\begin{myitemize}
+	\item 微元过程
+\begin{equation}
+	\delta Q =\d U +p \,\d V
+\end{equation}
+\item 有限过程
+\begin{equation}
+	Q = \Delta U + \int p \,\d V
+\end{equation}
+\item 单位质量工质
+\begin{equation}
+	\begin{split}
+		\displaystyle \delta q = \d u + p \,\d V\\
+		\displaystyle q = \Delta u + \int p \,\d V
+	\end{split}
+\end{equation}
+\end{myitemize}
+
+\vspace*{1em}
+
+\noindent 3. \dya[工质为理想气体的可压缩静止封闭系统的可逆过程]\rgap
+\par 由于系统还满足
+\begin{equation}
+	 \d u = C_{\text{v}} \,\d T
+\end{equation}
+因此，各个形式的具体方程如下
+\begin{myitemize}
+	\item 微元过程
+	\begin{equation}
+		\delta Q = m C_{\text{v}} \,\d T+p \,\d V
+	\end{equation}
+	\item 有限过程
+	\begin{equation}
+		Q = m \int C_{\text{v}} \,\d T + \int p \,\d V
+	\end{equation}
+	\item 单位质量工质
+	\begin{equation}
+		\begin{split}
+			\displaystyle \delta q = C_{\text{v}} \,\d T + p \,\d V\\
+			\displaystyle q = \int C_{\text{v}} \,\d T + \int p \,\d V
+		\end{split}
+	\end{equation}
+\end{myitemize}
+
+\subsection{运动封闭系统}
+\noindent 1. \dya[一般情况]\rgap
+\par 由于该系统满足
+\begin{equation}
+	\begin{cases}
+		\displaystyle \d E =\d U + \frac{1}{2} m \d c^2 + mg \d z\\
+		\displaystyle \delta \varPsi_1 = \delta \varPsi_2=0
+	\end{cases}
+\end{equation}
+因此，微元过程的具体方程为
+\begin{equation}
+	\delta Q = \d U + \frac 1 2 m \d c^2 +mg \d z + \delta W
+	\label{运动一般微元}
+\end{equation}
+\vspace*{1em}
+
+\noindent 2. \dya[简单可压缩运动封闭系统的可逆过程]\rgap
+\par 由于容积功为$p \, \d V$，机械功为$- \left(\dfrac{1}{2} m \d c^2 + mg \d z\right)$.所以，
+\begin{equation}
+	\delta W = p \, \d V - \left(\dfrac{1}{2} m \d c^2 + mg \d z\right)
+\end{equation}
+由式\eqref{运动一般微元}可得
+\begin{equation}
+	\delta Q = \d U + p \, \d V
+	\label{运动一般微元2}
+\end{equation}
+\begin{itemizea}
+	\item 式\eqref{运动一般微元2}反映了热量、内能变化量、容积功三方面之间的关系，不涉及宏观运动参数，与简单可压缩静止封闭系统的可逆过程的热力学第一定律具体方程一致。
+\end{itemizea}
+\vspace*{1em}
+
+\subsection{工质流动的开放系统}
+\noindent 1. \dya[一般情况]\rgap
+\par 由于该系统满足
+\begin{equation}
+	\begin{cases}
+		\d E = \d E_{\text{C,V}}\\
+		\delta W_1 = -p_1v_1\delta m_1\\ 
+		\delta W_2 = p_2 v_2 \delta m_2\\[0.5em]
+		\delta \varPsi_1 = \left(u_1 + \dfrac 1 2 c_1^2 + gz_1\right)\delta m_1\\[1em]
+		\delta \varPsi_2 = \left(u_2 + \dfrac 1 2 c_2^2 + g z_2\right)\delta m_2 
+	\end{cases}
+\end{equation}
+因此，可以得到
+\begin{equation}
+		\delta W = \delta W_S + \delta W_1 + \delta W_2 = \delta W_S + p_2v_2\delta m_2 - p_1v_1\delta m_1
+\end{equation}
+带入总体方程\eqref{热一总体方程}，可以得到具体方程
+\begin{equation}
+	\delta Q = \d E_{\text{C,V}} + \delta W_S + \left(h_2 + \frac 1 2 c_2^2 + gz_2\right)\delta m_2 - \left(h_1 + \frac 1 2 c_1^2 + gz_1\right)\delta m_1
+\end{equation}
+其中$h_1 = u_1 + p_1v_1, \, h_2 = u_2 + p_2 v_2.$各项除以$\delta \tau$，令$\dot{Q} = \dfrac{\delta Q}{\delta \tau},\, \dot{W_S}=\dfrac{\delta W_S}{\delta \tau}, \, \dot{m} = \dfrac{\delta m}{\delta \tau }$，可以得到
+\begin{equation}
+	\dot{Q} = \frac{\d E_{\text{C,V}}}{\delta \tau} + \delta W_S + \left(h_2 + \frac 1 2 c_2^2 + gz_2\right)\dot{m}_2 - \left(h_1 + \frac 1 2 c_1^2 + gz_1\right)\dot{m}_1
+\end{equation}
+若系统有多个入口和多个出口，则有
+	\begin{align}
+		\delta Q &= \d E_{\text{C,V}} + \delta W_S + \sum_i \left(h_{2i} + \frac 1 2 c_{2i}^2 + gz_{2i}\right)\delta m_{2i} - \left(h_{1j} + \frac 1 2 c_{1j}^2 + gz_{1j}\right)\delta m_{1j}\\
+		\dot{Q} &= \frac{\d E_{\text{C,V}}}{\delta \tau} + \delta W_S + \sum_i \left(h_{2i} + \frac 1 2 c_{2i}^2 + gz_{2i}\right)\dot{m}_{2i} - \left(h_{1j} + \frac 1 2 c_{1j}^2 + gz_{1j}\right)\dot{m}_{1j}
+	\end{align}
+
+\noindent 2. \dya[稳定流动的开放系统]
+\par 由于系统还满足
+\begin{equation}
+	\begin{cases}
+		\dfrac{\d E_{\text{C,V}}}{\delta \tau} = 0\\
+		\dot{m}_1 = \dot{m}_2 = \dot{m}
+	\end{cases}
+\end{equation}
+则有
+\begin{equation}
+	\dot{Q} = \dot{W_S}+\dot{m}(h_2 - h_1) + \frac{1}{2} \dot{m}\left(c_2^2 -c_1^2\right) + \dot{m}g(z_2-z_1)
+\end{equation}
+上式各项除以$\dot{m}$，并令$q = \dfrac{\dot{Q}}{\dot{m}},\, w_S = \dfrac{\dot{W_S}}{\dot{m}},\, \Delta h = h_2 - h_1, \, \delta c^2 =c_2^2 - c_1^2,\, \Delta z = z_2 - z_1,$则有
+\begin{equation}
+	q = \Delta h + w_S + \frac{1}{2}\Delta c^2 + g \Delta z
+\end{equation}
+\begin{myitemize}
+	\item 微元过程
+	\begin{equation}
+		\delta q = \delta h + \delta w_S + \frac 12 \d c^2 + g \d z
+	\end{equation}
+	\item 质量为$m$的系统
+	\begin{align}
+	Q &= \Delta H + W_S + \frac 12 m \Delta c^2 + mg \Delta z\\
+	\delta Q & = \d h + \delta W_S + \frac 12  \d c^2 + mg \d z
+\end{align}
+其中，$H=mh, \, \Delta H = H_2 -H_1.$
+\end{myitemize}
+\vspace*{1em}
+\subsection{焓}
+\tdefination[焓和比焓]
+针对工质流动的开放系统推导热力学第一定律的具体方程时，引入新的物理量$H=U+pV, h = u+pv$在热力学中分别称为\dy[焓]{H}和\dy[比焓]{BH}。\textbf{焓和比焓是状态参数,只与始末态有关。}
+\begin{itemizea}
+\item 在工质流动的开放系统中，内能或比内能（$U,u$）与推动功或比推动功（$pV,pv$）必然同时出现。\textbf{在此特定情况下，焓可以理解为工质在流动过程中取决于热力状态参数的能量，即内能与推动功的总和。}	\vspace*{0.3em}
+\end{itemizea}
+
+\theorem[理想气体焓的计算]
+已知
+\begin{align}
+	\d u &= C_V \, \d T\\
+	\d h &= \d u + d(pv) = C_V \d T + R \d T\notag\\
+	& = \left(C_V + R\right) \d T
+\end{align}
+由理想气体的迈耶公式，
+\begin{align}
+	C_P - C_V = R
+\end{align}
+所以，
+\begin{itemizea}
+	\item \vspace*{-1em}\begin{align}
+		\d h &= C_P \d T\\[0.5em]
+		\Delta h &= \int_{T_1}^{T_2} C_P \, \d T\\[0.5em]
+		\d H &= m \d h = m C_P \d T\\[0.5em]
+		\Delta H &= m  \int_{T_1}^{T_2} C_P \, \d T
+	\end{align}
+\end{itemizea}
+\vspace*{1em}
+\subsection{技术功}
+\tdefination[技术功]
+对于
+\begin{equation*}
+	Q = \Delta H + W_S +\frac 12 m \Delta c^2 + mg \Delta z
+\end{equation*}
+其中，$W_S, \dfrac{1}{2}m\Delta c^2, mg \Delta z$都可以提供有效功量，故三项之和统称为\dy[技术功]{JSG}，以$W_\text{t}$表示。
+\begin{itemizea}
+	\item 引入技术功以后，工质稳定流动的开放系统的具体方程可写为\vspace*{-1em}
+	\begin{align}
+		Q &=\Delta H + W_{\text{t}}\\
+		\delta Q &= \d H + \delta W_{\text{t}}\\
+		q & = \Delta h + w_{\text{t}}\\
+		\delta q &= \d h + \delta w_{\text{t}} 
+	\end{align}
+\end{itemizea}
+\vspace*{1em}
+\noindent 【流体稳定流动热力学过程】
+\par 该过程的工质既可以视为稳定流动开放系统，又可以视为运动封闭系统，因此有
+\begin{align*}
+	\delta q =\d h + \delta w_S + \frac{1}{2}\d c^2 + g \d z\\
+	\delta q = \d u +p \d v
+\end{align*}
+两式相减，得$\delta w_S + \dfrac{1}{2} \d c^2 + g \d z = - v \d p$，即
+\begin{equation}
+	\delta w_{\text{t}} = - v \d p
+\end{equation}
+因此，有
+\begin{equation}
+	\delta q = \d h -v \d p
+\end{equation}
+\begin{itemizea}
+	\item 重要推论
+	\begin{equation}
+		\delta w = p \d v = p \d v + v \d p - v \d p = \d(pv) - v \d p = \delta w_{\text{f}} + \delta w_{\text{t}}
+	\end{equation}
+\end{itemizea}
+
+\subsection{质量转换系统}
+由于该系统满足
+\begin{equation}
+	\begin{cases}
+		\displaystyle \d E = \d U = \sum_i \mu_i \d m_i\\
+		\displaystyle \delta W = \sum_j F_j \d X_j\\
+		\d \varPsi_1 = \d \varPhi_2 = 0
+	\end{cases}
+\end{equation}
+因此，微元过程的具体方程为
+\begin{itemizea}
+	\item 
+	\begin{equation}
+		\delta Q = \d U + \sum_j F_j \d X_j - \sum_i \mu_i \d m_i
+	\end{equation}
+\end{itemizea}
+
+
+\section{能量方程在基本热力学过程中的应用}
+\subsection{基本过程}
+\tdefination[基本过程]
+\dy[定容过程]{DRGC}，\dy[定压过程]{DYGC}，\dy[定温过程]{DWGC}和\dy[绝热过程]{JRGC}等典型的热力过程称为\dy[基本热力过程]{JBRLGC}，简称\dy[基本过程]{JBGC}。
+
+\begin{itemize}
+	\item 若工质可视为理想气体，则为理想气体的基本过程
+	\item 应用能量方程可以活动基本过程中热力参数之间的关系，称为\dy[基本过程的过程方程]{JBGCDGCFC}
+\end{itemize}
+
+\subsection{理想气体的过程方程}
+对于单位质量工质，可以看成定质量的闭系，则有
+\[
+\delta q = \d u + p \d v
+\]
+设某种特定过程的比热为$C_n$，则有
+\[
+\delta q = C_n \d T
+\]
+对于理想气体，有
+\[
+\d u = C_V \d T
+\]
+因此，可以得到
+\[
+\left(C_n - C_V\right)\d T = p \d v
+\]
+两边同时除以$T$，并考虑理想气体$\dfrac{p}{T} = \dfrac{R}{v} \, \Longrightarrow \, \dfrac{\d T}{T} = \dfrac{\d p}{p} + \dfrac{\d v}{v}$，可得
+\begin{equation}
+	\dfrac{\d p}{p} = \left(\frac{R}{C_n - C_V}\right)\frac{\d v}{v}
+\end{equation}
+令$n = 1 - \dfrac{R}{C_n - C_V}$并设为常数，对上式积分得
+\begin{equation}
+	pv^n = C
+	\label{理想气体过程方程}
+\end{equation}
+其中，$C$为常数，$n$称为\dy[理想气体过程指数]{LXQTGCZS}。式\eqref{理想气体过程方程}称为\dy[理想气体过程方程]{LXTQGCFC}。
+
+\noindent 同理可推导得其他理想气体过程方程如下
+\begin{itemizea}
+	\item\vspace*{-1em}
+	\begin{align}
+		pv^n &= C_1\\[0.5em]
+		T v^{n-1} &= C_2\\[0.5em]
+		Tp^{\textstyle \frac{1-n}{n}} &= C_3\\[-1em]\notag
+	\end{align}
+\end{itemizea}
+
+理想气体过程指数$n$取不同的值，对应着不同的过程，因此，上述三式称为\dy[理想气体多变过程的过程方程]{LXQTDBGCDGCFC}，$n$称为理想气体多变过程的过程指数，简称\dy[理想气体多变指数]{LXQTDBZS}。
+
+\vspace{1em}
+
+\subsection{理想气体过程方程的其他形式}
+\noindent \textbf{1. $n$与各个过程的关系}
+\begin{itemizea}
+	\item \vspace*{-0.5em}
+	\begin{align}
+		n &= - \frac{\ln (p_2 / p_1)}{\ln (v_2 / v_1)}\\[0.5em]
+		n &= 1 - \frac{\ln(T_2 / T_1)}{\ln (v_2 / v_1)}\\[0.5em]
+		n & = \left[1 - \frac{\ln (T_2 / T_1)}{\ln (p_2 / p_1)}\right]^{-1}\\[-1.5em]\notag
+	\end{align}
+\end{itemizea}
+\begin{enumerate}[(1) ]
+	\item 定容过程：$v_2 = v_1$
+		\begin{equation*}
+			n = 
+			\begin{cases}
+				- \infty, &T_2 > T_1\\
+				+ \infty, & T_2 < T_1
+			\end{cases}
+		\end{equation*}
+	\item 定压过程：$p_2 = p_1$
+		\begin{equation*}
+			n = 0
+		\end{equation*}
+\item 定温过程：$T_2 = T_1$
+	\begin{equation*}
+		n = 1
+	\end{equation*}
+\item 绝热过程：$\delta q = C_n \d T = 0 \, \Longrightarrow \, C_n = 0$
+	\begin{equation*}
+		n = 1 - \frac{R}{C_V} = \frac{C_V + R}{C_V} = \frac{C_p}{C_V} = k
+	\end{equation*}
+\hspace*{2em}其中，$k$称为比热容比，这里称为\dy[绝热指数]{JRZS}。
+\end{enumerate}
+
+\noindent \textbf{2. 过程斜率与各个过程的关系}
+\begin{itemizea}
+	\item \vspace*{-0.5em}
+	\begin{equation}
+		\frac{\d p}{\d v} = - n \frac{p}{v}
+	\end{equation}
+\end{itemizea}
+\begin{enumerate}[(1) ]
+	\item 定容过程：$\dfrac{\d p}{\d v} \to \infty $
+	\item 定压过程：$\dfrac{\d p}{\d v} =0$
+	\item 定温过程：$\dfrac{\d p}{\d v} = -\dfrac{p}{v}$
+	\item 绝热过程：$\dfrac{\d p}{\d v} = - k \dfrac{p}{v}$
+\end{enumerate}
+
+\subsection{理想气体基本过程的功量计算}
+\noindent 1. \dya[容积功]
+\par 容积功计算的一般公式为
+\begin{equation}
+	w = \int_{v_1}^{v_2}p\,\d v = C \int_{v_1}^{v_2} \dfrac{\d v}{v^n}= C \dfrac{1}{n-1}\left(\dfrac{1}{v_1^{n-1}}- \dfrac{1}{v_2^{n-1}}\right)
+\end{equation}
+将$C = p_1v_1^n = p_2 v_2^n$代入，得
+\begin{itemizea}
+	\item 
+	\begin{equation}
+		w = \dfrac{1}{n - 1}(p_1v_1 - p_2v_2) = \dfrac{R}{n - 1}(T_2 - T_1)
+	\end{equation}
+\end{itemizea}
+由于$\dfrac{T_2}{T_1}=\left(\dfrac{p_2}{p_1}\right)^{\textstyle \frac{n - 1}{n}} = \left(\dfrac{v_1}{v_2}\right)^{n-1}$，可得
+\begin{itemizea}
+	\item 
+	\begin{align}
+		w = \dfrac{R T_1}{n-1}\left[1-\left(\dfrac{p_2}{p_1}\right)^{\textstyle \frac{n - 1}{n}}\right]\\[1em]
+		w = \dfrac{R T_1}{n-1}\left[1-\left(\dfrac{v_1}{v_2}\right)^{n-1}\right]
+	\end{align}
+\end{itemizea}
+\begin{enumerate}[(1) ]
+	\item 定压过程：代入$n=0$
+	\item 绝热过程：代入$n=k$
+	\item 定容过程：代入$n = \pm \infty$
+	\item 定温过程：
+	\begin{itemizea}
+		\item
+		\begin{equation}
+			\begin{split}
+				w &= \int_{v_1}^{v_2}p\,\d v = \int_{v_1}^{v_2} \dfrac{RT}{v}\,\d v = RT \int_{v_1}^{v_2} \dfrac{\d v}{v}\\
+				& = RT \ln \dfrac{v_2}{v_1}\\
+				& = RT \ln \dfrac{p_1}{p_2}
+			\end{split}
+		\end{equation}
+	\end{itemizea}
+\end{enumerate}
+
+\noindent 2. \dya[技术功]
+\par 由$\dfrac{\d p}{p} = -n \dfrac{\d v}{v}$可得：$-v \d p = np \d v$，即
+\begin{equation}
+	\delta w = n \delta w
+\end{equation}
+积分得
+\begin{itemizea}
+	\item 
+	\begin{equation}
+		w_\text{t} = nw
+	\end{equation}
+\end{itemizea}
+
+\vspace*{0.5em}
+\subsection{理想气体基本过程的热量计算}
+热量计算的一般公式为 
+\begin{itemizea}
+	\item
+	\begin{equation}
+		\begin{split}
+			q & = \int_{q_1}^{q_2} \delta q = \int_{T_1}^{T_2} \left(C_V - \dfrac{R}{n - 1}\right)\,\d T = \int_{T_1}^{T_2} \dfrac{n-k}{n-1}C_V\,\d T \\[0.5em]
+			& = \dfrac{n - k}{n - 1}C_V(T_2 - T_1)
+		\end{split}
+		\label{理想气体热量计算}
+	\end{equation}
+\end{itemizea}
+\begin{enumerate}[(1) ]
+	\item 定压过程：代入$n=0$
+	\item 绝热过程：代入$n=k$
+	\item 定容过程：代入$n = \pm \infty$
+	\item 定温过程：
+	\begin{itemizea}
+		\item
+		\begin{equation}
+			\begin{split}
+					q & = \int_{q_1}^{q_2} \delta q = \int_{T_1}^{T_2} C_V - \,\d T + \int_{v_1}^{v_2} p \,\d v = 0 + \int_{v_1}^{v_2} p \,\d v = \int_{v_1}^{v_2} \dfrac{RT}{v}\,\d v = RT \int_{v_1}^{v_2} \dfrac{\d v}{v}\\
+					& = RT \ln \dfrac{v_2}{v_1}\\
+					& = RT \ln \dfrac{p_1}{p_2}
+			\end{split}
+		\end{equation}
+	\end{itemizea}
+\end{enumerate}
+
+
+\newpage
+
+\subsection{总结}
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{6mm}{
+		\begin{tabular}{ccccc}
+			\toprule
+			过程 & 定容 & 定压 & 定温 & 绝热\\
+			\midrule
+			过程指数 & $n = \pm \infty $ &$n=0$ & $n=1$ & $n = k$\\
+			\specialrule{0.05em}{5pt}{5pt}
+			过程方程 & $\dfrac{p}{T} = C$ & $\dfrac{v}{T} = C$ & $pv = C$ & 
+			$
+			\begin{aligned}[c]
+				pv^k = C\\
+				Ty^{k-1} = C\\
+				Tp^{\textstyle \frac{1-k}{k}} = C
+			\end{aligned}$\\
+			\specialrule{0.05em}{5pt}{5pt}
+			容积功 & $w = 0$ & 
+			$
+			\begin{aligned}[c]
+				w = p(v_2 - v_1)\\
+				=R(T_2 - T_1)
+			\end{aligned}
+			$
+			&
+			$
+			\begin{aligned}[c]
+				w = RT \ln \frac{v_2}{v_1}\\[0.5em]
+				=RT \ln \frac{p_1}{p_2}
+			\end{aligned}
+			$
+			&
+			$
+			\begin{aligned}[c]
+				w &= \dfrac{1}{k-1} (p_1v_1 - p_2v_2)\\[0.5em]
+				&= \dfrac{R}{k - 1}(T_1 -T_2)\\[0.5em]
+				&= \dfrac{RT_1}{k - 1}\left[1 - \left(\dfrac{p_2}{p_1}\right)^{\textstyle \frac{k - 1}{k}}\right]
+			\end{aligned}
+			$\\
+			\specialrule{0.05em}{5pt}{5pt}
+			技术功 & $ w_{\text{t}} = v (p_1 - p_2)$ & $ w_{\text{t}} = 0$ &
+			$
+			\begin{aligned}[c]
+				w_{\text{t}} = RT \ln \frac{v_2}{v_1}\\[0.5em]
+				=RT \ln \frac{p_1}{p_2}
+			\end{aligned}
+			$
+			&
+			$
+			\begin{aligned}[c]
+				w_{\text{t}} &= \dfrac{k}{k-1} (p_1v_1 - p_2v_2)\\[0.5em]
+				&= \dfrac{kR}{k - 1}(T_1 -T_2)\\[0.5em]
+				&= \dfrac{kRT_1}{k - 1}\left[1 - \left(\dfrac{p_2}{p_1}\right)^{\textstyle \frac{k - 1}{k}}\right]
+			\end{aligned}
+			$\\
+			\specialrule{0.05em}{5pt}{5pt}
+			热量 & $ q = C_v (T_2 - T_1)$ & $ q = C_p(T_2-T_1)$ &
+			$
+			\begin{aligned}[c]
+				q = RT \ln \frac{v_2}{v_1}\\[0.5em]
+				=RT \ln \frac{p_1}{p_2}\\[0.5em]
+			\end{aligned}
+			$
+			&
+			$q = 0$\\
+			\bottomrule
+		\end{tabular}
+	}
+	\caption{四个基本过程的计算公式}
+	\label{四个基本过程的计算公式}
+\end{table}
+\section{热力学第一定律在常见热工设备与部件中的应用}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

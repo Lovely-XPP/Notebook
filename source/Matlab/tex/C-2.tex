@@ -1,0 +1,389 @@
+\chapter{Matlab矩阵处理}
+\thispagestyle{empty}
+\section{特殊矩阵}
+\subsection{常用的特殊矩阵}
+常用的产生通用的特殊矩阵的函数如下表。
+	\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{cc}
+			\toprule
+			函数 & 说明\\
+			\midrule
+			\lstinline|zeros| & 产生全0矩阵，即零矩阵 \\
+			\lstinline|ones| & 产生全1矩阵，即幺矩阵 \\
+			\lstinline|eye| & 产生单位矩阵\\
+			\lstinline|rand| & 产生$(0,1)$区间均匀分布的随机矩阵\\
+			\lstinline|randn| & 产生均值为0，方差为1的标准正态分布随机矩阵\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+这些函数的调用格式相似，以\lstinline|zeros|函数为例子：
+	\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{cc}
+			\toprule
+			函数 & 说明\\
+			\midrule
+			\lstinline|zeros(m)| & 产生$m \times m$零矩阵 \\
+			\lstinline|zeros(m,n)| & 产生$m \times n$零矩阵 \\
+			\lstinline|zeros(size(A))| & 产生与矩阵$\bm{A}$同样大小的零矩阵 \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\warn[
+建立随机矩阵
+\begin{myitemize}
+	\item 已知满足在$(0,1)$区间上均匀分布的随机数$x_i$，则任意$(a,b)$区间上均匀分布的随机数为
+	\begin{equation}
+		y_i = a+(b-a)x_i
+	\end{equation}
+	\item 已知满足均值为0，方差为1的标准正态分布的随机数$x_i$，则均值为$\mu$，方差为$\sigma^2$的随机数为
+	\begin{equation}
+		y_i = \mu + \sigma x_i
+	\end{equation}
+\end{myitemize}
+]
+\newpage
+\vspace*{-2.5em}
+\examples 建立随机矩阵。
+\begin{enumerate}
+	\item 在区间$(20,50)$内均匀分布的5阶随机矩阵。
+	\item 均值为0.6，方差为0.1的5阶正态分布随机矩阵。
+\end{enumerate}
+
+\begin{lstlisting}
+>> x = 20 + (50 - 20)*rand(5)
+x = 
+		21.6185		37.0647		43.8285		27.8891		22.5146
+		35.9239		34.0817		29.3365		39.6224		26.8693
+		43.3750		20.3571		35.8560		40.6764		47.4001
+		48.0203		30.1137		24.9695		42.4445		24.5713
+		23.8972		24.8655		38.0595		33.5162		44.7745
+>> y = 0.6 + sqrt(0.1)*randn(5)
+y =
+		0.6392		1.5196		0.5138		0.4881		0.6106
+		1.0543		0.8610		0.9474		0.3396		0.1783
+		-0.0201		1.0361		0.5121		0.1013		0.9565
+		0.5375		0.2654		0.8218		0.7606		0.7107
+		0.2180		0.4518		-0.0488		0.6892		0.5054
+\end{lstlisting}
+
+\subsection{用于专门学科的特殊矩阵}
+\begin{enumerate}
+	\item 魔方矩阵
+	\begin{itemize}
+		\item 性质：
+		\begin{itemize}
+			\item $n$阶魔方矩阵，其元素由$1, 2, 3, \cdots, n^2$共$n^2$个整数组成。
+			\item 每行、每列及两条对角线上的元素和都等于$\displaystyle \frac{n(n^2+1)}{2}$.
+		\end{itemize}
+	\item 函数：\lstinline|magic(n)|，注意：$n>3$.
+	\end{itemize}
+\item 范德蒙矩阵
+	\begin{itemize}
+		\item 性质：范德蒙矩阵的最后一列为1，倒数第二列为一个指定的向量，其他各列是最后一列与倒数第二列对应元素的乘积。即
+		\begin{equation}
+			\bm{A} =
+			\begin{bmatrix}
+				a_1^{n-1} & \cdots & a_1^2 & a_1 & 1\\
+				a_2^{n-1} & \cdots & a_2^2 & a_2 & 1\\
+				a_3^{n-1} & \cdots & a_3^2 & a_3 & 1\\
+				\vdots & \ddots & \vdots & \vdots & \vdots\\
+				a_n^{n-1} & \cdots & a_n^2 & a_n & 1
+			\end{bmatrix}
+		\label{vander}
+		\end{equation}
+	\item 函数：\lstinline|vander(V)|，生成的矩阵与式\eqref{vander}完全相同，其中输入的列向量$\bm{V}$为：
+	\begin{equation*}
+		\bm{V} =
+		\begin{bmatrix}
+			a_1\\
+			a_2\\
+			\vdots\\
+			a_n
+		\end{bmatrix}
+	\end{equation*}
+	\end{itemize}
+
+\item 希尔伯特矩阵
+\begin{itemize}
+	\item 性质：每个元素为
+	\begin{equation}
+		h_{ij}=\frac{1}{i+j-1}
+	\end{equation}
+这个矩阵是一个高度病态的矩阵，即任何一个元素法身微笑变动，整个矩阵的值和你矩阵都会发生很大变化，病态程度和阶数相关。
+\item 函数：\lstinline|hilb(n)|，逆矩阵\lstinline|invhlib(n)|。
+\end{itemize}
+\item  托普利兹矩阵
+\begin{itemize}
+	\item 性质：除第一行第一列外，其他每个元素都与左上角的元素相同。
+	\item 函数：\lstinline|toeplitz(x,y)|，其中$\bm{x},\bm{y}$分别为第一行和第一列，均为向量。\lstinline|toeplitz(x)|用向量$\bm{x}$生成一个对称的托普利兹矩阵。
+	\item 例子：
+	\begin{lstlisting}
+>> T = toeplitz(1:6)
+T =
+		1		2		3		4		5		6
+		2		1		2		3		4		5
+		3		2		1		2		3		4
+		4		3		2		1		2		3
+		5		4		3		2		1		2
+		6		5		4		3		2		1
+	\end{lstlisting}
+\end{itemize}
+\item 伴随矩阵
+\begin{itemize}
+	\item 定义：设多项式$p(x)$为
+	\begin{equation}
+		p(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots +a_1x+a_0
+	\end{equation}
+	称矩阵
+	\begin{equation}
+		\bm{A} =
+		\begin{bmatrix}
+			-\dfrac{a_{n_1}}{a_n} & -\dfrac{a_{n-2}}{a_{n}} & -\dfrac{a_{n-3}}{a_{n}} & \cdots & -\dfrac{a_2}{a_n} & -\dfrac{a_1}{a_n}\\
+			1 & 0 & 0 & \cdots & 0 & 0\\
+			0 & 1 & 0 & \cdots & 0 & 0\\
+			\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+			0 & 0 & 0 & \cdots & 0 & 0\\
+			0 & 0 & 0 & \cdots & 1 & 0
+		\end{bmatrix}
+	\end{equation}
+为多项式$p(x)$的伴随矩阵，$p(x)$称为矩阵$\bm{A}$的特征多项式，方程$p(x)=0$的根称为矩阵$\bm{A}$的特征值。
+\item 函数：\lstinline|compan(p)|，其中$\bm{p}$是一个多项式的系数向量，即
+\begin{equation*}
+	\bm{p} = 
+	\begin{bmatrix}
+		a_n\\
+		a_{n-1}\\
+		\vdots\\
+		a_1\\
+		a_0
+	\end{bmatrix}
+\end{equation*}
+\end{itemize}
+\item 帕斯卡矩阵
+\begin{itemize}
+	\item 定义：二次项$(x+y)^n$展开后的系数随$n$的增大组成一个三角形表，称为杨辉三角形。由杨辉三角形表组成的矩阵称为帕斯卡)矩阵。
+	\item 函数：\lstinline|pascal(n)|生成一个$n$阶帕斯卡矩阵（$(x+y)^{n - 1}$的展开式）。
+\end{itemize}
+\end{enumerate}
+
+\section{矩阵变换}
+\subsection{对角阵与三角阵}
+\begin{enumerate}
+	\item 对角阵
+	\begin{itemize}
+		\item 定义：只有对角线上有非0元素的矩阵称为对角矩阵，对角线上的元素相等的对角矩阵称为数量矩阵，对角线上的元素都为1的对角矩阵称为单位矩阵。
+		\item 函数
+		\begin{itemize}
+			\item 提取矩阵的对角阵元素：\lstinline|diag(A), diag(A, k)|.
+			\par \hspace*{2em}用于提取主对角线和第$k$条对角线\footnote{
+				主对角线$k=0$，主对角线上方$k>0$，主对角线下方$k<0$，下同}上的元素。
+			\item 构造对角阵：\lstinline|diag(V), diag(V,k)|.
+			\par \hspace*{2em} 用于生成以向量$\bm{V}$为主对角线的方阵和以向量$\bm{V}$为第$k$条对角线的矩阵。
+		\end{itemize}
+	\end{itemize}
+
+\examples 先建立$5× \times 5 $矩阵A，然后将$\bm{A}$的第一行元素乘以1，第二行乘以2，…，第五行乘以5。\vspace*{1em}
+
+\begin{lstlisting}
+>> A = [17, 0, 1, 0, 15; 23, 5, 7, 14, 16 ; 4, 0, 13, 0, 22; 10, 12, 19, 21, 3;...
+	11, 18, 25, 2, 19];
+>> D = diag(1:5);
+>> D*A		% 用D左乘A，对A的每行乘以一个指定常数，左行右列
+ans =
+			17		0		1		0		15
+			46		10		14		28		32
+			12		0		39		0		66
+			40		48		76		84		12
+			55		90		125	10		95
+\end{lstlisting}
+\item 三角阵
+\begin{itemize}
+	\item 上三角阵
+	\begin{itemize}
+		\item 定义：矩阵的对角线以下的元素全为0的一种矩阵
+		\item 函数：\lstinline|triu(A), triu(A, k)|.
+		\par \hspace*{2em} 用于求矩阵$\bm{A}$的上三角阵和第$k$条对角线以上的元素。
+	\end{itemize}
+	\item 下三角阵
+	\begin{itemize}
+		\item 定义：矩阵的对角线以上的元素全为0的一种矩阵
+		\item 函数：\lstinline|tril(A), tril(A, k)|.
+		\par \hspace*{2em} 用于求矩阵$\bm{A}$的下三角阵和第$k$条对角线以下的元素。
+	\end{itemize}
+\end{itemize}
+\end{enumerate}
+
+\subsection{矩阵的转置与旋转}
+矩阵的转置与旋转操作函数和操作说明见下表：
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{6mm}{
+		\begin{tabular}{ccl}
+			\toprule
+			功能 & 函数名 & \hspace*{9em}说明\\
+			\midrule
+			转置 & \lstinline|A.'| & 矩阵转置\\
+			\hline
+			共轭转置 & \lstinline|A'| &  转置的基础上还要取每个数的复共轭\\
+			\hline
+			矩阵旋转 & \lstinline|rot90(A, k)| & 将矩阵$\bm{A}$旋转$90\degree$的$k$倍，当$k$为1时可省略\\
+			\hline
+			矩阵的左右翻转 & \lstinline|fliplr(A)| & \makecell[l]{将原矩阵的第一列和最后一列调换，\\第二列和倒数第二列调换，…，依次类推}\\
+			\hline
+			矩阵的上下翻转 & \lstinline|flipud(A)| & \makecell[l]{将原矩阵的第一行和最后一行调换，\\第二行和倒数第二行调换，…，依次类推}\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{矩阵的逆和伪逆}
+矩阵的逆和伪逆函数和操作说明见下表：
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{6mm}{
+		\begin{tabular}{ccl}
+			\toprule
+			功能 & 函数名 & \hspace*{9em}说明\\
+			\midrule
+			逆矩阵 & \lstinline|B = inv(A)| & 求矩阵的逆\\
+			\hline
+			\makecell[c]{伪逆矩阵\\（广义逆矩阵）} & \lstinline|B = pinv(A)| &\makecell[l]{如果矩阵$\bm{A}$不是一个方阵，或者$\bm{A}$是一个非满秩的方阵时，\\矩阵$\bm{A}$没有逆矩阵，但可以找到一个与$\bm{A}$的转置矩阵$\bm{A}'$\\同型的矩阵$\bm{B}$，使得：$
+				\bm{A} \cdot \bm{B} \cdot \bm{A} = \bm{A}, \,\, \bm{B} \cdot \bm{A} \cdot \bm{B} = \bm{B}$
+			}\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\section{矩阵求值}
+\subsection{方阵的行列式}
+把一个方阵看作一个行列式，并按行列式的规则来求值的函数：
+\begin{center}
+	\lstinline|det(A)|
+\end{center}
+
+\subsection{矩阵的迹和秩}
+\begin{enumerate}
+	\item 矩阵的秩
+	\begin{itemize}
+		\item 定义：矩阵线性无关的行数与列数称为矩阵的秩。通常，对于一组向量$\bm{x}_1,\bm{x}_2,\cdots,\bm{x}_p$，若存在一组不全为零的数$k_i\,\,(i=1,2,\cdots,p)$，使
+		\begin{equation}
+			k_1\bm{x}_1+k_2\bm{x}_2+\cdots k_p\bm{x}_p = 0
+		\end{equation}
+	那么这$p$个向量线性相关，反之线性无关。
+	\item 函数：\lstinline|rank(A)|.
+	\end{itemize}
+\item 矩阵的迹
+\begin{itemize}
+	\item 定义：矩阵的迹等于矩阵的对角线元素之和，也等于矩阵的特征值之和。
+	\item 函数：\lstinline|trace(A)|，矩阵$\bm{A}$必须是方阵。
+\end{itemize}
+\end{enumerate}
+
+\subsection{向量和矩阵的范数}
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{3mm}{
+		\begin{tabular}{ccccl}
+			\toprule
+			类型 & 范数类型 & 函数 & 数学表达式 & 说明\\
+			\midrule
+			\multirow{5}*{向量} & 1--范数 & \lstinline|norm(V,1)| & $\displaystyle \big|\big|\bm{V}\big|\big|_1=\sum_{n}^{i = 1} |v_i|$ & 向量元素的绝对值之和\\
+			\specialrule{0em}{0.5em}{0.5em} 
+			& 2--范数 & \lstinline|norm(V,2); norm(V)| & $\displaystyle \big|\big|\bm{V}\big|\big|_2=\sqrt{\sum_{n}^{i = 1} |v_i|^2}$ & 向量元素绝对值的平方和的平方根\\
+			\specialrule{0em}{0.5em}{0.5em} & $\infty$--范数 & \lstinline|norm(V,inf);| & $\displaystyle \big|\big|\bm{V}\big|\big|_\infty=\max_{1 \le i \le n }\big\lbrace |v_i| \big\rbrace$ & 向量元素绝对值中的最大值\\
+			\specialrule{0em}{0.5em}{0.5em} 
+			\hline
+			\specialrule{0em}{0.5em}{0.5em} 
+			\multirow{5}*{矩阵} & 1--范数 & \lstinline|norm(A,1)| & $\displaystyle \big|\big|\bm{V}\big|\big|_1=\sum_{n}^{i = 1} |v_i|$ & 向量元素的绝对值之和\\
+			\specialrule{0em}{0.5em}{0.5em} 
+			& 2--范数 & \lstinline|norm(A,2); norm(A)| & $\displaystyle \big|\big|\bm{V}\big|\big|_2=\sqrt{\sum_{n}^{i = 1} |v_i|^2}$ & 向量元素绝对值的平方和的平方根\\
+			\specialrule{0em}{0.5em}{0.5em} 
+			& $\infty$--范数 & \lstinline|norm(A,inf);| & $\displaystyle \big|\big|\bm{V}\big|\big|_\infty=\max_{1 \le i \le n }\big\lbrace |v_i| \big\rbrace$ & 向量元素绝对值中的最大值\\
+			\specialrule{0em}{0.5em}{0.5em} 
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{矩阵的条件数}
+矩阵$\bm{A}$的条件数等于$\bm{A}$的范数与$\bm{A}$的逆矩阵的范数的乘积，即
+\begin{equation}
+	\text{cond}(\bm{A}) = \big|\big| \bm{A} \big|\big| \cdot \big|\big| \bm{A}^{-1} \big|\big|
+\end{equation}
+定义的条件数总是大于1的。条件数越接近1，矩阵的性能越好。反之，矩阵的性能越差。
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{7mm}{
+		\begin{tabular}{ccc}
+			\toprule
+			范数类型 & 函数 & 数学表达式 \\
+			\midrule
+			1-范数下的条件数 & \lstinline|cond(A,1)| & $\displaystyle \text{cond}(\bm{A},1) = \big|\big| \bm{A} \big|\big|_1 \cdot \big|\big| \bm{A}^{-1} \big|\big|_1$  \\
+			\specialrule{0em}{0.5em}{0.5em} 
+			2-范数下的条件数 & \lstinline|cond(A,2); cond(A)| & $\displaystyle \text{cond}(\bm{A},2) = \big|\big| \bm{A} \big|\big|_2 \cdot \big|\big| \bm{A}^{-1} \big|\big|_2$ \\
+			\specialrule{0em}{0.5em}{0.5em} $\infty$-范数下的条件数 & \lstinline|cond(A,inf);| & $\displaystyle \text{cond}(\bm{A},\infty ) = \big|\big| \bm{A} \big|\big|_{\infty} \cdot \big|\big| \bm{A}^{-1} \big|\big|_{\infty}$ \\
+			\specialrule{0em}{0.5em}{0.5em} 
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{矩阵的特征值与特征向量}
+\tdefination[特征值与特征向量]
+对于$n$阶方阵$\bm{A}$，求数$\bm{\lambda}$和向量$\bm{\xi}$，使得
+\begin{equation}
+	\bm{A}\bm{\xi} \,=\,\lambda \bm{\xi}
+\end{equation}
+即
+\begin{equation}
+	\big( \bm{A}-\lambda \bm{I} \big)\bm{\xi}=0
+	\label{特征}
+\end{equation}
+则满足式\eqref{特征}的向量$\bm{\xi}$称为\dya[特征向量]，数$\lambda$称为\dya[特征值]。
+
+由于式\eqref{特征}有非零解，所以必须使其系数行列式为0，即
+\begin{equation}
+	\big| \bm{A} - \lambda \bm{I} \big| = 0
+\end{equation}
+
+Matlab求特征值和特征向量的函数如下表。
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+		\begin{tabular}{ccc}
+			\toprule
+			函数名\&用法 & 说明\\
+			\midrule
+			\lstinline|V = eig(A)| & 求矩阵$\bm{A}$的全部特征值，构成向量$\bm{V}$\\
+			\lstinline|[X, D] = eig(A)| & \makecell[c]{求矩阵$\bm{A}$的全部特征值，构成对角阵$\bm{D}$，\\并产生矩阵$\bm{X}$，$\bm{X}$各列是相应的特征向量。}\\
+			\lstinline|[X, D] = eig(A, 'nobalance')| & 同上\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\warn[
+{\lstinline|[X, D] = eig(A, 'nobalance')|} 与 {\lstinline|[X, D] = eig(A)| }的区别\\
+\hspace*{2em}{\lstinline|[X, D] = eig(A, 'nobalance')|}是直接计算矩阵$\bm{A}$的特征值和特征向量，
+而 {\lstinline|[X, D] = eig(A)|}在计算矩阵$\bm{A}$的特征值和特征向量之前先求矩阵$\bm{A}$的相似变换。
+]
+
+
+
+
+
+
+
+
+
+
+

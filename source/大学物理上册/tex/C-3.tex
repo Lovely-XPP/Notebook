@@ -1,0 +1,147 @@
+\chapter{动量与角动量}
+\thispagestyle{empty}
+\section{对质点的动量定理}
+质点所受的和外力的冲量等于该质点动量的增量,即
+\margin{动量定理说明力对质点作用的时间积累效果表现为质点动量的改变.它是牛顿第二定律的直接变形,故也只适用于惯性系.}
+\begin{equation}
+\bm{F} \d t=\d \bm{p}=\d (m\bm{v})
+\end{equation}
+或
+\begin{equation}
+\int_{0}^{t} \bm{F}\d t= \bm{p}-\bm{p}_0=m\bm{v}-\bm{v}_0
+\end{equation}
+
+\section{对质点系的总动量}
+质点系的总动量
+\begin{equation}
+\bm{p}=\sum\bm{p}_i=\sum m_i\bm{p}_i
+\end{equation}
+作用于质点系的外力的矢量和为合外力
+\begin{equation}
+\bm{F}=\sum\bm{F}_i
+\end{equation}
+\par \dy[质点系的动量定理]{ZDXDDLDL}
+\begin{equation}
+\bm{F}\d t = \d \bm{p}\quad \quad \left( \bm{F}=\frac{\d \bm{p}}{\d t}\right) 
+\end{equation}
+\par \dy[动量守恒定律]{DLSHDL}\jg
+\margin{在外力远小于内力的情况下,外力对质点系的总动量变化影响很小,这时近似满足动量守恒的条件.例如,两个物体的碰撞和爆炸过程.}
+\par 当系统所受的合外力为0时,系统的总动量不随时间改变.\jg
+\par \dy[孤立系统]{GLXT} 一个不受外界影响的系统.一个孤立系统在运动过程中,其动量一定保持不变.
+
+\section{火箭飞行原理}
+假设火箭在自由空间飞行,即不受引力或空气阻力等任何外力的影响.质量为$M$,此时速度为$v$的火箭经过$\d t$时间喷出$\d m$质量的气体,喷出速率相对与火箭为定值$u$.则由动量守恒定律,
+\margin{\\[1.5em]\kg 注意到$\d m=-\d M$}
+\begin{equation*}
+\d m\cdot (v-u)+(M-\d m)(v+\d v)=-\d M\cdot (v-u)+(M+\d M)(v+\d v)=Mv
+\end{equation*}
+忽略二阶无穷小量$\d M \cdot \d v$可得
+\begin{equation*}
+u\d M+M\d v=0
+\end{equation*}
+即
+\margin{$M_i$为点火时的质量,\\\kg $v_i$为初速度.\\\kg$v_f$为末速度.\\\kg$M_f$为燃料耗尽时质量.}
+\begin{equation*}
+v_f-v_i=u\ln\frac{M_i}{M_f}
+\end{equation*}
+\par 如果只以火箭本身为研究的系统,以$F$表示在时间间隔$t$到$t+\Delta t$内喷出气体对火箭体(质量为$(M-\d m)$)的推力,由动量定理,有
+\begin{equation*}
+F\d t=(M-\d m)[(v+\d v)-v]=M\d v
+\end{equation*}
+由$M\d v=-u\d M=u \d m$代入,得
+\begin{equation*}
+F=u\frac{\d m}{\d t}
+\end{equation*}
+说明火箭发动机的推力与燃料的燃烧速率$\d m/\d t $以及喷出气体的相对速率$u$成正比.
+
+\section{质心}
+\dy[质心]{ZX} 质心是相对于质点系各质点位置分布的一个特殊点
+\margin{\\[1em] \kg{\scriptsize{$\disp m=\sum m_i$}},\\\kg $\bm{r_i}$ 为$m_i$质点的位矢.}
+\begin{equation}
+\bm{r}_C=\frac{\sum m_i \bm{r}_i}{m}\quad \mbox{或}\quad \bm{r}_C=\frac{\int \bm{r} \d m}{m}
+\end{equation}
+其坐标分量为
+\margin{\\[3em] \kg 均质几何体的质心就在其几何中心.}
+\begin{equation}
+\begin{cases}
+\displaystyle 
+x_C=\frac{\sum m_ix_i}{m}\\
+\\
+\displaystyle 
+y_C=\frac{\sum m_iy_i}{m}\\
+\\
+\displaystyle 
+z_C=\frac{\sum m_iz_i}{m}
+\end{cases}
+\quad \mbox{或}\quad 
+\begin{cases}
+\displaystyle 
+x_C=\frac{\int x \d m}{m}\\
+\\
+\displaystyle 
+y_C=\frac{\int y \d m}{m}\\
+\\
+\displaystyle 
+z_C=\frac{\int z \d m}{m}
+\end{cases}
+\end{equation}
+
+\par \dy[质心的速度]{ZXDSD}
+\begin{equation}
+\bm{v}_C=\frac{\d \bm{r}_C}{\d t}=\frac{\sum m_i\bm{v}_i}{m}
+\end{equation}
+
+\par \dy[质心的加速度]{ZXDJSD}
+\begin{equation}
+\bm{a}_C=\frac{\d \bm{v}_C}{\d t}=\frac{\sum m_i\bm{a}_i}{m}
+\end{equation}
+
+\par \dy[质心运动定理]{ZXYDDL}\jg
+\par 质点系所受合外力等于质心系的总质量和其质心的加速度的乘积
+\begin{equation}
+\bm{F}=\frac{\d \bm{p}}{\d t}=m\bm{a}_C
+\end{equation}
+
+\newpage
+\section{对质点的角动量定理}
+\dy[质点的角动量]{ZDDJDL}
+\margin{\\[1em] \kg 角动量的大小表示质点对一固定点的转动状态.\\\kg$\bm{r}$为质点相对于定点的位矢}
+\begin{equation}
+\begin{split}
+\bm{L}&=\bm{r}\times \bm{p}=\bm{r}\times(m\bm{v})\\
+L&=mrv\sin(\bm{r},\bm{v})
+\end{split}
+\end{equation}
+\par \dy[力矩]{LJ}
+\margin{\\[1em] \kg 力矩表示力对质点的转动作用.\\\kg$\bm{r}$为质点相对于定点的位矢}
+\begin{equation}
+\begin{split}
+\bm{M}&=\bm{r}\times \bm{F}\\
+M&=rF\sin(\bm{r},\bm{F})
+\end{split}
+\end{equation}
+\par \dy[质点的角动量定理]{ZDDJDLDL}
+\margin{特别地,如果$\bm{M}=0$,那么$\bm{L}$为常矢量,则质点对该定点角动量守恒.}
+\begin{equation}
+\bm{M}=\frac{\d \bm{L}}{\d t}
+\end{equation}
+
+\section{对质点系的角动量定理}
+\dy[质点系的角动量]{ZDXDJDL}
+\begin{equation}
+\bm{L}=\sum \bm{L}_i=\sum \bm{r}_i\times \bm{p}_i
+\end{equation}
+
+\par \dy[质点系的力矩]{ZDXDLJ}
+\begin{equation}
+\bm{M}=\sum \bm{M}_i =\sum \bm{r}_i\times \bm{F}_i
+\end{equation}
+\par \dy[质点系的角动量定理]{ZDXDJDLDL}
+\begin{equation}
+\bm{M}=\frac{\d \bm{L}}{\d t}
+\end{equation}
+\par 特别地,当$\bm{M}=0$时,那么$\bm{L}$为常矢量,则质点系角动量守恒.也说明内力矩不能改变系统的总角动量.
+
+
+
+

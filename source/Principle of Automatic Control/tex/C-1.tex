@@ -1,0 +1,222 @@
+\chapter{自动控制的一般概念}
+\thispagestyle{empty}
+\section{自动控制的任务}
+\dya[控制]{KZ}使被控对象的被控制对象的被控量等于给定值。
+
+\dya[自动控制]{ZDKZ}在没有人的直接参与下，利用控制装置操作控制对象，使被控制量等于给定值。
+
+\dya[被控对象]{BKDX} 受控制的物理对象。
+
+\dya[控制信号]{KZXH} 由控制器产生的物理量，用来改变被控量的值。
+
+\dya[控制装置]{KZZZ} 产生控制信号的物理装置。也称\dy[控制器]{KZQ}。
+
+\dya[理想信号]{LXXH} 被控制量欲跟踪的期望信号。
+
+\dya[测量元件]{CLYJ} 用以测量被控量或干扰量。
+
+\dya[比较元件]{BJYJ} 将被控量与给定值进行比较。
+
+\dya[执行元件]{ZXYJ} 根据比较后的偏差量，产生执行作用，去操纵被控对象。
+
+\section{自动控制的基本方式}
+自动控制的基本方式的种类如下：
+\begin{equation*}
+	\begin{cases}
+		\mbox{开环控制}
+		\begin{cases}
+			\mbox{按指令操作的开环操作}\\
+			\mbox{按干扰补偿的开环控制}\\
+		\end{cases}
+		\\
+		\mbox{按偏差调节的闭环控制}\\
+		\mbox{复合控制}
+	\end{cases}
+\end{equation*}
+
+\subsection{按指令操作的开环控制}
+
+按指令操作的开环控制的方框图如图\ref{开环控制1}.
+
+{
+\begin{center}
+	\begin{tikzpicture}[node distance=1.2cm]
+		%定义流程图具体形状
+		\node(O) [minimum height=0cm,draw, xshift = -9cm,,inner sep=8pt] {计算};
+		\node (B) [minimum height=0cm,draw, xshift = -6cm,node distance=1.5cm, inner sep=8pt] {控制器};
+		\node (C) [minimum height=0cm,draw, xshift = -3cm,node distance=1.5cm, inner sep=8pt] {执行};
+		\node (D) [minimum height=0cm,draw, xshift = 0cm,node distance=1.5cm, inner sep=8pt] {被控对象};
+		
+		%连接具体形状
+		\draw[arrows={-Stealth}](0cm,1.5cm) -- (D)  node[midway,right = 0.5cm, above=0cm]{干扰};
+		\draw[arrows={-Stealth}](-12cm,0cm) -- (O)  node[midway,above=0cm]{给定值R};
+		\draw[arrows={-Stealth}](O) -- (B) ;
+		\draw[arrows={-Stealth}](B) -- (C) ;
+		\draw[arrows={-Stealth}](C) -- (D) ;
+		\draw[arrows={-Stealth}](D) -- +(3cm,0) node[midway,above=0cm]{被控量C} ;
+		%\draw[arrows={-Stealth}](A) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(A1) ;
+		%\draw[arrows={-Stealth}](C) --+(0,-1.2cm)node[midway,right=2cm,above=-0.3cm]{取模函数mod}|-+(4cm,-1.2cm) -- (D1);
+		%\draw[arrows={-Stealth}](C) --+(0,-1.2cm)node[midway,right=-2cm,above=-0.3cm]{取余函数rem}|-+(-4cm,-1.2cm) -- (D2);
+	\end{tikzpicture}
+	\captionof{figure}{按指令操作的开环控制的方框图}
+	\label{开环控制1}
+\end{center}
+}
+
+\begin{itemize}
+	\item 特点：控制装置只按给定值来控制对象。
+	\item 优点：结构简单，成本低。
+	\item 局限
+	\begin{itemize}
+		\item 系统受到外部干扰或工作过程中特性参数发生变化，被控量会发生变化。
+		\item 系统自身没有纠偏能力，控制精度较低。
+	\end{itemize}
+\end{itemize}
+
+\subsection{按干扰补偿的开环控制}
+按干扰补偿的开环控制的方框图如图\ref{按干扰补偿的开环控制的方框图}.\\
+
+{
+\begin{center}
+	\begin{tikzpicture}[node distance=1.2cm]
+		%定义流程图具体形状
+		\node(O) [minimum height=0cm,draw, node distance=1cm,inner sep=8pt] {测量};
+		\node(A)[minimum height=0cm,draw,below of = O,xshift = -3cm,node distance=1.5cm,inner sep=8pt] {计算};
+		\node (B) [minimum height=0cm,draw,below of = O, xshift = -0cm,node distance=1.5cm, inner sep=8pt] {控制器};
+		\node (C) [minimum height=0cm,draw,below of = O, xshift = 2.5cm,node distance=1.5cm, inner sep=8pt] {执行};
+		\node (D) [minimum height=0cm,draw,below of = O, xshift = 5.2cm,node distance=1.5cm, inner sep=8pt] {被控对象};
+		
+		%连接具体形状
+		\draw[arrows={-Stealth}](5.2cm,1cm) -- (D)  node[midway,right = 0.5cm, above=0.5cm]{干扰};
+		\draw[arrows={-Stealth}](5.2cm,1cm) -- (5.2cm,0) -- (O) ;
+		\draw[arrows={-Stealth}](O) --+(-3cm,0) -- (A) ;
+		\draw[arrows={-Stealth}](A) -- (B) ;
+		\draw[arrows={-Stealth}](B) -- (C) ;
+		\draw[arrows={-Stealth}](C) -- (D) ;
+		\draw[arrows={-Stealth}](D) -- +(3cm,0) node[midway,above=0cm]{被控量C} ;
+		%\draw[arrows={-Stealth}](A) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(A1) ;
+		%\draw[arrows={-Stealth}](C) --+(0,-1.2cm)node[midway,right=2cm,above=-0.3cm]{取模函数mod}|-+(4cm,-1.2cm) -- (D1);
+		%\draw[arrows={-Stealth}](C) --+(0,-1.2cm)node[midway,right=-2cm,above=-0.3cm]{取余函数rem}|-+(-4cm,-1.2cm) -- (D2);
+	\end{tikzpicture}
+	\captionof{figure}{按干扰补偿的开环控制的方框图}
+	\label{按干扰补偿的开环控制的方框图}
+\end{center}
+}
+
+\begin{itemize}
+	\item 特点：控制的是被控量，测量的是破坏系统正常运行的干扰量，利用干扰产生的控制作用，以补偿干扰对被控量的影响。\textbf{适用于存在强干扰且变化比较剧烈的场合。}
+	\item 优点：当干扰可测时，通过构造干扰的双通道，能对干扰进行全补偿。
+	\item 局限：
+	\begin{itemize}
+		\item 信号仍然是单向传递的。
+		\item 因为测量的是干扰，所以只能对可测干扰进行补偿。
+		\item 对于不可测干扰以及系统内部参数对被控量造成的影响，系统自身无法控制。
+	\end{itemize}
+\end{itemize}
+
+\subsection{按偏差调节的闭环控制}
+按偏差调节的闭环控制的方框图如图\ref{按偏差调节的闭环控制的方框图}.
+
+{
+	\begin{center}
+		\begin{tikzpicture}[node distance=1.2cm]
+			%定义流程图具体形状
+			\node(A)[minimum height=0cm,draw,below of = O,xshift = -3cm,node distance=1.5cm,inner sep=8pt] {比较、计算};
+			\node (B) [minimum height=0cm,draw,below of = O, xshift = -0cm,node distance=1.5cm, inner sep=8pt] {控制器};
+			\node (C) [minimum height=0cm,draw,below of = O, xshift = 2.5cm,node distance=1.5cm, inner sep=8pt] {执行};
+			\node (D) [minimum height=0cm,draw,below of = O, xshift = 5.2cm,node distance=1.5cm, inner sep=8pt] {被控对象};
+			\node(O1) [minimum height=0cm,draw, below of = O, node distance=3cm,inner sep=8pt] {测量};
+			
+			%连接具体形状
+			\draw[arrows={-Stealth}](5.2cm,0cm) -- (D)  node[midway,right = 0.5cm, above=0cm]{干扰};
+			\draw[arrows={-Stealth}](O1) --+(-3cm,0) node[midway, right=-2cm, above=0cm]{实测值} -- (A) ;
+			\draw[arrows={-Stealth}](-6cm,-1.5cm) -- (A)  node[midway,above=0cm]{给定值R};
+			\draw[arrows={-Stealth}](A) -- (B) ;
+			\draw[arrows={-Stealth}](B) -- (C) ;
+			\draw[arrows={-Stealth}](C) -- (D) ;
+			\draw[arrows={-Stealth}](D) -- +(3cm,0) node[midway,above=0cm]{被控量C} ;
+			\draw[arrows={-Stealth}](7.2cm,-1.5cm) --+(0,-1.5cm) -- (O1) ;
+			%\draw[arrows={-Stealth}](A) --+(0,-1cm) node[midway,right=1.5cm,above=-0.3cm]{N}|-(A1) ;
+			%\draw[arrows={-Stealth}](C) --+(0,-1.2cm)node[midway,right=2cm,above=-0.3cm]{取模函数mod}|-+(4cm,-1.2cm) -- (D1);
+			%\draw[arrows={-Stealth}](C) --+(0,-1.2cm)node[midway,right=-2cm,above=-0.3cm]{取余函数rem}|-+(-4cm,-1.2cm) -- (D2);
+		\end{tikzpicture}
+		\captionof{figure}{按偏差调节的闭环控制的方框图}
+		\label{按偏差调节的闭环控制的方框图}
+	\end{center}
+}
+\begin{itemize}
+	\item 控制原理：根据被控量和给定值的偏差来进行调节，称为\dy[反馈控制]{FKKZ}，或\dy[闭环控制]{BHKZ}。反馈回来的信号与给定值相减，即根据偏差进行控制，称为\dy[负反馈]{FFK}，反之称为\dy[正反馈]{ZFK}。\textbf{偏差调节的闭环控制一定是按负反馈原理组成的，反馈闭合回路是按偏差调节的自动控制系统在结构联系和信号传递上的重要标志。}
+	\item 优点：控制精度较高，无论是干扰的作用还是系统结构参数的变化，只要被控量偏离给定值，系统就会自动纠偏。
+	\item 局限：如果参数匹配得不好，会造成被控量有较大摆动，甚至系统无法工作。
+\end{itemize}
+
+
+\subsection{复合控制}
+复合控制的方框图如图\ref{复合控制的方框图},
+
+{
+	\begin{center}
+		\begin{tikzpicture}[node distance=1.2cm]
+			%定义流程图具体形状
+			\node(O) [minimum height=0cm,draw, node distance=1cm,inner sep=8pt] {测量};
+			\node(A)[minimum height=0cm,draw,below of = O,xshift = -3cm,node distance=1.5cm,inner sep=8pt] {比较、计算};
+			\node (B) [minimum height=0cm,draw,below of = O, xshift = -0cm,node distance=1.5cm, inner sep=8pt] {控制器};
+			\node (C) [minimum height=0cm,draw,below of = O, xshift = 2.5cm,node distance=1.5cm, inner sep=8pt] {执行};
+			\node (D) [minimum height=0cm,draw,below of = O, xshift = 5.2cm,node distance=1.5cm, inner sep=8pt] {被控对象};
+			\node(O1) [minimum height=0cm,draw, below of = O, node distance=3cm,inner sep=8pt] {测量};
+			
+			%连接具体形状
+			\draw[arrows={-Stealth}](5.2cm,1cm) -- (D)  node[midway,right = 0.5cm, above=0.5cm]{干扰};
+			\draw[arrows={-Stealth}](5.2cm,1cm) -- (5.2cm,0) -- (O) ;
+			\draw[arrows={-Stealth}](O) --+(-3cm,0) -- (A) ;
+			\draw[arrows={-Stealth}](O1) --+(-3cm,0) node[midway, right=-2cm, above=0cm]{实测值} -- (A) ;
+			\draw[arrows={-Stealth}](-6cm,-1.5cm) -- (A)  node[midway,above=0cm]{给定值R};
+			\draw[arrows={-Stealth}](A) -- (B) ;
+			\draw[arrows={-Stealth}](B) -- (C) ;
+			\draw[arrows={-Stealth}](C) -- (D) ;
+			\draw[arrows={-Stealth}](D) -- +(3cm,0) node[midway,above=0cm]{被控量C} ;
+			\draw[arrows={-Stealth}](7.2cm,-1.5cm) --+(0,-1.5cm) -- (O1) ;
+		\end{tikzpicture}
+		\captionof{figure}{复合控制的方框图}
+		\label{复合控制的方框图}
+	\end{center}
+}
+
+\warn[
+三种控制方式的区别：\textbf{主要看测量量}。
+{
+\begin{itemize}
+	\item 按指令操作的开环控制：不进行测量，直接控制。
+	\item 按干扰补偿的开环控制：只测量干扰，根据干扰的测量量进行控制。
+	\item 按偏差调节的闭环控制：只测量被控量，根据被控量的测定值和设定值的偏差进行控制。
+	\item 复合控制：既测量干扰量，也测量被控量，进行复合控制。
+\end{itemize}
+}
+]
+
+\section{对控制系统的要求}
+\subsection{动态过程和稳态过程}
+{
+\tdefination[动态过程]
+通常将系统在输入或干扰的激励下，被控量变化的全过程称为系统的\dy[动态过程]{DTGC}（或\dy[瞬间响应]{SJXY}）。响应往往具有阻尼衰减的特性。
+}\\
+
+\subsection{性能指标}
+\noindent 1. 稳定性
+
+\defination[稳定性]
+系统在受到外作用后，若控制装置能操纵被控对象，使被控量随时间的增长最终与希望的一致，则称系统是\dy[稳定]{WD}的。对系统任意的有界输入，其输出有界，当且仅当一个系统是稳定的。任何实际的控制系统必须稳定。
+
+\defination[平稳性]
+被控量围绕给定值摆动的幅度和摆动的次数，即动态过程振荡的振幅和频率称为系统的\dy[平稳性]{PWX}。\\
+
+\noindent 2. 瞬态性能要求
+\begin{itemize}
+	\item 稳：系统的稳定性和平稳性
+	\item 快：系统的快速性，即动态过程进行的时间长短。
+	\item 准：系统在动态过程结束后，被控量（或反馈量）对给定值的偏差，也称为\dy[稳态误差]{WTWC}，它是衡量系统稳态精度的指标，反映了动态过程后期的性能。
+\end{itemize}
+
+
+
+

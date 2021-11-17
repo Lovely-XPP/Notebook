@@ -1,0 +1,230 @@
+\chapter{随机事件}
+\thispagestyle{empty}
+\section{随机事件}
+\subsection{随机现象}
+\dy[确定性现象]{QDXXX}
+在一定条件下必然出现的结果\jg\\
+\dy[随机现象]{SJXX}
+事先无法准确与之其结果的现象\jg
+\subsection{随机现象的统计性规律}
+\dy[统计规律性]{TJGLX}
+随机现象在大量重复出现时所表现出来的规律性.\jg\\
+\dy[随机试验]{SJSY}
+对随机现象的观察.\jg\\
+\dya[随机试验的特点]
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{3em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 可重复性
+	\item 可观察性
+	\item 随机性
+\end{enumerate}
+
+
+\subsection{样本空间}
+\dy[样本点]{YBD}
+随机试验的每一个可能结果.\jg\\
+\dy[样本空间]{YBKJ}
+样本点的全体.\jg
+
+\subsection{随机事件}
+\dy[事件]{SJ}
+实验结果具备的某一可观察的特征.\jg\\
+\dy[随机事件]{SJSJ}
+在随机试验中可能发生也可能不发生.\jg\\
+\dy[必然事件]{BRSJ}
+在试验中必然发生.\jg\\
+\dy[不可能事件]{BKNSJ}
+在试验中一定不发生.\jg\\
+\dy[基本事件]{JBSJ}
+对应一个唯一的可能结果，即样本点.\jg
+
+\subsection{事件的集合表示}
+
+\subsection{事件建的关系和运算}
+\dy[事件的包含]{SJDBH}
+$A$发生必然导致$B$发生,则称事件$B$包含事件$A$,记作$B\supset A$或$A\subset B$.\jg\\
+\dy[事件的相等]{SJDXD}
+事件$A$包含事件$B$，事件$B$也包含事件$A$，则称事件$A$与$B$相等，记作$A=B$.\jg\\
+\dy[事件的并（或和）]{SJDB}
+``事件$A$与$B$至少有一个发生"这一事件称为事件$A$和$B$的并（或和）,记作$A\cup B$或$A+B$.\jg\\
+\dy[事件的交（或积）]{SJDJ}
+``事件$A$与$B$都发生"这一事件称为事件$A$与$B$的交（或积）,记作$A\cap B$.\jg\\
+\dy[事件的差]{SJDC}
+``事件$A$发生而$B$不发生"这一事件称为事件$A$和$B$的差,记作$A-B$.\jg\\
+\dy[互不相容事件]{HBXRSJ}
+若事件$A$与$B$不能同时发生,也就是说$AB$时不可能事件,即$AB=\varnothing$,则称事件$A$与$B$是不可能事件.\jg\\
+\dy[对立事件]{DLSJ}
+``事件$A$不发生"这一事件称为事件$A$的对立事件,记作$\overline{A}$,易见,$\overline{A}=\Omega -A$,且$\overline{(\overline{A})}$.\jg\\
+\dya[有限个事件的并与交]\jg
+\newpage 
+\noindent\dy[完备事件组]{WBSHZ}
+\par 完备事件组设$A_1,A_2,\cdots,A_n,\cdots$是有限或可数个事件,如果其满足
+\par \quad (1)  $A_iA_j=\varnothing,i\ne j,\quad i,j=1,2,\cdots $
+\par \quad (2)  $\bigcup\limits_iA_i=\Omega$
+\par 则称$A_1,A_2,\cdots,A_n,\cdots$是一个完备事件组.\jg\\
+\dya[事件的关系与运算的文氏图]\jg
+
+\subsection{随机事件的运算律}
+\dya[求和运算]\jg
+\par \quad 交换律
+\begin{equation}
+A \cup B =B \cup A
+\end{equation}
+\par \quad 结合律
+\begin{equation}
+(A \cup B)\cup C =A\cup (B\cup C)=A\cup B\cup C
+\end{equation}
+\dya[求交运算]\jg
+\par \quad 交换律
+\begin{equation}
+A\cap B=B\cap A
+\end{equation}
+\par \quad 结合律
+\begin{equation}
+(A \cap B)\cap C=A\cap (B\cap C)=A \cap B \cap C
+\end{equation}
+\dya[混合运算]\jg
+\par \quad 第一分配律
+\begin{equation}
+A \cap (B \cup C)=(A\cap B)\cup (A \cap C)
+\end{equation}
+\par \quad 第二分配律
+\begin{equation}
+A \cup (B \cap C)=(A\cup B)\cap (A \cup C)
+\end{equation}
+\dya[求对立事件的运算]\jg
+\par \quad 自反律
+\begin{equation}
+\overline{(\overline{A})}=A
+\end{equation}
+\dya[求和及交事件的对立事件]\jg
+\par \quad 第一对偶律
+\begin{equation}
+\overline{A \cup B}=\overline{A} \cap \overline{B} 
+\end{equation}
+\par \quad 第二对偶律
+\begin{equation}
+\overline{A \cap B}=\overline{A} \cup \overline{B} 
+\end{equation}
+
+\section{随机事件的概率}
+\subsection{概率及其频率解释}
+参见$\rm{P}_9$
+\subsection{从频率的性质看概率的性质}
+参见$\rm{P}_{10}$
+\subsection{概率的公理化定义}
+\sj
+\defination[概率公理化]
+设$\Omega $是一个样本空间，定义在$\Omega $的事件域$F$上的一个实值函数$P(\cdot)$如果它满足下列三条公理：
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{4em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $P(\Omega )=1$
+	\item 对任意事件$A$,有$P(A) \le 0$
+	\item 对任意可数的两两不相容的事件$A_1,A_2,\cdots,A_n,\cdots$,有$\displaystyle P\left( \bigcup_{i=1}^{\infty } A_i\right)=\sum_{i=1}^{\infty }P(A_i) $
+\end{enumerate}
+则称实值函数$P(\cdot)$为$\Omega $上的一个概率测度.\jg
+
+\subsection{概率测度的性质}
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{4em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item $P(\varnothing)=0$
+	\item 有限可加性：$\displaystyle P\left( \bigcup_{i=1}^{\infty } A_i\right)=\sum_{i=1}^{\infty }P(A_i) $
+	\item $P(\overline{A})=1-P(A)$
+	\item $P(A-B)=P(A)-P(AB)=P(B)-P(AB)$
+	\item $0\le P(A) \le 1$
+	\item $P(A\cup B)=P(A)+P(B)-P(AB)$
+\end{enumerate}
+
+\section{古典概型与集合概型}
+\subsection{古典概型}
+\tdefination[古典概型]
+古典概型是满足下面两个假设条件的概率模型：
+\begin{enumerate}[1.]
+	\setlength{\itemindent}{4em}
+	\setlength{\topsep}{0.01em}
+	\setlength{\itemsep}{0.01em}
+	\item 随机试验只有有限个结果
+	\item 每一个可能记过发生的概率相同
+\end{enumerate}
+所以，古典概型的概率测度可表述为：
+\begin{equation}
+P(A)=\frac{A\mbox{中的元素个数}}{\Omega \mbox{中的元素个数}}=\frac{\mbox{使}A\mbox{发生的基本事件数}}{\mbox{基本事件总数}}
+\end{equation}
+
+\subsection{几何概型}
+\tdefination[几何概型]
+几何概型的概率测度可表述为
+\begin{equation}
+P(A)=\frac{S(A)}{S(\Omega)}
+\end{equation}
+
+\section{条件概率}
+\subsection{条件概率的定义}
+\tdefination[条件概率]
+给定概率空间$\Omega,P$，$A,B$是其上的两个事件，且$P(A)>0$，则称$\displaystyle P(B|A)=\frac{P(AB)}{P(A)}$为已知事件$A$发生的条件下，事件$B$发生的条件概率.
+
+\subsection{乘法公式}
+\ttheorem[乘法公式]
+乘法公式的两个形式：
+\begin{equation}
+P(AB)=P(A)\cdot P(B|A),\,P(A)>0
+\end{equation}
+\begin{equation}
+P(AB)=P(B)\cdot P(A|B),\,P(B)>0
+\end{equation}
+
+\subsection{全概率公式}
+\ttheorem[全概率公式]
+设$\lbrace A_i \rbrace$是一列有限或可数无穷个两两不相容的非零概率事件，且$\bigcup\limits_{i}A_i=\Omega $，则对任意事件$B,P(B)>0$，有
+\begin{equation}
+P(B)=\sum\limits_{i}P(A_i)\cdot P(B|A_i)
+\end{equation}
+
+\subsection{贝叶斯公式}
+\ttheorem[贝叶斯公式]
+设$\lbrace A_i \rbrace$是一列有限或可数无穷个两两不相容的非零概率事件，且$\bigcup_{i=1}^{\infty}A_i=\Omega $，则对任意事件$B,P(B)>0$，有
+\begin{equation}
+P(A_i|B)=\frac{P(A_iB)}{P(B)}=\frac{P(A_i)\cdot P(B|A_j)}{\sum\limits_{j}P(A_j)\cdot P(B|A_j)}
+\end{equation}
+
+\section{事件的独立性}
+\subsection{两个事件的独立性}
+\dy[两个事件的独立性]{LGSJDDLX}
+如果$P(AB)=P(A)P(B)$，则称$A$与$B$相互独立，简称$A$与$B$独立.\jg\\
+\dy[有限个事件的独立性]{YXGSJDDLX}
+(1)  如果有$n(n\le 2)$个事件：$A_i,A_2,\cdots,A_n$中任意两个使劲按均相互独立，即对任意$1\le i\le j \le n$，均有$P(A_iA_j)=P(A_i)P(A_j)$，则称$n$个事件$A_i,A_2,\cdots,A_n$两两独立.
+\par (2)  设$A_i,A_2,\cdots,A_n$为$n(n\le 2)$个事件，如果对其中任何$k(2\le k\le n)$个事件$A_{i_1},A_{i_2},\cdots,A_{i_k}\,(1 \le i_1<i_2<\cdots<i_k\le n)$，均有$P(A_{i_1}A_{i_2}\cdots A_{i_k})=P(A_{i_1})P(A_{i_2})\cdots P(A_{i_k})$，则称
+事件$A_i,A_2,\cdots,A_n$为$n(n\le 2)$相互独立.
+
+\subsection{相互独立性的性质}
+\ttheorem[相互独立性的性质]
+1.  如果$n$个事件$A_1,A_2,⋯,A_n$相互独立，则将其中任何$m(1\leq m \leq n)$个事件改为相应的对立事件，形成的新的$n$个事件仍然相互独立.
+\par 2.  如果$n$个事件$A_1,A_2,⋯,A_n$相互独立，则有
+\begin{equation}
+	P\left( \bigcup_{i=1}^{n} A_i\right) =1-\prod_{i=1}^{n}P\left(\overline{A_i} \right) =1-\prod_{i=1}^{n}\left[1- P\left(A_i \right)\right]
+\end{equation}
+
+\subsection{伯努利概型}
+\tdefination[伯努利概型]
+只有两个可能的结果的试验称为伯努利试验，一个伯努利试验独立重复$n$次形成的试验序列称为$n$重伯努利试验.
+\jg
+
+\theorem[伯努利定理]
+在一次试验中，事件$A$发生的概率为$p(0<p<1)$，则在$n$重伯努利试验中，事件$A$恰好发生$k$次的概率$b(k;n,p)$为
+\begin{equation}
+b(k;n,p)=C_n^k\,p^k\,q^{n-k}
+\end{equation}
+其中，$q=1-p.$
+\par 在伯努利试验序列中，设每次试验中事件$A$发生的概率为$p$，“事件$A$在第$k$次试验中才首次发生”$(k≥1)$这一事件的概率为
+\begin{equation}
+g(k,p)=p\,q^{k-1}
+\end{equation}
+
+
+

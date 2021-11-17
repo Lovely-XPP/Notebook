@@ -1,0 +1,27 @@
+\chapter{绪论}
+数学物理方程课程主要研究以下三个方程。
+
+\defination[泊松方程]
+\index{PSFC@泊松方程}
+\begin{equation}
+	\frac{\partial^2u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} +\frac{\partial^2 u}{\partial z^2} = f
+\end{equation}
+
+\defination[波动方程]
+\index{BDFC@波动方程}
+\begin{equation}
+	\frac{\partial^2 u}{\partial t^2} = a^2\left(	\frac{\partial^2u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} +\frac{\partial^2 u}{\partial z^2} \right)
+\end{equation}
+
+\defination[热传导方程]
+\index{RCDFC@热传导方程}
+\begin{equation}
+		\frac{\partial u}{\partial t} = a^2\left(	\frac{\partial^2u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} +\frac{\partial^2 u}{\partial z^2} \right)
+\end{equation}
+
+可以发现，以上方程都是\dy[二阶线性偏微分方程]{EJXXPWFFC}.
+\begin{enumerate}[\hspace*{3em}$-$]
+	\item 二阶：导数的最高阶数为2；
+	\item 线性：只存在对于未知函数的\dy[线性运算]{XXYS}\footnote{线性运算：对于运算$\mathcal{L}(u_1,u_2)$，满足：$\dfrac{\partial^n \mathcal{L}(\alpha_1 u_1+\alpha_2 u_2)}{\partial t^n} = \dfrac{\alpha_1 \partial^n \mathcal{L}(u_1)}{\partial t^n}+ \dfrac{\alpha_2 \partial^n \mathcal{L}(u_2)}{\partial t^n}$}。
+\end{enumerate}
+

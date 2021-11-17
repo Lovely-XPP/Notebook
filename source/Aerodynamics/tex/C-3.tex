@@ -1,0 +1,218 @@
+\chapter{平面不可压缩势流理论}
+\thispagestyle{empty}
+\section{基本方程}
+\subsection{引言}
+理想流动的连续（质量）方程和欧拉（动量）方程：
+\begin{equation*}
+	\dfrac{\D \rho}{\D t} + \rho (\nabla \bm{V}) = 0 \qquad \bm{f} - \dfrac{1}{\rho} \nabla p = \dfrac{\D \bm{V}}{\D t}
+\end{equation*}
+在不可压缩的条件下，可以简化为
+\begin{equation}
+	\begin{cases}
+		\, \nabla \bm{V} = 0\\[0.5em]
+		\, \dfrac{\D \bm{V}}{\D t} = \bm{f} - \dfrac{1}{\rho} \nabla p
+	\end{cases}
+\end{equation}
+\vspace*{0.5em}
+
+\noindent
+\begin{minipage}{0.4\linewidth}
+	给定初始条件
+	\begin{equation*}
+		\begin{cases}
+			\, \bm{V}(x,y,z,t_0)\\
+			\, p(x,y,z,t_0)
+		\end{cases}
+	\end{equation*}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+	边界条件\vspace*{-0.5em}
+	\begin{itemize}
+		\item 物体表面：$\bm{V}_n = 0$\vspace*{-0.5em}
+		\item 无穷远处：$\bm{V} = \bm{V}, p = p_\infty$
+	\end{itemize}
+\end{minipage}
+\vspace*{1em}
+
+\noindent
+\begin{minipage}{0.4\linewidth}
+	\noindent 求解困难：\vspace*{-0.5em}
+	\begin{itemize}
+		\item 存在非线性项\vspace*{-0.5em}
+		\item 速度和压强耦合\vspace*{-0.5em}
+		\item 物体（如飞行器）边界复杂
+	\end{itemize}
+\end{minipage}
+\begin{minipage}{0.6\linewidth}
+	\noindent 求解思路：\vspace*{-0.5em}
+	\begin{itemize}
+		\item 基本流动的速度位或流函数\vspace*{-0.5em}
+		\item 对于简单边界条件，基本流动叠加即可。\vspace*{-0.5em}
+		\item 对于复杂边界条件，基本流动叠加并利用数值方法求解。
+	\end{itemize}
+\end{minipage}
+\vspace*{1em}
+
+\noindent 求解途径：\vspace*{-0.5em}
+\begin{itemize}
+	\item 利用无旋条件简化方程（线性化）\vspace*{-0.5em}
+	\item 解耦速度和压强（即分别求解速度和压强）\vspace*{-0.5em}
+\end{itemize}
+\vspace*{1em}
+
+
+\subsection{位函数和流函数、叠加原理和边界条件}
+
+\sssection[位函数]
+
+位函数存在的条件是流场无旋：
+\begin{equation*}
+	\text{rot} \bm{V} = 0 \qquad \bm{\omega}_z = 0 \qquad \dfrac{\partial u}{\partial y} = \dfrac{\partial v}{\partial x}
+\end{equation*}
+即存在\dy[位函数]{WHS}$\d \phi = u \d x + v \d y$，其中
+\begin{equation}
+	\begin{cases}
+		\, u = \dfrac{\partial \phi}{\partial x} \\[0.5em]
+		\, v = \dfrac{\partial \phi}{\partial y}
+	\end{cases}
+\end{equation}
+又由连续方程
+\begin{equation}
+	\dfrac{\partial u}{\partial x} + \dfrac{\partial v}{\partial y} = 0 \quad \Rightarrow \quad \dfrac{\partial^2 \phi}{\partial x^2} + \dfrac{\partial^2 \phi}{\partial y^2} = 0 \quad \Rightarrow \quad \nabla^2 \phi = 0
+\end{equation}
+得到速度位，即可求解速度分量；一系列的速度位等值线称为\dy[等位线]{DWX}。
+\vspace*{1em}
+
+\sssection[流函数]
+
+由连续方程
+\begin{equation*}
+	\dfrac{\partial u}{\partial x} + \dfrac{\partial v}{\partial y} = 0 \quad \Rightarrow \quad \dfrac{\partial u}{\partial x} = -\dfrac{\partial v}{\partial y} = \dfrac{\partial (-v)}{\partial x}
+\end{equation*}
+即存在\dy[流函数]{LHS}$\d \psi = -v \d x + u \d y$，其中
+\begin{equation}
+	\begin{cases}
+		\, v = -\dfrac{\partial \psi}{\partial x} \\[0.5em]
+		\, u = \dfrac{\partial \psi}{\partial y}
+	\end{cases}
+\end{equation}
+若流场无旋，则
+\begin{equation}
+	\dfrac{\partial u}{\partial y} - \dfrac{\partial v}{\partial x} = 0 \quad \Rightarrow \quad  \dfrac{\partial^2 \psi}{\partial y^2} + \dfrac{\partial^2 \psi}{\partial^2 x^2} = 0 \quad \Rightarrow \quad \nabla^2 \psi = 0
+\end{equation}
+得到流函数，即可求解速度分量；一系列的流函数等值线称为\dy[流线]{LX}。
+\vspace*{1em}
+
+\sssection[叠加原理]
+
+拉普拉斯方程是线性方程，可以用\dy[叠加原理]{DJYL}求复合解。
+
+如果多个位函数分别满足拉普拉斯方程，即
+\begin{equation}
+	\nabla^2 \phi_i = 0
+\end{equation}
+则这些位函数的线性组合也必定满足别满足拉普拉斯方程，即
+\begin{equation}
+	\phi = \sum_{i=1}^{n} a_i \phi_i \quad \Rightarrow \quad \nabla^2 \phi = \sum_{i=1}^{n} a_i \nabla^2 \phi_i
+\end{equation}
+由于速度分量和位函数也是线性关系，则速度分量也满足叠加原理，即
+\begin{equation}
+	\begin{cases}
+		\, \displaystyle u = \dfrac{\partial \phi}{\partial x} = \sum_{i = 1}^{n}a_i \dfrac{\partial \phi_i}{\partial x} = \sum_{i=1}^n a_iu_i\\[1em]
+		\, \displaystyle v = \dfrac{\partial \phi}{\partial y} = \sum_{i = 1}^{n}a_i \dfrac{\partial \phi_i}{\partial y} = \sum_{i=1}^n a_iv_i
+	\end{cases}
+\end{equation}
+
+\sssection[边界条件]
+\begin{equation*}
+	\mbox{\dy[边界条件]{BJTJ}}
+	\, 
+	\begin{cases}
+		\, \mbox{\blue[外边界条件]（足够远处）}\\
+		\, \mbox{\blue[内边界条件]（物体表面）}
+	\end{cases}
+\end{equation*}
+
+\noindent 对于空气动力学问题，已知速度位$\phi$，则
+\begin{itemize}
+	\item 外边界条件（无穷远处）：
+	\begin{equation}
+		\dfrac{\partial \phi}{\partial x} = V_\infty \quad \dfrac{\partial \phi}{\partial y} = \dfrac{\partial \phi}{\partial z} = 0
+	\end{equation}
+	\item 内边界条件：（物体表面法向速度分量为零）
+	\begin{equation}
+		\dfrac{\partial \phi}{\partial \bm{n}} = 0
+	\end{equation}
+\end{itemize}
+在边界条件下，拉普拉斯方程的解唯一。
+
+\subsection{位函数和流函数的性质及其相互联系}
+
+\sssection[位函数的性质]
+\vspace*{-1em}
+\begin{enumerate}[\hspace*{1.5em} (1) ]
+	\item 有无旋流动定义得到；位函数值可以相差任意常数；\vspace*{-0.5em}
+	
+	\item 对于理想不可压无旋流动，位函数满足拉普拉斯方程和叠加原理；\vspace*{-0.5em}
+	
+	\item 位函数沿某一方向的偏导数等于该方向的速度分量；（$\bm{s}$为速度切向）
+	\begin{equation}
+		\begin{aligned}
+			v_s &= u \cos(\bm{x},\bm{s}) + v \cos (\bm{y}, \bm{s}) \\
+			& = \dfrac{\partial \phi}{\partial x} \cdot \dfrac{\d x}{\d s} + \dfrac{\partial \phi}{\partial y}\cdot \dfrac{\d y}{\d s} \\
+			&= \dfrac{\partial \phi}{\partial \bm{s}}
+		\end{aligned}
+	\quad \Rightarrow \quad v_s = \dfrac{\partial \phi}{\partial \bm{s}}
+	\end{equation}
+
+	\item 速度位函数沿着流线方向增加
+	\begin{equation}
+			\begin{aligned}
+			\d \phi &= \dfrac{\partial \phi}{\partial x}\, \d x + \dfrac{\partial \phi}{\partial y}\d y\\
+			& = u\, \d x + v \, \d y\\
+			& = \bm{V}\cdot \d \bm{s}
+		\end{aligned} 
+	\quad \Rightarrow \quad \d \phi = \bm{V}\cdot \bm{s}
+	\end{equation}
+
+	\item 速度位函数值相等的点连成的线称为\dy[等位(势)线]{DWX}，与速度方向垂直；
+	\begin{equation}
+		\begin{cases}
+			\, \d \phi = 0\\
+			\, \d \phi = \bm{V} \cdot \bm{s}
+		\end{cases}
+		\quad \Rightarrow \quad 
+		\bm{V}  \d \bm{s}
+	\end{equation}
+	
+	\item 任意两点的速度线积分等于这两点的速度位函数之差；速度线积分与路径无关，仅决定于两点的位置；对封闭曲线，速度环量为零。
+	\begin{align}
+		\int_A^B \bm{V}\cdot \d \bm{s} & = \int_A^B (u\,d x + v\,d y + w \, \d z) \notag \\[0.5em]
+		& = \int_A^B \, \d \phi = \phi_B - \phi_A
+	\end{align}
+\end{enumerate}
+
+\sssection[流函数的性质]
+\vspace*{-1em}
+\begin{enumerate}[\hspace*{1.5em}(1) ]
+	\item 
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,189 @@
+\chapter{热力学第一定律} 
+\thispagestyle{empty}
+\section{功 \quad 热量 \quad 热力学第一定律}
+\thispagestyle{empty}
+从微观上看（在力学上就是把系统当分子组成的质点系处理），系统和外界交换能量的过程有两种情况：
+\par \dy [功]{G} 
+系统和外界的边界发生宏观位移,这种情况下外界对系统做宏观功,简称功。它实质上是系统和外界交换的分子有规則运动的能量。
+\par \dy [热量]{RL} 
+系统和外界的分子通过碰撞对系统做微观功而交换无规则运动的能量。这种交换只有在系统和外界分子的无规则运动平均动能不同，即在系统和外界的温度不同时才能发生。这种交换方式叫热传递,所传递的无规则透动能量的多少叫热量。
+\par \dy[内能]{NN}
+系统中所有分子的无规则运动能是的总和。\jg
+\par \dy[热力学第一定律]{RLXDYDL}
+\margin{\\ \\ \kg 热力学第一定律是普遍的能量守恒定律的“初级形式“。它适用于系统的任意过程。}
+从微观上应用对质心系的机械能守恒定律,以$A$表示外界对系统做的宏观功,以$Q$表示外界对系统做的徼观功,即输入系统的热量。以$E$表示系统的内能,则有
+$$A'+Q=\Delta E$$
+常用$A$表示系统对外界做的功。由于$A'=-A$，即
+\begin{equation}
+\eq[Q=\Delta E+A]
+\end{equation}
+
+\section{准静态过程}
+\dy[准静态过程]{ZJTGC} 过程进行中的每一时刻，系统的状态都无限接近与平衡态。``无限缓慢"的过程就是准静态过程。
+\margin{准静态过程可以用状态图上的曲线表示}
+\par 在无摩擦的准静态过程中系统对外做的``体积功"为
+\margin{\\ \kg 注：功是``过程量"}
+\begin{equation}
+\eq[A=\int_{V_1}^{V_2}p\,\d V]
+\end{equation}
+
+\section{热容[量]}
+热量也是``过程量"，和温度变化有关的热量可用热容量计算。
+\par 对于固体或液体，如果吸热仅引起温度的升高，则
+\begin{equation}
+\eq[Q=cm\Delta T]
+\end{equation}
+\par \dy[潜热]{QR} 物体在相变时所吸收或放出的热量。\jg
+\par \dy[融化热]{RHR} 固体融化时吸收的热量。\jg
+\par \dy[汽化热]{QHR} 液体在沸点汽化时吸收的热量。\jg
+\par \dy[摩尔定压热容]{MEDYRR}
+\begin{equation}
+\eq[C_{p,m}=\frac{1}{\nu}\left(\frac{\d Q}{\d T} \right)_p ]
+\end{equation}
+
+\par \dy[摩尔定体热容]{MEDTRR}
+\begin{equation}
+\eq[C_{V,m}=\frac{1}{\nu}\left(\frac{\d Q}{\d T} \right)_V ]
+\end{equation}
+对于理想气体，
+\margin{$i$是气体分子的自由度，可以参看表\ref{气体分子的自由度}.理想气体的内能改变可以直接由定体热容求出：$\Delta E =E_2-E_1 = \nu \, C_{V,m} \Delta T$}
+\begin{equation}
+\eq[C_{p,m}=\frac{i+2}{2}R],\,\,\eq[C_{V,m}=\frac{i}{2}R]
+\end{equation}
+
+\dy[麦耶公式]{MYGS}
+\begin{equation}
+\eq[C_{p,m}-C_{V,m}=R]
+\end{equation}
+
+\dy[比热比]{BRB}
+\begin{equation}
+	\eq[\gamma = \frac{C_{p,m}}{C_{V,m}}=\frac{i+2}{i}]
+\end{equation}
+
+
+\section{绝热过程}\label{绝热过程}
+特点：$Q=0$，热力学第一定律给出$A=\Delta E$.\jg
+\par \dy[理想气体的准静态绝热过程]{LXQTDZJTJRGC}\jg
+\margin{泊松公式的变形方程有\scriptsize{$$TV^{\gamma -1} =C_2$$$$p^{\gamma - 1}T^{-\gamma } = C_3$$}}
+\par \quad \quad \dy[泊松公式]{PSGS}
+\begin{equation}
+\eq[pV^{\gamma} =C_1]
+\end{equation}
+\par \quad \quad 对外做的功
+\begin{equation}
+\eq[A=\int_{V_1}^{V_2}p\,\d V=\frac{1}{\gamma -1}(p_2V_2-p_1V_1)]
+\end{equation}
+\par 而由泊松公式
+\begin{equation*}
+	p_1V_1^{\gamma} =p_2V_2^{\gamma} 
+\end{equation*}
+\par 那么上式可写为
+\begin{equation*}
+\begin{split}
+A&=\frac{1}{\gamma -1}(p_2V_2-p_1V_1)\\
+&=\frac{p_1V_1}{\gamma -1}\left( \frac{p_2V_2}{p_1V_1} -1\right) \\
+&=\frac{p_1V_1}{\gamma -1}\left[ \left( \frac{V_2}{V_1}\right)^{\gamma -1}-1 \right] 
+\end{split}
+\end{equation*}
+\par \quad \quad 绝热线比等温线陡，即在两条曲线中前者的斜率较大。\vspace*{2em}
+
+\par \dy[绝热自由碰膨胀过程]{JRZYPZGC}\jg
+\par \quad \quad 气体想真空的膨胀，是一种非准静态的过程。理想气体经绝热自由膨胀后内能不变，即$E=0$，说明$\Delta T= 0$。而绝热过程有$Q=0$，则$A=0$。
+
+\section{几个热力学过程分析}
+\margin{对于等温过程，由理想气体状态方程可得：
+	\scriptsize{
+		\begin{equation*}
+		p=\frac{\nu \,RT}{V}
+		\end{equation*}
+	}
+	那么，
+	\scriptsize{
+		\begin{equation*}
+		\begin{split}
+		A&=\int_{V_1}^{V_2}p\,\d V\\
+		&=\int_{V_1}^{V_2}\frac{\nu \,RT}{V} \d V\\
+		&=\nu RT\frac{\ln V_2}{\ln V_1}\\
+		&=\nu RT\frac{\ln p_2}{\ln p_1}
+		\end{split}
+		\end{equation*}
+	}
+}
+\margin{\\[3em] \kg 绝热过程和自由膨胀过程的具体推导参见\ref{绝热过程}节}
+\margin{\\[5em] \kg 对于一般过程，系统对外界做功$A$可以用$p-V$图的面积计算，其内能变化为
+	\scriptsize{
+		\begin{equation*}
+		\begin{split}
+		\Delta E&=\nu \, C_{V,m} \Delta T\\
+		&=\frac{i}{2}\,(p_2V_2-p_1V_1)
+		\end{split}
+		\end{equation*}
+	}
+}
+\begin{table}[h]
+	\centering
+	\caption{热力学过程能量分析}
+	\renewcommand\arraystretch{2}
+	\setlength{\tabcolsep}{2.5mm}{
+		\begin{tabular}{cccc}
+			\toprule[2pt] 
+			& & & \vspace*{-4.5em}\\
+			   热力学过程 &对外界做功$A$ & 从外界吸收的能量$Q$   &系统内能变化$\Delta E$\\  
+			\midrule[1.5pt]
+			等体过程 & 0 & $\nu \,C_{V,m} \Delta T$  & $Q$ \\
+			等压过程 & $ p \Delta V$ & $\nu \,C_{p,m} \Delta T$  & $Q-A$\\
+			等温过程 & $\displaystyle \nu RT\,\frac{\ln p_2}{\ln p_1}$ & $-A$ & 0\\
+			自由膨胀 & 0 & 0 & 0\\
+			绝热过程 &$\displaystyle \frac{p_1V_1}{\gamma -1}\left[ \left( \frac{V_2}{V_1} \right)^{\gamma -1}-1 \right] $  & 0  &$ -A$\\
+			循环过程 & $A$ &$-A$ &0\\
+			一般过程 & $\displaystyle \int_{V_1}^{V_2}p\,\d V$ & $\Delta E -A$ & $\displaystyle \frac{i}{2}\,(p_2V_2-p_1V_1)$\\
+			\bottomrule[2pt]
+		\end{tabular}  
+	}
+	\label{热力学过程分析}
+	\renewcommand\arraystretch{1}
+\end{table} 
+
+
+
+\section{循环过程}
+
+\dy[工质]{GZ} 在热机中被利用来吸收热量并对外做功的物质.\jg
+
+\par \dy[循环]{XH} 一个系统经历一系列变化后又回到初始状态的整个过程.\jg
+
+\par 循环过程的特点：由于系统状态复原，所以$\Delta E = 0$，由热力学第一定律可知$Q=A$，即系统从外界吸收的净热量等于系统对外做的净功。\jg
+
+\par \dy[做功循环]{ZGXH} 系统从高温热库吸热$Q_1$，对外做净功$A$，向低温热库放热$Q_2=Q_1-A.$循环的效率为
+\begin{equation}
+\eq[\eta = \frac{A}{Q_1}=1-\frac{Q_2}{Q_1}]
+\end{equation}
+
+\par \dy[制冷循环]{ZLXH} 系统从低温热库吸热$Q_2$，接受外界对它做的功$A$，向高温热库放热$Q_1=A+Q_2.$制冷系数
+\begin{equation}
+\eq[\omega = \frac{Q_2}{A}=\frac{Q_2}{Q_1-Q_2}]
+\end{equation}
+
+\section{卡诺循环}
+\dy[卡诺循环]{KNXH} 系统只在两个恒温热库$(T_2>T_1)$进行热交换的准静态循环过程（无摩擦），循环效率和制冷系数分别为
+\begin{equation}
+\eq[\eta_C = 1 -\frac{T_2}{T_1}],\quad \eq[\omega_C=\frac{T_2}{T_1-T_2}]
+\end{equation}
+
+\section{热力学温标}
+\dy[热力学温标]{RLXWB} 利用卡诺循环定义的温标：
+\begin{equation}
+\frac{T_1}{T_2}=\frac{Q_1}{Q_2}
+\end{equation}
+定点取水的三相点温度为$T_3=273.16\,$K.
+
+\section{解题方法}
+1. 认系统\quad 过程要确定题目中要作为分析对象的系统。这同时也就确定了外界。\jg
+\par 2. 辨状态\quad 即要辨别清楚所选定的系统的初状态和末状态以及相应的状态参量,并对同一状态参量$p,V,T$等加注同一数字下标,如$p_1,V_1,T_1$等。对所关注的状态要弄清楚是否为平衡态。对理想气体的平衔状态的各状态参量才能应用理想气体状态方程。内能表示式也只能用于平衡态。\jg
+\par 3. 明过程\quad 即要明确所选定的系统经历的是什么过程。首先要分清是否是准静态过程。有很多公式,如求体积功的积分公式和绝热过程的过程方程,都只是准静态过程才适用的方程。其次要明确是怎样的具体过程，如等温、等压、等体、绝热等。\jg
+\par 4. 列方程\quad 即根据以上分析列相应的方程求解。功是过程量,可以利用求体积功的积分公式直接计算功的大小。热量也是过程量,可以直接利用定压或定容热容量计算热量的多少,也可以利用热力学第一定律公式由已知热量求功或已知功求热量。要注意$A,Q,\Delta E$各量的正负的物理意义。\jg
+\par 5. 画图线\quad 在解题过程中，最好能画出过程图线。这样对理解题目和分析求解都有帮助。
+
+
+

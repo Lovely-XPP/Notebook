@@ -1,0 +1,140 @@
+\chapter{温度和气体动理论} 
+\thispagestyle{empty}
+\section{平衡态}
+\thispagestyle{empty}
+\dy[系统]{XT} 在特定问题中作为研究对象的物体或物体系称为热力学系统。\vspace*{0.5em}
+\par \dy[外界]{WJ} 系统之外的物体统称。\vspace*{0.5em}
+\par \dy[平衡态]{PHT} 是指受在不受外界影响的条件下,一个系统的宏观性质不随时间改变的状态。处于平衡态的系统,其状态可用少数几个宏观状态参量描写。
+从微观上看,平衡态是分子运动的动平衡状态。
+
+\section{温度的宏观概念}
+\dy[温度]{WD} 温度是决定一个系统能否与其他系统处于平衡的宏观性质,处于平衡态的各系统的温度相等。温度相等的平衡态叫热平衡。
+\par \dy[热力学第零定律]{RLXDLDL} 如果系统A和系统B分别都与系统C的同一状态处于热平衡,那么A和B接触时,它们也必定处于热平衡状态。
+\margin{\\[0.2em] \kg 日常生活中用的摄氏温度(℃)和热力学温度T(K)的数值关系为$t=T-273.15$}
+\par \dy[温标]{WB} 温度的数值表示方法。用玻意耳定律规定理想气体的温度$T\propto pV$,再加上水的三相点温度规定为$T_3=273.16K$,
+即可得理想气体温标,它和热学理论规定的热力学温标在理想气体温标适用的范围内数值相同,都用K做单位。
+\par \dy[热力学第三定律]{RLXDSDL} 热力学的温标的$0$K（绝对零度）是不能达到的。
+
+\section{理想气体状态方程}
+在平衡态下，
+\margin{\hspace*{-2.2em}$m\,\, $气体的质量 \\ $M\,\,$气体的摩尔质量 \\ $\nu \,\,$气体的摩尔数}
+\begin{equation}
+\eq[pV=\frac{m}{M}RT=\nu RT]
+\end{equation}
+或写成
+\margin{\quad\\ $N\,\, $气体的分子数 \\ $\displaystyle n\,\,$单位体积内气体分子数（气体分子数密度）}
+\begin{equation}
+\eq[p=\frac{N}{V}kT=nkT]
+\end{equation}
+
+\par \dy[普适气体常量]{PSQTCL} $R=8.31\,$(J/(mol$\cdot$K)) \jg
+\margin{\quad\\ $N_A\,\, $阿伏加德罗常量}
+\par \dy[玻尔兹曼常量]{BEZMCL} $\displaystyle k=\frac{R}{N_A}=1.38 \times 10^{-23}\,$(J/K) 
+
+\section{气体分子的无规则运动}
+\dy[平均自由程$\,\bm{\overline\lambda}$]{PJZYC} 分子的无规则运动中各段自由路程（连续两次碰撞间分子经过的路程）的平均值。
+
+\dy[平均碰撞频率$\,\bm{\overline{z}}$]{PJPZPL} 一个气体分子单位时间内被碰撞次数的平均值。
+\margin{\quad\\ $\overline{v}\,\, $气体分子平均运动速率}
+\begin{equation}
+\eq[\overline\lambda = \frac{\overline{v}}{\overline{z}}]
+\end{equation}
+
+\dy[碰撞截面$\,\bm{\sigma}$]{PZJM} 一个气体分子在运动中可能与其他分子发生碰撞的截面面积。\\
+对于分子都相同的气体，其分子的平均自由程为
+\begin{equation}
+\eq[\overline\lambda = \frac{1}{\sqrt{2}\sigma n}=\frac{kT}{\sqrt{2}\sigma p}]
+\end{equation}
+
+\section{理想气体的压强}
+\margin{\\[-0.2em] \kg 按位置均匀分布和速度按方向均匀分布的假设是一种统计性假设，适用于大量分子的集体，$\overline{v^2},\overline{\varepsilon_t}$都是统计平均值.}
+按分子的无相互作用的本身体积可以忽略的弹性小球模型以及平衡态下气体中分子按位置均匀分布和速度按方向均匀分布的假设可导出
+\begin{equation}
+\eq[p=\frac{1}{3}\,n\,m\,\overline{v^2}=\frac{2}{3}\,n\,\overline{\varepsilon_t}]
+\end{equation}
+其中，$\overline{\varepsilon_t}$为平均平动动能.
+
+\section{温度的微观统计意义}
+由上述公式和理想气体压强公式可得
+\begin{equation}
+\eq[\overline{\varepsilon_t}=\frac{3p}{2n}=\frac{3nkT}{2n}=\frac{3}{2}kT]
+\end{equation}
+由此式可知，从微观上看，
+\par 1. 温度反映物体内分子无规则运动的激烈程度；
+\par 2. 温度是描述系统平衡态的物理量；
+\par 3. 它是一个统计概念，只适用于大量分子的集体；
+\par 4. 它所涉及的分子运动是在系统的质心系中的分子的无规则运动。
+
+\section{能量均分定理}
+\dy[能量均分定理]{NLJFDL}  在温度为$T$的平衡态下，气体分子每个自由度的平均动能都\jg \\相等，而且等于$\disp \frac{kT}{2}$.\jg
+\par 以$i$表示分子的总自由度数，理想气体的平均总动能就是
+\margin{气体分子的自由度见下表\ref{气体分子的自由度}.}
+\begin{equation}
+\eq[\overline{\varepsilon_k}= \frac{i}{2}kT]
+\end{equation}
+\par $\nu $(mol)理想气体的内能为
+\margin{内能的表达式说明理想气体的内能只是温度的函数，而且和热力学温度成正比.}
+\begin{equation}
+\eq[E=\frac{i}{2}kT \,\cdot \, N=\frac{i}{2}\nu N_A kT=\frac{i}{2}\nu RT]
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\caption{气体分子的自由度}
+	 \setlength{\tabcolsep}{4mm}{
+	\begin{tabular}{cccc}
+		\toprule[1.4pt] 
+		  分子种类 &平动自由度$t$ &转动自由度$r$   &总自由度$i = t + r$\\  
+		\midrule
+		单原子分子 & 3 & 0 & 3\\
+		刚性双原子分子 & 3 & 2 & 5\\
+		刚性多原子分子 & 3 & 3 & 6\\
+		\bottomrule[1.4pt]  
+	\end{tabular}  
+}
+		\label{气体分子的自由度}
+\end{table} 
+
+\section{速率分布律}
+\dy[速率分布函数]{SLFBHS}
+$$
+f(v)=\frac{\d N_v}{N\,\d v}
+$$
+\par $f(v)$又称为分子速率分布的概率密度，满足归一化条件
+\margin{\vspace*{-5em}\\ \kg 速率分布函数的意义是速率在$v$附近的单位速率区间$(\d v)$内的分子数$(\d N_v)$占分子总数$(N)$的百分比，或者说一个分子的速率在$v$附近单位速率区间的概率。}
+$$
+\int_{0}^{N}\frac{\d N_v}{N}=\int_{0}^{\infty}f(v)\,\,\d v=1
+$$
+
+\dy[麦克斯韦速率分布率]{MKSWSDFBL} 在平衡态下，气体分子的速率分布函数为
+\begin{equation}
+f(v)=4\pi\left( \frac{m}{2\pi kT}\right)^{3/2}\,v^2 \e^{-m\,v^2/2kT}
+\label{速率分布律}
+\end{equation}
+
+\dy[最概然速率$\,\bm{v_p}$]{ZGRSL} 使上式\eqref{速率分布律}取得极大值的点
+\margin{\\ \kg 当$v=v_p$时，$$\disp f(v_p)=\frac{1}{\e}\,\sqrt{\frac{8m}{\pi kT}}$$}
+\begin{equation}
+\eq[v_p=\sqrt{\frac{2kT}{m}}=\sqrt{\frac{2RT}{M}} \approx 1.41\,\sqrt{\frac{RT}{M}}]
+\end{equation}
+
+\dy[平均速率$\,\bm{\overline{v}}$]{PJSL} 
+\begin{equation}
+\eq[\overline{v} = \sqrt{\frac{8kT}{\pi m}}= \sqrt{\frac{8RT}{\pi M}}\approx 1.60\,\sqrt{\frac{RT}{M}}]
+\end{equation}
+
+\dy[均方根速率$\,\bm{v_{\rm{rms}}}$]{JFGSL} 
+\begin{equation}
+\eq[v_{\rm{rms}} = \sqrt{\frac{3kT}{m}}= \sqrt{\frac{3RT}{M}}\approx 1.73\,\sqrt{\frac{RT}{M}}]
+\end{equation}
+
+\section{平均值与涨落}
+在用统计方法从黴观出发研究热现象时,总要求微观量的统计平均值压强公式中的$n,\overline{\varepsilon_k},\overline{v}^2,p$,速率分布函数中的$\d N,\overline{v}$,都是统计平均值,即对大量分子求平均的结果。求平均值时涉及的区间。如$\d V,\d A,\d t,\d v$等,都必须是宏观小微观大的区间。和宏观现象相联系的统计平均值都是对足够大（理论上无限大）区间求平均的结果。正是因为这样，所以涉及的区间不够大（即分子数不够多）时，一定微观量的平均值和该微观量的统计平均值有差别这个差别叫涨落。系统包含的分子数越小，涨落越大。分子数足够小时，涨落将非常大，以致该情况下谈论平均值在物理上就没有什么意义了。
+
+\section{解题要点}
+本章主要方法：套公式
+\par 1. 确定分析的系统
+\par 2. 辨别其所处的状态
+\par 3. 将同一平衡态的相关状态参量$(p,V,T,m)$代入状态方程求解（注意单位!）
+
+

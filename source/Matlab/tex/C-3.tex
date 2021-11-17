@@ -1,0 +1,361 @@
+\chapter{Matlab程序流程控制}
+\thispagestyle{empty}
+\section{M文件}
+M文件分为两种类型：脚本（script）文件和函数（function）文件。
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{6mm}{
+	\begin{tabular}{ccc}
+		\toprule
+		类别 & 脚本 & 函数\\
+		\midrule
+		定义 & 批量语句，又称命令文件 & \makecell[c]{声明一个函数，方便以后调用}\\
+		输入\&输出 & 无输入，无输出 & 可输入，可输出\\
+		变量操作 & 对工作区变量直接操作 & 操作变量仅为局部变量，不影响工作区\\
+		运行方式 & 直接运行：工作区窗口输入脚本名字 & 不能直接运行，需要调用 \\
+		\bottomrule
+	\end{tabular}
+	}
+\end{table}
+
+\section{程序控制结构}
+\subsection{顺序结构}
+顺序结构是指按照程序中语句对排列顺序依次执行，直到程序对最后一个语句为止。常见对操作函数如下表。
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{8mm}{
+		\begin{tabular}{ccc}
+			\toprule
+			功能 & 函数 & 说明\\
+			\midrule
+			输入数据 & \lstinline|A = input(提示信息)| & \makecell[c]{“提示信息”是一个字符串，\\指输入数据时屏幕先显示的字符，\\用于提示用户输入什么样的数据。}\\
+			\hline
+			输出数据 & \lstinline|disp(输出项)| & \makecell[c]{输出项可以是任意的类型，\\输出更紧凑，不留无意义的空行，\\矩阵输出时不显示矩阵的变量名。}\\
+			\hline
+			程序暂停 & \lstinline|pause(延迟秒数)| & \makecell[c]{直接使用\lstinline|pause|，\\则暂停程序直到按任意键继续。\\程序执行中可按\lstinline|Ctrl+C|强行暂停。}\\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\subsection{选择结构}
+选择结构又称为分支结构，它根据给定的条件是否成立，决定程序的运行路线，在不同条件下执行不同的操作。	
+
+\noindent 1. if 语句
+
+if语句的常见三种结构如图\ref{if选择}.
+	\begin{figure}[!htbp]
+	\centering
+	\subfigure[单选择]{
+		\begin{minipage}[t]{0.3\linewidth}
+			\centering
+			\begin{tikzpicture}[node distance=1.2cm]
+				%定义流程图具体形状
+				\node (A) [minimum height=0.5cm,draw,node distance=2cm,inner sep=2pt] { \quad A\quad \quad};
+				\node (tiaojian) [lingxing, below of=A,node distance=2cm,inner sep=1.5pt] {条件};
+				\node(B)[minimum height=0.5cm,draw,below of=tiaojian,node distance=2cm,inner sep=2pt]{\quad B\quad \quad};
+				
+				%连接具体形状
+				\draw[arrows={-Stealth[scale=0.8]}](0,1.25cm) -- (A);
+				\draw[arrows={-Stealth[scale=0.8]}](A) -- (tiaojian);
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian) -- node[near start,left=-0.5mm]{\footnotesize 成立}(B);
+				\path (B) -- +(0,-1) coordinate[pos=0.5](yt);
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian) -- +(2.5,0) node[midway,above=-0.5mm]{\footnotesize 不成立}|-(yt);
+				\draw[arrows={-Stealth[scale=0.8]}](B) -- +(0,-1.25cm) ;
+			\end{tikzpicture}
+			%\caption{fig1}
+		\end{minipage}%
+	}%
+	\subfigure[双选择]{
+		\begin{minipage}[t]{0.35\linewidth}
+			\centering
+			\begin{tikzpicture}[node distance=1.2cm]
+				%定义流程图具体形状
+				\node (A) [minimum height=0.5cm,draw,node distance=1.5cm,inner sep=2pt] {\quad  A\quad \quad};
+				\node (tiaojian) [lingxing, below of=A,node distance=1.5cm,inner sep=1.5pt] {条件};
+				\node(B1)[minimum height=0.5cm,draw,below of=tiaojian,node distance=1.5cm,inner sep=2pt,xshift =-2cm]{\quad $\mathrm B_1$\quad \quad};
+				\node(B2)[minimum height=0.5cm,draw,below of=tiaojian,node distance=1.5cm,inner sep=2pt,xshift =2cm]{\quad $\mathrm B_2$\quad \quad};
+				\node(C)[minimum height=0.5cm,draw,below of=B1,node distance=1.5cm,xshift =2cm,inner sep=2pt]{ \quad C\quad \quad };
+				%连接具体形状
+				\draw[arrows={-Stealth[scale=0.8]}](0,1cm) -- (A);
+				\draw[arrows={-Stealth[scale=0.8]}](A) -- (tiaojian);
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian) - | node[near start, above] {\footnotesize 成立} (B1);	
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian) - | node[near start, above] {\footnotesize 不成立} (B2);
+				\draw[arrows={-Stealth[scale=0.8]}](B1) -- +(0,-0.5cm) |-(C);
+				\draw[arrows={-Stealth[scale=0.8]}](B2) -- +(0,-0.5cm) |-(C);
+				\draw[arrows={-Stealth[scale=0.8]}](C) -- +(0,-1cm);
+			\end{tikzpicture}
+			%\caption{fig2}
+		\end{minipage}%
+	}%
+
+	\subfigure[多重选择]{
+		\begin{minipage}[t]{\linewidth}
+			\centering
+			\begin{tikzpicture}[node distance=1.2cm]
+				%定义流程图具体形状
+				\node (A) [minimum height=0.5cm,draw,node distance=1cm,inner sep=2pt] {\quad  A\quad \quad};
+				\node (tiaojian) [lingxing, below of=A,node distance=1.5cm,inner sep=1.5pt] {条件a};
+				\node(B)[minimum height=0.5cm,draw,below of=tiaojian,node distance=3.5cm,inner sep=2pt]{\quad $\mathrm B_1$\quad \quad};
+				\node (tiaojian1) [lingxing, below of=tiaojian,xshift = 2.5cm, node distance=1cm,inner sep=1.5pt] {条件b};
+				\node(B1)[minimum height=0.5cm,draw,below of=tiaojian1,node distance=2.5cm,inner sep=2pt]{\quad $\mathrm B_2$\quad \quad};
+				\node(C)[minimum height=0.5cm,draw,below of=B1,xshift = 1.2cm,node distance=1.5cm,inner sep=2pt]{ \quad C\quad \quad };
+				\node (tiaojian2) [lingxing, below of=tiaojian1,xshift = 2.5cm, node distance=1cm,inner sep=1.5pt] {条件m};
+				\node(B2)[minimum height=0.5cm,draw,below of=tiaojian2,node distance=1.5cm,inner sep=2pt]{\quad $\mathrm B_m$\quad \quad};
+				\node(B3)[minimum height=0.5cm,draw,below of=tiaojian2,node distance=1.5cm,xshift = 2.5cm,inner sep=2pt]{\quad $\mathrm B_n$\quad \quad};
+				%连接具体形状
+				\draw[arrows={-Stealth[scale=0.8]}](0,1cm) -- (A);
+				\draw[arrows={-Stealth[scale=0.8]}](A) -- (tiaojian);
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian) -- (B)node[near start, left=-0.5mm,yshift = 4mm] {\footnotesize 成立};
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian) --+(2.5cm,0cm)node[midway, above] {\footnotesize 不成立}  -- (tiaojian1);
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian1) --+(2.5cm,0cm)node[midway, above] {\Large $\cdots $} -- (tiaojian2);
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian2) --+(2.5cm,0cm)node[midway, above] {\footnotesize 不成立} -- (B3);
+
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian1) --(B1)node[near start, left=-0.5mm,yshift = 2mm] {\footnotesize 成立};;
+				\draw[arrows={-Stealth[scale=0.8]}](tiaojian2) --(B2)node[near start, left=-0.5mm,yshift = -0.5mm] {\footnotesize 成立};;
+				\draw[arrows={-Stealth[scale=0.8]}](B) -- +(0,-0.5cm) |-(C);
+				\draw[arrows={-Stealth[scale=0.8]}](B1) -- +(0,-0.5cm) |-(C);
+				\draw[arrows={-Stealth[scale=0.8]}](B2) -- +(0,-0.5cm) |-(C);
+				\draw[arrows={-Stealth[scale=0.8]}](B3) -- +(0,-0.5cm) |-(C);
+				\draw[arrows={-Stealth[scale=0.8]}](C) -- +(0,-1cm);
+			\end{tikzpicture}
+			%\caption{fig2}
+		\end{minipage}
+	}%
+	
+	\centering
+	\caption{if选择结构流程图}
+	\label{if选择}
+\end{figure}
+
+\noindent 对应的代码如下：
+\begin{itemize}
+	\item 单选择if语句
+		\begin{lstlisting}
+if 条件
+	语句组
+end
+		\end{lstlisting}
+	\item 双选择if语句
+	\begin{lstlisting}
+if 条件
+	语句组
+else
+	语句组
+end
+	\end{lstlisting}
+	\item 多重选择if语句
+	\begin{lstlisting}
+if 条件1
+	语句组1
+elseif 条件2
+	语句组2
+	……
+elseif 条件m
+	语句组m
+else
+	语句组n
+end
+	\end{lstlisting}
+\end{itemize}
+
+\noindent 2. \lstinline|switch|语句
+\par \lstinline|switch|语句的结构图如图\ref{switch}.
+\begin{figure}[!htb]
+	\centering
+		\begin{tikzpicture}[node distance=1.2cm]
+		%定义流程图具体形状
+		\node (A) [minimum height=0.5cm,draw,inner sep=4pt] {计算表达式的值};
+		\node (tiaojian) [lingxing, below of=A,node distance=1.5cm,inner sep=1pt] {结果表a?};
+		\node (N) [draw, right of = tiaojian, node distance = 3cm, inner sep = 4pt]{语句组$a$};
+		\node (tj1) [lingxing, below of = tiaojian , node distance = 1.5cm, inner sep = 1pt]{结果表b?};
+		\node (N1) [draw, right of = tj1, node distance = 3cm, inner sep = 4pt]{语句组$b$};
+		\node (tj2) [lingxing, below of = tj1 , node distance = 2cm, inner sep = 1pt]{结果表m?};
+		\node (N2) [draw, right of = tj2, node distance = 3cm, inner sep = 4pt]{语句组$m$};
+		\node(B)[minimum height=0.5cm,draw,below of=tj2,node distance=1.5cm,inner sep=4pt]{语句组$n$};
+		
+		%连接具体形状
+		\draw[arrows={-Stealth[scale=0.8]}](A) -- (tiaojian);
+		\draw[arrows={-Stealth[scale=0.8]}](tiaojian) -- node[near start,left=-0.5mm]{\footnotesize 不成立}(tj1);
+		\draw[arrows={-Stealth[scale=0.8]}](tj1) -- node[midway,left = 0.5mm, yshift = 2mm]{\Large{$\vdots$}}(tj2);
+		\draw[arrows={-Stealth[scale=0.8]}](tiaojian) -- (N) node[midway,above=-0.5mm]{\footnotesize 成立} -- + (1.5cm, 0cm);
+		\draw[arrows={-Stealth[scale=0.8]}](tj1) -- (N1) node[midway,above=-0.5mm]{\footnotesize 成立} -- + (1.5cm, 0cm);
+		\draw[arrows={-Stealth[scale=0.8]}](tj2) -- (N2) node[midway,above=-0.5mm]{\footnotesize 成立} -- + (1.5cm, 0cm);
+		\draw[arrows={-Stealth[scale=0.8]}](tj2) -- (B);
+		\draw[arrows={-Stealth[scale=0.8]}](4.5cm,-1.5cm) -- +(0cm,-6cm) -- +(-4.5cm,-6cm) ;
+		\draw[arrows={-Stealth[scale=0.8]}](B) -- +(0,-1.5cm) ;
+	\end{tikzpicture}
+\caption{\lstinline|switch|语句的结构图}
+\label{switch}
+\end{figure}
+
+\noindent 代码如下：
+\begin{lstlisting}
+switch	表达式
+	case	结果表1
+		语句组1
+	case	结果表2
+		语句组2
+		……
+	case	结果表m
+		语句组m
+	otherwise
+		语句组n
+end
+\end{lstlisting}
+
+\subsection{循环结构}
+循环结构的基本思想是重复，每次循环执行的语句相同，但语句中一些变量但值是变化但，而且当循环达到一定次数或满足一定条件时结束循环。循环结构的语句：\lstinline|for|语句和\lstinline|while|语句。
+
+\noindent 1. \lstinline|for|语句
+\par 一般情况下，对于事先能确定循环次数的循环结构，使用\lstinline|for|语句是比较方便的。一般格式如下
+\begin{lstlisting}
+for 循环变量 = 表达式1:表达式2:表达式3
+	循环体语句
+end
+\end{lstlisting}
+其中，\lstinline|表达式1:表达式2:表达式3|将产生一个行向量，3个表达式分别代表初值、步长和终值。其结构图如图\ref{for}.
+\warn[
+\lstinline|for|语句使用的注意事项
+\begin{myitemize}
+	\item for语句针对向量的每一个元素执行一次循环体，循环的次数就是向量中元素的个数。\vspace*{-0.5em}
+	\item for语句中的行向量也可以用矩阵的形式定义。\vspace*{-0.5em}
+	\item 可以在for循环体中修改循环变量的值，但回到循环开始时，就会自动设定为向量的下一个元素。\vspace*{-0.5em}
+	\item for语句中但3个表达式只在循环开始时计算一次，即循环向量一旦确定不再改变。\vspace*{-0.5em}
+	\item 退出循环之后，循环变量的值就是向量最后的元素值。\vspace*{-0.5em}
+	\item 当向量为空时，循环体一次也不执行。\vspace*{0.3em}
+\end{myitemize}
+]
+
+\examples 一个3位整数各位数字的立方和等于该数本身则称该数为水仙花数。输出全部水仙花数。
+\begin{lstlisting}
+shu = [ ];
+for m = 100:999
+	m1 = fix(m / 100);							% 求m的百位数字
+	m2 = rem(fix(m / 10), 10);			% 求m的十位数字
+	m3 = rem(m, 10)								% 求m的个位数字
+	if m == (m1*m1*m1 + m2*m2*m2 + m3*m3*m3)
+		shu = [shu, m];							% 存入结果
+	end
+end
+disp(shu)
+\end{lstlisting}
+结果如下
+\begin{lstlisting}
+153		370		371		407
+\end{lstlisting}
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (A) [draw, inner sep =4pt]{生成一个行向量};
+		\node (B) [lingxing, below of = A, node distance = 2cm, inner sep = 1pt]{向量的元素是否遍历完？};
+		\node (C) [draw, below of = B, node distance = 2cm, inner sep = 4pt]{将下一个元素给循环变量};
+		\node (D) [draw, below of = C, node distance = 1.5cm, inner sep = 4pt]{循环体语句};
+		
+		\draw[arrows={-Stealth[scale=0.8]}](A) -- (B);
+		\draw[arrows={-Stealth[scale=0.8]}](B) -- (C)node[midway,left =0mm]{\footnotesize 否};
+		\draw[arrows={-Stealth[scale=0.8]}](C) -- (D);
+		\draw[arrows={-Stealth[scale=0.8]}](D) --+ (0cm, -1cm) -- +(-3cm, -1cm) -- +(-3cm, 4.75cm) -- +(0cm ,4.75cm);
+		\draw[arrows={-Stealth[scale=0.8]}](B) --+ (3cm, 0cm)node[midway, above = 0mm]{\footnotesize 是} -- +(3cm, -5cm) -- +(0cm, -5cm) -- +(0cm, -5.5cm);
+	\end{tikzpicture}
+\caption{\lstinline|for|语句的执行过程}
+\label{for}
+\end{figure}
+
+\noindent \lstinline|while|语句
+\par \lstinline|while|语句就是通过判断循环条件是否满足来决定是否继续的一种循环控制语句，也称为条件循环语句。它的特点是先判断循环条件，条件满足时执行循环。其一般格式如下：
+\begin{lstlisting}
+while 条件
+	循环体语句
+end
+\end{lstlisting}
+结构图如图\ref{while}.
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (B) [lingxing, inner sep = 1pt]{条件？};
+		\node (D) [draw, below of = B, node distance = 1.5cm, inner sep = 4pt]{循环体语句};
+		
+		\draw[arrows={-Stealth[scale=0.8]}](0cm, 1cm) -- (B);
+		\draw[arrows={-Stealth[scale=0.8]}](B) -- (D)node[midway,left =0mm]{\footnotesize 不成立};
+		\draw[arrows={-Stealth[scale=0.8]}](D) --+ (0cm, -0.7cm) -- +(-2cm, -0.7cm) -- +(-2cm, 2.25cm) -- +(0cm ,2.25cm);
+		\draw[arrows={-Stealth[scale=0.8]}](B) --+ (2cm, 0cm)node[midway, above = 0mm]{\footnotesize 成立} -- +(2cm, -2.5cm) -- +(0cm, -2.5cm) -- +(0cm, -3cm);
+	\end{tikzpicture}
+	\caption{\lstinline|while|语句的执行过程}
+	\label{while}
+\end{figure}
+\vspace*{-1em}
+\section{函数文件}
+\subsection{函数文件的基本结构}
+\begin{lstlisting}
+function 输出形参表 = 函数名(输入形参表)
+%	此处显示有关此函数的摘要
+%	此处显示详细说明
+%	作者、修改日期、版本等
+函数体语句
+end
+\end{lstlisting}
+其中，
+\begin{myitemize}
+\item 开头：以function开头的一行为引导行，表示定义一个函数。
+\item 函数名：函数名一般和文件名统一调用，方便Matlab调用。
+\item \lstinline|return|语句：若函数中插入了\lstinline|return|语句，则执行到该语句就结束函数的执行，通常函数文件不写\lstinline|return|语句，自动返回。
+\item \lstinline|end|语句：与\lstinline|return|语句类似，一般函数文件中存在子函数需要用到。\vspace*{0.3em}
+\end{myitemize}
+\vspace*{0.5em}
+\subsection{函数调用}
+函数文件建立好以后，就可以调用函数，格式如下：
+\begin{center}
+	\lstinline|[输出实参表] = 函数名(输入实参表)|
+\end{center}
+\warn[
+\hspace*{2em}在调用函数时，函数输入输出参数称为实际参数，简称实参。要注意的是，函数调用时各实参出现的顺序、个数，应与函数定义时的形参的顺序、个数相一致，否则会出错。
+]
+
+在Matlab中，函数可以嵌套调用，即一个函数可以调用其他函数，也可以调用自身。一个函数调用自身称为递归调用。
+\vspace*{0.5em}
+\subsection{函数参数的可调性}
+在调用函数时，Matlab用两个预定义的变量\lstinline|nargin|和\lstinline|nargout|分别记录调用该函数时的输入实参和输出实参的个数。只要在函数文件中包含这两个变量，就可以准确地知道该函数文件被调用时的输入/输出参数个数，从而决定函数如何进行处理。
+
+\vspace*{0.5em}
+\subsection{全局变量与局部变量}
+
+在Matlab中，函数文件中的变量是局部的，与其他函数文件及Matlab工作空间相互隔离,即在一个函数文件中定义的变量不能被另一个函数文件引用。如果在若干函数中,都把某一变量定义为全局变量,那么这些函数将共用这个变量。全局变量的作用域是整个 Matlab工作空间,即全程有效,所有的函数都可以对它进行存取和修改,因此,定义全局变量是函数间传递信息的一种手段。全局变量用\lstinline|global|定义，格式如下：
+\begin{center}
+	\lstinline|global 变量名|
+\end{center}
+\warn[
+\hspace*{2em}在函数文件中，全局变量的定义语句放在文件的前部。为了在工作空间中也使用全局变量，也要定义全局变量。\\
+\hspace*{2em}全局变量虽然带来了某些方便，但是也会破坏函数的封装性，降低了程序的可读性，因此，在结构程序化设计中，全局变量是不受欢迎的，尽量避免。
+]
+
+\subsection{特殊形式的函数}
+\noindent 1. 子函数
+\par 在Matlab中，可以在一个函数文件中同时定义多个函数，其中函数文件中出现的第一个函数称为\textbf{主函数}，其他函数称为\textbf{子函数}。
+\warn[
+\begin{myitemize}
+	\item 子函数只能由同一函数文件中的函数调用，不能跨文件调用。
+	\item 保存函数时，函数文件名和主函数名字相同，且主函数必须放在文件开头。
+	\item 同一函数文件中主函数和子函数的工作区是彼此独立的，各个函数的信息传递可以通过输入输出参数和全局变量实现。\vspace*{0.3em}
+\end{myitemize}
+]
+
+\noindent 2. 内联函数
+\par 以字符串形式存在的函数表达式可以通过\lstinline|inline|函数转化成内联函数。例如：
+\begin{lstlisting}
+>> a = '(x + y)^2';
+>> f = inline(a)
+f =
+		内联函数:
+		f(x,y) = (x+y)^2
+
+>> f(3,4)
+ans =
+		49
+\end{lstlisting}
+
+
+
+
+
+

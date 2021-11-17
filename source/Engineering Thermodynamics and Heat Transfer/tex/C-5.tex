@@ -1,0 +1,506 @@
+\chapter{理想气体的性质}
+\thispagestyle{empty}
+
+\section{理想气体模型}
+\subsection{工程与理想气体}
+\noindent 工程中多用气态物质作为能量转换的工质
+\begin{itemize}
+	\item 状态离液态较远的气态物质称为\dy[气体]{QT}
+	\item 状态离液态较近的气态物质称为\dy[蒸气]{ZQ}
+\end{itemize}
+
+考虑分子体积和相互作用力时，气态物质的参数之间呈现复杂的关系。\textbf{为了便于分析,提出了简化模型——理想气体模型}。
+\vspace*{0.5em}
+
+\subsection{理想气体模型}
+\begin{itemize}
+	\item 两点假设
+	\begin{itemize}
+		\item 分子是弹性的、不占体积的质点
+		\item 分子之间除碰撞瞬间外无相互作用力
+	\end{itemize}
+	
+	\item 适用条件
+	\begin{itemize}
+		\item 压力低
+		\item 温度高
+		\item 比容大
+	\end{itemize}
+	
+	\item 理想气体举例
+	\begin{itemize}
+		\item 工程中常用的$\text{O}_2,\text{H}_2,\text{N}_2,\text{CO}, \text{CO}_2$,空气和烟气可用理想气体模型
+		（使用温度相对于液化温度较高）
+		\item 燃气动力装置中的燃气可用理想气体模型
+		（温度高、比容大）
+		\item 大气和燃气中的少量水蒸气可用理想气体模型
+		（分子数密度低、比容大）
+	\end{itemize}
+	\item 非理想气体举例
+	\begin{itemize}
+		\item 蒸气动力装置中的水蒸气不可用理想气体模型
+		（压力高、温度不很高、比容小）
+		\item 制冷装置中的蒸气不可用理想气体模型
+		（温度低、比容小）
+	\end{itemize}
+\end{itemize}
+
+\section{理想气体状态方程}
+\subsection{理想气体状态方程的获得}
+\vspace*{-2em}
+\begin{align*}
+	\mbox{获得理想气体状态方程的途径}\,
+	\begin{cases}
+		\, \mbox{热学实验}\\
+		\, \mbox{统计物理理论}
+	\end{cases}
+\end{align*}
+
+\subsection{理想气体状态方程的具体形式}
+理想气体状态方程有四种常用形式：
+\begin{align}
+	pv &= RT\\
+	pV_m &= R_{\text{m}} T\\
+	pv &= mRT\\
+	pv &= nR_{\text{m}}T
+\end{align}
+其中，
+
+$R$称为\dy[气体常数]{QTCS}
+
+$R_{\text{m}}$称为\dy[摩尔气体常数]{MEQTCS}（前称\dy[通用气体常数]{TYQTCS}）
+\vspace*{0.5em}
+
+\subsection{理想气体的比热容}
+\noindent \textbf{1.热容的定义}
+\begin{itemize}
+	\item 热容$C$ \quad 物质温度升高1K所需热量
+	\item 比热容$c$ \quad 单位质量物质的热容
+	\item 摩尔热容$C_m$ \quad 单位物质的量物质的热容
+	\item 容积热容$C'$ \quad 标准状态下单位体积物质的热容
+	\item 各种热容的关系
+	\begin{align*}
+		c = \dfrac{C}{m} \quad \quad \quad C_m = \dfrac{C}{n} \quad \quad \quad C' = \dfrac{C}{V_0}
+	\end{align*}
+\end{itemize}
+
+\noindent \textbf{2. 理想气体的比热容}
+\begin{itemize}
+	\item 比定容热容$c_V$ \quad 定容过程的比热容
+	\item 比定压热容$c_p$ \quad 定压过程的比热容
+\end{itemize}
+\begin{align}
+	c_V &= \left(\dfrac{\delta q}{\d T}\right)_v =  \left(\dfrac{\d u + p \d v}{\d T}\right)_v = \left(\dfrac{\d u}{\d T}\right)_v = \dfrac{\partial u}{\partial T}_v\\[0.5em]
+	c_p &= \left(\dfrac{\delta q}{\d T}\right)_p =  \left(\dfrac{\d h - v \d p}{\d T}\right)_p = \left(\dfrac{\d h}{\d T}\right)_p = \dfrac{\partial h}{\partial T}_p
+\end{align}
+可见，比定容热容和比定压热容均是状态参数。
+对于理想气体，
+\begin{align*}
+	c_V &= \dfrac{\partial u}{\partial T}_v \xrightarrow{\quad \textstyle u = f_u(T)\quad } c_v = \dfrac{\d u}{\d T}\\[0.5em]
+	c_p &= \dfrac{\partial h }{\partial T}_p \xrightarrow{\textstyle \quad h=u+pv=u+RT=f_h(T)\quad } c_p = \dfrac{\d h}{\d T}
+\end{align*}
+\begin{align*}
+	\left(\dfrac{\partial C_v}{\partial v}\right)_T &=  T \left(\dfrac{\partial^2 p}{\partial T^2}\right)_v \xrightarrow{\quad  \textstyle  \left(\dfrac{\partial^2 p}{\partial T^2}\right)_v = 0 \quad } c_{v}(T,v)=c_{v_0}(T)\\
+	\left(\dfrac{\partial C_P}{\partial p}\right)_T &= - T \left(\frac{\partial^2 v}{\partial T^2}\right)_p \xrightarrow{\quad \textstyle \left(\dfrac{\partial^2 v}{\partial T^2}\right)_p = 0 \quad } C_{p}(T,p) = c_{p_0}(T)
+\end{align*}
+
+所以，理想气体的比定容热容和比定压热容均是温度的函数。
+\vspace*{1em}
+
+\noindent \textbf{3.工程中获得理想气体的比热容的方法}
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{1.5em}\textbf{方法}1]
+	\item \textbf{定值比热容}\\
+	直接查表获得常数
+	\vspace*{-0.5em}
+	\begin{itemize}
+		\item 比定容热容
+		\item 比定压热容
+	\end{itemize}
+
+	\item \textbf{变值比热容}\\
+	工程中往往通过实验建立经验公式（常见的是摩尔定压热容的经验公式）
+	\begin{align}
+		C_{p,m} &= \alpha + \beta T + \gamma T^2 + \cdots\\
+		c_p &= \dfrac{C_{p,m}}{M}
+	\end{align}
+	由麦耶公式$c_p - c_v = R$，所以
+	\begin{align}
+		c_v &= c_p - R\\
+		C_{V,m} &= C_{p.m} - R_m \\
+		&= (\alpha - R_m) + \beta T + \gamma T^2 + \cdots
+	\end{align}
+	由于
+	\begin{align*}
+		\begin{cases}
+			\, c_p - c_v = R\\
+			\, c_p / c_v = \gamma 
+		\end{cases}
+	\quad 
+	\Rightarrow
+	\quad
+	\begin{cases}
+		\, c_v = \dfrac{1}{\gamma -1 } R \\[0.5em]
+		\, c_p = \dfrac{\gamma}{\gamma - 1} R
+	\end{cases}
+	\end{align*}
+	\textbf{注意：若考虑比热容随温度变化，则比热比$\gamma$随温度变化。}
+	
+	\item \textbf{平均比热容}\\
+	\begin{itemize}
+		\item 平均比热容表示法
+		\begin{align}
+			\left. c_V \right|_{t_1}^{t_2} &= \dfrac{\left. c_V \right|_{0}^{t_2}t_2 - \left. c_V \right|_{0}^{t_1} t_1}{t_2 - t_1}\\[1em]
+			\left. c_p \right|_{t_1}^{t_2} &= \dfrac{\left. c_p \right|_{0}^{t_2}t_2 - \left. c_p \right|_{0}^{t_1} t_1}{t_2 - t_1}
+		\end{align}
+		
+		\item 线性平均比热容
+		\begin{align}
+			c_V = a_V + b_V t \quad \left. c_V \right|_{t_1}^{t_2} = a_V + \dfrac{b_V}{2}(t_2+t_1) \\[1em]
+			c_p = a_p + b_p t \quad \left. c_p \right|_{t_1}^{t_2} = a_p + \dfrac{b_p}{2}(t_2+t_1) 
+		\end{align}
+	\end{itemize}
+\end{enumerate}
+
+\section{理想气体的热力学能、焓、熵}
+
+对于理想气体，有
+\begin{align*}
+	c_V = \dfrac{\d u}{\d T} \quad \Rightarrow \quad 
+	\d u = c_V \d T \quad \Rightarrow \quad 
+	\Delta u = \int_{T_1}^{T_2} c_V\, \d T\\[0.5em]
+	c_p = \dfrac{\d h}{\d T} \quad \Rightarrow \quad 
+	\d h = c_p \d T \quad \Rightarrow \quad 
+	\Delta h = \int_{T_1}^{T_2} c_p\, \d T
+\end{align*}
+\vspace*{-3em}
+
+\begin{align*}
+	\d s= c_V \dfrac{\d T}{T} + R \dfrac{\d v}{v} \quad \Rightarrow \quad 
+	\Delta s = \int_{T_1}^{T_2} c_V \dfrac{\d T}{T} + R \ln\dfrac{v_2}{v_1}\\[0.5em]
+	\d s= c_p \dfrac{\d T}{T} - R \dfrac{\d p}{p} \quad \Rightarrow \quad 
+	\Delta s = \int_{T_1}^{T_2} c_p \dfrac{\d T}{T} - R \ln\dfrac{p_2}{p_1}
+\end{align*}
+\vspace*{2em}
+
+\subsection{用定值比热容计算}
+\vspace*{-3em}
+\begin{align}
+	\Delta u = \int_{T_1}^{T_2} c_V\, \d T = c_V\left(T_2 - T_1\right)\\[0.5em]
+	\Delta h = \int_{T_1}^{T_2} c_p\, \d T = c_p \left(T_2 - T_1\right)
+\end{align}
+\vspace*{-3em}
+
+\begin{align}
+	\Delta s = \int_{T_1}^{T_2} c_V \dfrac{\d T}{T} + R \ln\dfrac{v_2}{v_1} = c_V\ln \dfrac{T_2}{T_1} + R \ln \dfrac{v_2}{v_1}\\[0.5em]
+	\Delta s = \int_{T_1}^{T_2} c_p \dfrac{\d T}{T} - R \ln\dfrac{p_2}{p_1} = c_p\ln \dfrac{T_2}{T_1} - R \ln \dfrac{p_2}{p_1}
+\end{align}
+\vspace*{2em}
+
+\subsection{用变值比热容计算}
+\vspace*{-3em}
+\begin{align}
+	&\Delta u = \int_{T_1}^{T_2} c_V \, \d T = \int_{T_1}^{T_2} \dfrac{\left(\alpha - R_m\right) + \beta T + \gamma T^2 + \cdots}{M}\, \d T\\[0.5em]
+	&\Delta h = \int_{T_1}^{T_2} c_p \, \d T = \int_{T_1}^{T_2} \dfrac{\alpha + \beta T + \gamma T^2 + \cdots}{M} \, \d T 
+\end{align}
+\vspace*{-3em}
+
+\begin{align}
+	&\Delta s = \int_{T_1}^{T_2} c_V \dfrac{\d T}{T} + R \ln\dfrac{v_2}{v_1} = \int_{T_1}^{T_2} \dfrac{\left(\alpha - R_m\right) + \beta T + \gamma T^2 + \cdots}{M} \dfrac{\d T}{T}+ R \ln \dfrac{v_2}{v_1}\\[0.5em]
+	&\Delta s = \int_{T_1}^{T_2} c_p \dfrac{\d T}{T} - R \ln\dfrac{p_2}{p_1} =  \int_{T_1}^{T_2} \dfrac{\alpha + \beta T + \gamma T^2 + \cdots}{M} \dfrac{\d T}{T} - R \ln \dfrac{p_2}{p_1}
+\end{align}
+
+\newpage
+
+\subsection{用平均比热容计算}
+平均比热容表法：
+\begin{align}
+	&\Delta u = \left. c_V \right|_{t_1}^{t_2} (t_2 - t_1) =  \left. c_V \right|_{0}^{t_2}t_2 -  \left. c_V \right|_{0}^{t_1}t_1 \\[0.5em]
+	&\Delta h = \left. c_p \right|_{t_1}^{t_2} (t_2 - t_1) =  \left. c_p \right|_{0}^{t_2}t_2 -  \left. c_p \right|_{0}^{t_1}t_1 
+\end{align}
+\vspace*{-3em}
+
+线性平均比热容法：
+\begin{align}
+	\Delta u = \left. c_V \right|_{t_1}^{t_2} (t_2 - t_1) = \left[a_V + \dfrac{b_V}{2}(t_1 + t_2)\right](t_2 - t_1) \\[0.5em]
+	\Delta h = \left. c_p \right|_{t_1}^{t_2} (t_2 - t_1) =  \left[a_p + \dfrac{b_p}{2}(t_1 + t_2)\right](t_2 - t_1)
+\end{align}
+\vspace*{2em}
+
+\subsection{用气体热力性质表计算}
+\vspace*{-3em}
+\begin{align}
+	&\Delta u = u(T_2) - u(T_1)\\
+	&\Delta h = h(T_2) - h(T_1)
+\end{align}
+\vspace*{-3em}
+
+\noindent 其中$u(T_0) = 0 ,h(T_0) = 0$且
+\begin{align}
+	&u(T) = \int_{T_0}^{T} c_V \, \d T + u(T_0)\\[0.5em]
+	&h(T) = \int_{T_0}^{T} c_p \, \d T + h(T_0)
+\end{align}
+\vspace*{-3em}
+
+\begin{align}
+	\Delta s &= \int_{T_1}^{T_2} c_p \dfrac{\d T}{T} - R \ln\dfrac{p_2}{p_1} \notag\\[0.5em]
+	&= \int_{T_0}^{T_2} c_p \dfrac{\d T}{T} - \int_{T_0}^{T_1} c_p \dfrac{\d T}{T} + R \ln\dfrac{p_2}{p_1} \notag \\[0.5em]
+	& = s^{T_2} - s^{T_1} - R\ln \dfrac{p_2}{p_1}
+\end{align}
+其中
+\begin{align}
+	s^{T} = \int_{T_0}^{T} c_p \dfrac{\d T}{T}
+\end{align}
+同理，也可以写为
+\begin{align}
+	\Delta s = s^{T_2} - s^{T_1} + R\left(\ln \dfrac{v_2}{v_1} - \ln \dfrac{T_2}{T_1} \right)
+\end{align}
+
+\section{理想气体混合物}
+\subsection{理想气体混合物的分数表示法
+}
+\begin{enumerate}[1.]
+	\item \textbf{定义}
+	\begin{itemize}
+		\item \dy[质量分数]{ZLFS}：第$i$种组分质量与混合物质量之比，即
+		\begin{align}
+			x_i = \dfrac{m_i}{m}
+		\end{align}
+		
+		\item \dy[摩尔分数]{MEFS}：第$i$种组分物质的量与混合物物质的量之比，即
+		\begin{align}
+			y_i = \dfrac{n_i}{n}
+		\end{align}
+	\end{itemize}
+	
+	\item \textbf{性质}
+	\begin{itemize}
+		\item 所有质量分数之和为1
+		\begin{align}
+			\sum_{i = 1}^{k} x_i =\sum_{i = 1}^{k}  \dfrac{m_i}{m} = \dfrac{m}{m} = 1
+		\end{align}
+		
+		\item 所有摩尔分数之和为1
+	
+		\begin{align}
+			\sum_{i = 1}^{k} y_i =\sum_{i = 1}^{k}  \dfrac{n_i}{n} = \dfrac{n}{n} = 1
+		\end{align}
+	\end{itemize}
+	
+	\item \textbf{换算}
+	\begin{align}
+		x_i = \dfrac{m_i}{m} = \dfrac{m_i}{\displaystyle \sum_{i = 1}^{k}m_i} 
+		= \dfrac{n_i M_i}{\displaystyle \sum_{i = 1}^k n_i M_i} = \dfrac{(n_i/n) M_i}{\displaystyle \sum_{i = 1}^k (n_i/n) M_i}
+		= \dfrac{y_i}{\sum_{i = 1}^k y_iM_i} 
+	\end{align}
+	\vspace*{-3em}
+	
+	\begin{align}
+		y_i = \dfrac{n_i}{n} = \dfrac{n_i}{\displaystyle \sum_{i = 1}^{k}n_i} 
+		= \dfrac{m_i/M_i}{\displaystyle \sum_{i = 1}^k m_i / M_i} = \dfrac{(m_i/m) / M_i}{\displaystyle \sum_{i = 1}^k (m_i/m) / M_i}
+		= \dfrac{x_i / M_i}{\displaystyle \sum_{i = 1}^k x_i / M_i} 
+	\end{align}
+	
+\end{enumerate}
+
+\subsection{理想气体混合物的相对分子质量}
+\begin{enumerate}[1.]
+	\item \textbf{定义}
+	
+		\dy[相对分子质量]{XDFZZL}：质量与物质的量之比，即
+		\begin{align}
+			M = \dfrac{m}{n}
+		\end{align}
+		
+	\item \textbf{计算方法}
+	\begin{itemize}
+		\item 用摩尔分数计算
+		\begin{align}
+			M = \dfrac{m}{n} = \dfrac{\displaystyle \sum_{i = 1}^k m_i}{n} = \dfrac{\displaystyle \sum_{i = 1}^k n_iM_i}{n} = \sum_{i = 1}^k \dfrac{n_i}{n}M_i = \sum_{i = 1}^k y_iM_i
+		\end{align}
+		
+		\item 用质量分数计算
+		\begin{align}
+			M = \sum_{i = 1}^k y_iM_i = \sum_{i = 1}^k \dfrac{x_i / M_i}{\displaystyle \sum_{i = 1}^k x_i / M_i} M_i = \dfrac{\displaystyle \sum_{i = 1}^k x_i}{\displaystyle \sum_{i = 1}^k x_i /M_i} = \dfrac{1}{\displaystyle \sum_{i = 1}^k x_i /M_i}
+		\end{align}
+	\end{itemize}
+\end{enumerate}
+
+\subsection{理想气体混合物的气体常数
+}
+\begin{enumerate}[1.]
+	\item \textbf{定义}
+	
+	\dy[气体常数]{QTCS}：摩尔气体常数与相对分子质量之比，即
+	\begin{align}
+		R = \dfrac{R_m}{M}
+	\end{align}
+	
+	\item \textbf{计算方法}
+	\begin{itemize}
+		\item 用质量分数计算
+		\begin{align}
+			R = \dfrac{R_m}{M} = R_m \sum_{i = 1}^k x_i /M_i= \sum_{i = 1}^k \dfrac{x_iR_m}{M_i} = \sum_{i = 1}^k x_i R_i
+		\end{align}
+		
+		\item 用摩尔分数计算
+		\begin{align}
+			R = \sum_{i = 1}^k x_i R_i = \sum_{i = 1}^k \dfrac{y_i  M_i}{\displaystyle \sum_{i = 1}^k y_i  M_i} R_i = \dfrac{\displaystyle \sum_{i = 1}^k y_i M_i R_i}{\displaystyle \sum_{i = 1}^k y_i /M_i} = \dfrac{R_m}{\displaystyle \sum_{i = 1}^k y_i M_i} = \dfrac{1}{\displaystyle \sum_{i = 1}^k y_i/ R_i}
+		\end{align}
+	\end{itemize}
+	
+	\item \textbf{换算}	
+	\begin{itemize}
+		\item 质量分数
+		\begin{align}
+			x_i = \dfrac{y_i M_i}{\displaystyle \sum_{i = 1}^k y_i M_i} = \dfrac{y_i M_i}{M} = \dfrac{M_i}{M} y_i = \dfrac{R_\m / M}{R_\m / M_i} y_i = \dfrac{R}{R_i} y_i
+		\end{align}
+	
+		\item 摩尔分数
+		\begin{align}
+			y_i = \dfrac{x_i / M_i}{\displaystyle \sum_{i = 1}^k  x_i /M_i} = \dfrac{x_i / M_i}{\dfrac{1}{M}} = \dfrac{M}{M_i} x_i = \dfrac{R_\m / M_i}{R_\m / M} x_i = \dfrac{R_i}{R} x_i
+		\end{align}
+	\end{itemize}
+\end{enumerate}
+
+\subsection{理想气体混合物的状态方程}
+\begin{enumerate}[1.]
+	\item \textbf{理想气体混合物的分压力}\\
+	\hspace*{2em}由分子运动论可知
+	\begin{align*}
+		T &= \dfrac{2}{3k} \overline{\varepsilon}_K \\[0.5em]
+		p &= \dfrac{2}{3} N \overline{\varepsilon}_K
+	\end{align*}
+	对于理想气体混合物，在定温定容条件下有
+	\begin{align}
+		p &= \dfrac{2}{3} N \overline{\varepsilon}_K \notag \\[0.5em]
+		& = \dfrac{2}{3} \left(N_1 + N_2  + \cdots + N_k\right) \overline{\varepsilon}_K \notag \\[0.5em]
+		& = \dfrac{2}{3}N_1 \overline{\varepsilon}_K  +\dfrac{2}{3}N_2 \overline{\varepsilon}_K  +\cdots + \dfrac{2}{3}N_k \overline{\varepsilon}_K \notag \\[0.5em]
+		& = p_1 + p_2 + \cdots + p_k
+	\end{align}
+	其中，$p_i$为组分$i$的\dy[分压力]{FYL}。总压力等于分压力之和，称为\dy[道尔顿分压定律]{DEDFYDL}。且满足
+	\begin{align}
+		\dfrac{p_i}{p} = \dfrac{N_i}{N} = \dfrac{n_i N_0}{n N_0} = y_i
+	\end{align}
+
+	\item \textbf{理想气体混合物的状态方程}\\
+	\hspace*{2em} 对于组分$i$的理想气体，有
+	\begin{align}
+		p_iV= n_i R_\m T
+	\end{align}
+	对混合物，有
+	\begin{align}
+		\sum_{i = 1}^k p_iV &= \sum_{i = 1}^k n_i R_\m T \notag\\[0.5em]
+		pv &= n R_\m T\label{混合状态方程1}\\
+		pv &= mRT
+		\label{混合状态方程2}
+	\end{align}
+	公式\eqref{混合状态方程1}和\eqref{混合状态方程2}称为\dy[理想气体混合物状态方程]{LXQTHHWZTFC}。
+	
+	\item \textbf{理想气体混合物的分容积}\\
+	\hspace*{2em} 假定在理想气体混合物的压力和温度下组分$i$单独存在，此时组分$i$的体积为，称为组分$i$的\dy[分容积]{FRJ}。
+	\begin{align}
+		\left.
+		\begin{aligned}
+			pV_i = m_i R T \, \\
+			p_iV = m_i R T \, \\
+		\end{aligned}
+		\right\rbrace
+		\quad \Rightarrow \quad 
+		pV_i = p_i V 
+		\quad \Rightarrow \quad
+		\dfrac{V_i}{V} = \dfrac{p_i}{p} = y_i
+	\end{align}
+	所以理想气体混合物状态方程也可以写为
+	\begin{align}
+		p \sum_{i = 1}^k V_i =  R_\m T = mRT
+	\end{align}
+\end{enumerate}
+
+\subsection{理想气体混合物的热力学能、焓、熵}
+\begin{enumerate}[1.]
+	\item \textbf{理想气体混合物的热力学能}
+	\begin{align}
+		U &= \sum_{i = 1}^k U_i = \sum_{i = 1}^k m_i u_i = \sum_{i = 1}^k n_i u_{\m i}\\[0.5em]
+		u &= \dfrac{U}{m} = \dfrac{\displaystyle \sum_{i = 1}^k U_i}{m} = \dfrac{\displaystyle \sum_{i = 1}^k m_i u_i}{m} = \sum_{i = 1}^{k} \dfrac{m_i}{m} u_i = \sum_{i = 1}^k x_i u_i\\[0.5em]
+		u_\m &= \dfrac{U}{n} = \dfrac{\displaystyle \sum_{i = 1}^k n_i u_{\m i}}{n} = \sum_{i = 1}^k \dfrac{n_i}{n} u_{\m i} = \sum_{i = 1}^k y_i u_{\m i}
+	\end{align}
+	
+	\item \textbf{理想气体混合物的焓}
+	\begin{align}
+		H & = \sum_{i = 1}^k H_i = \sumk m_ih_i = \sumk n_i h_{\m i}\\[0.5em]
+		h & = \dfrac{H}{m} = \dfrac{\dsumk H_i}{m} = \dfrac{\dsumk m_i h_i}{m} = \sumk \dfrac{m_i}{m} h_i = \sumk x_i h_i \\[0.5em]
+		h_\m &= \dfrac{H}{n} = \dfrac{\dsumk H_i}{n} = \dfrac{\dsumk n_i h_{\m i}}{n} = \sumk \dfrac{n_i}{n} h_{\m i} = \sumk y_i h_{\m i}
+	\end{align}
+	
+	\item \textbf{理想气体混合物的熵}
+	\begin{align}
+		S & = \sumk S_i = \sumk m_is_i = \sumk n_i s_{\m i}\\[0.5em]
+		s &= \dfrac{S}{m} = \dfrac{\dsumk S_i}{m} = \dfrac{\dsumk m_is_i}{m} = \sumk \dfrac{m_i}{m} s_i = \sumk x_is_i\\[0.5em]
+		s_\m &= \dfrac{S}{n} = \dfrac{\dsumk S_i}{n} = \dfrac{\dsumk n_is_{\m i}}{n} = \sumk \dfrac{n_i}{n} s_{\m i} = \sum_{i = 1}^k y_i s_{\m i}
+	\end{align}
+	
+	\item \textbf{理想气体混合物的比热容}
+	\begin{align}
+		c_V &= \dfrac{\d u}{\d T} = \dfrac{\d \dsumk x_i u_i}{\d T} = \sumk \dfrac{\d (x_i u_i)}{\d T} = \sumk x_i \dfrac{\d u_i}{\d T} = \sumk x_i c_{V, i}\\[0.5em]
+		C_{V, m} &= \dfrac{\d u_\m}{\d T} = \dfrac{\d \dsumk y_i u_{\m i}}{\d T} = \sumk \dfrac{\d (y_i u_{\m i})}{\d T} = \sumk y_i \dfrac{\d u_{\m i}}{\d T} = \sumk y_i C_{V, \m i}\\[0.5em]
+		c_p & = \dfrac{\d h}{\d T} = \dfrac{\d \dsumk x_i h_{ i}}{\d T} = \sumk \dfrac{\d (x_i h_i)}{\d T}  = \sumk x_i \dfrac{\d h_i }{\d T} = \sumk x_i c_{p , i}\\[0.5em]
+		C_{p, m} &= \dfrac{\d h_\m}{\d T} = \dfrac{\d \dsumk y_i h_{\m i}}{\d T} = \sumk \dfrac{\d (y_i h_{\m i})}{\d T} = \sumk y_i \dfrac{\d h_{\m i}}{\d T} = \sumk y_i C_{p, \m i} 
+	\end{align}
+\end{enumerate}
+
+\subsection{理想气体混合物熵变}
+\begin{itemize}
+	\item 理想气体混合物在过程中的熵变（以定值比热容为例）
+	\begin{align}
+		\Delta s = c_p \ln \dfrac{T_2}{T_1} - R \ln \dfrac{p_2}{p_1}
+	\end{align}
+	\item 理想气体混合物在\textbf{混合过程}中的熵变（以定值比热容为例）
+	\begin{align}
+		\Delta s = \sumk x_i c_{p, i} \ln \dfrac{T_2}{T_1} - \sumk x_i R_i \ln \dfrac{y_i p_2}{p_{1, i}}
+	\end{align}
+\end{itemize}
+
+\examples 计算空气的热力学能变化、焓变化、熵变化。
+
+\solve
+\begin{align*}
+	\Delta u &= u_2 - u_1 = \sumk x_i u_{i,2} - \sumk x_i u_{i, 1} = \sumk x_i \left(u_{i,2} - u_{i, 1}\right) = \sumk x_i \Delta u_i\\[0.5em]
+	\Delta h &= h_2 -h_1 = \sumk x_i h_{i, 2} - \sumk x_i h_{i ,1} = \sumk x_i \left(h_{i,2} - h_{i, 1}\right) = \sumk x_i \Delta h_i\\[0.5em]
+	\Delta s &= s_2 - s_1 = \sumk x_i s_{i, 1} - \sumk x_i s_{i ,2} = \sumk x_i\left(s_{i, 1} - s_{i ,2}\right) = \sumk x_i \Delta s
+\end{align*}
+
+\vspace*{-2em}
+\warn[
+\hspace*{2em} 例题三个式子中的最后一个等号成立的条件是空气的组分不发生改变。
+]
+
+\section{湿空气}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

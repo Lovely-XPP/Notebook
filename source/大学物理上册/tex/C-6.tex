@@ -1,0 +1,163 @@
+\chapter{振动} 
+\thispagestyle{empty}
+\section{简谐运动}
+\dy[简谐运动]{JXYD} \jg
+\par 1. 运动学定义：运动函数为
+\margin{\\[1em] \kg  $\omega t+\varphi$是时刻$t$的相，$\varphi$是初相.}
+\begin{equation}
+\eq[x=A\cos(\omega t+\varphi)]
+\end{equation}
+\par 其中$A$叫做简谐运动的振幅，
+\margin
+{
+	$\omega,T,\nu$的关系如下
+	\scriptsize{$$\disp \omega = \frac{2\pi }{T}$$}
+	\vspace*{-1.5em}
+	\scriptsize{$$\omega = 2\pi \nu$$}
+}
+它表示质点可能离开原点（平衡位置）的最大距离；$\omega$叫简谐运动的角频率，$T$是简谐运动的周期，$\nu$ 是简谐运动的频率。\jg
+\par 加速度特征：$a=-\omega^2 x$.\jg
+\par 三个特征量：$A,\omega ,\varphi$，知道这三个特征量就可以确定简谐运动方程.\jg
+\par  \dy[相量图法]{XLT} 质点作匀速圆周运动时，它在直径上投影的运动就是简谐运动，因此可以用一个长度等于振幅$A$的旋转径矢表示一个简谐运动。这样旋转矢量图叫相量图，旋转的角速度为$\omega$,矢量的初角位置为初相$\varphi$.
+\jg \jg
+\par 2. 动力学定义：质点受的合力$F$与质点对平衡位置的位移$x$成反比而反向，即
+\margin{\\[1.5em] \kg  $F$也称为回复力.}
+\begin{equation}
+\eq[F=-kx]
+\end{equation}
+\par 时，就是简谐运动。由牛顿第二定律可得
+\margin{\\[1.5em] \kg  这个微分方程称为简谐运动的动力学方程.}
+\begin{equation}
+	\eq[\frac{\d^2 x}{\d t^2}+\frac{k}{m}x = 0]
+\end{equation}
+\par \tkg 任一物理量$x$随时间的变化遵守这一形式的微分方程时，它的变化就是简谐变化。\jg\jg
+
+\par \dy[固定角频率]{GDJPL}
+\margin{对应固定角频率的周期称为固定周期，表达式如下：
+\scriptsize{$$\disp T = 2\pi \sqrt{\frac{m}{k}}$$}}
+\begin{equation}
+\eq[\omega=\sqrt{\frac{k}{m}}]
+\end{equation}
+\par 知道初始条件$t=0$时的位移$x_0$和速度$v_0$，可以求得
+\begin{equation*}
+\begin{split}
+&A=\sqrt{x_0^2+\frac{v_0^2}{\omega^2}}\\
+&\varphi = \arctan(-\frac{v_0}{\omega x_0} )
+\end{split}
+\end{equation*}
+
+\section{简谐运动实例}
+\dy[弹簧振子]{THZZ}
+\margin{\\[1.5em] \kg $k$ 为弹簧的劲度系数.}
+\begin{equation}
+\eq[\frac{\d ^2 x}{\d t^2} = -\frac{k}{m}x],\,\,\eq[\omega = \sqrt{\frac{k}{m}}],\,\,\eq[T = 2\pi \sqrt{\frac{m}{k}}]
+\end{equation}
+
+
+\par \dy[单摆]{DB}
+\margin{\\[1.5em] \kg $l$ 为摆长.}
+\begin{equation}
+\eq[\frac{\d ^2 \theta }{\d t^2} = -\frac{g}{l}\theta],\,\,\eq[\omega = \sqrt{\frac{g}{l}}],\,\,\eq[T = 2\pi \sqrt{\frac{l}{g}}]
+\end{equation}
+
+\par \dy[微小振动]{WXZD}
+\margin{\\[1.5em] \kg $E_p$ 为系统势能函数.}
+\begin{equation}
+\omega = \sqrt{\frac{k}{m}} = \left[ \,\frac{1}{m}\left( \frac{\d^2 E_p}{\d x^2}\right)_{x=0} \,\,\right]^{1/2}
+\end{equation}
+
+\section{简谐运动的能量}
+\par \dy[简谐运动的能量]{WXZD}
+\margin{\\[4.5em] \kg 利用$\omega^2=k/m$}
+\margin{\\[1em] \kg $E$ 为系统总机械能.\\\kg $\overline{E}_k$ 为系统动能平均值.\\\kg $\overline{E}_p$ 为系统势能平均值.}
+\begin{equation}
+\begin{split}
+E_p&=\frac{1}{2}kx^2=\frac{1}{2}kA^2\cos^2(\omega t +\varphi)\\
+E_k&=\frac{1}{2}mv^2=\frac{1}{2}m\omega^2 A^2\sin^2(\omega t +\varphi)=\frac{1}{2}kA^2\sin^2(\omega t +\varphi)\\
+E&=E_k+E_p=\frac{1}{2}kA^2\\
+\overline{E}_k&=\overline{E}_p=\frac{1}{2}E=\frac{1}{4}kA^2
+\end{split}
+\end{equation}
+
+\section{阻尼振动}
+\par 1. 欠阻尼（阻力较小的情况下）
+\margin{记阻力$f_r = - \gamma v$，\\ $A_0$为初始振幅.\\ $\omega_0$为初始固有角频率.\\$\beta =\frac{\gamma}{2m}$为阻尼系数}
+\begin{equation}
+\eq[A=A_0\e^{-\beta t}],\,\,\eq[\omega=\sqrt{\omega_0^2-\beta^2}]
+\end{equation}
+
+\par \dy[时间常量]{SJCS} 能量减小到起始能量的$1/\e$所经过的时间
+\margin{当$\beta \le \omega_0$时（弱阻尼），有$E \approx E_0\,\e^{-2\beta t}$，其中$E_0$为起始能量.时间常量又称为鸣响时间.}
+\begin{equation}
+\tau = \frac{1}{2\beta}
+\end{equation}
+
+\par \dy[品质因数$\,\,\bm{Q}$]{PZYS} 鸣响时间内振动次数的$2\pi$倍
+\margin{在阻尼不严重的情况下，$T$和$\omega$可以分别用振动系统的固有周期和固有角频率替代.}
+\begin{equation}
+\eq[Q=2\pi \, \frac{\tau}{T}=\omega \tau]
+\end{equation}
+
+\par 2. 过阻尼（阻尼较大）的情况下，质点慢慢回到平衡位置，不再振动；
+\jg 
+\par 3. 临界阻尼（阻尼适当）的情况下，质点以最短的时间回到平衡位置，不再振动.
+
+\section{受迫振动}
+\dy[受迫振动]{SPZD} 在周期性驱动力作用下的振动。稳态时的振动频率等于驱动力的频率；当驱动力的频率等于振动系统的固有频率时发生共振现象，这时系统最大限度地从外界吸收能量。
+
+\section{两个简谐运动的合成}
+1. 同一直线上的两个同频率的振动合成时，其合振决定于两个振动的相差：
+\par \tkg 二者同相时合振幅为二分振幅之和，即$A=A_1+A_2$;
+\par \tkg 反相时为二分振幅之差，即$A=|A_1-A_2|$.
+\par 2. 同一直线上的两个不同频率的振动合成时，如果者频率差较小，就会产生拍的现象。拍频等于二分振动的频率之差。
+\par 3. 相互垂直的两个同频率振动合成时，合运动轨迹一般为椭圆。
+
+\section{简谐运动的研究方法}
+1. 解析法
+\begin{equation*}
+\begin{split}
+x&=A\cos(\omega t + \varphi)\\
+v&=- \omega A\cos(\omega t +\varphi)\\
+a&=- \omega^2 A\cos(\omega t +\varphi)
+\end{split}
+\end{equation*}
+\par 2. 曲线法\quad 通过给出的曲线图像找特殊点求出简谐运动方程.
+\par 3. 相量图法
+\par 注：求振动方程主要是求出三相关量$A,T,\varphi$，初相可以用特殊点代入解析法求出，也可以用相量图法求解。
+
+\section{简谐运动的合成}
+1. 同方向、同频率的简谐运动的合成
+\begin{equation*}
+\begin{cases}
+x_1 = A_1\cos(\omega t + \varphi_1)\\
+x_2 = A_2\cos(\omega t + \varphi_2)
+\end{cases}
+\,\,
+\Longrightarrow
+\,\,
+x = A\cos(\omega t +\varphi)
+\end{equation*}
+其中,
+\begin{equation*}
+A=\sqrt{A_1^2+A_2^2+2A_1A_2\cos(\varphi_2-\varphi_1)},\,\,\tan \varphi =\frac{A_1\sin \varphi_1+A_2\sin \varphi_2}{A_1\cos \varphi_1+A_2\cos \varphi_2}
+\end{equation*}
+\par 注：求合振动方程除了利用辅助角公式，还需要利用和差化积进行化简。
+\par 2. 相互垂直、同频率的简谐运动的合成——平面运动.
+\par 3. 同方向、不同频率的简谐运动的合成——拍.
+
+\section{弹簧振子}
+\dy[弹簧串并联]{THCBL}\jg
+\par 当两根弹簧（劲度系数分别为$k_1,k_2$）按同一条直线拼接（串联）后形成的新弹簧系统的劲度系数为$k$，则
+\begin{equation}
+\eq[k=\frac{1}{\frac{1}{k_1}+\frac{1}{k_2}}]
+\end{equation}
+特别地，当$k_1=k_2=k_0$，有
+\margin{\\[-3em] \kg $k_1=k_2=k_0$可以认为是弹簧的两半，由此可以看出，将弹簧减成两半后，剩下的部分的劲度系数为原弹簧的$2$倍.}
+\begin{equation}
+\eq[k=\frac{k_0}{2}]
+\end{equation}
+\par 当两根弹簧（劲度系数分别为$k_1,k_2$）并排放置（并联）后形成的新弹簧系统的劲度系数为$k$，则
+\begin{equation}
+\eq[k=k_1+k_2]
+\end{equation}
+

@@ -1,0 +1,220 @@
+\chapter{傅立叶变换与拉普拉斯变换}
+\thispagestyle{empty}
+
+\section{傅立叶变换}
+\subsection{傅立叶级数}
+\tdefination[傅立叶级数]
+周期为$T$的任一周期函数$f(t)$，若满足下列Dirichlet条件：\index{FLYJS@傅立叶级数}
+\begin{enumerate}[\hspace*{3em} 1.]
+	\item 在一个周期内只有有限个不连续点；
+	\item 在一个周期内只有有限个极小和极大值；
+	\item 积分$\displaystyle \int_{-T/2}^{T/2}\big|f(t)\big|\, \d t$存在。
+\end{enumerate}
+则$f(t)$可展开为如下的Fourier级数
+\begin{equation}
+	f(t) = \dfrac{1}{2}a_0 + \sum_{n = 1}^{\infty}\big(a_n \cos n\omega t + b_n \sin n \omega t\big)
+\end{equation}
+其中，
+\begin{align}
+	a_n &= \dfrac{2}{T}\int_{-T/2}^{T/2} f(t)\cos n \omega t \, \d t, \quad n = 0,1,\cdots,\infty\\[0.5em]
+	b_n &= \dfrac{2}{T}\int_{-T/2}^{T/2} f(t)\sin n \omega t \, \d t, \quad n = 1,\cdots,\infty
+\end{align}
+
+周期函数$f(t)$的傅氏级数还可以写为复数形式（指数形式）
+\begin{equation}
+	f(t) = \sum_{n = -\infty}^{+\infty}\alpha_n\e^{\j n \omega t}
+\end{equation}
+式中系数
+\begin{equation}
+	\alpha_n = \dfrac{1}{T}\int_{-T/2}^{T/2} f(t)\e^{-\j n \omega t}\, \d t
+\end{equation}
+其中， $\omega = \dfrac{T}{2\pi}$称为\dy[角频率]{JPL}。
+\vspace*{0.5em}
+
+\subsection{傅立叶变换}
+\tdefination[傅立叶变换]
+对非周期函数$f(t)$，可以视为周期$T$为无穷大的周期函数，此时
+\[
+\omega_0 = \dfrac{2\pi}{T} \to 0,\quad \Delta \omega = (n+1)\omega_0 - n \omega_0 = \omega_0 \to 0
+\]
+即
+\begin{align}
+	f(t) &= \sum_{n = -\infty}^{+\infty} \alpha_n \e^{\j n \omega_0 t} \equiv  \sum_{\omega = -\infty}^{+\infty} \alpha_\omega \e^{\j \omega t}\\[0.5em]
+	\alpha_\omega &= \dfrac{1}{T} \int_{-T/2}^{T/2} f(t)\e^{-\j n \omega_0 t}\, \d t = \dfrac{\Delta \omega}{2 \pi}\int_{-T/2}^{T/2}f(t)\e^{-\j\omega t}\, \d t
+\end{align}
+所以
+\begin{align*}
+	f(t) & =  \sum_{\omega = -\infty}^{+\infty} \alpha_\omega \e^{\j \omega t} =  \sum_{\omega = -\infty}^{+\infty}\Bigg[ \dfrac{\Delta \omega}{2 \pi}\int_{-T/2}^{T/2}f(t)\e^{-\j\omega t}\, \d t\Bigg]\e^{\j \omega t}\\[0.5em]
+	& = \dfrac{1}{2\pi}\sum_{\omega = -\infty}^{+\infty}\Bigg[\int_{-T/2}^{T/2}f(t)\e^{-\j\omega t}\, \d t\Bigg]\e^{\j \omega t}\Delta \omega
+\end{align*}
+当$T\to \infty,\,\Delta \omega \to 0$，上式求和变积分
+\begin{align}
+	f(t) &= \dfrac{1}{2\pi}\int_{-\infty}^{+\infty} F(\omega)\e^{\j\omega t}\, \d \omega\\[0.5em]
+	F(\omega) & = \int_{-\infty}^{+\infty}f(t)\e^{-\j \omega t}\, \d t
+\end{align}
+$F(\omega)$称为$f(t)$的\dy[Fourier变换]{FourierBH}。
+
+
+\section{拉普拉斯变换}
+\subsection{拉普拉斯变换的定义}
+\tdefination[拉普拉斯变换]
+设函数$f(t)$在$t \ge 0$时有定义，而且积分
+\begin{equation*}
+	\int_{0}^{+\infty} f(t)\e^{-st}\,\d t \quad\quad s = \sigma+\j \omega
+\end{equation*}
+在复变量$s$的某个域内收敛，则由此积分所确定的函数可写为
+\begin{equation}
+	F(s) = \int_{0}^{\infty}f(t)\e^{st}\,\d t
+\end{equation}
+称为函数$f(t)$的\dy[拉普拉斯变换式]{LPLSBHS}，简称\dy[拉氏变换式]{LSBHS}，并记作
+\begin{equation*}
+	F(s) = \mathcal{L}\big[f(t)\big]
+\end{equation*}
+$F(s)$称为$f(t)$的\dy[象函数]{XHS}，而$f(t)$称为$F(s)$的原函数。有象函数求原函数的运算称为\dy[拉氏逆变换]{LSNBH}，记作
+\begin{equation*}
+	f(t) = \mathcal{L}^{-1}\big[F(s)\big]
+\end{equation*}
+
+\subsection{拉普拉斯变换的性质}
+
+\ttheorem[线性性质]
+若$\alpha,\beta$是任意常实数，且$\mathcal{L}\big[f_1(t)\big] = F_1(s), \mathcal{L}\big[f_2(t)\big] = F_2(s)$，则有
+\begin{equation}
+	\mathcal{L}\big[\alpha f_1(t)\pm \beta f_2(t)\big] = \alpha F_1(s) \pm \beta F_2(s)
+\end{equation}
+
+\theorem[微分性质]
+若$\mathcal{L}\big[f(t)\big] = F(s)$，则有
+\begin{equation}
+	\mathcal{L}\big[f^{(n)}(t)\big] = s^nF(s) -s^{n-1}f(0)-s^{n-2}f'(0)- \cdots - f^{(n-1)}(0)
+\end{equation}
+
+\theorem[积分性质]
+若$\mathcal{L}\big[f(t)\big] = F(s)$，则有
+\begin{equation}
+	\mathcal{L}\left[\underbrace{\int\cdots\int}_{n} f(t) \,\d t^n\right]=\frac{1}{s^n}F(s)+\frac{1}{s^n}f^{-1}(0) +\frac{1}{s^{n-1}}f^{(-2)}(0)+\cdots +\frac{1}{s}f^{(-n)}(0)
+\end{equation}
+其中，$f^{(-1)}(0),f^{(-2)}(0),f^{(-n)}(0)$分别为$f(t)$的各重积分在$t=0$处的值。\\
+
+\theorem[位移性质]
+若$\mathcal{L}\big[f(t)\big] = F(s)$，则有
+\begin{equation}
+	\mathcal{L}\big[\e^{at} f(t)\big] = F(s - a)
+\end{equation}
+
+\theorem[延迟性质]
+若$\mathcal{L}\big[f(t)\big] = F(s)$，则对于任意实数$\tau > 0$有
+\begin{equation}
+	\mathcal{L}\big[f(t - \tau ) \cdot 1(t - \tau)\big] = \e^{-\tau s}F(s)
+\end{equation}
+
+\theorem[初值定理]
+若$\mathcal{L}\big[f(t)\big] = F(s)$，且$\lim_{s \to \infty}s F(s)$存在，则
+\begin{equation}
+	\lim_{t \to 0}f(t) = \lim_{s \to \infty} s F(s)
+\end{equation}
+
+\theorem[终值定理]
+若$\mathcal{L}\big[f(t)\big] = F(s)$，且$\lim_{t \to \infty}f(t), \lim_{s \to 0}s F(s)$均存在，则
+\begin{equation}
+	\lim_{t \to \infty}f(t) = \lim_{s \to 0} s F(s)
+\end{equation}
+
+\theorem[卷积定理]
+若$\mathcal{L}\big[f_1(t)\big] = F_1(s), \mathcal{L}\big[f_2(t)\big] = F_2(s)$，则
+\begin{equation}
+	\mathcal{L}\big[f_1(t) * f_2(t)\big] = F_1(s) \cdot F_2(s)
+\end{equation}
+\clearpage
+
+\subsection{几种典型函数的拉氏变换}
+{
+	\centering
+	\setlength{\tabcolsep}{12mm}{
+		\begin{longtable}{cc}
+			
+			\toprule
+			原函数$f(t)$ & 象函数$F(s)$\\
+			\midrule
+			\endfirsthead
+			
+			\multicolumn{2}{r}{续表}\\
+			\toprule
+			原函数$f(t)$ & 象函数$F(s)$\\
+			\midrule
+			\endhead
+			
+			% 表格“尾页前”，表格最后显示内容
+			\bottomrule
+			\endfoot
+			
+			% 表格“尾页”，表格最后显示内容
+			\bottomrule
+			\endlastfoot
+			
+			单位跃阶函数 $\,1 (t) = \begin{cases}
+				1, &t \ge 0\\0, & t<0
+			\end{cases}$
+			& $\dfrac{1}{s}$\\
+			\hline
+			单位脉冲函数 $\,\delta (t) =\begin{cases}
+				0, & t \neq 0\\
+				\infty, & t = 0
+			\end{cases}$ & 1\\
+			
+			\hline
+			单位斜坡函数 $ \, f(t) = \begin{cases}
+				t, &t \ge 0\\
+				0, &t <0
+			\end{cases}$& $\dfrac{1}{s^2}$\\
+			\hline
+			单位加速度函数 $ \, f(t) = \begin{cases}
+				\dfrac{1}{2}t^2, &t \ge 0\\
+				0, &t <0
+			\end{cases}$& $\dfrac{1}{s^3}$\\
+			\hline
+			\multirow{2}*{指数函数$\displaystyle \e^{-at}$}  & \multirow{2}*{$\dfrac{1}{s+a}$} \\
+			&\\
+			\hline
+			\multirow{2}*{正弦函数$\sin \omega t$}  & \multirow{2}*{$\dfrac{\omega}{s^2+\omega^2}$} \\
+			&\\
+			\hline
+			\multirow{2}*{余弦函数 $\cos \omega t$
+			} & \multirow{2}*{$\dfrac{s}{s^2+\omega^2}$} \\
+			&\\
+		\end{longtable}
+	}
+	\vspace*{-2em}
+	\captionof{table}{几种典型函数的拉氏变换表}
+}
+\vspace*{1em}
+
+\subsection{拉普拉斯逆变换的求解}
+
+设$s_1,s_2,\cdots,s_3$是函数$F(s)$的所有孤立点，适当选取$\beta$使得这些奇点全在$\text{Re}(s)<\beta $的范围内，且
+\begin{equation*}
+	\lim_{s \to \infty} F(s) = 0
+\end{equation*}
+则
+\begin{equation}
+	f(t)=\mathcal{L}\big[F(s)\big]=\frac{1}{2 \pi \j}\int_{\beta + \j \infty}^{\beta- \j \infty} F(s)\e^{st}\,\d s=\sum_{k}\text{Res}\big[F(s)\e^{st}, s_k\big]
+\end{equation}
+\vspace*{0.5em}
+
+\subsection{拉普拉斯的应用——求解常微分方程（组）}
+\texample[求解拉普拉斯求解常微分方程（组）]\vspace*{1em}
+\noindent \vspace*{1.5em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{ 解题步骤}}\hspace*{0.25em}}\hspace{1.5em}
+\vspace*{-1em}
+\begin{enumerate}
+	\item 对方程两边同时做拉普拉斯变换。
+	\item 利用拉普拉斯变换的线性性质、微分性质代替各阶的的导数，解出$Y(s)$。
+	\item 做$Y(s)$的拉普拉斯逆变换，得到$y(t)$。
+\end{enumerate}
+
+
+
+
+
+
+
+
