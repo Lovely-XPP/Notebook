@@ -417,13 +417,14 @@ $
 	 \cos \dfrac{\beta_e}{2} = \dfrac{r_k - P}{e r_k} \quad \Rightarrow \quad \sin \dfrac{\beta_e}{2} = \dfrac{1}{e} \sqrt{e^2 - \left(1 - \dfrac{P}{r_k}\right)^2}
 \end{equation*}
 将$e, P$的表达式代入，得
-\begin{equation*}
+\begin{equation}
 	\begin{cases}
 		\, e = \sqrt{1 + \nu_k(\nu_k - 2)\cos^2 \varTheta_k} \\[0.5em]
 		P = \dfrac{r_k^2 v_k^2\cos ^2 \varTheta_k}{\mu} = r_k\nu_k\cos^2 \varTheta_k
 	\end{cases}
 	\quad \Rightarrow \quad \sin \dfrac{\beta_e}{2} = \dfrac{1}{e} \sqrt{e^2 - \left(1 - \dfrac{P}{r_k}\right)^2} = \dfrac{P}{er_k}\tan \varTheta_k
-\end{equation*}
+	\label{beta_e}
+\end{equation}
 将$\beta_e$的表达式代入
 \begin{equation*}
 	\begin{cases}
@@ -435,8 +436,8 @@ $
 可以得到
 \begin{equation*}
 	\begin{split}
-		&\left(1 - \dfrac{P}{r_k}\right)\cos \beta_c + \dfrac{P}{r_k} \tan \varTheta_k\sin \beta_c = 1 - \dfrac{P}{R}\\
-		\xrightarrow{\,\, \textstyle P = r_k\nu_k\cos^2 \varTheta_k\,\,}\quad & (1-\nu_k \cos^2 \varTheta_k)\cos \beta_c + \nu_k \cos^2 \varTheta_k\tan \varTheta_k \tan \varTheta_k \sin \beta_c = 1 - \dfrac{r_k \nu_k \cos^2 \varTheta_k}{R}\\
+		&\left(1 - \dfrac{P}{r_k}\right)\cos \beta_c + \dfrac{P}{r_k} \tan \varTheta_k\sin \beta_c = 1 - \dfrac{P}{R}\\[0.5em]
+		\xrightarrow{\,\, \textstyle P = r_k\nu_k\cos^2 \varTheta_k\,\,}\quad & (1-\nu_k \cos^2 \varTheta_k)\cos \beta_c + \nu_k \cos^2 \varTheta_k\tan \varTheta_k \tan \varTheta_k \sin \beta_c = 1 - \dfrac{r_k \nu_k \cos^2 \varTheta_k}{R}\\[0.5em]
 		\Rightarrow \quad & \dfrac{r_k}{R} = \dfrac{1 - (1-\nu_k\cos^2 \varTheta_k) \cos \beta_c + \nu_k \cos^2 \varTheta_k\tan\varTheta_k\sin \beta_c}{\nu_k \cos^2 \varTheta_k}
 	\end{split}
 \end{equation*}
@@ -455,6 +456,7 @@ $
 	代入命中方程，得到
 	\begin{equation}
 		\big[2R\left(1 + \tan^2\varTheta_k\right) - \nu_k (R + r_k)\big]\tan^2 \dfrac{\beta_c}{2} - 2\nu_k R \tan \varTheta_k \tan \dfrac{\beta_c}{2} + \nu_k \left(R - r_k\right) = 0
+		\label{命中方程}
 	\end{equation}
 	由于轨道参数已知，则方程可以简化为
 	\begin{equation}
@@ -480,10 +482,177 @@ $
 	射程通常小于$180\degree$，因此被动段射程计算公式为
 	\begin{equation}
 		\tan \dfrac{\beta_c}{2} = \dfrac{B + \sqrt{B^2 - 4AC}}{2A} , \quad L_{kc} = R \beta_c
+		\label{被动段}
 	\end{equation}	
+	其中，
+	\begin{equation}
+		\begin{cases}
+			\, A = 2 R \big(1 + \tan^2 \varTheta_k\big) - \nu_k \big(R + r_k\big)\\
+			\, B = 2 \nu_k R \tan \varTheta_k \\
+			\, C = \nu_k \big(R - r_k\big)
+		\end{cases}
+		\label{被动段系数}
+	\end{equation}
 }
 
 \subsection{自由段射程的计算}
+
+由被动段段射程公式，只需要把$r_e = r_k$替换掉$R$即可，即
+
+\theorem[自由段射程计算公式]
+{
+	\vspace*{-2em}
+	\begin{equation}
+		\tan \dfrac{\beta_e}{2} = \dfrac{B + \sqrt{B^2 - 4AC}}{2A} 
+	\end{equation}	
+	其中，
+	\begin{equation}
+		\begin{cases}
+			\, A = 2 r_k \big(1 + \tan^2 \varTheta_k\big) - 2\nu_k r_k\\
+			\, B = 2 r_k \nu_k  \tan \varTheta_k \\
+			\, C = \nu_k \big(r_k - r_k\big) = 0
+		\end{cases}
+	\label{自由段系数}
+	\end{equation}
+	简化为
+	\begin{equation}
+		\tan \dfrac{\beta_c}{2} \approx \tan \dfrac{\beta_e}{2} = \dfrac{B}{A} = \dfrac{\nu_k \sin \varTheta_k \cos \varTheta_k}{1 - \nu_k \cos^2 \varTheta_k}
+		\label{自由段方程}
+	\end{equation}
+	实际上，将\peref[P]$\,\, P = r_k \nu_k \cos^2 \varTheta_k$代入\peref[beta_e]，可以得到
+	\begin{equation}
+		\sin \dfrac{\beta_c}{2} \approx \sin \dfrac{\beta_e}{2} = \dfrac{\nu_k}{2 e}\sin 2 \varTheta_k
+		\label{自由段}
+	\end{equation}
+	工程上常用这个形式进行计算，其比较简单。自由段射程为
+	\begin{equation}
+		L_{ke} = R \cdot \beta_e
+	\end{equation}
+}
+
+\clearpage
+观察自由段射程公式\eqref{自由段}，可以发现
+
+\textbf{(1) \hspace*{0.5em} 能量系数给定}\\
+\hspace*{2em} 存在\red[最佳速度倾角使射程最大]。也就是说，在给定关机点矢径及速度下，亦即给定机械能$E$下，最佳速度倾角使射程最大。
+\begin{equation*}
+	\varTheta_{k\text{.opt}} \quad \Rightarrow \quad \beta_{c\text{.max}}
+\end{equation*}
+
+\textbf{(2) \hspace*{0.5em} 射程给定}\\
+\hspace*{2em} 存在\red[最佳速度倾角使能量系数最小]，当关机点位置定，即使关机点速度最小，也就是说导弹的机械能E最小。称为\dy[最小能量弹道]{ZXNLDD}。
+
+
+\subsection{最佳倾角确定}
+
+已知$r_k, v_k$，确定$\varTheta_{k\text{.opt}}, \beta_{c\text{.max}}$。
+
+被动段射程可以描述为$\beta_c = \beta_c\big(r_k, v_k, \varTheta_k\big)$，由于$r_k, v_k$确定，则$\beta_c = \beta_c\big(\varTheta_k\big)$，极值点（最佳倾角）处导数为0，即
+\begin{equation}
+	\dfrac{\partial \beta_c}{\partial \varTheta_k} = 0
+\end{equation}
+
+对方程\eqref{自由段方程}求导可得
+\begin{equation}
+	\dfrac{\partial A}{\partial \varTheta_k} \tan^2 \dfrac{\beta_c}{2} - \dfrac{\partial B}{\partial \varTheta_k} \tan \dfrac{\beta_c}{2} + \left(2 A \tan \dfrac{\beta_c }{2} - B\right)\dfrac{\partial \tan \dfrac{\beta_c}{2}}{\partial \varTheta_k} = 0
+\end{equation}
+对自由段方程的系数\eqref{被动段系数}求导，可以得到
+\begin{equation}
+	\begin{cases}
+		\, \dfrac{\partial A}{\partial \varTheta_k} = 4R\tan \varTheta_k\sec^2\varTheta_k \\[0.8em]
+		\, \dfrac{\partial B}{\partial \varTheta_k} = 2R\nu_k \sec^2 \varTheta_k
+	\end{cases}
+\end{equation}
+且
+\begin{equation}
+	\dfrac{\partial \tan \dfrac{\beta_c}{2}}{\partial \varTheta_k} = \dfrac{1}{2} \sec^2 \dfrac{\beta_c}{2} \dfrac{\partial \beta_c}{\partial \varTheta_k} = 0(\varTheta_k = \varTheta_{k\text{.opt}}, \beta_c = \beta_{c\text{.max}})
+\end{equation}
+
+取$\varTheta_k = \varTheta_{k\text{.opt}}, \beta_c = \beta_{c\text{.max}}$，则
+\begin{align*}
+	& 4 R \tan \varTheta_{k\text{.opt}} \sec^2\varTheta_{k\text{.opt}} \tan^2 \dfrac{\beta_{c\text{.max}}}{2} - 2 R \nu_k \sec^2 \varTheta_{k\text{.opt}} \tan \dfrac{\beta_{c\text{.max}}}{2} = 0 \\
+	\Longrightarrow \quad & 2R\sec^2 \varTheta_{k\text{.opt}} \tan \dfrac{\beta_{c\text{.max}}}{2} \left(2 \tan \varTheta_{k\text{.opt}} \tan \dfrac{\beta_{c\text{.max}}}{2} - \nu_k\right) = 0 \\
+	\xrightarrow{ \,\, \textstyle 2R\sec^2 \varTheta_{k\text{.opt}} \tan \frac{\textstyle \beta_{c\text{.max}}}{\textstyle 2} \neq 0 \,\, } \quad & 2 \tan \varTheta_{k\text{.opt}} \tan \dfrac{\beta_{c\text{.max}}}{2} - \nu_k = 0
+\end{align*}
+即
+\begin{equation}
+	\tan \dfrac{\beta_{c\text{.max}}}{2} = \dfrac{\nu_k}{2 \tan \varTheta_{k\text{.opt}}}
+\end{equation}
+将计算结果代入到\peref[命中方程]，化简后可以得到
+\begin{equation}
+	\big[4(R - r_k) - 2 R \nu_k\big] \tan^2 \varTheta_{k\text{.opt}} = \nu_k^2 (R + r_k) - 2 R \nu_k
+\end{equation}
+
+\theorem[被动段最佳速度倾角]
+{
+	\vspace*{-1em}
+	\begin{equation}
+		\tan \varTheta_{k\text{.opt}} = \sqrt{\dfrac{\nu_k \big[2R - \nu_k (R + r_k)\big]}{2 R \nu_k - 4(R - r_k) }}, \qquad 
+		\tan \dfrac{\beta_{c\text{.max}}}{2} = \sqrt{\dfrac{\nu_k \big[R \nu_k - 2(R - r_k)\big]}{2 \big[2 R - \nu_k (R + r_k)\big]}}
+		\label{被动段最佳倾角}
+	\end{equation}
+}
+
+自由段的最佳速度倾角，只需要在公式\eqref{被动段最佳倾角}中令$R = r_e = r_k$，即
+ 
+ \theorem[自由段最佳速度倾角]
+ {
+ 	\vspace*{-1em}
+ 	\begin{equation}
+ 		\tan \varTheta_{ek\text{.opt}} = \sqrt{1 - \nu_k}, \qquad 
+ 		\tan \dfrac{\beta_{e\text{.max}}}{2} = \dfrac{1}{2} \dfrac{\nu_k}{\sqrt{1 - \nu_k}}
+ 		\label{自由段最佳倾角}
+ 	\end{equation}
+ 	将$\tan \varTheta_{ek\text{.opt}}$的表达式代入$\tan \dfrac{\beta_{e\text{.max}}}{2}$的表达式中，可以得到$\beta_{e\text{.max}}$和$\varTheta_{ek\text{.opt}}$之间的关系
+ 	\begin{equation}
+ 		\varTheta_{ek\text{.opt}} = \dfrac{1}{4} \big(\pi - \beta_{e\text{.max}}\big)
+ 	\end{equation}
+ }
+
+可以看出：当被动段射程越大，再入段射程比例就越小，被动段最佳倾角越接近自由段最佳倾角。
+
+对于$h_k = 0$的自由段，当射程很小时，最佳倾角接近于$45 \degree$，与炮兵选用的最佳射击角一致。
+
+
+\subsection{最小能量的最佳倾角确定}
+
+已知$r_k, \beta_c$求$\varTheta_{k\text{.opt}}, \nu_{k\text{.min}}$.用图解法来寻找在$r_k, \beta_c$条件下的$\varTheta_{k\text{.opt}}, \nu_{k\text{.min}}$.
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.3\linewidth]{pic/最小能量-最佳倾角.jpg}
+	\vspace*{-1em}
+	\caption{最小能量弹道图解法示意图}
+	\label{最小能量}
+\end{figure}
+
+将再入段看成自由段的延续，被动段弹道为平面弹道。给定射程时，点$O_E, K, C$相对位置确定。设与地心$O_E$对应的椭圆虚焦点为$O$，满足
+\begin{equation}
+	\begin{cases}
+		r_k + OK = 2a_k \\
+		r_c + OC = 2a_c
+	\end{cases} \qquad 
+	\begin{cases}
+		OK = 2a_k - r_k \\
+		OC = 2a_c - r_c
+	\end{cases}
+\end{equation}
+
+给定椭圆长半轴$a$，以$K,C$为圆心，分别以$OK$与$OC$为半径画圆，则有两个交点$O,O'$，即为椭圆虚焦点，对应椭圆的焦距、偏心率不同，如图\ref{最小能量}所示。可以得到
+
+(1) \hspace*{0.5em} 两个虚焦点$O,O'$对称于$KC$连线。
+
+(2) \hspace*{0.5em} 随着长半轴$a$减小，虚焦点逐渐靠近$KC$线，最终重合于$OE'$点。此时有
+\begin{equation}
+	a_{\min} = \dfrac{1}{4} \big(KC + r_k + r_c\big)
+\end{equation}
+长半轴最小，即能量最小，对应于最小能量弹道。
+
+
+
+
+
+
+
 
 
 
