@@ -330,6 +330,7 @@ $
 	椭圆的长半轴只与主动段关机点的机械能$E$有关，且$E<0$。$E$越大，$a$也越大，同时有
 	\begin{equation}
 		v^2 = \mu \left(\dfrac{2}{r} - \dfrac{1}{a}\right)
+		\label{活力公式}
 	\end{equation}
 }
 
@@ -647,8 +648,67 @@ $
 \end{equation}
 长半轴最小，即能量最小，对应于最小能量弹道。
 
+(3) \hspace*{0.5em} 对于给定的$a$所画的椭圆上任意一点的法线必平分该点至该椭圆两焦点连线的夹角，如图\ref{最小能量1}所示。而对于最小能量弹道，如图\ref{最小能量2}所示，由速度倾角的定义
+\begin{equation}
+	\angle \bm{x}K\bm{v} = \varTheta_k
+\end{equation}
+而由于$K\bm{x} \perp KP$，$K \perp O_E$，那么
+\begin{equation}
+	\angle O_E K P = \angle \bm{x}K\bm{v} = \varTheta_{k, \min}
+\end{equation}
+由速度$\bm{v}$的方向沿椭圆切线方向，那么
+\begin{equation}
+	\angle C K O_E = 2 \angle P K O_E = 2 \angle PKC = 2 \varTheta_{k, \min}
+\end{equation}
+由几何关系
+\begin{equation}
+	\begin{split}
+		\tan \angle CKO_E = \tan 2\varTheta_k = \dfrac{CQ}{KQ} = \dfrac{CQ}{KO_E + O_EQ} = \dfrac{O_EC \sin \beta_c}{KO_E - OE_C \cos \beta_c} = \dfrac{r_c \sin \beta_c}{r_k - r_c \cos \beta_c}
+	\end{split}
+\end{equation}
+对$\triangle KCO_E$应用余弦定理，得
+\begin{equation}
+	KC = \sqrt{\left|O_EK\right|^2 + \left|O_EC\right|^2 - 2\left|O_EK\right|\left|O_EC\right|\cos \beta_c} = \sqrt{r_k^2 + r_c^2 - 2r_cr_k\cos \beta_c}
+\end{equation}
+又
+\begin{equation}
+	KC = OK + OC = 2a - r_k + 2a - r_c = 4a - r_k - r_c
+\end{equation}
+可以解得最小能量弹道对应对半长轴为
+\begin{equation}
+	a_{\min} = \dfrac{\sqrt{r_k^2 + r_c^2 - 2r_cr_k\cos \beta_c} + r_k + r_c}{4}
+\end{equation}
+由\peref[活力公式]，可以计算得到所需要的最小速度为
+\begin{equation}
+	v_{k,\min} = \sqrt{\mu \left(\dfrac{2}{r_k} - \dfrac{1}{a_{\min}}\right)} = \sqrt{\mu \left(\dfrac{1}{r_k} - \dfrac{4}{\sqrt{r_k^2 + r_c^2 - 2r_cr_k\cos \beta_c} + r_k + r_c}\right)} = 2 \tan \varTheta_{k, \min} \cdot \tan \dfrac{\beta_c}{2}
+\end{equation}
 
+\begin{figure}[!htb]
+	\centering
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[width=0.63\linewidth]{pic/最小能量.pdf}
+		\caption{给定射程的飞行轨迹}
+		\label{最小能量1}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[width=0.75\linewidth]{pic/最小能量2.pdf}
+		\caption{最小能量的飞行轨迹}
+		\label{最小能量2}
+	\end{minipage}
+\end{figure}
 
+ \theorem[自由段最小能量]
+{
+	自由段最小能量的最优倾角和最小速度分别为
+	\begin{equation}
+		\begin{cases}
+			\, \varTheta_{k,\min} = \dfrac{1}{2}\arctan \left(\dfrac{r_c \sin \beta_c}{r_k - r_c \cos \beta_c}\right)\\[1em]
+			\, v_{k,\min} = \sqrt{\mu \left(\dfrac{1}{r_k} - \dfrac{4}{\sqrt{r_k^2 + r_c^2 - 2r_cr_k\cos \beta_c} + r_k + r_c}\right)} = 2 \tan \varTheta_{k, \min} \cdot \tan \dfrac{\beta_c}{2}
+		\end{cases}
+	\end{equation}
+}
 
 
 

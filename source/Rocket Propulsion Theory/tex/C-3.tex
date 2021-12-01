@@ -849,19 +849,172 @@ $
 	\item 具有高的\red[抗气蚀性能]；\vspace*{-0.5em}
 	\item 具有\red[抽吸含少量气体或蒸汽的推进剂]的能力。\vspace*{-0.5em}
 \end{enumerate}
+\vspace*{1em}
+
+\sssection[涡轮泵的工作过程及特点]
+
+其工作过程如图\ref{涡轮泵}所示。
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (A) [draw, inner sep = 3pt]{\makecell[c]{$\,$燃气发生器$\,$\\[-0.5em]或预燃器}};
+		\node (B) [draw, inner sep = 5pt, right of = A, node distance = 4.3cm]{涡轮喷嘴};
+		\node (C) [draw, inner sep = 5pt, right of = B, node distance = 3.8cm]{涡轮动叶};
+		\node (D) [draw, inner sep = 5pt, right of = C, node distance = 4.2cm]{涡轮转子};
+		\node (E) [draw, below of = D ,inner sep = 5pt, node distance = 2cm]{齿轮或涡轮轴};
+		\node (F) [draw, inner sep = 5pt, below of = C, node distance = 2cm, xshift = 0.6cm]{泵叶轮};
+		\node (G) [draw, inner sep = 5pt, below of = B, node distance = 2cm, xshift = 0.6cm]{扩散器};
+		\node (H) [draw, inner sep = 5pt, below of = A, node distance = 2cm]{推力室};
+		
+		\draw[-Stealth] (A) -- (B)node[midway, above = 0cm]{\small 燃气};
+		\draw[-Stealth] (B) -- (C)node[midway, above = 0cm]{\small 热能$\rightarrow$动能};
+		\draw[-Stealth] (C) -- (D)node[midway, above = 0cm]{\small 动能$\rightarrow$机械能};
+		\draw[-Stealth] (D) -- (E) node[midway, left = 0cm]{\small 机械能传递};
+		\draw[-Stealth] (E) -- (F);
+		\draw[-Stealth] (F) -- (G)node[midway, above = 0cm]{\small 旋转};
+		\draw[-Stealth] (G) -- (H)node[midway, above = 0cm]{\footnotesize 速度能$+$压力能$\leftarrow$机械能};
+	\end{tikzpicture}
+	\caption{涡轮泵的工作过程}
+	\label{涡轮泵}
+\end{figure}
+
+\newpage 
+\blue[主要特点]
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item \red[工作条件十分恶劣]。涡轮在高温、高压、高转速下工作；泵在常温、低温或超低温、高压、高转速的易燃、易爆、剧毒、强腐蚀的推进剂中工作。\vspace*{-0.5em}
+	\item 涡轮泵结构复杂，零、部组件多，技术要求严，加工难度大，研究费用高，研制周期长，涡轮泵技术的综合性强，涉及技术领域广。\vspace*{-0.5em}
+\end{enumerate}
+\vspace*{1em}
+
+\sssection[泵]
+
+\underline{(1) \hspace*{0.3em} 泵的作用及分类}
+\vspace*{0.3em}
+
+\blue[作用] \quad 提高推进剂组元的压力，按一定的流量输送到推力室中去。
+
+\blue[分类]\quad 容积式、引射式和叶片式， 液体火箭发动机 主要使用叶片式泵。
+\vspace*{1em}
+
+\underline{(2) \hspace*{0.3em} 叶片式泵}
+\vspace*{0.5em}
+
+安装在转轴的叶轮，流体经过高速旋转的叶轮后，其能量被提高。
+
+\blue[优点] \quad 转速高、压头高、流量大、运动部件少、结构重量轻、外廓尺寸小，叶轮和壳体间隙大，不易造成摩擦生热，能够在\red[高、低温]以及\red[腐蚀介质]中工作；可以用电机和涡轮来传动。
+
+\blue [缺点] \quad 当\red[进口压力小时，会发生汽蚀]，从而影响正常工作；当流量变化时其压头会改变。
+\vspace*{0.8em}
+
+\blue[分类] \quad 
+$
+\begin{cases}
+	\mbox{\dy[离心泵]{LXB}}\quad \mbox{作为主泵，广泛采用，主要介绍；}\\
+	\mbox{\dy[轴流泵]{ZLB}}\quad \mbox{作为前置泵，称之为诱导泵，用来提高入口压力，提高抗气蚀的能力。}
+\end{cases}
+$
+\vspace*{1em}
+
+\underline{(3) \hspace*{0.3em} 离心泵的工作原理}
+\vspace*{0.5em}
+
+\dy[叶轮]{YL} \quad 高速旋转，在离心力作用下，液体推进剂被高速甩出叶轮 ，增加功能。
+
+\dy[扩压器]{KYQ} \quad 从叶轮高速流出的推进剂进入扩压器，通道面积逐渐扩大，速度降低，动能逐渐下降而压力不断提升。
+
+\blue[参数数量级]\quad 叶轮出口流体速度$50\, \sim \,100$ m / s；离心泵的出口流速$6\, \sim \,12$ m / s扬程：可贮存推进剂$300\, \sim \,500$ m ；低密度低温推进剂可达数万米 。
+
+\vspace*{1em}
+
+\underline{(4) \hspace*{0.3em} 泵的基本参数}
+\vspace*{0.5em}
+
+\dy[流量]{LL} \quad 单位时间内所抽送的液体体积或质量，分\dy[体积流量]{TJLL}和\dy[质量流量]{ZLLL}。
+
+\dy[压头]{YT}（\dy[扬程]{YC}）\quad 每一单位质量的液体通过泵后其\red[能量的增加值]，H$\,$/$\,$m。
+
+单位体积液体的能量为
+\begin{equation}
+	E = \rho gZ + p + \dfrac{1}{2}\rho v^2
+\end{equation}
+ 两端同时除以$\rho$，可得
+ \begin{equation}
+ 	\dfrac{E}{\rho} = gZ + \dfrac{p}{\rho} + \dfrac{v^2}{2} \quad (\text{J}\,/\,\text{kg})
+ \end{equation}
+ 两端同时除以$g$，可得
+ \begin{equation}
+ 	\dfrac{E}{\rho g} = Z + \dfrac{p}{\rho g} + \dfrac{v^2}{2 g} \quad (\text{m})
+ \end{equation}
+ 单位质量液体流入和离开泵时的能量分别为
+ \begin{align}
+ 	E_1 & = Z_1 + \dfrac{p_1}{\rho g} + \dfrac{v_1^2}{2g}\\
+ 	E_2 & = Z_2 + \dfrac{p_2}{\rho g} + \dfrac{v_2^2}{2g}
+ \end{align}
+所以泵给单位质量液体的能量为
+\begin{equation}
+	H = E_2 - E_1 = \dfrac{p_2 - p_1}{\rho g} + (Z_2 - Z_1) + \dfrac{v_2^2 - v_1^2}{2g}
+\end{equation}
+ 其中，$p_1$为液体进入泵时的压力，$p_2$为液体流出泵时的压力；$v_1$为液体进入泵时的绝对速度，$v_2$为液体流出泵时的绝对速度；$Z_1$为泵进口液位高度，$Z_2$为泵出口液位高度；$g$为重力加速度。
+ 
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.4\linewidth]{pic/泵参数.png}
+	\vspace*{-1em}
+	\caption{泵的压头计算示意图}
+\end{figure}
+
+\dy[转速$n$]{ZS}\quad 在每分钟内转子的旋转圈数，r/min ，在设计时主要根据\red[泵的抗气蚀性能] 、结构布局、质量要求、轴承直径及密封切线速度等因素来确定。通常泵的转速为1000$\, \sim \,$4,000 r/min ，最高已达 9500 r/min 。
+
+\dy[功率$P$]{GL}
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item \dy[输入功率]{SLGL} \quad 涡轮输送给泵的功率，或泵所消耗的功率。\vspace*{-0.5em}
+	\item \dy[有效功率]{YXGL}\quad 在一定流量下，消耗在产生实际压头上的功率，或单位时间内流过泵的液体从泵那里所获得的能量。\vspace*{-0.5em}
+\end{enumerate}
+
+\dy[效率$\eta$]{XL} \quad 有效功率与输入功率之比$\eta_p$。
+
+\vspace*{1em}
 
 
+\underline{(5) \hspace*{0.3em} 泵的相似理论与比转速}
 
+\defination[泵的相似理论与比转速]
+{
+	由于泵内液体运动的复杂性，需要广泛地应用模型试验来校核，为此要从\blue[实际粘性液体]的一般相似规律中，建立\blue[几何、运动、动力]的相似条件。根据\red[几何相似](形状和尺寸)和\red[运动相似](速度场)的条件建立相似泵间的主要关系。\red[利用速度三角形相似，得到实际泵和模型泵的比值]：
+	\begin{equation}
+		\dfrac{\bm{w}}{\bm{w}_\text{m}} = \dfrac{\bm{c}}{\bm{c}_\text{m}} = \dfrac{\bm{u}}{\bm{u}_\text{m}} = \text{Const} \qquad \dfrac{\bm{u}}{\bm{u}_\text{m}} = \dfrac{r \bm{n}}{r_\text{m}\bm{n}_\text{m}} = \lambda \dfrac{\bm{n}}{\bm{n}_\text{m}}
+	\end{equation}	
+	其中，$\bm{w}$为相对速度矢量，$\bm{c}$为绝对速度矢量，$\bm{u}$为圆周速度矢量，$\lambda$为尺寸比，下标m表示模型泵模型。
+}
 
+\clearpage
 
+\noindent \textbf{\blue[【流量关系】]}
 
+泵的体积流量为
+\begin{equation}
+	q_v = \pi D_2 b_2 k_2 c_{2\text{m}}\eta_v
+\end{equation}
+其中，$D_2$为泵叶轮外径，$b_2$为出口子午面的宽度，$k_2$为出口的排挤系数，$\eta_v$为泵的体积效率。
 
+由几何相似，$k_2$相等，且有
+\begin{equation}
+	\dfrac{b_2}{b_{2\text{m}}} - \dfrac{D_2}{D_{2\text{m}}}, \qquad \dfrac{c_2}{c_{2 \text{m}}} = \dfrac{u_2}{u_{2 \text{m}}} = \dfrac{nD_2}{n_{\text{m}} D_{2 \text{m}}}
+\end{equation}
+略去$n_v$的差别，则有
+\begin{equation}
+	\dfrac{q_v}{q_{v\text{m}}} = \left(\dfrac{D_2}{D_{2 \text{m}}}\right)^3 \dfrac{n}{n_{\text{m}}}
+\end{equation}
+\vspace*{0.5em}
 
-
-
-
-
-
+\noindent \textbf{\blue[【压头关系】]}
+泵的压头可以写为
+\begin{equation}
+	H = (c_{2u}u_2 - c_{1u}u_1)
+\end{equation}
 
 
 
