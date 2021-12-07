@@ -15,6 +15,7 @@
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{booktabs}
+\usepackage{makecell}
 
 \definecolor{titlepurple}{HTML}{5758BB}%一级标题（目前：蓝紫色）
 \definecolor{titlepurpleb}{HTML}{3A006F}%二级标题（目前：深紫色）
@@ -79,9 +80,7 @@
 		\SchoolLogo
 	\end{minipage}
 	\begin{minipage}[r]{0.6\linewidth}
-		\hspace*{24em}
-		\course \\[0.2em]
-		\hspace*{14.7em}\semester
+	\vspace*{0.4em}\makecell[r]{\course \\[0.3em] \semester}
 \end{minipage}\\[-1.1em]} 
 \setlength{\headsep}{3.5em}
 \setlength{\footskip}{2.5em}

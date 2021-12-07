@@ -1013,8 +1013,259 @@ $
 \noindent \textbf{\blue[【压头关系】]}
 泵的压头可以写为
 \begin{equation}
-	H = (c_{2u}u_2 - c_{1u}u_1)
+	H = (c_{2u}u_2 - c_{1u}u_1)\eta_h
 \end{equation}
+其中，$\eta_h$称为\dy[水力效率]{SLXL}。当实际泵与模型泵的尺寸和转速相差不大时，可以认为水力效率相等，再根据运动相似，其速度比为常数，则有
+\begin{equation}
+	\dfrac{H}{H_\text{m}} = \left(\dfrac{D_2}{D_{2\text{m}}}\right)^2 \left(\dfrac{n}{n_\text{m}}\right)^2
+\end{equation}
+\vspace*{0.5em}
+
+\noindent \textbf{\blue[【功率关系】]} 
+泵的输入功率可以写为$P_p = \dfrac{\rho q_V H}{\eta_p}$，认为泵效率相等，则有
+\begin{equation}
+	\dfrac{P_{\text{p}}}{P_{\text{pm}}} = \dfrac{\rho}{\rho_{\text{m}}} \left(\dfrac{D_2}{D_{2\text{m}}}\right)^5\left(\dfrac{n}{n_{\text{m}}}\right)^3
+\end{equation}
+
+\red[对于同一台泵，已知某一转速下的流量、压头和功率数据时，在转速变化不是很大的情况下，可以按等效率点换算出另一转速下的相应数据。]
+\vspace*{0.5em}
+
+\noindent \textbf{【\dy[比转速]{BZS}\blue[（综合性能参数）]】}
+
+定义\dy[流量系数]{LLXS}
+\begin{equation}
+	\dfrac{q_{V}}{n D_2^3} = \dfrac{q_{V\text{m}}}{n_{\text{m}}D_{2\text{m}}^3} = \text{Const.}
+	\label{流量系数}
+\end{equation}
+\dy[压头系数]{YTXS}
+\begin{equation}
+	\dfrac{H}{\big(n D_2\big)^2} = \dfrac{H_{\text{m}}}{\big(n_{\text{m}} D_{2\text{m}}\big)^2} = \text{Const.}
+\end{equation}
+\vspace*{0.5em}
+
+将两个系数做适当处理，消去其中的尺寸参数，可得\dy[比转速]{BZS}
+\begin{equation}
+	\dfrac{\sqrt{\dfrac{q_V}{nD_2^3}}}{\left[\dfrac{H}{\big(n D_2\big)^2}\right]^{\textstyle \frac{3}{4}}} = \dfrac{n\sqrt{q_V}}{H^{\textstyle \frac{3}{4}}}
+\end{equation}
+\begin{equation*}
+	\begin{cases}
+		\, \mbox{当压头的单位为}\text{J / kg}\mbox{时有}n_\text{s} = \dfrac{20.24 n\sqrt{q_V}}{H^{\textstyle \frac{3}{4}}}\quad \mbox{（工程制单位）}\\[1.5em]
+		\, \mbox{当压头的单位为 m 时有}n_\text{s} = \dfrac{3.65 n\sqrt{q_V}}{H^{\textstyle \frac{3}{4}}} \quad \mbox{（国际制单位）}
+	\end{cases}
+	\qquad \mbox{（两者相差} g^{\frac{3}{4}}\mbox{）}
+\end{equation*}
+\clearpage
+
+\vspace*{-3em}
+\warn
+[
+	(1) \hspace*{0.3em}对于多级泵，$H$按单级计算；对于双面进口叶轮，按单面入口流量计算；\\
+	(2) \hspace*{0.3em}$n_s$是对应于最高效率点的工况值，如$i$级泵第一级为双面进口叶轮，则
+	$n_s = \dfrac{3.65n\sqrt{q_v/2}}{\big(H/i\big)^{\textstyle \frac{3}{4}}}$\\
+	(3) \hspace*{0.3em}几何相似、工况相似，则比转速相等；比转速相等泵不一定相似\\
+	(4) \hspace*{0.3em}比转速是一个确定泵类型并影响泵级数选择的基本准测数。可以按$n_{\text{s}}$对泵及其特性曲线的趋势进行分类，即比转速是有因次的。
+]
+\vspace*{1em}
+
+\sssection[泵气蚀的产生]
+
+\defination[泵的气蚀和水力冲击]
+{
+	\dy[泵的气蚀]{BDQQ}\quad 当泵内局部区域的\red[静压力小于当地温度下的液体饱和蒸汽压力时]该处的液体即产生蒸汽泡，气泡随着液流进入高压区时，重新凝结并出现水击现象的全过程。\\[0.5em]
+	\hspace*{2.5em}\dy[水力冲击]{SLCJ}\quad 当气泡进入较高的压力区时，气泡凝结形成液体，体积发生突然收缩 ，此刻大量的液体就以极大的加速度向着由于气泡凝结所形成的空腔中迅速冲来，形成巨大的水力冲击，可达几个大气压，几万赫兹。
+}
+
+\blue[气蚀过程]
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (A) [draw, inner sep = 5pt]{高速流动};
+		\node (B) [draw, inner sep = 5pt, right of = A, node distance = 5.3cm]{蒸汽泡};
+		\node (C) [draw, inner sep = 5pt, right of = B, node distance = 4.8cm]{高压力区};
+		\node (D) [draw, below of = C ,inner sep = 5pt, node distance = 2cm]{凝结成液体};
+		\node (E) [draw, inner sep = 5pt, below of = B, node distance = 2cm]{高速液体汇聚};
+		\node (F) [draw, inner sep = 5pt, below of = A, node distance = 2cm]{水力冲击};
+		
+		\draw[-Stealth] (A) -- (B)node[midway, above = 0cm]{\small 压强低于蒸汽压，沸腾};
+		\draw[-Stealth] (B) -- (C)node[midway, above = 0cm]{\small 进入};
+		\draw[-Stealth] (C) -- (D)node[midway, right = 0cm]{\small 压力改变};
+		\draw[-Stealth] (D) -- (E)node[midway, above = 0cm]{\small 体积收缩};
+		\draw[-Stealth] (E) -- (F)node[midway, above = 0cm]{\small 形成冲击力};
+	\end{tikzpicture}
+	\caption{泵的气蚀过程}
+	\label{气蚀}
+\end{figure}
+
+\sssection[泵气蚀特征及改进措施]
+
+\blue[(1)\hspace*{0.3em} 泵在发生气蚀时的特征]
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item \textbf{泵的流量、压头和效率，剧烈降低}： 泵发生气蚀后，叶轮通道被气蚀所阻塞，通道面积减小 $\rightarrow$ 流量降低；传递给叶轮的能量消耗在水力冲击上 压头、效率大大下降。\vspace*{-0.5em}
+	\item \textbf{由于气蚀，泵会发生振动和噪音}。\vspace*{-0.5em}
+	\item \textbf{泵的叶轮会发生机械损坏}： 很高的水利冲击会使金属剥落；分离出的氧原子会引起腐蚀。
+\end{enumerate}
+
+\blue[(2)\hspace*{0.3em} 提高抗气蚀的必要性及措施]
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item 由于气蚀具有上述危害，在液体发动机上泵是不允许发生气蚀；\vspace*{-0.5em}
+	\item 为了提高涡轮的性能，减小尺寸和质量，尽可能提高涡轮泵的转速；而提高涡轮泵的性能受到抗气蚀的限制，因此必须设法提高泵抗气蚀的能力；\vspace*{-0.5em}
+	\item 提高泵抗气蚀能力有多种方法，最有效发办法是采用组合泵，在离心泵前增加一个诱导轮，使离心轮进口液体压力提高，并使液体具有周向分速。
+\end{enumerate}
+\vspace*{0.5em}
+
+\sssection[净正抽吸压头及气蚀比转速]
+
+\blue[(1)\hspace*{0.3em} 不发生气蚀的条件]
+
+在泵的入口处应具有一定的压力，使液体在泵内的流动过程中各处的静压不小于在该处温度下液体的饱和蒸汽压。
+\vspace*{0.5em}
+
+\blue[(2)\hspace*{0.3em} 泵入口压力的影响因素]
+
+贮箱压力、液柱高度、惯性压力、进口管路的水力损失和动压头。
+\vspace*{0.5em}
+
+\blue[(3)]\hspace*{0.3em} \dy[净正抽吸压头]{JZCXYT}
+
+在泵的入口处液体的总压头与在该处的温度下液体的饱和蒸气压头之差。泵的净正抽吸压力为
+\begin{equation}
+	H_{ne} = \dfrac{p_{ip}}{\rho g} + \dfrac{c_{ip}}{2g} - \dfrac{p_V}{\rho g}
+\end{equation}
+其中， $p_{ip}$为泵的入口压力；$p_V$为推进剂的饱和蒸汽压；$c_{ip}$为泵入口的轴向速度；$\rho$为推进剂的密度。
+\vspace*{0.5em}
+
+\blue[(4)]\hspace*{0.3em} \dy[净正抽吸压头临界值]{JZCXYTLJZ}
+
+保证泵在一定的转速和流量下能正常工作的最低净正压头。通常取在额定工作状态下的泵压头下降不超过2\%$\sim$3\%最低净正抽吸压头。
+\vspace*{0.5em}
+
+\blue[(5)]\hspace*{0.3em} \dy[气蚀比转速]{QSBZS}
+
+气蚀比转速是评价泵的抗气蚀性能的重要参数，由相似理论及公式\eqref{流量系数}可知
+\begin{equation*}
+	\dfrac{q_V}{D^3 n} = \text{Const.}
+\end{equation*}
+根据相似理论，可得
+\begin{equation*}
+	\dfrac{H_{ne}}{\big(Dn\big)^2} = \text{Const.}
+\end{equation*}
+将上面两个式子进行适当处理，消去尺寸参数$D$后，可得气蚀比转速
+\begin{equation*}
+	\begin{cases}
+		\, \mbox{当压头的单位为}\text{J / kg}\mbox{时有}n_\text{ss} = \dfrac{31.2 n\sqrt{q_V}}{H^{\textstyle \frac{3}{4}}}\quad \mbox{（工程制单位）}\\[1.5em]
+		\, \mbox{当压头的单位为 m 时有}n_\text{ss} = \dfrac{5.62 n\sqrt{q_V}}{H^{\textstyle \frac{3}{4}}} \quad \mbox{（国际制单位）}
+	\end{cases}
+	\qquad \mbox{（两者相差} g^{\frac{3}{4}}\mbox{）}
+\end{equation*}
+
+当泵是几何相似和运动相似时， $n_{\text{ss}}$为常数， $n_{\text{ss}}$可作为气蚀准则，表示气蚀性能的好坏； $n_{\text{ss}}$之值越大，泵的抗气蚀性能越好。
+\vspace*{1em}
+
+\sssection[诱导轮]\index{YDL@诱导轮}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.25\linewidth]{pic/诱导轮.jpg}
+	\caption{诱导轮}
+\end{figure}
+
+\blue[主要作用]\quad 用来提高主泵叶轮入口前的压力，以防止离心轮发生气蚀。
+
+\blue[工作过程]\quad 如图 \ref{诱导轮} 所示。
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (A) [draw = red, inner sep = 5pt, thick] {诱导轮};
+		\node (B) [draw = blue, inner sep = 1pt, thick, right of = A,node distance = 3cm]{\makecell[c]{提高\\[-0.5em]$\,$涡轮泵转速$\,$}};
+		\node (C) [draw = red, inner sep = 5pt, thick, right of = B, node distance = 3.8cm, yshift = 1cm]{减小尺寸和质量};
+		\node (D) [draw = red, inner sep = 5pt, thick, right of = B, node distance = 3.8cm, yshift = 0cm]{提高抗气蚀性能};
+		\node (E) [draw = red, inner sep = 5pt, thick, right of = B, node distance = 3.8cm, yshift = -1cm]{提高涡轮泵性能};
+		\node (F) [draw = blue, inner sep = 1pt, thick, right of = D, node distance = 3.7cm]{\makecell[c]{降低\\[-0.5em]$\,$入口压力$\,$}};
+		\node (G) [draw = red, inner sep = 1pt, thick, right of = F, node distance = 3.2cm, yshift = 0.8cm]{\makecell[c]{减小贮箱\\[-0.5em]$\,$结构质量$\,$}};
+		\node (H) [draw = red, inner sep = 1pt, thick, right of = F, node distance = 3.2cm, yshift = -0.8cm]{\makecell[c]{减小增压\\[-0.5em]$\,$气体的量$\,$}};
+		
+		\draw [arrow] [draw = blue, thick] (A) -- (B);
+		\draw [arrow] [draw = blue, thick] (B) --+(1.7cm, 0cm) --+ (1.7cm, 1cm) -- (C);
+		\draw [arrow] [draw = blue, thick] (B) -- (D);
+		\draw [arrow] [draw = blue, thick] (B) --+(1.7cm, 0cm) --+ (1.7cm, -1cm) -- (E);
+		\draw [arrow] [draw = blue, thick] (D) -- (F);
+		\draw [arrow] [draw = blue, thick] (F) --+(1.6cm, 0cm) --+ (1.6cm, 0.8cm) -- (G);
+		\draw [arrow] [draw = blue, thick] (F) --+(1.6cm, 0cm) --+ (1.6cm, -0.8cm) -- (H);
+	\end{tikzpicture}
+	\caption{诱导轮的工作过程}
+	\label{诱导轮}
+\end{figure}
+
+\blue[好处] \quad 采用诱导轮可使涡轮泵转速得以大幅度提高，不仅减小了涡轮泵的尺寸和质量，提高了涡轮泵的性能，而且由于抗气蚀性能提高，使泵可以在入口压力较低的情况下稳定可靠地工作，可减小贮箱的结构质量和增压气体的量。
+\vspace*{1em}
+
+\subsection{推力室组成及工作过程}
+
+\sssection[推力室组成及特点]
+
+\dy[推力室]{TLS}是发动机燃烧并产生推力的部件，是液体发动机的关键组件。
+\begin{equation*}
+	\mbox{推力室} \,
+	\begin{cases}
+		\, \mbox{头部} \,
+			\begin{cases}
+				\, \mbox{顶盖}\\
+				\, \mbox{喷注器}\\
+				\, \mbox{隔板：防止高频燃烧不稳定}
+			\end{cases}
+			\\[2.5em]
+		\, \mbox{身部}
+			\begin{cases}
+				\, \mbox{圆柱段（燃烧室）}\\
+				\, \mbox{喷管}
+			\end{cases}
+	\end{cases}
+\end{equation*}
+
+\blue[主要特点]
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item \red[燃烧室工作容积热容强度很大] （$10^3\sim10^4$MJ /($\text{m}^3$/s)）, 比涡喷发动机大几十倍\vspace*{-0.5em}
+	\item \red[燃烧室压强和温度均很高] （2$\sim$25 MPa, 4000 K 左右），对材料和冷却提出很苛刻的要求\vspace*{-0.5em}
+	\item \red[燃烧组织有很大难度]，单位截面推进剂流量很大，燃烧时间很短，燃烧效率要求很高\vspace*{-0.5em}
+	\item \red[推进剂组元的每秒消耗量相当大] ，要求启动时能可靠地点燃推进剂。
+\end{enumerate}
+\vspace*{0.8em}
+
+\sssection[推力室工作过程]
+
+\blue[(1)\hspace*{0.3em} 推力室工作过程]
+
+从向推力室内\red[喷入推进剂组元]开始，到\red[推进剂燃烧]转换为\red[燃烧产物] ，产物从\red[喷管喷出产生推力]为止的全部物理——化学过程。
+\vspace*{0.5em}
+
+\blue[(2)\hspace*{0.3em} 特点及要求]
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item 复杂的能量转换过程\vspace*{-0.5em}
+	\item 在尺寸和重量都受限的推力室内，液体推进剂应迅速地燃烧或分解并放出热量\vspace*{-0.5em}
+	\item 为得到最大的比推力，推进剂燃烧或分解时应放热最完全。
+\end{enumerate}
+
+\blue[(3)\hspace*{0.3em} 包含的基本物理化学方程]
+
+推进剂的喷射雾化和液相混合过程、液滴的加热和蒸发过程、燃料和氧化剂的气相混合过程、混合气的燃烧化学反应过程等。
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
