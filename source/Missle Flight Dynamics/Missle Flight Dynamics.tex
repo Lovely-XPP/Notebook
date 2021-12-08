@@ -152,6 +152,7 @@
 \newcommand{\blue}[1][]{\textcolor{blue}{#1}}
 \newcounter{sssection}[subsection]
 \newcommand{\sssection}[1][]{\noindent \refstepcounter{sssection} \textbf{\thesssection. #1} \vspace*{0.5em}}
+\newcommand{\noa}[1][]{\par (#1) \hspace*{0.3em}}
 
 %% 公式字符类
 \renewcommand{\d}{{\rm{d}}}
@@ -173,6 +174,8 @@
 \newcommand{\vV}{\bm{V}}
 \newcommand{\vH}{\bm{H}}
 \newcommand{\G}{{\mathscr{g}}}
+\renewcommand{\c}{\text{c}}
+\newcommand{\st}{\text{st}}
 
 %% 定义索引类
 \newcommand{\dy}[2][]{{\color{dy}#1}\index{#2@#1}}
@@ -255,6 +258,8 @@
 	\include{tex/C-3}
 	
 	\include{tex/C-5}
+	
+	\include{tex/C-6}
 	
 	
 	%打印索引—————————————
