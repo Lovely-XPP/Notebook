@@ -486,6 +486,79 @@
 其中，$m_n = C_N \big(\overline{x}_p - \overline{x}_g\big)$为\dy[稳定力矩系数]{WDLJXS}。
 
 
+\subsection{简化的再入段平面运动方程}
+
+考虑到再入飞行器特别是弹头的射程较小，飞行时间较短，因此在研究其运动时可假设
+
+\noa[1] 不考虑地球自转，即$\omega_e = 0$。
+
+\noa[2] 认为地球为均质圆球，引力场为有心力场。
+
+\noa[3] 认为飞行器纵轴始终处于再入射面内，即侧滑角为0。
+
+建立再入坐标系$e-xyz$，$e-xy$面即为再入射面。
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.3\linewidth]{pic/再入段坐标系与力.jpg}
+	\caption{再入段坐标系与力}
+\end{figure}
+再入状态变量：速度、当地速度倾角、地心距、再入段射程角。
+
+再入矢量方程为
+\begin{equation}
+	\dfrac{\d \bm{v}}{\d t} = \bm{R} + m \bm{g}
+\end{equation}
+将运动方程投影到速度系中， 有
+\begin{equation}
+	\dfrac{\d \bm{v}}{\d t} = \dfrac{\d v}{\d t}\bm{x}_v^0 + v \dfrac{\d \theta}{\d t} \bm{y}_v^0
+\end{equation}
+代入具体的气动力及引力，有
+\begin{equation}
+	\begin{cases}
+		\, \dfrac{\d v}{\d t} = - \dfrac{X}{m} - g \sin \varTheta \\[0.5em]
+		\, \dfrac{\d \theta}{\d t} = \dfrac{Y}{m v} - \dfrac{g}{v} \cos \varTheta
+	\end{cases}
+\end{equation}
+速度倾角之间的关系有
+\begin{align}
+	\varTheta = \theta + \beta_e \\
+	\dot{\varTheta} = \dot{\theta} + \dot{\beta}_e
+\end{align}
+而速度在地心距及当地水平方向的投影为
+\begin{equation}
+	\begin{cases}
+		\, \dot{r} = v \sin \varTheta \\
+		\, r \dot{\beta}_e = v \cos \varTheta
+	\end{cases}
+\end{equation}
+则有
+\begin{equation}
+	\dot{\varTheta} = \dot{\theta} + \dot{\beta}_e = \dfrac{Y}{m v} - \dfrac{g}{v}\cos \varTheta + \dfrac{v}{r}\cos \varTheta
+\end{equation}
+则简化后的再入平面运动方程为
+\begin{equation}
+	\begin{cases}
+		\, \dot{v} = - \dfrac{X}{m} - g \sin \varTheta \\[0.5em]
+		\, \dot{\varTheta} = \dfrac{Y}{mv} + \left(\dfrac{v}{r} - \dfrac{g}{v}\right)\cos \varTheta
+	\end{cases}
+	\qquad 
+	\begin{cases}
+		\, \dot{r} = v \sin \varTheta \\
+		\, \dot{\beta}_e = \dfrac{v}{r} \cos \varTheta
+	\end{cases}
+\end{equation}
+
+质心方程中气动力计算与攻角有关，不能直接求解，需要补充姿态方程：
+\begin{equation}
+	\begin{cases}
+		I_{z1} \dfrac{\d \omega_{z1}}{\d t} = m_{z1}^{\overline{\omega}}qS_ML_k\overline{\omega} + m_{z1\text{st}}qS_ML_k \\[0.5em]
+		\dfrac{\d \varphi}{\d t} = \omega_{z1} \\
+		\alpha = \varphi - \theta = \varphi + \beta_e - \varTheta
+	\end{cases}
+\end{equation}
+
+一般来说，飞行器是以任意姿态进入大气层的，其运动包含质心运动和绕质心运动。对于静稳定的再入飞行器，当有攻角时，稳定力矩将使其减小，飞行器会很快稳定下来。此时\red[总攻角]为零，飞行器不受升力作用，称为\dy[弹道再入]{DDZR}或\dy[零升力再入]{LSLZR}、\dy[零攻角再入]{LGJZR}。反之，如果再入过程中总攻角不为零，飞行器受升力作用，其再入称为\dy[有升力再入]{YSLZR}。
 
 
 
@@ -493,7 +566,214 @@
 
 
 
+\section{零攻角再入弹道特性分析}
+
+无论采用何种再入方式，用计算机\red[数值积分]均可得到再入弹道参数。但在初步设计中，希望快速求得飞行器运动参数，并分析各种因素对运动参数的影响，如弹头结构承受的\red[最大过载]、\red[热流]及\red[烧蚀]等，因此需要相关参数的\red[近似解析解]。一般采用简化的平面运动方程。
+
+对于零攻角再入，升力为零，有
+
+\theorem[零攻角再入平面运动方程]
+{
+	\vspace*{-1em}
+	\begin{equation}
+		\begin{cases}
+			\, \dot{v} = \dfrac{X}{m} - g \sin \varTheta \\
+			\, \dot{\varTheta} = \left(\dfrac{v}{r} - \dfrac{g}{v}\right) \cos \varTheta \\
+			\, \dot{r} = v \sin \varTheta \\
+			\, \dot{\beta}_e = \dfrac{v}{r} \cos \varTheta
+		\end{cases}
+	\end{equation}
+	对于速度方程，代入气动力表达式，可以得到
+	\begin{equation}
+		\dfrac{\d v}{\d t} = - C_x \dfrac{\rho v^2 S}{2 m} - g \sin \varTheta
+	\end{equation}
+	为了得到近似解，需对地球大气进行假设
+	\begin{equation}
+		\rho = \rho_0 \cdot \e^{- \beta h}, \qquad \beta = \dfrac{1}{7200} (\text{m}^{-1})
+	\end{equation}
+	并以\red[高度]为\red[自变量]
+	\begin{equation}
+		\d t = \dfrac{\d h}{v \sin \varTheta}
+	\end{equation}
+}
 
 
+\subsection{再入段最小负加速度的近似计算}
+
+飞行器高速进入稠密大气时，空气阻力使飞行器减速，其阻力加速度可达几十个$g$，使弹头结构及仪表工作受到很大影响。因此\red[最小负加速度]是初步设计必须考虑的问题。最小负加速度也可称为\dy[最大过载]{ZDGZ}。
+
+进一步假设：
+
+\noa[1] \red[忽略地球引力]作用，再入弹道为\red[直线弹道]。因为除再入初始段外，气动阻力远远大于引力值。
+
+\noa[2] 当地水平线转动角速度为零，\red[当地速度倾角]不变。因为再入射程很短，可以将\red[地球看成平面]。
+
+\noa[3] \red[阻力系数为常数]。因为在最大过载前，飞行速度很大，阻力系数很小。
+
+\dy[再入负加速度]{ZRFJSD}\quad 再入时受到气动力作用，若为零攻角再入则表示为阻力，产生的气动力很大，且为负加速度。
+
+由动力学方程可得
+\begin{equation}
+	\begin{cases}
+		\, \dot{v} = - \dfrac{X}{m} = \dfrac{C_x \rho_0 S_M}{2 m} \e^{- \beta h} v^2 \\[0.5em]
+		\, \dot{h} = v \sin \varTheta_e
+	\end{cases}
+\end{equation}
+引入\dy[弹道系数]{DDXS}
+\begin{equation}
+	B = \dfrac{C_x S_M}{2 m}
+\end{equation}
+速度方程变为
+\begin{equation}
+	\dfrac{\d v}{\d h} = - \dfrac{B \rho_0}{\sin \varTheta_e}\e^{-\beta h}v \qquad \dfrac{\d v}{v} = \dfrac{B \rho_0}{\beta \sin \varTheta_e}\e^{-\beta h} \d \big(- \beta h\big)
+\end{equation}
+假设再入点大气密度为零，则有速度表达式为
+\begin{equation}
+	v = v_e \exp \left(\dfrac{B \rho_0}{\beta \sin \varTheta_e} \e ^{- \beta h}\right)
+	\label{vh}
+\end{equation}
+
+由$\dfrac{\d \dot{v}}{\d h} = 0$可得最大过载发生高度为
+\begin{equation}
+	\begin{cases}
+		\, \dot{v} = \dfrac{C_x \rho_0 S_M}{2m}\e^{-\beta h}v^2 \\[0.5em]
+		\, \dfrac{\d v}{\d h} = - \dfrac{B \rho_0}{\sin \varTheta_e}\e^{-\beta h}v
+	\end{cases}
+	\quad \Rightarrow \quad 
+	\dfrac{\d \dot{v}}{\d h} = B \rho v^2 \left(\beta + \dfrac{2B\rho}{\sin \varTheta_e}\right) = 0 \quad \Rightarrow \quad \rho_m\big(h_m\big) = - \dfrac{\beta \sin \varTheta_e}{2 B}
+\end{equation}
+则
+
+\theorem[最大过载的计算]
+{
+	\textbf{\dy[最大过载发生高度]{ZDGZFSGD}}
+	\begin{equation}
+		h_m = \dfrac{1}{\beta} \ln \left(- \dfrac{2B\rho_0}{\beta \sin \varTheta_e}\right) = \dfrac{1}{\beta}\ln \left(- \dfrac{C_xS_M \rho_0}{m \beta \sin \varTheta_e}\right)
+	\end{equation}
+\blue[最大过载发生高度与质量、尺寸、倾角有关，但与速度无关。]\\[0.5em]
+	\hspace*{2em} \textbf{\dy[最大过载速度]{ZDGZSD}}
+	\begin{equation}
+		v_m = v_e \exp \left(\dfrac{B \rho_m}{\beta \sin \varTheta_e}\right) = v_e \e^{-0.5} \approx 0.61 v_e
+	\end{equation}
+\blue[最大过载速度只与速度有关，与质量、尺寸、倾角无关。]\\[0.5em]
+\hspace*{2em} \textbf{\dy[最大过载]{ZDGZ}}
+\begin{equation}
+	\dot{v}_{\min} = - B \rho_m v_m^2 = \dfrac{\beta v_e^2}{2 e}\sin \varTheta_e
+\end{equation}
+\blue[最大过载只与速度、倾角有关，与质量、尺寸无关。]
+}
+
+
+\subsection{热流的近似计算}
+
+巨大的飞行器机械能通过大气阻力转变为热能，使大气温度上升至几千度。因此需要对热流进行计算，以保证弹体结构防热安全。
+
+热流主要考虑三个参数：\dy[平均对流热流$q_{av}$]{PJDLRL}；\dy[驻点对流热流$q_s$]{ZDDLRL}；\dy[总吸热量$Q$]{ZXRL}。
+\vspace*{0.5em}
+
+\sssection[平均热流$q_{av}$]
+
+平均热流的定义式为
+\begin{equation}
+	q_{av} = \dfrac{1}{S_T}\int_s q\, \d s = \dfrac{1}{4} C'_f\rho v^3
+\end{equation}
+代入速度表达式
+\begin{equation}
+	v = v_e \exp\left(\dfrac{B \rho_0}{\beta \sin \varTheta} \e^{- \beta h}\right)
+\end{equation}
+可以得到
+\begin{equation}
+	q_{av} = \dfrac{1}{4}C'_f \rho v_e^3 \exp\left(\dfrac{3B}{\beta \sin \varTheta}\rho \right)
+\end{equation}
+对大气密度进行求导，并令其导数为零，则有
+\begin{align}
+	\rho_{m1} &= -\dfrac{\beta \sin \varTheta_e}{3 B} \label{qav1}\\[0.5em]
+	h_{m1} = \dfrac{1}{\beta}\ln \left(- \dfrac{3B\rho_0}{\beta \sin \varTheta_e}\right) &= \dfrac{1}{\beta} \ln \left(- \dfrac{3C_x S_M \rho_0}{2 m \beta \sin \varTheta_e}\right) \qquad \mbox{与速度无关}
+\end{align}
+由速度与高度关系 \eqref{vh} 及密度公式 \eqref{qav1}，可以计算得到
+
+\theorem[最大平均热流]
+{
+	\textbf{\dy[最大平均热流点速度]{ZDPJRLDSD}}
+	\begin{equation}
+		v_{m1} = v_e \exp\left(\dfrac{B \rho_{m1}}{\beta \sin \varTheta_e}\right) = v_e \e^{-\textstyle \frac{1}{3}} \approx 0.72v_e
+	\end{equation}
+	\blue[最大过载发生高度只与速度有关，与质量、尺寸、倾角无关。]\\[0.5em]
+	\hspace*{2em} \textbf{\dy[最大平均热流]{ZDPJRL}}
+	\begin{equation}
+		\big(q_{av}\big)_{\max} = - \dfrac{1}{12}C'_f v_e^3 \dfrac{\beta \sin \varTheta_e}{B \cdot \e}
+	\end{equation}
+}
+
+
+\sssection[驻点热流$q_s$]
+
+驻点热流的定义式为
+\begin{equation}
+	q_{s} = k_s \sqrt{\rho}\cdot v^3
+\end{equation}
+代入速度表达式
+\begin{equation}
+	v = v_e \exp\left(\dfrac{B \rho_0}{\beta \sin \varTheta} \e^{- \beta h}\right)
+\end{equation}
+可以得到
+\begin{equation}
+	q_s = k_s \sqrt{\rho}v_e^3\exp\left(\dfrac{3B}{\beta \sin \varTheta} \rho\right)
+\end{equation}
+对大气密度进行求导，并令其导数为零，则有
+\begin{align}
+	\rho_{m2} &= -\dfrac{\beta \sin \varTheta_e}{6 B} \label{qs1}\\[0.5em]
+	h_{m2} = \dfrac{1}{\beta}\ln \left(- \dfrac{6B\rho_0}{\beta \sin \varTheta_e}\right) &= \dfrac{1}{\beta} \ln \left(- \dfrac{3C_x S_M \rho_0}{m \beta \sin \varTheta_e}\right) \qquad \mbox{与速度无关}
+\end{align}
+由速度与高度关系 \eqref{vh} 及密度公式 \eqref{qs1}，可以计算得到
+
+\theorem[最大驻点热流]
+{
+	\textbf{\dy[最大平均热流点速度]{ZDPJRLDSD}}
+	\begin{equation}
+		v_{m2} = v_e \exp\left(\dfrac{B \rho_{m2}}{\beta \sin \varTheta_e}\right) = v_e \e^{-\textstyle \frac{1}{6}} \approx 0.85v_e
+	\end{equation}
+	\blue[最大过载发生高度只与速度有关，与质量、尺寸、倾角无关。]\\[0.5em]
+	\hspace*{2em} \textbf{\dy[最大平均热流]{ZDPJRL}}
+	\begin{equation}
+		\big(q_{s}\big)_{\max} = ks v_e^3 \sqrt{\dfrac{-\beta \sin \varTheta_e}{6B\cdot \e}}
+	\end{equation}
+}
+
+\sssection[总吸热量$Q$]
+
+总吸热量的定义为平均热流的时间积分，即
+\begin{equation}
+	Q = \int_0^t q_{av} S_T \,\d t = \dfrac{C'_f S_T}{4} \int_0^t \rho v^3 \, \d t
+\end{equation}
+将时间积分转换为大气密度积分后有
+\begin{equation}
+	\begin{cases}
+		\, \d h = v \sin \varTheta_e \, \d t \\
+		\, \d \rho = - \beta \rho \, \d h
+	\end{cases}
+	\quad \Rightarrow \quad \d t = -\dfrac{1}{\beta \rho v \sin \varTheta_e}\, \d \rho \quad \Rightarrow \quad 
+	Q = - \int_{\rho_e}^{\rho} \dfrac{C'_f S_T}{4 \beta \sin \varTheta_e} v^2 \, \d \rho
+\end{equation}
+代入速度表达式 \eqref{vh} ，并积分后得
+\begin{equation}
+	\begin{split}
+		Q &= \dfrac{C'_fS_T}{8B}v_e^2 \Bigg[\exp\left(\dfrac{2B\rho_0 \e^{-\beta h_e}}{\beta \sin \varTheta_e}\right) - \exp \left(\dfrac{2B \rho_0 \e^{-\beta h}}{\beta \sin \varTheta_e}\right)\Bigg]\\[0.8em]
+		&= \dfrac{C'_fS_T}{8B}v_e^2 \Bigg[1 - \exp \left(\dfrac{2B\rho_0}{\beta \sin \varTheta_e}\right)\Bigg]
+	\end{split}
+\end{equation}
+令
+\begin{equation*}
+	v_c = v_e \exp\left(\dfrac{B \rho_0}{\beta \sin \varTheta_e}\right)
+\end{equation*}
+则有
+
+\theorem[总吸热量]
+{
+	\vspace*{-1em}
+\begin{equation}
+	Q = \dfrac{C'_fS_T}{8B}v_e^2 \Bigg[1 - \exp \left(\dfrac{2B\rho_0}{\beta \sin \varTheta_e}\right)\Bigg] = \dfrac{C_f' S_T}{8B}\big(v_e^2 - v_c^2\big)
+\end{equation}
+}
 
 
