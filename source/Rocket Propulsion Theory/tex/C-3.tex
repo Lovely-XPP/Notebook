@@ -1254,13 +1254,148 @@ $
 
 推进剂的喷射雾化和液相混合过程、液滴的加热和蒸发过程、燃料和氧化剂的气相混合过程、混合气的燃烧化学反应过程等。
 
+\blue[(4)\hspace*{0.3em} 能量转换]
+
+推力室的工作过程是一种能量的转换过程，即将液体推进剂的化学能转变为燃烧产物的热能和动能。
+
+\vspace*{0.5em}
+
+\textbf{【双组元发动机推力室工作原理】}
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (A) [draw, inner sep = 5pt]{\makecell[c]{氧化剂腔\\[0.35cm]头部\\[0.35cm]燃料腔}};
+		\node (A1) [draw, inner sep = 5pt, left of = A, node distance = 2.8cm, yshift = 1cm]{氧化剂};
+		\node (A2) [draw, inner sep = 5pt, left of = A, node distance = 2.8cm, yshift = -1cm]{燃料};
+		\node (B) [draw, inner sep = 5pt, right of = A, node distance = 3cm]{喷注器};
+		\node (C)[draw, inner sep = 5pt, right of = B, node distance = 3cm]{\makecell[c]{燃烧室\\[0.35cm]雾化，混合\\蒸发，燃烧}};
+		\node (D)[draw, inner sep = 5pt, right of = C, node distance = 3.5cm]{\makecell[c]{喷管\\[0.35cm]膨胀加速\\形成推力}};
+		
+		\draw [-Stealth] (A1) -- (-0.9,1cm);
+		\draw [-Stealth] (A2) -- (-0.9, -1cm);
+		\draw [-Stealth] (A) -- (B);
+		\draw [-Stealth] (B) -- (C);
+		\draw [-Stealth] (C) -- (D);
+		\draw [dashed, draw = blue, thick]  (-0.76cm, 1.35cm) rectangle (0.78cm, 0.58cm);
+		\draw [dashed, draw = blue, thick]  (-0.76cm, -1.35cm) rectangle (0.78cm, -0.58cm);
+	\end{tikzpicture}
+	\caption{双组元发动机推力室工作原理}
+\end{figure}
+\vspace*{0.5em}
+
+
+\textbf{【单组元发动机推力室工作原理】}
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+		\node (A) [draw, inner sep = 5pt]{单组元推进剂};
+		\node (B) [draw, inner sep = 5pt, right of = A, node distance =3.2cm]{喷注器};
+		\node (C) [draw, inner sep = 5pt, right of = B, node distance = 3 cm]{\makecell[c]{催化剂床\\[0.35cm]催化分解\\燃烧}};
+		\node (D) [draw, inner sep = 5pt, right of = C, node distance = 3.1cm]{\makecell[c]{喷管\\[0.35cm]膨胀加速\\形成推力}};
+		
+		\draw[-Stealth] (A) -- (B);
+		\draw[-Stealth] (B) -- (C);
+		\draw[-Stealth] (C) -- (D);
+	\end{tikzpicture}
+	\caption{单组元发动机推力室工作原理}
+\end{figure}
+\vspace*{1em}
+
+\blue[(5)\hspace*{0.3em} 燃烧]
+
+\textbf{分区（四个无明显边界的流动区域）}：\dy[雾化混合区]{WHHHQ} 、 \dy[混合气回流区]{HHQHLQ} 、 \dy[燃烧区]{RSQ}和\dy[燃烧产物区]{RSCWQ} 。
+
+\textbf{(a) \hspace*{0.3em} 雾化混合区}
+
+\hspace*{2em} \red[位置]\quad 喷注器面之后的一个小的区域内(10 $\sim$ 50 mm)
+
+\hspace*{2em} \red[特征]\quad 在该区域推进剂组元以一定的比例喷射、雾化、蒸发，并使液雾及蒸气宏观混合；由于大量的液滴需要吸收蒸发，故此区域的温度较低 。
+\vspace*{0.5em}
+
+\textbf{(b) \hspace*{0.3em} 混合气回流区}
+
+\hspace*{2em} \red[形成机理]\quad 推进剂高速喷出时，由于高速射流和周围气体之间的动量交换和引射作用，引起燃气向喷注器附近回流，从而形成回流区。该区域是未燃气体和已燃气体组成的混合气。
+
+\hspace*{2em} \red[重要作用]\quad 使燃烧区的热量传向前面的雾化混合区；使本区内的未燃气体进一步微观混合并升温，促使部分混合气分解，甚至产生部分的液相化学反应。
+\vspace*{0.5em}
+
+\textbf{(c) \hspace*{0.3em} 燃烧区}
+
+\hspace*{2em} \dy[燃烧]{RS}\quad 一种迅速放热的化学反应；
+
+\hspace*{2em} \red[特点]\quad 在极短的时间（几毫秒）内完成；集中在几十毫米的空间内，温度突跃至3000K 以上；
+
+\hspace*{2em} \red[近壁面的热防护]\quad 为了保护内壁，近壁层的混合比远离最佳混合比，设置故意形成液膜；
+
+\hspace*{2em} \red[火箭前锋形状]\quad 边区及附近燃烧滞后于中心区，火箭前锋呈现凹槽状；稳态燃烧时，燃烧区及其火焰前锋的位置基本不变。
+\vspace*{0.5em}
+
+\hspace*{2em} 两种状态的稳态燃烧
+$
+\begin{cases}
+	\, \mbox{\dy[缓慢燃烧]{HMRS}}\\
+	\, \mbox{\dy[爆震燃烧]{BZRS}}
+\end{cases}
+$
+
+
+\defination[缓慢燃烧]
+{
+	火箭传播速度仅为1 $\sim$ 2 m/s ，且压力波以声速传播；\\
+	\hspace*{2em} 缓慢燃烧时，燃烧区前后的压力基本一致，并不发生压力突跃；\\
+	\hspace*{2em} 正常情况下，液体发动机燃烧室中属于缓慢燃烧。
+}
+
+\defination[爆震燃烧]
+{
+	一种爆炸式化学反应、以极高速度推进的燃烧现象，火焰传播速度高达 23 km/s；\\
+	\hspace*{2em}火焰前锋的波阵面实际上是一种强激波（爆震波）；\\
+	\hspace*{2em}未燃气体通过波阵面时受到强烈压缩，温度急剧升高，引起爆炸式的化学反应，同时放出热量；\\
+	\hspace*{2em}化学反应放出的热量又维持激波继续稳定向前推进。
+}
+
+\vspace*{0.5em}
+
+\textbf{(d) \hspace*{0.3em} 燃烧产物区}
+
+\hspace*{2em}燃烧已基本结束，只进行小尺度的湍流混合和补充燃烧；
+
+\hspace*{2em}燃气停留时间 3 $\sim $ 5 ms；
+
+\hspace*{2em}宏观上基本是管流状态，也称“管流燃烧区”。
 
 
 
 
+\section{液体火箭发动机燃烧及热防护}
+\subsection{液体火箭发动机喷嘴及喷注器}
 
+\sssection[喷注器功能与设计目标]
 
+\dy[喷注器]{PZQ}\quad 是推力室的混合气形成系统，同时又是推力室的一个重要组件，很大程度上决定了发动机的性能和可靠性。
 
+\blue[组成]\quad 顶盖、喷注盘（包括喷嘴以及相应的流道和集液腔）
+
+\blue[作用]\quad 在规定的压降和流量下，通过喷注器上的喷嘴， \textbf{将推进剂均匀喷入燃烧}室 ，在较小的射程内迅速\textbf{完成雾化、混和、蒸发}等过程，并保证所设计的混合比分布和质量分布。
+\vspace*{0.2em}
+
+\blue[设计目标]
+\vspace*{-0.5em}
+\begin{enumerate}[\hspace*{3em} $\bigstar$]
+	\item 组织高强度的燃烧，保证燃烧完全度以获得高的比推力\vspace*{-0.5em}
+	\item 组织可靠的内冷却\vspace*{-0.5em}
+	\item 组织稳定的燃烧\vspace*{-0.5em}
+	\item 具有足够的强度和刚度、结构简单、工艺性好 。
+\end{enumerate}
+\vspace*{0.5em}
+
+\sssection[喷嘴]
+
+\textbf{(1) \hspace*{0.3em} 喷嘴的用途}
+
+保证液体推进剂被雾化成液滴，且尽量保证液滴尺寸的均匀性；
+
+液滴沿推力室的横截面均匀分布。
 
 
 
