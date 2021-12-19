@@ -777,3 +777,200 @@
 }
 
 
+
+\subsection{运动参数的近似计算}
+\sssection[速度与当地速度倾角的近似计算]
+\vspace*{-0.5em}
+
+\theorem[动量矩定理]
+{
+	\index{DLJDL@动量矩定理}质点相对固定点的\blue[动量矩]对时间的一阶导数等于作用于质点上的力对同一点的\blue[力矩]。
+}
+
+再入飞行器相对于地球质心利用动量矩定理，则有：
+\begin{equation}
+	\dfrac{\d }{\d t}\big(r v \cos \varTheta\big) = - r \dfrac{X}{m}\cos \varTheta = - r\dfrac{C_x S_M}{2m}\rho v^2 \cos \varTheta
+\end{equation}
+由$\dfrac{\d h}{\d t} = v \sin \varTheta$代入可得
+\begin{equation}
+	\dfrac{\d}{\d h}\big(rv \cos \varTheta\big) = - rv\cos \varTheta\dfrac{C_x S_M}{2 m \sin \varTheta}\rho
+\end{equation}
+令
+\begin{equation}
+	k = \dfrac{C_x S_M}{2 m \sin \varTheta}
+\end{equation}
+则
+\begin{equation}
+	\dfrac{\d}{\d h}\big(rv \cos \varTheta\big) = - rv\cos \varTheta\dfrac{C_x S_M}{2 m \sin \varTheta}\rho \quad \Rightarrow \quad \dfrac{\d \big(rv \cos \varTheta\big)}{r v \cos \varTheta} = - k \rho \, \d h = - k \rho_0 \e^{- \beta h}\, \d h
+\end{equation}
+积分后得
+\begin{equation}
+	\ln \dfrac{rv \cos \varTheta}{r_e v_e \cos \varTheta_e} = \dfrac{k \rho_0}{\beta}\big(\e^{-\beta h} - \e^{- \beta h_e}\big)
+\end{equation}
+即
+\begin{equation}
+	rv \cos \varTheta = r_e v_e \cos \varTheta_e \exp \bigg[\dfrac{k}{\beta} \big(\rho - \rho_e\big)\bigg]
+\end{equation}
+由于再入段处大气仍然稀薄，可以认为是真空，即$\rho_e = 0$，即
+\begin{equation}
+	r v \cos \varTheta = r_e v_e \cos \varTheta_e \e^{{\textstyle \frac{k}{\beta}} \rho}
+\end{equation}
+
+\theorem[动量矩守恒]
+{
+	若再入段处于真空段时，即$\rho = 0$，则
+	\begin{equation}
+		r_v \cos \theta = r_e v_e \cos \varTheta_e
+	\end{equation}
+	即再入段仍然是椭圆轨道上的一部分，满足动量矩守恒。而对于非真空段来说，引入了一个修正系数$\e^{{\textstyle \frac{k}{\beta}}\rho}$，即
+	\begin{equation}
+		r_v \cos \theta = r_e v_e \cos \varTheta_e\e^{{\textstyle \frac{k}{\beta}}\rho}
+		\label{再入动量矩}
+	\end{equation}
+}
+
+由于公式 \eqref{再入动量矩} 有三个未知数：$r,v,\varTheta$，需要补充一个关系式。以$r$为自变量，对动量矩求$t$的微分
+\begin{equation}
+	\dfrac{\d }{\d t} \big(rv \cos \varTheta\big) = v \dfrac{\d }{\d t}\big(r \cos \varTheta\big) + r \cos \varTheta \dfrac{\d v}{\d t}
+\end{equation}
+将$\dfrac{\d v}{\d t} = - \dfrac{X}{m} - g_0 \sin \varTheta$代入，可得
+\begin{equation}
+	\dfrac{\d }{\d t}\big(r v \cos \varTheta\big) = v \dfrac{\d }{\d t}\big(r \cos \varTheta\big) - r \dfrac{X}{m}\cos \varTheta - rg_0 \sin \varTheta \cos \varTheta
+\end{equation}
+由动量矩定理，
+\begin{equation*}
+		\dfrac{\d }{\d t}\big(r v \cos \varTheta\big) = - r \dfrac{X}{m}\cos \varTheta 
+\end{equation*}
+可以得到
+\begin{equation}
+	\begin{cases}
+		\, v \dfrac{\d }{\d t}\big(r \cos \varTheta\big) = r g_0 \sin \varTheta \cos \varTheta\\[0.5em]
+		\, \dfrac{\d h}{\d t} = v \sin \varTheta
+	\end{cases}
+	\quad \Rightarrow \quad 
+	\dfrac{\d \big(r \cos \varTheta\big)}{r \cos \varTheta} = \dfrac{g_0}{v^2}\, \d h
+\end{equation}
+结合公式 \eqref{再入动量矩} ,可得
+\begin{equation}
+	\begin{cases}
+		\, \dfrac{\d \big(r \cos \varTheta\big)}{r \cos \varTheta} = \dfrac{g_0}{v^2}\, \d h \\[0.5em]
+		\, r_v \cos \theta = r_e v_e \cos \varTheta_e\e^{{\textstyle \frac{k}{\beta}}\rho}
+	\end{cases}
+	\quad \Rightarrow \quad 
+	\dfrac{\d \big(r \cos \varTheta\big)}{r^3 \cos^3 \varTheta} = \dfrac{g_0}{r_e^2v_e^2 \cos^2 \varTheta_e}\e^{-2{\textstyle \frac{k}{\beta}}\rho}\, \d h
+	\label{再入指数}
+\end{equation}
+令指数部分
+\begin{equation}
+	\eta = - 2 \dfrac{k}{\beta} \rho_0 \e^{-\beta h}
+\end{equation}
+则
+\begin{equation*}
+	\d \eta = 2 k \rho_0 \e^{-\beta h}\, \d h \quad \Rightarrow \quad \d h = - \dfrac{\d \eta}{\beta \eta}
+\end{equation*}
+代入公式 \eqref{再入指数} 可得
+\begin{equation*}
+	\dfrac{\d \big(r \cos \varTheta\big)}{r^3 \cos^3 \varTheta} = -\dfrac{g_0}{\beta r_e^2v_e^2 \cos^2 \varTheta_e}\cdot \dfrac{\e^\eta}{\eta}\, \d \eta
+\end{equation*}
+积分后可得
+\begin{equation}
+	\dfrac{1}{2r_e^2\cos^2 \varTheta_e} - \dfrac{1}{2r^2 \cos^2 \varTheta} = - \dfrac{g_0}{\beta r_e^2v_e^2 \cos^2 \varTheta_e}\cdot \int_{\eta_e}^{\eta} \dfrac{\e^\eta}{\eta}\, \d \eta = \dfrac{g_0}{\beta r_e^2v_e^2 \cos^2 \varTheta_e}\cdot  \Bigg[\int_{0}^{\eta}\dfrac{\e^\eta}{\eta}\, \d \eta - \int_{0}^{\eta_e}\dfrac{\e^\eta}{\eta}\, \d \eta \Bigg]
+\end{equation}
+令
+\begin{equation}
+	E(\eta) = \int_0^\eta \dfrac{\e^\eta}{\eta}\, \d \eta
+\end{equation}
+则
+\begin{equation}
+	\dfrac{1}{2r_e^2\cos^2 \varTheta_e} - \dfrac{1}{2r^2 \cos^2 \varTheta} = \dfrac{g_0}{\beta r_e^2v_e^2 \cos^2 \varTheta_e}\cdot\big[E(\eta) - E(\eta_e)\big]
+\end{equation}
+解得
+\begin{equation}
+	r \cos \varTheta = \dfrac{r_e \cos \varTheta_e}{\sqrt{1 + \dfrac{2g_0}{\beta v_e^2\big[E(\eta) - E(\eta_e)\big]}}}
+	\label{r-Theta}
+\end{equation}
+
+联立 \eqref{再入动量矩},\eqref{r-Theta} 可解得
+
+\theorem[落点速度倾角和速度的近似计算]
+{
+	\vspace*{-1em}
+	\begin{align}
+		\cos \varTheta_c &= \dfrac{r_e \cos \varTheta_e}{R}\dfrac{r_e \cos \varTheta_e}{\sqrt{1 + \dfrac{2g_0}{\beta v_e^2\big[E(\eta) - E(\eta_e)\big]}}} \\[0.5em]
+		v_c &= \dfrac{r_e v_e \cos \varTheta_e}{R \cos \varTheta_c}\e^{-\dfrac{\eta_0}{2}}
+	\end{align}
+}
+
+
+\sssection[射程的近似计算]
+
+由于再入段射程的变化率可写为
+\begin{equation}
+	\dfrac{\d L_e}{\d h} = \dfrac{\d L_e}{\d t} \cdot \dfrac{\d t}{\d h}
+\end{equation}
+由$\dfrac{\d \beta_e}{\d t} = \dfrac{v}{r} \cos \varTheta, \dfrac{\d h}{\d t} = v \sin \varTheta, L_e = R \beta_e$，可得
+\begin{equation}
+	\dfrac{\d L_e}{\d h} = \dfrac{R}{r} \cot \varTheta
+\end{equation}
+积分后得
+ \begin{equation}
+ 	L_e = R \int_{h_e}^{h} \dfrac{\cot \varTheta}{R + h} \, \d h
+ \end{equation}
+由于再入段射程较小，可以近似认为$\varTheta = \varTheta_e$，则
+\begin{equation}
+	L_e = R \cot\varTheta_e \ln \dfrac{R + h}{R + h_e}
+\end{equation}
+特别地，当$h = 0$时，得到整个再入段射程为
+\begin{equation}
+	L_e = R \cot \varTheta_e \ln \dfrac{R}{R + h_e}
+\end{equation}
+
+\subsection{气动阻力下的被动段弹道}
+
+在自由段并非绝对真空，也会受到气动阻力作用，且射程越近，弹道高度越低，阻力影响就明显。此时被动段弹道有以下特点：
+
+\noa[1] \textbf{在弹道对应高度点，飞行速度不同}
+
+气动阻力始终使速度减小，而引力做功为零。
+\vspace*{0.5em}
+
+\noa[2] \textbf{降弧段弹道比升弧段陡}
+
+速度越小，引力作用越明显。
+\vspace*{0.5em}
+\clearpage
+
+\noa[3] \textbf{最小速度点不在弹道顶点}
+
+在速度最小点，阻力应与引力分量平衡，即
+\begin{equation*}
+	X + mg \sin \varTheta = 0
+\end{equation*}
+因此速度最小点只能出现在降弧段，倾角为负。
+\vspace*{0.5em}
+
+\noa[4] \textbf{射程与质量相关}
+
+相同阻力下不同质量引起的加速度不同，减速效果不同，影响到速度倾角大小，因此必然影响射程。
+
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.35\linewidth]{pic/气动阻力再入.jpg}
+	\vspace*{-1em}
+	\caption{有空气阻力时被动段弹道各点受力情况}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
