@@ -7,6 +7,7 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage{ctex}
+\usepackage{xeCJK}
 \usepackage{tikz}
 \usepackage{geometry}%页边距调整
 \geometry{left=2cm,right=2cm,bottom=2.8cm,top=2cm}
@@ -85,6 +86,7 @@
 \setlength{\headsep}{3.5em}
 \setlength{\footskip}{2.5em}
 \renewcommand{\headrulewidth}{0mm}
+\newcommand{\para}{\par \hspace*{2em}}
 \rfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries 轨道力学笔记}}
 \cfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries \thepage}} 
 \lfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries 2019级航空航天工程专业本科}} 
@@ -363,7 +365,7 @@ $\quad \longrightarrow  \quad$运动坐标系为非旋转坐标系时，$\ddot{\
 			&&&\\[-1em]
 			\hline
 			&&&\\[-1.1em]
-			 轨道周期 &无（$\theta \to \theta_\infty, \, r \to \infty$）& 轨道能量 & $\varepsilon = -\dfrac{1}{2} \dfrac{\mu}{h^2}(1 - e^2) = - \dfrac{\mu}{2a}$  \\[0.8em]
+			 轨道周期 &无（$\theta \to \theta_\infty, \, r \to \infty$）& 轨道能量 & $\varepsilon = -\dfrac{1}{2} \dfrac{\mu}{h^2}(1 - e^2) = \dfrac{\mu}{2a}$  \\[0.8em]
 			\hline
 		\end{tabular}
 	}
@@ -405,6 +407,48 @@ v^2 = v_{\text{\scriptsize \mbox{逃逸}}}^2 + v_{\infty}^2
 设计火箭的特征能量要比其任务所需的特征能量大，以防突发情况。
 
 \hspace*{2em} 抛物线是在无穷远闭合的轨道，是能量为负值的椭圆轨道和非闭合且轨道能量为正值的双曲线轨道之间的分界线。
+
+\subsection{近焦点坐标系}
+\para 以轨道焦点为坐标原点，$x$轴从焦点指向近地点，与$x$轴真近点角为$90 \degree$点方向为$y$轴方向，$z$轴方向垂直于轨道平面，与角动量方向一致，即
+\begin{equation}
+	\begin{cases}
+		\, \bm{r} = \overline{x} \widehat{\bm{p}} + \overline{y} \widehat{\bm{q}}\\
+		\, \overline{x} = r \cos \theta \\
+		\, \overline{y} = r \sin \theta
+	\end{cases}
+	\qquad 
+	\begin{cases}
+		\, \bm{v} = \bm{\dot{r}} = \dot{\overline{x}} \widehat{\bm{p}} + \dot{\overline{y}} \widehat{\bm{q}} \\
+		\, \dot{\overline{x}} = v_r \cos \theta - v_{\bot}\sin \theta \\
+		\, \dot{\overline{y}} = v_r \cos \theta + v_{\bot}\sin \theta
+	\end{cases}
+\end{equation}
+
+\subsection{拉格朗日系数}
+\para 若运动物体在某一时刻的位置和速度矢量已知，则可以用初始值表示出其在之后任何时刻内的位置和速度矢量，即
+\begin{align}
+&\begin{cases}
+	\, \bm{r} = f \bm{r}_0 + g\bm{v}_0\\
+	\, \bm{v} = \dot{f}\bm{r}_0 + \dot{g}\bm{v}_0
+\end{cases}\\[1em]
+&
+\begin{cases}
+	\, f = 1 - \dfrac{\mu r}{h^2}\big(1 - \cos \Delta \theta\big)\\[0.8em]
+	\, g = \dfrac{r r_0}{h}\sin \Delta \theta \\[0.8em]
+	\, \dot{f} = \dfrac{\mu}{h}\dfrac{1 - \cos \Delta \theta}{\sin \Delta \theta} \left[ \dfrac{\mu}{h^2}\big(1 - \cos \Delta \Theta - \dfrac{1}{r_0} - \dfrac{1}{r} \big) \right]\\[0.8em]
+	\, \dot{g} = 1 - \dfrac{\mu r_0}{h^2}\big( 1 - \cos \Delta \theta \big)
+\end{cases}\\[1em]
+& r = \dfrac{h^2}{\mu} \dfrac{1}{1 + \left( \dfrac{h^2}{\mu r_0} - 1 \right)\cos \Delta \theta - \dfrac{h v_0}{\mu} \sin \Delta \theta}
+\end{align}
+\para 拉格朗日约束条件
+\begin{equation}
+	f\dot{g} - \dot{f}g = 1
+\end{equation}
+\para 拉格朗日方法的特点：已知初始条件时运用拉格朗日系数法确定位置和速度时并不需要知道轨道类型(椭圆，抛物线，双曲线）。
+
+
+
+
 
 
 \end{document}
