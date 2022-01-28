@@ -27,7 +27,7 @@
 
 \par 3.恒正性（无向性）
 \begin{equation}
-\int_{\wideparen{AB}}f(x,y,z)\,\,\d s = \int_{\wideparen{BA}}f(x,y,z)\,\,\d s 
+\int_{\widehat{AB}}f(x,y,z)\,\,\d s = \int_{\widehat{BA}}f(x,y,z)\,\,\d s 
 \end{equation}
 
 \subsection{第一型曲线积分的计算}
@@ -68,15 +68,15 @@ $
 \section{第二型曲线积分}
 \subsection{第二型曲线积分的基本概念}
 \tdefination[第一型曲线积分的定义]
-$L$是从点$A$到点$B$的分段光滑有向曲线，向量函数$\bm{F}(x,y)=P(x,y)\bm{i}+Q(x,y)\bm{j}$在$L$上有定义，按照$L$的方向，对$L$的任意分割成$n$个有向的小线段$\overrightarrow{A_{i-1}A_i}$，记$\wideparen{A_{i-1}A_i}$的弧长为$\Delta s_i$及在第$i$段任意选择的$(\xi_i,\eta_i,\zeta_i)$，当$\lambda = \max\limits_{1 \le i \le n} {\Delta s_i}\rightarrow 0$时，极限
+$L$是从点$A$到点$B$的分段光滑有向曲线，向量函数$\bm{F}(x,y)=P(x,y)\bm{i}+Q(x,y)\bm{j}$在$L$上有定义，按照$L$的方向，对$L$的任意分割成$n$个有向的小线段$\overrightarrow{A_{i-1}A_i}$，记$\widehat{A_{i-1}A_i}$的弧长为$\Delta s_i$及在第$i$段任意选择的$(\xi_i,\eta_i,\zeta_i)$，当$\lambda = \max\limits_{1 \le i \le n} {\Delta s_i}\rightarrow 0$时，极限
 \begin{equation}
 \lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} \bm{F}(\xi_i,\eta_i,\zeta_i) \cdot \overrightarrow{A_{i-1}A_i} \,\Delta s_i = \lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} [P(\xi_i,\eta_i)\Delta x_i+Q(\xi_i,\eta_i)\Delta y_i] 
 \end{equation}
 总存在，则这个极限称为向量函数$\bm{F}(x,y)$沿曲线$L$从点$A$到点$B$的第二型曲线积分或对坐标的曲线积分，记做
 \begin{equation}
-\int_{\wideparen{AB}}P\,\d x+Q\,\d y \huo \int_{\wideparen{AB}}\bm{F}(x,y) \,\, \d \bm{r}
+\int_{\widehat{AB}}P\,\d x+Q\,\d y \huo \int_{\widehat{AB}}\bm{F}(x,y) \,\, \d \bm{r}
 \end{equation}
-\par 其中，$\d \bm{r}=(\d x,\d y)$，有向曲线$\wideparen{AB}$称为积分路径.
+\par 其中，$\d \bm{r}=(\d x,\d y)$，有向曲线$\widehat{AB}$称为积分路径.
 \par 类似地，对于空间向量函数$\bm{F}(x,y,z)=P(x,y,z)\bm{i}+Q(x,y,z)\bm{j}+R(x,y,z)\bm{k}$，沿空间有向曲线$L$的第二型曲线积分为
 \begin{equation}
 \int_{L}P\,\d x+Q\,\d y+R\,\d z \huo \int_{L}\bm{F}(x,y,z) \,\, \d \bm{r}
@@ -86,17 +86,17 @@ $L$是从点$A$到点$B$的分段光滑有向曲线，向量函数$\bm{F}(x,y)=P
 \ttheorem[第二型曲线积分的三个基本性质]
 1.可拆可和性
 \begin{equation}
-\int_{\wideparen{AB}}[k_1\bm{F}(M)+k_2\bm{G}(M)] \cdot \d \bm{r} = k_1\int_{\wideparen{AB}}\bm{F}(M) \cdot \d \bm{r} +k_2 \int_{\wideparen{AB}}\bm{G}(M) \cdot \d \bm{r} 
+\int_{\widehat{AB}}[k_1\bm{F}(M)+k_2\bm{G}(M)] \cdot \d \bm{r} = k_1\int_{\widehat{AB}}\bm{F}(M) \cdot \d \bm{r} +k_2 \int_{\widehat{AB}}\bm{G}(M) \cdot \d \bm{r} 
 \end{equation}
 
-2.分段累加性$\left( \wideparen{AB} \rightarrow \wideparen{AC} + \wideparen{CB}\right) $
+2.分段累加性$\left( \widehat{AB} \rightarrow \widehat{AC} + \widehat{CB}\right) $
 \begin{equation}
-\int_{\wideparen{AB}}\bm{F}(M) \cdot \d \bm{r} = \int_{\wideparen{AC}}\bm{F}(M) \cdot \d \bm{r} +\int_{\wideparen{CB}}\bm{F}(M) \cdot \d \bm{r}
+\int_{\widehat{AB}}\bm{F}(M) \cdot \d \bm{r} = \int_{\widehat{AC}}\bm{F}(M) \cdot \d \bm{r} +\int_{\widehat{CB}}\bm{F}(M) \cdot \d \bm{r}
 \end{equation}
 
 3.有向性
 \begin{equation}
-\int_{\wideparen{AB}}\bm{F}(M) \cdot \d \bm{r} = -\int_{\wideparen{BA}}\bm{F}(M) \cdot \d \bm{r}
+\int_{\widehat{AB}}\bm{F}(M) \cdot \d \bm{r} = -\int_{\widehat{BA}}\bm{F}(M) \cdot \d \bm{r}
 \end{equation}
 
 \subsection{第二型曲线积分的计算}
@@ -110,11 +110,11 @@ y = y(t).
 $
 其中$x(t),y(t)$有连续的一阶导数.当$t$单调地从$a$变化到$b$时，且$P(x,y),Q(x,y)$在$L$上连续，则
 \begin{equation}
-\int_{\wideparen{AB}}P(x,y)\,\d x+Q(x,y)\,\d y = \int_{a}^{b}[\,P(x(t),y(t))\,x'(t) + Q(x(t),y(t))\,y'(t) \,]\,\d t
+\int_{\widehat{AB}}P(x,y)\,\d x+Q(x,y)\,\d y = \int_{a}^{b}[\,P(x(t),y(t))\,x'(t) + Q(x(t),y(t))\,y'(t) \,]\,\d t
 \end{equation}
 特别地，当$y=g(x)$时，可以变为
 \begin{equation}
-\int_{\wideparen{AB}}P(x,y)\,\d x+Q(x,y)\,\d y = \int_{a}^{b}[\,P(x,g(x)) + Q(x,g(x))\,g'(x) \,]\,\d x
+\int_{\widehat{AB}}P(x,y)\,\d x+Q(x,y)\,\d y = \int_{a}^{b}[\,P(x,g(x)) + Q(x,g(x))\,g'(x) \,]\,\d x
 \end{equation}
 
 \ttheorem[空间曲线下第二型曲线积分的计算]
@@ -129,7 +129,7 @@ $
 其中$x(t),y(t),z(t)$有连续的一阶导数，且$P(x,y,z),Q(x,y,z),R(x,y,z)$在$L$上连续，则
 \begin{equation}
 \begin{split}
-&\quad \,\int_{\wideparen{AB}}P(x,y,z)\,\d x+Q(x,y,z)\,\d y +R(x,y,z)\, \d z\\
+&\quad \,\int_{\widehat{AB}}P(x,y,z)\,\d x+Q(x,y,z)\,\d y +R(x,y,z)\, \d z\\
 &= \int_{a}^{b}[\,P(x(t),y(t),z(t))\,x'(t) + Q(x(t),y(t),z(t))\,y'(t) + R(x(t),y(t),z(t))\,z'(t) \,]\,\d t
 \end{split}
 \end{equation}
@@ -142,7 +142,7 @@ $
 \par 特别地，当$\displaystyle\frac{\partial Q}{\partial x} =\frac{\partial P}{\partial y}$或$\displaystyle \oint_{L^+}P\,\d x+Q\,\d y =0$时，第二型曲面积分与积分路径无关。\\[0.5em]
 此时可以找到一个函数$u(x,y)=P(x,y) \, \d x+Q(x,y)\,\d y$，即
 \begin{equation}
-\int_{\wideparen{AB}}P\,\d x+Q\,\d y  =\int_{a}^{b} \d u = u(B)-u(A)
+\int_{\widehat{AB}}P\,\d x+Q\,\d y  =\int_{a}^{b} \d u = u(B)-u(A)
 \end{equation}
 \newpage
 

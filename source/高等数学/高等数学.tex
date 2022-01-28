@@ -2,15 +2,18 @@
 \documentclass[10pt,a4paper,twoside]{book}
 
 \usepackage{ctex}
+\usepackage{xeCJK}
 \usepackage[linesnumbered,boxed]{algorithm2e}
 \usepackage{ulem}
-\usepackage{makecell }
+\usepackage{makecell}
 \usepackage{verbatim}
 \usepackage{enumerate}%罗列专用宏包
 \usepackage{graphicx}%插入图片的宏包
 \usepackage{subfigure} 
-\usepackage{amsmath,ntheorem,lmodern,bm}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
 \usepackage{extarrows}
+\usepackage{bm}
 \usepackage{esint}
 \usepackage{makeidx}%索引专用
 \makeindex  %添加索引
@@ -18,7 +21,6 @@
 \usepackage{framed}
 \usepackage{amsfonts}
 \usepackage{wrapfig}
-\usepackage{amssymb}%数学符号宏包
 \usepackage{textcomp}%树叶图案在这个包里
 \usepackage{bbding}%很多漂亮的图案
 \usepackage[dvipsnames, svgnames, x11names]{xcolor}%导入了所有颜色配置文件的宏包
@@ -30,8 +32,6 @@
 \usepackage[bookmarks=true,colorlinks,linkcolor=black]{hyperref}
 \usepackage{enumerate}%使用改宏包优化罗列环境
 \usepackage{tcolorbox}%box宏包
-\usepackage{xcolor}
-\usepackage{yhmath}
 \usepackage{colortbl,booktabs}%第二个包定义了几个*rule  
 \usepackage{multicol}
 \usepackage{multirow}
@@ -40,20 +40,19 @@
 \usetikzlibrary{arrows,arrows.meta}
 
 %字体设置
-\setCJKmainfont[BoldFont=思源宋体 CN]{Source Han Serif CN}%需要查看电脑字体查找对应字体的文件英文文件名
-\setCJKfamilyfont{song}{STZhongsong}
-\setCJKfamilyfont{kai}{STKaiti}%都是用来定义字体的(此处使用电脑自带楷书)
-\setCJKfamilyfont{hei}{Source Han Serif CN}
-\setCJKfamilyfont{heiti}{Source Han Sans SC-Medium}
-\setCJKfamilyfont{heilight}{Source Han Sans SC-Light}
+\setCJKmainfont[BoldFont={PingFangSC-Medium}]{PingFangSC-Regular}
+\setCJKfamilyfont{kai}{STKaitiSC-Regular}%都是用来定义字体的(此处使用电脑自带楷书)
+\DeclareMathSizes{10}{10}{5.5}{4}
 
 %章节或标题的样式
-\titleformat{\chapter}{\CJKfamily{hei}\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
-\titleformat{\section}{\CJKfamily{hei}\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
-\titleformat{\subsection}{\CJKfamily{hei}\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
-\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
+\titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
+\titleformat{\section}{\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
+\titleformat{\subsection}{\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
+\titlespacing{\section}{0em}{1em}{1em}[1em]
+\titlespacing{\subsection}{1.5em}{1em}{0.5em}[1em]
 %格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
 \titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
+
 
 %目录调整
 \newcounter{mycontents}
@@ -63,7 +62,7 @@
 [0cm]
 {\bf \large \vspace{0.8em} }{\contentspush{第 \thecontentslabel\ 章 \hspace*{0.8em}}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
 \titlecontents{section}[1.7cm]{\bf  \vspace{0.5em} }{\contentslabel{2.4em}}{\hspace*{-2.5em} \thecontents \hspace*{0.8em}}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
-\titlecontents{subsection}[2.5cm]{\small \vspace{0.2em} }{\contentslabel{3em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{subsection}[2.5cm]{\small \vspace{0.2em}}{\contentslabel{3em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
 
 %定义颜色
 %定义某个颜色，对应颜色代号查表
@@ -94,12 +93,12 @@
 \newcounter{F}[section]
 \newcounter{G}[section]
 \newcounter{H}[section]
-\renewcommand{\thetheorem}{{\CJKfamily{heiti}定理} \textbf{\thechapter.\arabic{theorem}}}
-\renewcommand{\thedefination}{{\CJKfamily{heiti}定义} \textbf{\thechapter.\arabic{defination}}}
-\renewcommand{\theexample}{{\CJKfamily{heiti}题型} \textbf{\thechapter.\arabic{example}}}
-\renewcommand{\theinference}{{\CJKfamily{heiti}方法} \textbf{\thechapter.\arabic{inference}}}
-\renewcommand{\theexamples}{{\CJKfamily{heiti}例}  \textbf{\thechapter.\arabic{examples}}}
-\renewcommand{\thetl}{{\CJKfamily{heiti}推论}  \textbf{\thechapter.\arabic{tl}}}
+\renewcommand{\thetheorem}{{ 定理} \textbf{\thechapter.\arabic{theorem}}}
+\renewcommand{\thedefination}{{ 定义} \textbf{\thechapter.\arabic{defination}}}
+\renewcommand{\theexample}{{ 题型} \textbf{\thechapter.\arabic{example}}}
+\renewcommand{\theinference}{{ 方法} \textbf{\thechapter.\arabic{inference}}}
+\renewcommand{\theexamples}{{ 例}  \textbf{\thechapter.\arabic{examples}}}
+\renewcommand{\thetl}{{ 推论}  \textbf{\thechapter.\arabic{tl}}}
 \newcommand{\s}{\hspace*{-2.7em}}
 
 %定义环境
@@ -120,7 +119,7 @@
 \newcommand{\theorem}[1][]{\vspace{1em}\s \refstepcounter{theorem} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1}\vspace{0.5em}  \par}
 \newcommand{\enuptheorem}[1][]{\vspace{1em}\s \refstepcounter{theorem}\label{#1} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1}\vspace*{-0.8cm}}
 \newcommand{\enbelowtheorem}[1][]{\hspace*{-1.5em}\s \refstepcounter{theorem}\label{#1} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1}  \par}
-\newcommand{\ttheorem}[1][]{\s \refstepcounter{theorem}\label{#1} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1} \vspace*{-1em}\par }
+\newcommand{\ttheorem}[1][]{\s \refstepcounter{theorem}\label{#1} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1}\vspace{0.5em}\par }
 \newcommand{\addtheorem}[1][]{\vspace{1.2em}\s \refstepcounter{theorem}\label{#1} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1}\vspace*{0.5em}  \par}
 \newcommand{\addentheorem}[1][]{\vspace{1.2em}\hspace*{-1.5em}\s \refstepcounter{theorem}\label{#1} \mybox[dl]{\color{dl}\thetheorem\hspace{1em}#1}\vspace{0.5em}  \par}
 
@@ -144,7 +143,7 @@
 \newcommand{\example}[1][]{\vspace{1em} \s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace{0.5em} \par }
 \newcommand{\enupexample}[1][]{\vspace{1em}\s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace*{-0.8cm}}
 \newcommand{\enbelowexample}[1][]{\hspace*{-1.5em}\s \refstepcounter{example}\mybox[ex]{\color{ex}\theexample\hspace{1em}#1} \par }
-\newcommand{\texample}[1][]{  \s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1} \vspace*{-1em} \par }
+\newcommand{\texample}[1][]{  \s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1} \vspace{0.5em} \par }
 \newcommand{\addexample}[1][]{\vspace{1.2em}\s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace{0.5em} \par }
 \newcommand{\addenexample}[1][]{\vspace{1.2em}\hspace*{-1.5em}\s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace{0.5em} \par }
 
@@ -218,36 +217,42 @@
 
 %--------------------------------------------------------图框定义---------------------------------------------------------%
 %证明和解
-\newcommand{\proof}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{\CJKfamily{heiti}证}}}\hspace{1.5em}}
-\newcommand{\solve}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{\CJKfamily{heiti}解}}}\hspace{1.5em}}
-\newcommand{\solveother}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{\CJKfamily{heiti}另解}}}\hspace{1.5em}}
-\newcommand{\errsolve}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =red, colback =red!10!white,boxrule=0.5mm,size=small,on line]{\color{red}{{\CJKfamily{heiti}错解}}}\hspace{1.5em}}
-\newcommand{\errreason}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =red, colback =red!10!white,boxrule=0.5mm,size=small,on line]{\color{red}{{\CJKfamily{heiti}错因}}}\hspace{1.5em}}
+\newcommand{\proof}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{ 证}}\hspace*{0.25em}}\hspace{1.5em}}
+\newcommand{\solve}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{ 解}}\hspace*{0.25em}}\hspace{1.5em}}
+\newcommand{\solveother}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{ 另解}}\hspace*{0.25em}}\hspace{1.5em}}
+\newcommand{\errsolve}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =red, colback =red!10!white,boxrule=0.5mm,size=small,on line]{\color{red}{{ 错解}}\hspace*{0.25em}}\hspace{1.5em}}
+\newcommand{\errreason}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =red, colback =red!10!white,boxrule=0.5mm,size=small,on line]{\color{red}{{ 错因}}\hspace*{0.25em}}\hspace{1.5em}}
 \newcommand{\solvereason}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =ForestGreen
-	, colback =ForestGreen!15!white,boxrule=0.5mm,size=small,on line]{\color{ForestGreen}{{\CJKfamily{heiti}解析}}}\hspace{1.5em}}
+	, colback =ForestGreen!15!white,boxrule=0.5mm,size=small,on line]{\color{ForestGreen}{{ 解析}}\hspace*{0.25em}}\hspace{1.5em}}
 
 %例
-\newcommand{\examples}{\vspace*{1em}\noindent  \refstepcounter{examples} \tcbox[colframe =ex, colback =ex!10!white,boxrule=0.5mm,size=small,on line]{\color{ex}{\theexamples}}\hspace{1.5em}}
-\newcommand{\simpleexamples}{ \noindent  \tcbox[colframe =ex, colback =ex!10!white,boxrule=0.5mm,size=small,on line]{\CJKfamily{heiti} \color{ex}{例}}\hspace{1.5em}}
+\newcommand{\examples}{\vspace*{1em}\noindent  \refstepcounter{examples} \tcbox[colframe =ex, colback =ex!10!white,boxrule=0.5mm,size=small,on line]{\color{ex}{\theexamples}\hspace*{0.3em}}\hspace{1.5em}}
+\newcommand{\simpleexamples}{ \noindent  \tcbox[colframe =ex, colback =ex!10!white,boxrule=0.5mm,size=small,on line]{  \color{ex}{例}}\hspace{1.5em}}
 
 %推论
-\newcommand{\tl}{\vspace*{1em}\noindent \refstepcounter{tl} \tcbox[colframe =tl, colback =tl!10!white,boxrule=0.5mm,size=small,on line]{\color{tl}{\thetl}}\hspace{1.5em}}
+\newcommand{\tl}{\vspace*{1em}\noindent \refstepcounter{tl} \tcbox[colframe =tl, colback =tl!10!white,boxrule=0.5mm,size=small,on line]{\color{tl}{\thetl}\hspace*{0.3em}}\hspace{1.5em}}
 
 %注意
 \newcommand{\warn}[1][]{
 	\vspace*{0.5em}
-	\begin{tcolorbox}[colframe=red!75!black, colback=yellow!10!white,title=注意,fonttitle =\CJKfamily{heiti}]
+	\begin{tcolorbox}[colframe=red!75!black, colback=yellow!10!white,title=注意,fonttitle = ]
 		#1
 \end{tcolorbox}}
 \newcommand{\summarize}[1][]{
 	\vspace*{0.5em}
-	\begin{tcolorbox}[colframe=white!20!black, colback=white!98!black,title=评注,fonttitle =\CJKfamily{heiti}]
+	\begin{tcolorbox}[colframe=white!20!black, colback=white!98!black,title=评注,fonttitle = ]
+		#1
+\end{tcolorbox}}
+
+%小结
+\newcommand{\summary}[1][]{
+	\vspace*{0.5em}
+	\begin{tcolorbox}[title=小结]
 		#1
 \end{tcolorbox}}
 
 %文本高亮
-\newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{\CJKfamily{heiti}#1}}}
-
+\newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}
 %------------------------------------------------------------------------------------------------------------------------%
 
 %文档开始

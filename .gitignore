@@ -3,6 +3,20 @@ README.html
 
 source/空间解析几何/图片源文件备份/*
 
+source/高等数学/高等数学.toc
+source/高等数学/高等数学.idx
+source/高等数学/高等数学.ind
+source/高等数学/高等数学.log
+source/高等数学/高等数学.synctex.gz
+source/高等数学/高等数学.thm
+source/高等数学/高等数学.out
+source/高等数学/高等数学.aux
+source/高等数学/高等数学.pdf
+source/高等数学/高等数学.ilg
+source/高等数学/pic/backup/*
+source/高等数学/tex/*.aux
+source/高等数学/tex/*.log
+
 source/Principle of Automatic Control/Principle of Automatic Control.toc
 source/Principle of Automatic Control/Principle of Automatic Control.idx
 source/Principle of Automatic Control/Principle of Automatic Control.ind
@@ -78,6 +92,7 @@ source/Missle Flight Dynamics/*.ind
 source/Missle Flight Dynamics/*.log
 source/Missle Flight Dynamics/*.gz
 source/Missle Flight Dynamics/*.thm
+source/Missle Flight Dynamics/*.ilg
 source/Missle Flight Dynamics/pic/backup/*
 
 source/Aerodynamics/*.out
