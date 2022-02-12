@@ -5,11 +5,14 @@
 \usepackage{xeCJK}
 \usepackage[linesnumbered,boxed]{algorithm2e}
 \usepackage{ulem}
+\usepackage{yhmath}
+\usepackage{amssymb}
 \usepackage{makecell}
 \usepackage{verbatim}
 \usepackage{enumerate}%罗列专用宏包
 \usepackage{graphicx}%插入图片的宏包
 \usepackage{subfigure} 
+\let\widering\relax
 \usepackage{newtxtext}
 \usepackage{newtxmath}
 \usepackage{extarrows}
@@ -81,6 +84,7 @@
 \definecolor{文字底色}{HTML}{F8FF00}%强调的文字底色（目前：黄色）
 \definecolor{eq}{HTML}{F0F0F0}
 \definecolor{tl}{HTML}{D94600}
+\definecolor{d3}{HTML}{dc4853}
 
 
 %定义计数器
@@ -110,7 +114,7 @@
 \end{tcolorbox}}
 
 %命令格式说明：正常情况的命令就是中文对应的英文名，以下有几个特殊情况进行了微调
-%1. 小标题在列表上方，使用enup+英文名;小标题在列表下方，使用enbelow+英文名
+%1. 小标题在列表上方，使用enup+英文名;小标题在列表下方，使用开nbelow+英文名
 %2. 标题间隔太大，采用t+英文名
 %3. 间距太小，用add+英文名
 %4. 在列举环境中间距太小用adden+英文名
@@ -158,7 +162,7 @@
 
 
 %文章标题
-		\title{
+\title{
 	\Huge{高等数学$\,$\uppercase\expandafter{\romannumeral1}$\,$ 总结}\\
 	\quad\\
 	\quad\\
@@ -171,8 +175,8 @@
 	\quad\\
 }
 \author{
-	{\CJKfamily{kai} \large {易鹏}}\\
-	{\CJKfamily{kai} \large 中山大学}\vspace*{0.5em}\\
+	{\CJKfamily{kai} \large {易鹏\quad 蒋天宇}}\\
+	{\CJKfamily{kai} \large 中山大学$\,$航空航天学院}\vspace*{0.5em}\\
 	内部版本号：V4.21.59.053$\,\,$(内测版)\\
 }
 
@@ -214,7 +218,9 @@
 \renewcommand{\oiint}{\varoiint}
 \newcommand{\ds}[1][]{\colorbox{文字底色}{#1}}
 \def\degree{{}^{\circ}}
-
+\newcommand{\di}{\displaystyle}
+\newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
+		circle (.5em) node {\makebox[1em][c]{\small #1}};}}%带圈数字
 %--------------------------------------------------------图框定义---------------------------------------------------------%
 %证明和解
 \newcommand{\proof}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{ 证}}\hspace*{0.25em}}\hspace{1.5em}}
@@ -244,6 +250,15 @@
 		#1
 \end{tcolorbox}}
 
+%罗列
+\newcommand{\myboxm}[2][]{
+	\begin{tcolorbox}[on line,
+		before skip=-0.5em,arc=0pt,outer arc=0pt,colback=#1!8!white,colframe=#1,
+		boxsep=0pt,left=5pt,right=3pt,top=5pt,bottom=5pt,
+		boxrule=0pt,leftrule=2.5pt]#2
+\end{tcolorbox}}
+\newcommand{\myitem}[1]{\myboxm[d3]{#1}}
+
 %小结
 \newcommand{\summary}[1][]{
 	\vspace*{0.5em}
@@ -253,42 +268,56 @@
 
 %文本高亮
 \newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}
+\newcommand{\highlight}[2]{\colorbox{#1!17}{\hspace*{-0.25em}#2\hspace*{-0.25em}}}
+\newcommand{\highlightdark}[2]{\colorbox{#1!47}{\hspace*{-0.25em}#2\hspace*{-0.25em}}}
 %------------------------------------------------------------------------------------------------------------------------%
 
 %文档开始
 \begin{document}
-%标题及目录
-\pagenumbering{Roman}
-\clearpage {\pagestyle{empty}}
-\maketitle
-\setcounter{page}{1}
-\tableofcontents
-
-%正文部分
-\newpage
-\setcounter{page}{1}
-\pagenumbering{arabic}
-
-%第一章-函数与极限
-\include{tex/C-1}
-
-%第七章-重积分
-\include{tex/C-7}
-
-%第八章-曲线积分和曲面积分
-\include{tex/C-8}
-
-%第九章-常微分方程
-\include{tex/C-9}
-
-%打印索引—————————————
-\newpage
-\addcontentsline{toc}{chapter}{附录}
-\addcontentsline{toc}{section}{索引}
-\color{titlepurplec}
-\appendix
-\CJKfamily{kai}
-\printindex
-%———————————————
-
+	%标题及目录
+	\pagenumbering{Roman}
+	\clearpage {\pagestyle{empty}}
+	\maketitle
+	\setcounter{page}{1}
+	\tableofcontents
+	
+	%正文部分
+	\newpage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+	
+	%第一章-函数与极限
+	\include{tex/C-1}
+	
+	%第二章-导数与微分
+	\include{tex/C-2}
+	
+	%第三章-不定积分
+	\include{tex/C-3}
+	
+	%第四章-定积分
+	\include{tex/C-4}
+	
+	%第五章-向量与空间解析几何
+    \include{tex/C-5}
+	
+	%第七章-重积分
+	\include{tex/C-7}
+	
+	%第八章-曲线积分和曲面积分
+	\include{tex/C-8}
+	
+	%第九章-常微分方程
+	\include{tex/C-9}
+	
+	%打印索引—————————————
+	\newpage
+	\addcontentsline{toc}{chapter}{附录}
+	\addcontentsline{toc}{section}{索引}
+	\color{titlepurplec}
+	\appendix
+	\CJKfamily{kai}
+	\printindex
+	%———————————————
+	
 \end{document}

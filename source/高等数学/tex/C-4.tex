@@ -1,0 +1,254 @@
+    \chapter{定积分}
+\section{定积分的基本概念}
+\subsection{曲边梯形的面积}
+设$y=f(x)$在区间$[a,b]$上非负，连续。由直线$x=a,x=b,y=0$及曲线$y=f(x)$所围成的图形称为\highlight{red}{\index{QBTX@曲边梯形}曲边梯形}，其中曲线弧称为\highlight{red}{曲边}。\\
+\thispagestyle{empty}
+\kg 下面用\highlight{red}{\index{YSF@元素法}元素法}\footnote{元素法在定积分的应用会详细讲解}详细地说明曲边梯形面积的求法。\\
+\kg (1)\enspace\textbf{分割}。用任意一组分点把区间$[a,b]$分成长度为$\Delta x_i$($i=1,2,\cdots,n$)的$n$的小区间$[x_{i-1},x_i]$，相应地把曲边梯形分成$n$个窄曲边梯形，第$i$个窄曲边梯形的面积设为$\Delta S_i$,则
+\begin{equation}
+	S=\sum_{i=1}^{n}\Delta S_i
+\end{equation}
+\kg (2)\textbf{计算$\Delta S_i$的近似值}(利用窄曲边梯形的面积$\approx$窄边矩形的面积=高$\times$宽，在每个小区间$[x_{i-1},x_i]$上用其中某一点$\xi_i$处的高来近似代替同一个小区间上窄矩形的变高)
+\begin{equation}
+	\Delta S_i\approx f(\xi_i)\Delta x_i(x_{i-1}\leq \xi_i\leq x_i)
+\end{equation}
+\kg (3)\textbf{求和}，得$S$的近似值
+\begin{equation}
+	S=\sum_{i=1}^{n}\Delta S_i\approx\sum_{i=1}^{n} f(\xi_i)\Delta x_i
+\end{equation}
+\kg (4)\textbf{求极限}，记$\lambda=\text{max}\{\Delta x_i,1\leq i\leq n\}$,（$\lambda$的几何意义是所有分得的小区间中长度最大的区间。当$\lambda\to0$时，所有的小区间长度都趋于0，这个时候分得的每个区间足够小，上式便不是估计式，而是等式）得
+\begin{equation}
+	S=\sum_{i=1}^{n}\Delta S_i=\lim\limits_{\lambda\to 0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i
+\end{equation}
+\subsection{定积分的定义}
+通过计算曲边梯形的面积，我们可以类比得到定积分的定义。
+\\ 
+
+\sj
+\defination[定积分定义]
+设函数$f(x)$在$[a,b]$上有界，在区间$[a,b]$中任意插入若干个分点
+\begin{equation}
+	\nonumber
+	a=x_0<x_1<x_2<\cdots<x_{n-1}<x_n=b
+\end{equation}
+把区间$[a,b]$分成$n$个小区间：
+\begin{equation}
+	[x_1,x_2],[x_2,x_3],\cdots,[x_{n-1},x_n]
+\end{equation}
+各个小区间的长度依次为：
+\begin{equation}
+	\nonumber
+	\Delta x_1=x_2-x_1,\Delta x_2-x_3,\cdots,\Delta x_n=x_n-x_{n-1}
+\end{equation}
+在每个小区间$[x_{i-1},x_i]$上任取一点$\xi_i(x_{i-1}\leq \xi_i\leq x_i)$,作函数值$f(\xi_i)$与小区间长度$\Delta x_i$的乘积$f(\xi_i)\Delta x_i$,并求和
+\begin{equation}
+	S=\sum_{i=1}^{n}f(\xi_i)\Delta x_i
+\end{equation}
+\kg 记$\lambda=\text{max}\{\Delta x_i,1\leq i\leq n\}$\footnote{无特殊说明，在本章节中$\lambda$都表示$\max \{\Delta x_i,1\leq x_i\leq n\}$},如果$\lambda\to 0$时，上式的极限总存在，且与闭区间$[a,b]$的分法及点$\xi_i$的取法无关，那么称这个极限为函数$f(x)$在区间$[a,b]$上的\highlight{red}{\index{DJF@定积分}定积分}(简称\highlight{red}{\index{JF@积分}积分})，记作
+\begin{equation}
+	\int_{a}^{b}f(x)\,\d x=\lim\limits_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i
+\end{equation}
+\kg 其中函数$f(x)$叫做\highlight{red}{\index{BJHS@被积函数}被积函数}，$f(x)\d x$叫做\highlight{red}{\index{BJBDS@被积表达式}被积表达式}，$x$叫做\highlight{red}{\index{JFBL@积分变量}积分变量}，$a$叫做\highlight{red}{\index{JFXX@积分下限}积分下限}，$b$叫做\highlight{red}{\index{JFSX@积分上限}积分上限}，$[a,b]$叫做\highlight{red}{\index{JFQJ@积分区间}积分区间}。\\
+\kg 由于积分的定义与极限有关，故我们也可以用$\varepsilon-\delta$语言来表述定积分的定义。
+\\ \kg 设有常数$I$，如果对于任意给定的正数$\varepsilon$,总存在一个正数$\delta$,使得对于区间$[a,b]$的任何分法，不论$\xi_i$在$[x_{i-1},x_i]$中怎样选取，只要$\lambda=\max\{\Delta x_i,1\leq i\leq n\}<\delta$,总有
+\begin{equation}
+	\bigg|\sum_{i=1}^{n}f(\xi_i)\Delta x_i-I \,\bigg|<\varepsilon\sj
+\end{equation}
+\noindent 成立，那么我们称$I$函数$f(x)$在区间$[a,b]$上的定积分，记作$\di\int_{a}^{b}f(x)\,\d x$.
+\warn[\kg 定积分的值只与被积函数和被积区间有关，而与积分变量的记法无关。例如
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x=\int_{a}^{b}f(t) \,\d t=\int_{a}^{b}f(u) \,\d u\sj
+	\end{equation}
+\kg $\di\sum_{i=1}^{n}f(\xi_i)\Delta x_i$通常称为$f(x)$的积分和。如果$f(x)$在{$[a,b]$}上的定积分存在，那么就称$f(x)$在{$[a,b]$}上可积。]
+\noindent \textbf{补充\hspace{1em} 积分存在的条件}\\
+
+\sj
+\theorem[积分存在条件1]
+设函数$f(x)$在$[a,b]$上连续，则$f(x)$在$[a,b]$上可积。\\
+
+\sj
+\theorem[积分存在条件2]
+设函数$f(x)$在$[a,b]$上有界，且只有\textbf{有限个}间断点，则$f(x)$在$[a,b]$上可积。
+下面只给出一个不可积的函数：狄利克雷函数(Dirichlet)函数
+\begin{equation}
+	\nonumber
+	D(x)=\begin{cases}
+		\, 1, & x \in Q \\
+		\, 0, & x \in q
+	\end{cases}
+\end{equation}
+这个函数有无穷个间断点，故它是不可积的函数。
+\subsection{定积分的几何意义}
+定积分$\di\int_{a}^{b}f(x) \,\d x$表示曲线$y=f(x)$,两条直线$x=a,x=b$与$x$轴上方所围成的曲边梯形减去$x$轴下方所围成的图形面积。例如$\di\int_{a}^{b}f(x) \,\d x=S_2-S_1-S_3$.
+\section{定积分的运算法则}
+\subsection{定上下限定积分的性质}
+首先，我们对定积分的定义再补充两个规定：
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x=0
+\end{equation}
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x=-\int_{b}^{a}f(x) \,\d x
+\end{equation}
+由上式可知，交换定积分的上下限时，定积分的绝对值不变而符号相反。\\
+
+\sj
+\theorem[定上下限积分性质1]
+设$\alpha$与$\beta$均为常数，则
+\begin{equation}
+	\int_{a}^{b}[\alpha f(x)+\beta g(x)] \,\d x=\alpha\int_{a}^{b}f(x) \,\d x+\beta\int_{a}^{b}g(x) \,\d x
+\end{equation}
+\proof $\di\int_{a}^{b}[\alpha f(x)+\beta g(x)] \,\d x=\lim\limits_{\lambda\to0}\sum_{i=1}^{n}[\alpha f(\xi_i)+\beta g(\xi_i)]\Delta x_i$\vspace{-1em}\\
+\hspace*{14.7em}$=\di\lim\limits_{\lambda\to0}\sum_{i=1}^{n}\alpha f(\xi_i)\Delta x_i+\lim\limits_{\lambda\to0}\sum_{i=1}^{n}\beta g(\xi_i)\Delta x_i$\\
+\hspace*{14.7em}$=\di\alpha\lim\limits_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i+\beta\lim\limits_{\lambda\to0}\sum_{i=1}^{n}g(\xi_i)\Delta x_i$\\
+\hspace*{14.7em}$=\alpha \di\int_{a}^{b}f(x)\,\d x+\beta \int_{a}^{b}g(x)\,\d x$\\
+
+\theorem[定上下限积分性质2]
+设$a<c<b$,则
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x=\int_{a}^{c}f(x) \,\d x+\int_{c}^{b}f(x) \,\d x
+\end{equation}
+\proof 因为函数$f(x)$在区间$[a,b]$上可积，所以不论把区间$[a,b]$怎样分，积分和的极限都不会改变，因\vspace{-0.5em}\\ 此，\textbf{在分区时，可以使$c$点永远是个分点}。那么，$[a,b]$上的积分和等于$[a,c]$上的积分和加上$[c,b]$上的积分和，即
+\begin{equation}
+	\sum_{[a,b]}f(\xi_i)\Delta x_i=\sum_{[a,c]}f(\xi_i)\Delta x_i+\sum_{[c,b]}f(\xi_i)\Delta x_i
+\end{equation}
+令$\lambda\to0$,两端同时取极限，即得
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x=\int_{a}^{c}f(x) \,\d x+\int_{c}^{b}f(x) \,\d x
+\end{equation}
+\kg 实际上，由于有了定积分的补充定义，无论$a,b,c$的位置如何，上式都成立。\\
+\kg 这个性质表明定积分对于积分区间具有\textbf{可加性}.\\
+
+\theorem[定上下限积分性质3]
+\label{theorem:1}
+如果在区间$[a.b]$上$f(x)>0$,那么
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x\geq0
+\end{equation}
+\proof 因为$f(x)\geq 0$,所以$f(\xi_i)\geq0$,又由于$\Delta x_i(i=1,2,\cdots,n\geq0)$,所以\sj
+\begin{equation}
+	\sum_{i=0}^{n}f(\xi_i)\Delta x_i\geq0 \Rightarrow \int_{a}^{b}f(x) \,\d x=\lim\limits_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i\geq 0
+\end{equation}
+
+\theorem[定上下限积分性质4]
+\label{theorem:2}
+如果在区间$[a,b]$上$f(x)\geq g(x)$,那么
+\begin{equation}
+	\int_{a}^{b}f(x) \,\d x\geq \int_{a}^{b}g(x) \,\d x
+\end{equation}
+\proof 因为$f(x)-g(x)\geq0$,由\ref{theorem:1}\hspace*{0.3em}得
+\begin{equation}
+	\int_{a}^{b}f(x)-g(x) \,\d x=\int_{a}^{b}f(x) \,\d x-\int_{a}^{b}g(x) \,
+	\d x\geq0
+\end{equation}
+证毕。\\
+
+\sj
+\theorem[定上下限积分性质5]
+\label{theorem:3}
+设$M$及$m$分别是函数$f(x)$在区间$[a,b]$上的最大值及最小值，则
+\begin{equation}
+	m(b-a)\leq \int_{a}^{b}f(x) \,\d x\leq M(b-a)
+\end{equation}
+\proof 因为$m\leq f(x)\leq M$,由 \ref{theorem:2}\hspace*{0.3em}得
+\sj 
+\begin{equation}
+	\nonumber
+	m(b-a)=\int_{a}^{b}m \,\d x\leq \int_{a}^{b}f(x) \,\d x\leq \int_{a}^{b}M \,\d x=M(b-a)
+\end{equation}
+证毕。\\
+\kg 这个定理为我们\textbf{估计定积分的值}提供了一种简单的方法，例如:
+\begin{equation}
+	\nonumber
+	1=(2-1)\times1^3\leq \int_{1}^{2}x^3 \,\d x\leq (2-1)\times2^3=8
+\end{equation}
+
+\sj
+\theorem[积分中值定理]
+\label{theorem:4}
+如果函数$f(x)$在积分区间$[a,b]$上连续，那么在区间$[a,b]$上至少存在一个点$\xi$,使得
+\begin{equation}
+	\int_{a}^{b}f(x)\,\d x=f(\xi)(b-a)(a\leq\xi\leq b)
+\end{equation}
+\proof 设$M$及$m$分别是函数$f(x)$在区间$[a,b]$上的最大值及最小值，则由\ref{theorem:3}\hspace*{0.3em} 得
+\begin{equation}
+	\nonumber
+	m\leq\frac{1}{b-a}\int_{a}^{b}f(x) \,\d x\leq M
+\end{equation}
+又$m\leq f(x)\leq M$，由介值定理可知在区间$[a,b]$上至少存在一个点$\xi$,使得$f(\xi)=C\in[m,M]$.\vspace{0.5em}\\
+而由于定积分$\di\frac{1}{b-a}\int_{a}^{b}f(x)\,\d x$也是一个具体的常数，且$\di m\leq\frac{1}{b-a}\int_{a}^{b}f(x) \,\d x\leq M$,\\
+由于$C\in [m,M]$是任意的数，则我们取$C=\di\frac{1}{b-a}\int_{a}^{b}f(x) \,\d x$,那么\\
+在区间$[a.b]$上至少存在一个点$\xi$,使得
+\begin{equation}
+	\nonumber
+	f(\xi)=\frac{1}{b-a}\int_{a}^{b}f(x)\,\d x \Rightarrow \int_{a}^{b}f(x)\,\d x=f(\xi)(b-a).
+\end{equation}
+\kg 积分中值公式也有几何解释如下：\\
+\kg 在区间$[a,b]$上至少存在一个点$\xi$使得以区间$[a,b]$为底边的，以曲线$y=f(x)$为曲边的曲边梯形的面积等于同一底边而高为$f(\xi)$的一个矩形的面积。
+\\ \kg 按积分中值公式可得：
+\begin{equation}
+	\nonumber
+f(\xi)=\frac{1}{b-a}\int_{a}^{b}f(x) \,\d x
+\end{equation}
+称为\textbf{函数$f(x)$在区间$[a,b]$上的平均值}。
+\subsection{变上限定积分函数的性质}
+\noindent 1.变上限定积分函数的定义\\
+\kg 设函数$f(x)$在区间$[a,b]$上连续，并且设$x$为$[a,b]$上的一点，那么我们称函数
+\begin{equation}
+	F(x)=\int_{a}^{x}f(x) \,\d x
+\end{equation}
+为\highlight{red}{\index{BSXJFHS@变上限定积分函数}变上限定积分函数}。由于定积分的值与标记变量无关，为了避免混淆，我们通常记作
+\begin{equation}
+	F(x)=\int_{a}^{x}f(t)\,\d t
+\end{equation}
+2.变上限定积分函数的重要性质\\
+
+\sj
+\theorem[变上限定积分函数的性质]
+设函数$f(x)$在区间$[a,b]$上连续，那么变上限定积分函数
+\begin{equation}
+	\nonumber
+	F(x)=\int_{a}^{x}f(t) \,\d t
+\end{equation}
+在区间$[a,b]$上可导，且导函数为
+\begin{equation}
+	\nonumber
+	F‘(x)=\frac{\d}{\d x}\int_{a}^{x}f(t) \,\d t=\d x  \hspace{1em}(a\leq x\leq b)
+\end{equation}
+\proof 由积分中值定理，对于任意$x,x+\Delta x\in[a,b]$,都至少存在一点$\xi\in[x,x+\Delta x]$,使得\sj
+\begin{equation}
+	\nonumber
+	F(x+\Delta x)-F(x)=\int_{a}^{x+\Delta x}f(t)\,\d t-\int_{a}^{x}f(t)\,\d t=\int_{a}^{x}f(t)\,\d t+\int_{x}^{x+\Delta x}f(t)\,\d t-\int_{a}^{x}f(t)\,\d t=\int_{x}^{x+\Delta x}f(t)\,\d t
+\end{equation}
+\begin{equation}
+	\nonumber
+	F(x+\Delta x)-F(x)=\int_{x}^{x+\Delta x}f(t)\d t=f(\xi)\Delta x
+\end{equation}
+即
+\begin{equation}
+	\nonumber
+	\frac{F(x+\Delta x)-F(x)}{\Delta x}=f(\xi)
+\end{equation}
+由于任意$x,x+\Delta x\in[a,b]$上式都成立，那么我们不妨取$\Delta x\to 0$,即
+\begin{equation}
+	\nonumber
+	\lim\limits_{\Delta x\to 0}	\frac{F(x+\Delta x)-F(x)}{\Delta x}=	\lim\limits_{\Delta x \to 0}f(\xi)
+	\end{equation}
+而
+\begin{equation}
+	\nonumber
+	\lim\limits_{\Delta x\to 0}	\frac{F(x+\Delta x)-F(x)}{\Delta x}=F‘(x)
+\end{equation}
+又由于$\xi\in[x,x+\Delta x]$,$\Delta x\to0$,$\xi\to x$,故
+\begin{equation}
+	\nonumber
+	\lim\limits_{\Delta x\to 0}f(\xi)=f(x)
+\end{equation}
+那么在区间$[a,b]$上有$F'(x)=f(x)$,考虑左端点和右端点的导数的情形，只需把上述推导过程中的$x$变成$a$即可。
+故在区间$[a,b]$上都满足$F‘(x)=f(x)$
+\\
+这个定理说明了:\textbf{连续函数的变上限的积分就是该连续函数的一个原函数}，即如果函数$f(x)$在$[a,b]$上连续，那么函数
+\begin{equation}
+	\nonumber
+F(x)=\int_{a}^{x}f(t) \,\d t
+\end{equation}
+就是函数$f(x)$在$[a,b]$上的一个原函数。
