@@ -21,6 +21,8 @@
 目前正在更新的笔记有：
 
 ![License: GPL v3](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+* 高等数学
+
 
 已完成的笔记有
 * 大学物理上册
@@ -31,7 +33,6 @@
 
 ![License: GPL v3](https://img.shields.io/badge/Maintained%3F-no-red.svg)
 * Matlab与科学计算（Matlab）
-* 高等数学
 * 概率论与数理统计
 * 自动控制原理（Principle of Automatic Control）
 * 工程热力学和传热学（Engineering Thermodynamics and Heat Transfer）
