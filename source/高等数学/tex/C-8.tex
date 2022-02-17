@@ -261,18 +261,18 @@ $
 	\setlength{\tabcolsep}{10mm}{
 		\begin{tabular}{ccc}
 			\toprule[2pt] 
-			\rowcolor[gray]{0.9}   曲面方程形式 & 法向量  & 方向的规定\\  
+			曲面方程形式 & 法向量  & 方向的规定\\  
 			\midrule[1.2pt]
 			\multirow{2}{*}{$z=z(x,y)$} & $\bm{n}_1 = (-z_x,-z_y,1) $ &上侧\\
 			\cline{2-3}
 			& $\bm{n}_2 = (z_x,z_y,-1) \hspace{0.8em}$ & 下侧\\
-			\midrule[1.2pt]
+			\hline
 			\multirow{2}{*}{$y=y(x,z)$} & $\bm{n}_1 = (-y_x,1,-y_z)$ &右侧\\
 			\cline{2-3}
 			& $\bm{n}_2= (y_x,-1,y_z)\hspace{0.8em} $ & 左侧\\
-			\midrule[1.2pt]
+			\hline
 			\multirow{2}{*}{$x=x(y,z)$} & $\bm{n}_1 = (1,-x_y,-x_z) $ &前侧\\
-			\cline{2-3}
+			\hline
 			& $\bm{n}_2= (-1,x_y,x_z)\hspace{0.8em} $ & 后侧\\
 			\bottomrule[2pt]
 		\end{tabular}  
@@ -310,7 +310,7 @@ $
 则二重积分可写成
 \begin{equation}
 	\begin{split}
-		\iint\limits_{S}\bm{F}\cdot \bm{n}\,\,\d S&=\iint\limits_{S}(P\cos \alpha +Q\cos \beta +R\cos \gamma )\,\,\d S\\
+		\iint\limits_{S}\bm{F}\cdot \bm{n}\,\,\d S&=\iint\limits_{S}\big(P\cos \alpha +Q\cos \beta +R\cos \gamma \big)\,\,\d S\\
 		&=\iint\limits_{S}P \,\d y\d z+Q\,\d z\d x+R\,\d x\d y
 	\end{split}
 \end{equation}
@@ -318,17 +318,22 @@ $
 \subsection{第二型曲面积分的计算}
 \begin{table}[h]
 	\centering
-	\renewcommand{\arraystretch}{1.6}
 	\setlength{\tabcolsep}{20mm}{
 		\begin{tabular}{cc}
 			\toprule[1.5pt] 
-			\rowcolor[gray]{0.9}   曲面方程形式 &  方向余弦 \\  
+			曲面方程形式 &  方向余弦 \\  
 			\midrule
+			& \vspace*{-1.7em} \\
 			$z=z(x,y)$& $\displaystyle \frac{\pm 1}{\sqrt{1+z_x^2+z_y^2}}\, (-z_x,-z_y,1)$\\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1.5em} \\
 			$y=y(x,z)$ & $\displaystyle \frac{\pm 1}{\sqrt{1+y_x^2+y_z^2}} \,(-y_x,1,-y_z)$ \\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1.5em} \\
 			$x=x(y,z)$& $\displaystyle \frac{\pm 1}{\sqrt{1+x_y^2+x_z^2}} \,(1,-x_y,-x_z)$ \\
+			& \vspace*{-1.7em} \\
 			\bottomrule[1.5pt]
 		\end{tabular}  
 	}
@@ -341,17 +346,22 @@ $
 由上表\ref{方向余弦}并利用公式$\displaystyle \iint\limits_{S}\bm{F}\cdot \bm{n}\,\,\d S=\iint\limits_{S}(P\cos \alpha +Q\cos \beta +R\cos \gamma )\,\,\d S$可以得到转换公式如下表.
 \begin{table}[h]
 	\centering
-	\renewcommand{\arraystretch}{1.6}
-	\setlength{\tabcolsep}{3mm}{
+	\setlength{\tabcolsep}{3.2mm}{
 		\begin{tabular}{cc}
 			\toprule[1.5pt] 
-			\rowcolor[gray]{0.9}   曲面方程形式 & 结果\\  
+			曲面方程形式 & 结果\\  
 			\midrule
+			& \vspace*{-1.7em} \\
 			$z=z(x,y)$ &$\displaystyle \pm\iint\limits_{D_{xy}}[\,P(x,y,z(x,y))(-z_x) +Q(x,y,z(x,y))(-z_y) +R(x,y,z(x,y))\,]\,\,\d \sigma $\\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1.5em} \\
 			$y=y(x,z)$ &$\displaystyle \pm\iint\limits_{D_{xz}}[\,P(x,y,z(x,y))(-y_x) +Q(x,y,z(x,y)) +R(x,y,z(x,y))(-y_z)\,]\,\,\d \sigma $\\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1.5em} \\
 			$x=x(y,z)$ &$\displaystyle \pm\iint\limits_{D_{xy}}[\,P(x,y,z(x,y)) +Q(x,y,z(x,y))(-x_y) +R(x,y,z(x,y))(-x_z)\,]\,\,\d \sigma $\\
+			& \vspace*{-1.7em} \\
 			\bottomrule[1.5pt]
 		\end{tabular}  
 	}
@@ -369,7 +379,7 @@ $
 \par \quad 4. 根据方向余弦确定侧向进而确定二重积分的符号.
 
 \quad 提示：若投影区域面积为0,则相应的二重积分为0.
-\newpage
+
 \theorem[高斯公式]
 表达了空间闭区域上的三重积分与其边界曲面上的曲面积分之间的关系, 这个关系可陈述如下:
 \par 设空间闭区域$\Omega $是由分片光滑的闭曲面$\Sigma $所围成,若函数$P(x, y, z),Q(x, y, z),R(x, y, z)$在$\Omega $上具有一阶连续偏导数.则有
@@ -431,7 +441,7 @@ $
 	\setlength{\tabcolsep}{6mm}{
 		\begin{tabular}{ccc}
 			\toprule[1.5pt] 
-			\rowcolor[gray]{0.9}   满足等式  & 函数奇偶性 & 图像特点 \\  
+			满足等式  & 函数奇偶性 & 图像特点 \\  
 			\midrule
 			$f(x,y,z)=-f(-x,y,z)$& $f(x,y,z)$是关于$x$的奇函数&无\\
 			\hline
@@ -464,23 +474,34 @@ $
 \end{equation}
 \begin{table}[!htb]
 	\centering
-	\renewcommand{\arraystretch}{1.8}
 	\setlength{\tabcolsep}{9mm}{
 		\begin{tabular}{cc}
 			\toprule[2pt] 
-			\rowcolor[gray]{0.9}   积分类型  & 轮换表达式 \\  
+			积分类型  & 轮换表达式 \\  
 			\midrule[1.3pt]
+			& \vspace*{-1.3em} \\
 			二重积分 &  $\displaystyle \iint\limits_{D}f(x,y)\,\,\d \sigma =\iint\limits_{D}f(y,x)\,\,\d \sigma = \frac{1}{2}\iint\limits_{D}\left[\, f(y,x)+f(x,y) \, \right]\,\,\d \sigma$\\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1em} \\
 			三重积分 &$\displaystyle \iiint\limits_{S}f(x,y,z)\,\,\d V =\iiint\limits_{S}f(y,x,z)\,\,\d V = \iiint\limits_{S}f(z,x,y)\,\,\d V $ \\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1.3em} \\
 			第一型曲线积分 & $\displaystyle \int_{L}f(x,y)\,\,\d \sigma =\int_{L}f(y,x)\,\,\d \sigma = \frac{1}{2}\int_{L}\left[\, f(y,x)+f(x,y) \, \right]\,\,\d \sigma$ \\
+			& \vspace*{-1.3em} \\
 			\hline
+			& \vspace*{-1.3em} \\
 			第二型曲线积分 &  $\displaystyle \int_{L}f(x,y)\,\,\d x+\int_{L}f(y,x)\,\,\d y= 0$ \\
+			& \vspace*{-1.3em} \\
 			\hline
+			& \vspace*{-1em} \\
 			第一型曲面积分 &  $\displaystyle \iint\limits_{S}f(x,y,z)\,\,\d S =\iint\limits_{S}f(y,x,z)\,\,\d S = \iint\limits_{S}f(z,x,y)\,\,\d S $ \\
+			& \vspace*{-1.5em} \\
 			\hline
+			& \vspace*{-1.1em} \\
 			第二型曲面积分 &  $\displaystyle \iint\limits_{S}f(x,y,z)\,\,\d y \d z =\iint\limits_{S}f(y,x,z)\,\,\d x\d z = \iint\limits_{S}f(z,x,y)\,\,\d x\d y $ \\
+			& \vspace*{-1.7em} \\
 			\bottomrule[2pt]
 		\end{tabular}  
 	}
@@ -493,51 +514,50 @@ $
 设被积函数为$f(x,y)$或$f(x,y,z)$，根据函数的奇偶性，可以得到积分的对称性
 \begin{table}[!htb]
 	\centering
-	\renewcommand{\arraystretch}{1.6}
 	\setlength{\tabcolsep}{9mm}{
 		\begin{tabular}{cccc}
 			\toprule[2pt] 
-			\rowcolor[gray]{0.9}   积分类型  & 积分区域  &  被积函数 & 化简结果 \\  
+			积分类型  & 积分区域  &  被积函数 & 化简结果 \\  
 			\midrule[1.3pt]
-			\multirow{4}{*}{二重积分} & \multirow{2}{*}{关于$y$轴对称}  & 关于$x$的偶函数 & $\displaystyle I=2\iint\limits_{D_1} f(x,y)\,\, \d \sigma $\\
+			\multirow{4}{*}{\makecell[c]{\\[1.2em]二重积分}} & \multirow{2}{*}{关于$y$轴对称}  & 关于$x$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{D_1} f(x,y)\,\, \d \sigma $\\[1.2em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$x$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$x$轴对称}  & 关于$y$的偶函数 & $\displaystyle I=2\iint\limits_{D_1} f(x,y) \,\,\d \sigma $\\
+			& \multirow{2}{*}{关于$x$轴对称}  & 关于$y$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{D_1} f(x,y) \,\,\d \sigma $\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\midrule[1.3pt]
-			\multirow{6}{*}{三重积分} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & $\displaystyle I=2\iiint\limits_{\Omega _1} f(x,y) \,\,\d V$\\
+			\multirow{6}{*}{\makecell[c]{\\[2em]三重积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iiint\limits_{\Omega _1} f(x,y) \,\,\d V$\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$z$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$z$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & $\displaystyle I=2\iiint\limits_{\Omega _1} f(x,y) \,\,\d V$\\
+			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iiint\limits_{\Omega _1} f(x,y) \,\,\d V$\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & $\displaystyle I=2\iiint\limits_{\Omega _1} f(x,y) \,\,\d V$\\
+			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iiint\limits_{\Omega _1} f(x,y) \,\,\d V$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$x$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\midrule[1.3pt]
-			\multirow{4}{*}{\makecell[c]{第一型\\曲线积分\\(平面)}} & \multirow{2}{*}{关于$y$轴对称}  & 关于$x$的偶函数 & $\displaystyle I=2\int_{L_1} f(x,y) \,\,\d s $\\
+			\multirow{4}{*}{\makecell[c]{\\[0.7em]第一型\\曲线积分\\(平面)}} & \multirow{2}{*}{关于$y$轴对称}  & 关于$x$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y) \,\,\d s $\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$x$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$x$轴对称}  & 关于$y$的偶函数 & $\displaystyle I=2\int_{L_1} f(x,y)\,\,\d s  $\\
+			& \multirow{2}{*}{关于$x$轴对称}  & 关于$y$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y)\,\,\d s  $\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\midrule[1.3pt]
-			\multirow{6}{*}{\makecell[c]{第一型\\曲线积分\\(空间)}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & $\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d s  $\\
+			\multirow{6}{*}{\makecell[c]{\\[1.5em]第一型\\曲线积分\\(空间)}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d s  $\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$z$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$z$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & $\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d s  $\\
+			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d s  $\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & $\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d s  $\\
+			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d s  $\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$x$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\bottomrule[2pt]
 		\end{tabular}  
 	}
@@ -545,51 +565,50 @@ $
 	\renewcommand{\arraystretch}{1}
 	\label{积分的奇偶对称性1}
 \end{table} 
-\newpage 
+\clearpage 
 续表
 \begin{table}[!htb]
 	\centering
-	\renewcommand{\arraystretch}{1.6}
 	\setlength{\tabcolsep}{9mm}{
 		\begin{tabular}{cccc}
 			\toprule[2pt] 
-			\rowcolor[gray]{0.9}   积分类型  & 积分区域  &  被积函数 & 化简结果 \\  
+			 积分类型  & 积分区域  &  被积函数 & 化简结果 \\  
 			\midrule[1.3pt]
-			\multirow{6}{*}{\makecell[c]{第一型\\曲面积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & $\displaystyle I=2\iint\limits_{S_1} f(x,y,z) \,\,\d S$\\
+			\multirow{6}{*}{\makecell[c]{\\[0.5em]第一型\\曲面积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{S_1} f(x,y,z) \,\,\d S$\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$z$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$z$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & $\displaystyle I=2\iint\limits_{S_1} f(x,y,z) \,\,\d S$\\
+			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{S_1} f(x,y,z) \,\,\d S$\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & $\displaystyle I=2\iint\limits_{S_1} f(x,y,z) \,\,\d S$\\
+			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{S_1} f(x,y,z) \,\,\d S$\\[1em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 & $\displaystyle I=0$\\
+			&  & 关于$x$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\midrule[1.3pt]
-			\multirow{6}{*}{\makecell[c]{第二型\\曲线积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & $\displaystyle I=0$\\
+			\multirow{6}{*}{\makecell[c]{\\[1.5em]第二型\\曲线积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$z$的奇函数 & $\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d z  $\\
+			&  & 关于$z$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d z  $\\[1em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & $\displaystyle I=0$\\
+			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d y  $\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d y  $\\[1em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & $\displaystyle I=0$\\
+			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 & $\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d y  $\\
+			&  & 关于$x$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\int_{L_1} f(x,y,z)\,\,\d y  $\\[1em]}\\
 			\midrule[1.3pt]
-			\multirow{6}{*}{\makecell[c]{第二型\\曲面积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 &  $\displaystyle I=0$\\
+			\multirow{6}{*}{\makecell[c]{\\[2em]第二型\\曲面积分}} & \multirow{2}{*}{关于$Oxy$对称}  & 关于$z$的偶函数 &  \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$z$的奇函数 &$\displaystyle I=2\iint\limits_{S_1} f(x,y,z)\,\,\d x\d y  $\\
+			&  & 关于$z$的奇函数 &\makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{S_1} f(x,y,z)\,\,\d x\d y  $\\[1em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 &  $\displaystyle I=0$\\
+			& \multirow{2}{*}{关于$Oxz$对称}  & 关于$y$的偶函数 &  \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$y$的奇函数 & $\displaystyle I=2\iint\limits_{S_1} f(x,y,z)\,\,\d z\d x  $\\
+			&  & 关于$y$的奇函数 & \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{S_1} f(x,y,z)\,\,\d z\d x  $\\[1em]}\\
 			\cline{2-4}
-			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 &  $\displaystyle I=0$\\
+			& \multirow{2}{*}{关于$Oyz$对称}  & 关于$x$的偶函数 &  \makecell[c]{\\[-1.5em]$\displaystyle I=0$\\[0.3em]}\\
 			\cline{3-4}
-			&  & 关于$x$的奇函数 &  $\displaystyle I=2\iint\limits_{S_1} f(x,y,z)\,\,\d y\d z  $\\
+			&  & 关于$x$的奇函数 &  \makecell[c]{\\[-1.5em]$\displaystyle I=2\iint\limits_{S_1} f(x,y,z)\,\,\d y\d z  $\\[1em]}\\
 			\bottomrule[2pt]
 		\end{tabular}  
 	}
