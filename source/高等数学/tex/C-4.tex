@@ -72,10 +72,12 @@
 下面只给出一个不可积的函数：狄利克雷函数(Dirichlet)函数
 \begin{equation}
 	\nonumber
-	D(x)=\begin{cases}
-		\, 1, & x \in Q \\
-		\, 0, & x \in q
-	\end{cases}
+	D(x)=\left\{
+		\begin{aligned}
+			& \,1,x\in Q\\
+			& \,0,x\in q&
+		\end{aligned}
+		\right.
 \end{equation}
 这个函数有无穷个间断点，故它是不可积的函数。
 \subsection{定积分的几何意义}
@@ -252,3 +254,92 @@ f(\xi)=\frac{1}{b-a}\int_{a}^{b}f(x) \,\d x
 F(x)=\int_{a}^{x}f(t) \,\d t
 \end{equation}
 就是函数$f(x)$在$[a,b]$上的一个原函数。
+\subsection{牛顿(Newton)-莱布尼茨(Leibniz)公式}
+
+\theorem[微积分基本定理]
+\label{theorem:4.8}
+如果函数$F(x)$是连续函数$f(x)$在区间$[a,b]$上的一个原函数，那么
+\begin{equation}
+	\int_{a}^{b}f(t)\d t=F(b)-F(a)
+\end{equation}
+\proof 由\ref{theorem:4}$\,$知，$f(x)$的一个原函数为$F_0(x)=\int_{a}^{x}f(t)\d t$,那么$F'(x)-F'_0(x)=0$,\\
+故$F(x)-F_0(x)=C(C\text{为常数})$。又$f(x)$在区间$[a,b]$上连续，所以$F(x)-F_0(x)=C(C\text{为常数})$在区间$[a,b]$上恒成立。\\
+不妨取$x=a$,由定积分的补充定义上下限相同时积分为0，那么$F(a)-F_0(a)=F(a)-0=C\Rightarrow C=F(a)$.\vspace{0.5em}\\
+不妨取$x=b$,$\di F(b)-F_0(b)=F(b)-\int_{a}^{b}f(t)\d t=F(a) \Rightarrow \int_{a}^{b}=F(b)-F(a)$.
+\par 这个定理给了我们求定积分一种重要且简单的方法：找到被积函数的原函数，再计算两个端点函数值之差即可。
+\section{定积分的应用}
+\subsection{曲线弧长的计算}
+设平面上给定的一条曲线弧$\wideparen{AB}$,其参数方程为:
+\begin{equation}
+	\begin{cases}
+		\, x=x(t)\\
+		 \, y=y(t)&
+	\end{cases}
+\end{equation}
+\par 当$t=a$时对应端点$A$，$t=b$时对应端点$B$。如果函数$x(t),y(t)$有连续的导函数$x'(t),y'(t)$那么这个曲线称为光滑曲线，光滑曲线总是可以计算弧长的。
+\par 我们将区间$[a,b]$分成$n$份：
+\begin{equation}
+	\nonumber
+	a=t_0<t_1<\cdots<t_n=b
+\end{equation}
+那么在曲线弧$\wideparen{AB}$上也有相应的点；$M(x(t_i),y(t_i))$,i=0,1,$\cdots$,n.记
+\begin{equation}l
+	\Delta s_i=\wideparen{M_{i-1}M_i}\approx\overline{M_{i-1}M_i} =\sqrt{[x(t_i)-x(t_{i-1})]^2+[y(t_i)-y(t_{i-1})]^2}
+\end{equation}
+当区间无限小时，由导数定义：
+\begin{equation}
+	x'(t_{i-1})=\frac{x(t_i)-x(t_{i-1})}{t_i-t_{i-1}}\hspace{3em} y'(t_{i-1})=\frac{y(t_i)-y(t_{i-1})}{t_i-t_{i-1}}
+\end{equation}
+即
+\begin{equation}
+	x(t_i)-x(t_{i-1})=(t_i-t_{i-1})x^{'(t_{i-1})} \hspace*{3em}	y(t_i)-y(t_{i-1})=(t_i-t_{i-1})y^{'(t_{i-1})}
+\end{equation}
+故\\
+$\Delta s_i=\wideparen{M_{i-1}M_i}\approx \sqrt{[x(t_i)-x(t_{i-1})]^2+[y(t_i)-y(t_{i-1})]^2}=(t_i-t_{i-1})\sqrt{[x'(t_{i-1})]^2+[y'(t_{i-1})]^2}$\\
+\hspace*{5.8em}$=\sqrt{[x'(t_{i-1})]^2+[y'(t_{i-1})]^2}\Delta t_i$\\
+其中$\Delta t_i=t_i-t_{i-1}$.令$\lambda=\max{\Delta t_i,1\leq i\leq n}\to0$,那么结合定积分的定义，此时每个区间长度都为无限小，那么
+\begin{equation}
+	C=\sum_{i=1}^{n}\Delta s_i=\lim\limits_{\lambda\to 0}\sum_{i=1}^{n}\sqrt{[x'(t_{i-1})]^2+[y'(t_{i-1})]^2}\Delta t_i=\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\d t
+\end{equation}
+所以，我们有下列曲线弧长的计算公式：
+\\ 1.$\,$参数方程所确定的函数
+\begin{equation}
+	\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\d t
+\end{equation}
+2.一般函数（即令$x(t)=x,y(t)=f(x)$）
+\begin{equation}
+	\int_{a}^{b}\sqrt{1+[f'(t)]^2}\d t
+\end{equation}
+3.极坐标确定的函数$r=r(\theta)$,则$x(\theta)=r(\theta)\cos \theta,y(\theta)=r(\theta)\sin\theta$,
+\begin{equation}
+	\nonumber
+	x'(\theta)=r'(\theta)\cos \theta-r(\theta)\sin \theta \hspace{2em} y'(\theta)=r'(\theta)\sin \theta+r(\theta)\cos \theta
+\end{equation}
+\begin{equation}
+	\int_{a}^{b}\sqrt{[x'(\theta)]^2+[y'(\theta)]^2}\d \theta=\int_{a}^{b}\sqrt{[r'(\theta)]^2+[r(\theta)]^2}\d \theta
+\end{equation}
+\subsection{弧微分公式}
+在前面我们已经知道弧长的计算公式，设弧长为$s(t)$,则
+\begin{equation}
+	s(t)=\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\d t
+\end{equation}
+对上式两边同时对$t$求导，得
+\begin{equation}
+	s'(t)=\sqrt{[x'(t)]^2+[y'(t)]^2}\kg \Rightarrow \hspace{2em} [s'(t)]^2=[x'(t)]^2+[y'(t)]^2 \hspace*{2em} \Rightarrow  \hspace*{2em} [\d s]^2=[\d x]^2+[\d y]^2
+\end{equation}
+我们便得到了弧微分公式:
+\begin{equation}
+	[\d s]^2=[\d x]^2+[\d y]^2
+\end{equation}
+\subsection{平面图形面积的计算}
+1.$\,$直角坐标情形
+\par 有定积分定义可知，由曲线$y=f(x)(f(x)\geq 0)$及直线$x=a,x=b(a<b)$与$x$轴所围成的曲边梯形的面积$S$是
+\begin{equation}
+	S=\int_{a}^{b}f(x)\d x
+\end{equation}
+当求两个函数$f(x),g(x)$所围成部分的面积$S$时，一般有如下做法：\\
+1.$\,$找到函数$f(x),g(x)$的交点，并判断交点的区间内哪个函数大。\\
+2.$\,$求积分
+\begin{equation}
+	
+\end{equation}
