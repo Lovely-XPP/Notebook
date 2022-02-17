@@ -260,12 +260,12 @@ F(x)=\int_{a}^{x}f(t) \,\d t
 \label{theorem:4.8}
 如果函数$F(x)$是连续函数$f(x)$在区间$[a,b]$上的一个原函数，那么
 \begin{equation}
-	\int_{a}^{b}f(t)\d t=F(b)-F(a)
+	\int_{a}^{b}f(t)\,\d t=F(b)-F(a)
 \end{equation}
-\proof 由\ref{theorem:4}$\,$知，$f(x)$的一个原函数为$F_0(x)=\int_{a}^{x}f(t)\d t$,那么$F'(x)-F'_0(x)=0$,\\
+\proof 由\ref{theorem:4}$\,$知，$f(x)$的一个原函数为$\di F_0(x)=\int_{a}^{x}f(t)\,\d t$,那么$F'(x)-F'_0(x)=0$,\\
 故$F(x)-F_0(x)=C(C\text{为常数})$。又$f(x)$在区间$[a,b]$上连续，所以$F(x)-F_0(x)=C(C\text{为常数})$在区间$[a,b]$上恒成立。\\
 不妨取$x=a$,由定积分的补充定义上下限相同时积分为0，那么$F(a)-F_0(a)=F(a)-0=C\Rightarrow C=F(a)$.\vspace{0.5em}\\
-不妨取$x=b$,$\di F(b)-F_0(b)=F(b)-\int_{a}^{b}f(t)\d t=F(a) \Rightarrow \int_{a}^{b}=F(b)-F(a)$.
+不妨取$x=b$,$\di F(b)-F_0(b)=F(b)-\int_{a}^{b}f(t)\,\d t=F(a) \Rightarrow \int_{a}^{b}=F(b)-F(a)$.
 \par 这个定理给了我们求定积分一种重要且简单的方法：找到被积函数的原函数，再计算两个端点函数值之差即可。
 \section{定积分的应用}
 \subsection{曲线弧长的计算}
@@ -299,16 +299,16 @@ $\Delta s_i=\wideparen{M_{i-1}M_i}\approx \sqrt{[x(t_i)-x(t_{i-1})]^2+[y(t_i)-y(
 \hspace*{5.8em}$=\sqrt{[x'(t_{i-1})]^2+[y'(t_{i-1})]^2}\Delta t_i$\\
 其中$\Delta t_i=t_i-t_{i-1}$.令$\lambda=\max{\Delta t_i,1\leq i\leq n}\to0$,那么结合定积分的定义，此时每个区间长度都为无限小，那么
 \begin{equation}
-	C=\sum_{i=1}^{n}\Delta s_i=\lim\limits_{\lambda\to 0}\sum_{i=1}^{n}\sqrt{[x'(t_{i-1})]^2+[y'(t_{i-1})]^2}\Delta t_i=\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\d t
+	C=\sum_{i=1}^{n}\Delta s_i=\lim\limits_{\lambda\to 0}\sum_{i=1}^{n}\sqrt{[x'(t_{i-1})]^2+[y'(t_{i-1})]^2}\Delta t_i=\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\,\d t
 \end{equation}
 所以，我们有下列曲线弧长的计算公式：
 \\ 1.$\,$参数方程所确定的函数
 \begin{equation}
-	\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\d t
+	\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\,\d t
 \end{equation}
 2.一般函数（即令$x(t)=x,y(t)=f(x)$）
 \begin{equation}
-	\int_{a}^{b}\sqrt{1+[f'(t)]^2}\d t
+	\int_{a}^{b}\sqrt{1+[f'(t)]^2}\,\d t
 \end{equation}
 3.极坐标确定的函数$r=r(\theta)$,则$x(\theta)=r(\theta)\cos \theta,y(\theta)=r(\theta)\sin\theta$,
 \begin{equation}
@@ -316,12 +316,12 @@ $\Delta s_i=\wideparen{M_{i-1}M_i}\approx \sqrt{[x(t_i)-x(t_{i-1})]^2+[y(t_i)-y(
 	x'(\theta)=r'(\theta)\cos \theta-r(\theta)\sin \theta \hspace{2em} y'(\theta)=r'(\theta)\sin \theta+r(\theta)\cos \theta
 \end{equation}
 \begin{equation}
-	\int_{a}^{b}\sqrt{[x'(\theta)]^2+[y'(\theta)]^2}\d \theta=\int_{a}^{b}\sqrt{[r'(\theta)]^2+[r(\theta)]^2}\d \theta
+	\int_{a}^{b}\sqrt{[x'(\theta)]^2+[y'(\theta)]^2}\,\d \theta=\int_{a}^{b}\sqrt{[r'(\theta)]^2+[r(\theta)]^2}\,\d \theta
 \end{equation}
 \subsection{弧微分公式}
 在前面我们已经知道弧长的计算公式，设弧长为$s(t)$,则
 \begin{equation}
-	s(t)=\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\d t
+	s(t)=\int_{a}^{b}\sqrt{[x'(t)]^2+[y'(t)]^2}\,\d t
 \end{equation}
 对上式两边同时对$t$求导，得
 \begin{equation}
@@ -335,11 +335,84 @@ $\Delta s_i=\wideparen{M_{i-1}M_i}\approx \sqrt{[x(t_i)-x(t_{i-1})]^2+[y(t_i)-y(
 1.$\,$直角坐标情形
 \par 有定积分定义可知，由曲线$y=f(x)(f(x)\geq 0)$及直线$x=a,x=b(a<b)$与$x$轴所围成的曲边梯形的面积$S$是
 \begin{equation}
-	S=\int_{a}^{b}f(x)\d x
+	S=\int_{a}^{b}f(x)\,\d x
 \end{equation}
 当求两个函数$f(x),g(x)$所围成部分的面积$S$时，一般有如下做法：\\
 1.$\,$找到函数$f(x),g(x)$的交点，并判断交点的区间内哪个函数大。\\
 2.$\,$求积分
 \begin{equation}
-	
+	S=\int_{a}^{b}|f(x)-g(x)|\,\d x
+\end{equation}
+对于参数方程确定的函数，我们直接换元即可，即
+\begin{equation}
+	\nonumber
+	\begin{cases}
+		\, x=x(t)\\
+		\, y=y(t)
+	\end{cases}
+\end{equation}
+\begin{equation}
+	S=\int_{a}^{b}y(t)\,\d [x(t)]=\int_{a}^{b}x'^{(t)}\cdot y(t)\,\d x
+\end{equation}
+2.极坐标情形
+\par 设由曲线$\rho=\rho(\theta)$及射线$\theta=\alpha,\theta=\beta$围成一个图形（曲面扇形），且$\rho=\rho(\theta)$在$[\alpha.\beta]$上连续，$\rho(\theta)\geq0,0<\beta-\alpha\leq 2\pi$.
+\par 同样地，运用先分割求和再取极限的思想，将该区间分成$n$等份，对每个长度为无穷小的小区间，这个时候就可以用扇形面积的计算公式。因此，我们都可以计算抽根烟每个小区间的面积：
+\begin{equation}
+	S_i=\frac{1}{2}R^2\theta=\frac{1}{2}[\rho(\theta_i)]^2\Delta \theta
+	\end{equation}
+然后进行求和：
+\begin{equation}
+	S=\lim\limits_{n\to \infty}\sum_{i=1}^{n}S_i=\lim\limits_{n\to\infty}\sum_{i=1}^{n}\frac{1}{2}[\rho(\theta_i)]^2\Delta \theta=\frac{1}{2}\int_{\alpha}^{\beta}[\rho(\theta)]^2\,\d \theta_i
+\end{equation}
+这样我们便得到了极坐标面积公式：
+\begin{equation}
+	S=\frac{1}{2}\int_{\alpha}^{\beta}[\rho(\theta)]^2\,\d \theta
+\end{equation}
+\subsection{旋转体体积的计算}
+\noindent 综述：在计算旋转体体积的时候多考虑图形的对称性，有助于简化计算量，下面分几种常见的情况进行讲解\\
+\textbf{1.$\,$绕$x$轴旋转的情形}
+\par 如上图，我们将区间$[a,b]$分成$n$份：
+\begin{equation}
+	\nonumber
+	a=x_0<x_1<\cdots<x_n=b
+\end{equation}
+那么在曲面弧$\wideparen{AB}$上也即由相应的点：$M_i(x_i),f(x_i),i=0,1,\cdots,n$.\\
+记$n$个小区间$[x_{i-1},x_i],i=0,1,\cdots,n$绕$x$轴所形成的旋转体的体积为$\Delta V_i$.\\
+如果在每个小区间$[x_{i-1},x_i]$中取一点$\xi$,那么当$\Delta x_i\to0$时，每个小区间绕$x$轴所形成的旋转体都可以看成一个小圆柱，由圆柱的体积公式可得：
+\begin{equation}
+	\Delta V_i=\pi R^2 h=\lim\limits_{\Delta x_i\to0}\pi[f(\xi_i)]^2\Delta x_i
+	\label{equ:1}
+\end{equation}
+由于$\Delta x_i\to0$,不妨取$\xi_i=x_i$,那么式\ref{equ:1}可以写成
+\begin{equation}
+	\Delta V_i=\lim\limits_{\Delta x_i\to0}\pi[f(x_i)]^2\Delta x_i
+\end{equation}
+那么，
+\begin{equation}
+	V=\sum_{i=1}^{n}\Delta V_i=\lim\limits_{\Delta x_i\to0}\sum_{i=1}^{n}\pi[f(x_i)]^2\Delta x_i=\pi\int_{a}^{b}[f(x)]^2\,\d x
+\end{equation}
+即
+\begin{equation}
+	V=\pi\int_{a}^{b}[f(x)]^2\,\d x
+\end{equation}
+\textbf{2.$\,$绕$y$轴旋转的情形}
+\par 绕$y$轴旋转的情形只需要将绕$x$轴旋转的情形中的函数$y=f(x)$改为$x=f(y)$即可，其中$f(y)$是$f(x)$的反函数，即
+\begin{equation}
+	V=\pi\int_{a}^{b}[f(y)]^2\,\d x
+\end{equation}
+其图像大致如下图所示\\
+\textbf{3.$\,$绕定直线旋转的情形}
+\par 通常我们只需考虑绕直线$x=c$或直线$y=c$（$c$为常数）的情况。
+\subsection{旋转体侧面积的计算}
+\par 设$A$为旋转体的侧面积，$s$为曲线的弧长，那么
+\begin{equation}
+	\d A=2\pi\, \d s
+\end{equation}
+若绕$x$轴旋转，那么得到的公式为
+\begin{equation}
+	 A=2\pi \int_{a}^{b}f(x)\,\d s=2\pi\int_{a}^{b}\sqrt{1+[f'(x)]^2}\,\d x
+\end{equation}
+若绕$y$轴旋转，那么得到的公式为
+\begin{equation}
+	A=2\pi \int_{a}^{b}f(x)\,\d s=2\pi\int_{a}^{b}\sqrt{1+[f'(y)]^2}\,\d y
 \end{equation}
