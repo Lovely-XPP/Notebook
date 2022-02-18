@@ -204,6 +204,17 @@
 %\renewcommand{\footrulewidth}{0pt}
 
 %自定义命令
+%公式命令自定义
+\renewcommand{\d}{{\rm{d}}}
+\newcommand{\e}{{\rm{e}}}
+\newcommand{\eq}[1][]{\colorbox{eq}{$\displaystyle #1$}}
+\renewcommand{\oiint}{\varoiint}
+\def\degree{{}^{\circ}}
+\newcommand{\di}{\displaystyle}
+\newcommand{\ch}{\text{ch}}
+\newcommand{\sh}{\text{sh}}
+
+%字体格式自定义
 \newcommand{\blackbf}[1][]{{\CJKfamily{heiti}#1}}
 \newcommand{\link}[1][]{\hyperref[#1] {\color{超链接}#1}}
 \newcommand{\sj}{\vspace*{-1em}}
@@ -211,16 +222,12 @@
 \newcommand{\kg}{\hspace*{2em}}
 \newcommand{\jg}{\vspace*{1em}}
 \newcommand{\huo}{\quad \mbox{或} \quad}
-\renewcommand{\d}{{\rm{d}}}
-\newcommand{\e}{{\rm{e}}}
 \newcommand{\dy}[2][]{{\color{dy}#1}\index{#2@#1}}
-\newcommand{\eq}[1][]{\colorbox{eq}{$\displaystyle #1$}}
-\renewcommand{\oiint}{\varoiint}
 \newcommand{\ds}[1][]{\colorbox{文字底色}{\hspace*{-0.25em}#1\hspace*{-0.25em}}}
-\def\degree{{}^{\circ}}
-\newcommand{\di}{\displaystyle}
 \newcommand*{\circled}[1]{\lower.7ex\hbox{\tikz\draw (0pt, 0pt)%
 		circle (.5em) node {\makebox[1em][c]{\small #1}};}}%带圈数字
+
+
 %--------------------------------------------------------图框定义---------------------------------------------------------%
 %证明和解
 \newcommand{\proof}{\vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =black, colback =black!10!white,boxrule=0.5mm,size=small,on line]{\color{black}{{ 证}}\hspace*{0.25em}}\hspace{1.5em}}
@@ -310,6 +317,9 @@
 	%第九章-常微分方程
 	\include{tex/C-9}
 	
+	%附章
+	\include{tex/C-F}
+
 	%打印索引—————————————
 	\newpage
 	\addcontentsline{toc}{chapter}{附录}
