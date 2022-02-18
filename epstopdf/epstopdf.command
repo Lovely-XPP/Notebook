@@ -51,6 +51,7 @@ if [[ "${choose}" == "1" ]]; then
 		  	"Aircraft structural mechanics"
 		  	"Aerodynamics"
 		  	"Orbital Mechanics"
+		  	"高等数学"
 		  )
 	j=0
 
