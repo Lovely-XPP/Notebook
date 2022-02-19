@@ -3,3 +3,200 @@
 \subsection{向量的概念}
 \defination[向量的定义]
 既有大小也有方向的量称为\highlight{red}{\index{XL@向量}向量}（或\highlight{red}{\index{SL@矢量}矢量}）。通常我们用有向线段来表示向量。
+\par 以$A$为\highlight{red}{\index{QSD@起始点}起始点}、$B$为\highlight{red}{\index{ZD@终点}终点}的有向线段所表示的向量记为$\boldsymbol{AB}$.有时也会用一个黑体字母来表示向量。例如$\boldsymbol{a}$,$\boldsymbol{b}$.向量$\boldsymbol{AB}$的长度表示\highlight{red}{\index{XLDDX@向量的大小}向量的大小}，记作\highlight{red}{\index{XLDM@向量的模}向量的模}。
+\par 向量的四要素:起始点、终点、方向、模。
+
+\defination[自由向量的定义]
+在实际研究中，我们只关心向量的方向和大小，称为\highlight{red}{\index{ZYXL@自由向量}自由向量}。\\
+
+\sj
+\defination[向量的夹角定义]
+设有两个非零向量$\boldsymbol{a}$,$\boldsymbol{b}$，任取空间中一点$O$,作$\boldsymbol{OA}=\boldsymbol{a}$,$\boldsymbol{OB}=\boldsymbol{b}$,规定$0\leq \varphi=\angle AOB\leq \pi$,那么$\angle AOB$称为\highlight{red}{\index{XLDJJ@向量的夹角}向量$\boldsymbol{a}$,$\boldsymbol{b}$的夹角}，记作$\langle\boldsymbol{a}$,$\boldsymbol{b}\rangle$或$\langle\boldsymbol{b}$,$\boldsymbol{a}\rangle$,即$\langle\boldsymbol{a}$,$\boldsymbol{b}\rangle=\varphi$.
+\par 特别地，如果$\langle\boldsymbol{a}$,$\boldsymbol{b}\rangle=0$或$\pi$,就称向量$\langle\boldsymbol{a},\boldsymbol{b}
+\rangle$平行记作$\boldsymbol{a}\parallel\boldsymbol{b}$,当$\boldsymbol{a}$,$\boldsymbol{b}$平移至起点相同的时候，那么$\langle\boldsymbol{a}$,$\boldsymbol{b}\rangle$一定共线。所以，两个平行的向量也称为\highlight{red}{\index{GXXL@共线向量}共线向量}。
+\par 如果$\langle\boldsymbol{a}$,$\boldsymbol{b}\rangle$=$\di\frac{\pi}{2}$,就称向量$\boldsymbol{a}$,$\boldsymbol{b}$垂直，记作$\langle\boldsymbol{a}\perp\boldsymbol{b}\rangle$.
+\warn[\par 零向量与另外的向量的夹角可以任意在{[0,$\pi$]}中取值。因此，可以认为零向量与任何向量都平行（垂直）]
+\defination[向量相等的定义]
+如果两个向量$\boldsymbol{a}$,$\boldsymbol{b}$大小和方向都相同，那么向量$\boldsymbol{a}$,$\boldsymbol{b}$是相等的，记作$\boldsymbol{a}=\boldsymbol{b}$.\\
+
+\sj
+\defination[零向量的定义]
+零向量的模长为0，方向可以为任意方向。用$\boldsymbol{0}$或者$\vec{0}$表示。
+\subsection{向量的线性运算}
+向量的线性运算分为加法运算、减法运算以及数乘运算。
+\\ 1.$\,$加法运算法则\\
+
+\sj\sj
+\defination[向量的加法]
+平行移动使向量$\boldsymbol{a},\boldsymbol{b}$有共同起点，然后由\highlight{red}{\index{PXSBXFZ@平行四边形法则}平行四边形法则}，以$\boldsymbol{a}，\boldsymbol{b}$为相邻两边作平行四边形，将平行四边形的对角线所形成的向量定义为\highlight{red}{\index{HXL@和向量}和向量}。
+\par 或者由\highlight{red}{\index{SJXFZ@三角形法则}三角形法则}，将$\boldsymbol{b}$的起点移至$\boldsymbol{a}$的终点（即首尾相连），然后和向量为$\boldsymbol{a}$的起点指向$\boldsymbol{b}$的终点。
+\\ \textbf{加法的运算规律：}\\
+(1)$\,$ \highlight{red}{\index{JFJHL@加法交换律}加法交换律} \qquad $\boldsymbol{a}+\boldsymbol{b}=\boldsymbol{b}+\boldsymbol{a} $\\
+(2)$\,$ \highlight{red}{\index{JFJHL@加法结合律}加法结合律} \qquad ($\boldsymbol{a}+\boldsymbol{b})+\boldsymbol{c}=\boldsymbol{a}+(\boldsymbol{b}+\boldsymbol{c}) $\\
+2.$\,$减法运算法则\\
+
+\sj\sj
+\defination[向量的差定义]
+与向量$\boldsymbol{a}$模长相同而方向相反的向量叫做$\boldsymbol{a}$的\highlight{red}{\index{FXL@反向量}反向量}，记作$-\boldsymbol{a}$,那么\highlight{red}{\index{XLDC@向量的差}向量$\boldsymbol{b},\boldsymbol{a}$的差}为：
+\begin{equation}
+	\boldsymbol{b}-\boldsymbol{a}=\boldsymbol{b}+(-\boldsymbol{a})
+\end{equation}
+可以理解为把向量$-\boldsymbol{a}$加到向量$\boldsymbol{b}$上。（即理解为加法运算的逆运算，其运算满足加法运算的所有规律）
+\\ 3.$\,$数乘运算法则\\
+
+\sj \sj
+\defination[向量的数乘定义]
+向量$\boldsymbol{a}$与实数$\lambda$的乘积记作$\lambda\boldsymbol{a}$,规定$\lambda\boldsymbol{a}$也是一个向量，它的模
+\begin{equation}
+	|\lambda\boldsymbol{a}|=|\lambda||\boldsymbol{a}|
+\end{equation}
+它的方向有三种情况：\\
+(1)$\,$ 当$\lambda>0$时，其方向与$\boldsymbol{a}$相同；\\
+(2)$\,$ 当$\lambda<0$时，其方向与$\boldsymbol{a}$相反；\\
+(3)$\,$ 当$\lambda=0$时，$\lambda\boldsymbol{a}$为零向量，这时其方向可以是任意的。\\
+\textbf{数乘的运算规律：}\\
+(1)$\,$ \highlight{red}{\index{SCJHL@数乘交换律}数乘结合律} \qquad
+$\lambda(\mu\boldsymbol{a})=\mu(\lambda\boldsymbol{a})=(\lambda\mu)\boldsymbol{a}$\\
+(2)$\,$ \highlight{red}{\index{SCFPL@数乘分配律}数乘分配律} \qquad
+$(\lambda+\mu)\boldsymbol{a}=\lambda\boldsymbol{a}+\mu \boldsymbol{a}$\qquad $\lambda(\boldsymbol{a}+\boldsymbol{b})=\lambda\boldsymbol{a}+\lambda\boldsymbol{b}$
+\subsection{向量的内积、外积及混合积}
+\noindent1.$\,$向量的内积\\
+
+\sj\sj
+\defination[向量的内积定义]
+向量$\boldsymbol{a},\boldsymbol{b}$的内积为
+\begin{equation}
+	\boldsymbol{a}\cdot\boldsymbol{b}=|\boldsymbol{a}||\boldsymbol{b}|\cos\langle\boldsymbol{a},\boldsymbol{b}\rangle
+\end{equation}
+特别地，当向量$\boldsymbol{a},\boldsymbol{b}$中有一个为零向量，其内积为0.向量的\highlight{red}{\index{NJ@内积}内积}也称为\highlight{red}{\index{SLJ@数量积}数量积}或\highlight{red}{\index{DC@点乘}点乘}。\\
+\textbf{点乘的运算规律：}\\
+(1)$\,$\highlight{red}{\index{JHL@交换律}交换律}\qquad $\boldsymbol{a}\cdot\boldsymbol{b}=\boldsymbol{b}\cdot\boldsymbol{a}$\\
+(2)$\,$\highlight{red}{\index{YSCDJHL@与数乘的结合律}与数乘的结合律}\qquad
+$(\lambda\boldsymbol{a})\cdot\boldsymbol{b}=\lambda(\boldsymbol{a}\cdot\boldsymbol{b})$\\
+(3)$\,$\highlight{red}{\index{FPL@分配律}分配律}\qquad
+$(\boldsymbol{a}+\boldsymbol{b})\cdot\boldsymbol{c}=\boldsymbol{a}\cdot\boldsymbol{c}+\boldsymbol{b}\cdot\boldsymbol{c}$\\
+\textbf{内积的重要应用：}
+\begin{equation}
+	\boldsymbol{a}\perp\boldsymbol{b}\Leftrightarrow \boldsymbol{a}\cdot\boldsymbol{b}=0 
+\end{equation}
+2.$\,$向量的外积\\
+
+\sj\sj
+\defination[向量的外积定义]
+向量$\boldsymbol{a}$,$\boldsymbol{b}$的外积$\boldsymbol{c}$为
+\begin{equation}
+	|\boldsymbol{c}|=|\boldsymbol{a}\times\boldsymbol{b}|=|\boldsymbol{a}||\boldsymbol{b}|\sin\langle\boldsymbol{a},\boldsymbol{b}\rangle
+\end{equation}
+其中外积$\boldsymbol{c}$的方向根据右手法则确定，就是手掌立在$\boldsymbol{a}$,$\boldsymbol{b}$所在平面的向量$\boldsymbol{a}$上，掌心向$\boldsymbol{b}$,那么大拇指方向就是垂直于该平面的方向，即为外积的方向。向量的\highlight{red}{\index{WJ@外积}外积}也称为\highlight{red}{\index{XLJ@向量积}向量积}或\highlight{red}{\index{XLDCC@向量的叉乘}向量的叉乘}。\\
+\textbf{外积的几何意义：}
+\begin{equation}
+	|\boldsymbol{a}\times\boldsymbol{b}|=|\boldsymbol{a}||\boldsymbol{b}|\sin \theta
+\end{equation}
+其中，$|\boldsymbol{a}\times\boldsymbol{b}|$是以$|\boldsymbol{a}|,|\boldsymbol{b}|$为邻边的平行四边形面积。\\
+\textbf{外积的运算规律:}\\
+(1)$\,$\highlight{red}{\index{FJHL@交换律}反交换律}\qquad $\boldsymbol{a}\times\boldsymbol{b}=\boldsymbol{b}\times\boldsymbol{a}$\\
+(2)$\,$\highlight{red}{\index{FPL@分配律}分配律}\qquad
+$(\boldsymbol{a}+\boldsymbol{b})\times\boldsymbol{c}=\boldsymbol{a}\times\boldsymbol{c}+\boldsymbol{b}\times\boldsymbol{c}$\\
+(3)$\,$\highlight{red}{\index{YSCDJHL@与数乘的结合律}与数乘的结合律}\qquad
+$(\lambda\boldsymbol{a})\times\boldsymbol{b}=\boldsymbol{a}\times(\lambda\boldsymbol{b})=\lambda(\boldsymbol{a}\times\boldsymbol{b})$\\
+\textbf{外积的重要应用:}
+\begin{equation}
+	\boldsymbol{a}\parallel\boldsymbol{b}\Leftrightarrow \boldsymbol{a}\times\boldsymbol{b}=0
+\end{equation}
+3.$\,$向量的混合积\\
+
+\sj\sj
+\defination[向量混合积的定义]
+设已知三个向量$\boldsymbol{a}$,$\boldsymbol{b}$,$\boldsymbol{c}$,数量$(\boldsymbol{a}\times\boldsymbol{b})\cdot \boldsymbol{c}$称为这三个向量的\highlight{red}{\index{HHJ@混合积}混合积}，记为$[\boldsymbol{a}\,\boldsymbol{b}\,\boldsymbol{c}]$.
+\\ \textbf{混合积的几何意义：}
+\par 如右图，设非零向量$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$,那么记$\boldsymbol{d}=\boldsymbol{a}\times\boldsymbol{b}$,$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$构成一个平行六面体，那么将$\boldsymbol{c}$分成与$\boldsymbol{d}$正交与平行的两个分向量$\boldsymbol{c_1},\boldsymbol{c_2}$.\vspace{-0.5em}
+\begin{equation}
+	|[\boldsymbol{a}\,\boldsymbol{b}\,\boldsymbol{c}]|=(\boldsymbol{a}\times\boldsymbol{b})\cdot\boldsymbol{c}=\boldsymbol{d}\cdot\boldsymbol{c}=\boldsymbol{d}\cdot(\boldsymbol{c_1}+\boldsymbol{c_2})=\boldsymbol{d}\cdot\boldsymbol{c_2}=|\boldsymbol{d}|\cdot|\boldsymbol{c_2}|=|\boldsymbol{a}\times\boldsymbol{b}|\cdot\boldsymbol{c_2}=S_{\text{底}}\times h=V\vspace{-0.5em}
+\end{equation}
+也就是说混合积$[\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}]$的绝对值就是这三个向量$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$所构成的平行六面体的体积。
+\textbf{混合积的重要应用：}
+\\ (1)$\,$求三个向量$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$所构成的平行六面体的体积。
+\\ (2)$\,$三个向量$\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}$共面$\Leftrightarrow$ $[\boldsymbol{a},\boldsymbol{b},\boldsymbol{c}]=0$.
+\section{向量的空间坐标}
+\subsection{空间直角坐标系}
+\defination[空间直角坐标系的定义]
+空间任意选定一点$O$,过点$O$作三条互相垂直的数轴$Ox,Oy,Oz$,它们都以$O$为原点且具有相同的长度单位。这三条轴分别称作$x$轴(横轴)，$y$(纵轴)，$z$(竖轴)，统称为坐标轴。它们的正方向符合右手规则，即以右手握住$z$轴，当右手的四个手指$x$轴的正向以$90\circ$转向$y$轴正向时，大拇指的指向就是$z$轴的正向。
+\par 简单地讲，就是\textbf{一个原点，三个坐标轴，三个坐标面，八个卦限}。而数组$(x,y,z)$对应空间上的一点坐标。
+\subsection{向量的空间坐标的表示与计算}
+\defination[向量的空间坐标定义]
+设向量$\boldsymbol{i},\boldsymbol{j},\boldsymbol{k}$分别为$x$轴,$y$轴,$z$轴的单位向量，那么对于空间点$A(x,y,z)$,$\boldsymbol{OA}$可以表示为
+\begin{equation}
+	\boldsymbol{OA}=x\boldsymbol{i}+y\boldsymbol{j}+z\boldsymbol{k}
+\end{equation}
+设$\boldsymbol{r}=\boldsymbol{OA}$，那么我们规定向量$\boldsymbol{r}$的坐标为$(x,y,z)$,记作$\boldsymbol{r}=(x,y,z)$.\\
+1.$\,$向量的线性运算的坐标表示
+\par 记向量$\boldsymbol{a}=(x_1,y_1,z_1)$,$\boldsymbol{b}=(x_2,y_2,z_2)$,那么\\
+(1)$\quad \boldsymbol{a}+\boldsymbol{b}=(x_1+x_2,y_1+y_2,z_1+z_2)$\\
+(2)$\quad \boldsymbol{a}-\boldsymbol{b}=(x_1-x_2,y_1-y_2,z_1-z_2)$\\
+(3)$\quad \lambda \boldsymbol{a}=(\lambda x_1,\lambda y_1,\lambda z_1)$\\
+2.$\,$向量的内积、外积的坐标表示\\
+记向量$\boldsymbol{a}=(x_1,y_1,z_1).\boldsymbol{b}=(x_2,y_2,z_2)$,那么\\
+\textbf{内积：}$\boldsymbol{a}\cdot\boldsymbol{b}=x_1x_2+y_1y_2+z_1z_2$\\
+特别地，$\boldsymbol{a}^2=\boldsymbol{a}\cdot\boldsymbol{a}=x_1^2+y_1^2+z_1^2$,那么向量$\boldsymbol{a}$的模长为$|\boldsymbol{a}|=\sqrt{\boldsymbol{a}^2}=\sqrt{x_1^2+y_1^2+z_1^2}$\\
+
+\noindent 那么由$\boldsymbol{a}\cdot\boldsymbol{b}=|\boldsymbol{a}||\boldsymbol{b}|\cos\langle \boldsymbol{a},\boldsymbol{b}\rangle$,得$\di\cos\langle \boldsymbol{a},\boldsymbol{b}\rangle=\frac{\boldsymbol{a}\cdot\boldsymbol{b}}{|\boldsymbol{a}||\boldsymbol{b}|}=\frac{x_1x_2+y_1y_2+z_1z_2}{\sqrt{x_1^2+y_1^2+z_1^2}\sqrt{x_2^2+y_2^2+z_2^2}}$\\
+
+\noindent \textbf{外积：}$\boldsymbol{a}\times\boldsymbol{b}=(y_1z_2-z_1y_2)\boldsymbol{i}+(z_1x_2-x_1z_2)\boldsymbol{j}+(x_1y_2-y_1x-2)\boldsymbol{k}=
+	\begin{bmatrix}
+		\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k}\\
+		x_1 & y_1 & z_1\\
+		x_2 & y_2 & z_2\\
+	\end{bmatrix}$\\
+特别地，
+\begin{equation}
+	\boldsymbol{a}\parallel\boldsymbol{b}\Leftrightarrow \frac{x_1}{y_1}=\frac{y_1}{y-2}=\frac{z_1}{z_2}=
+\end{equation}
+\textbf{混合积:}
+\begin{equation}
+	\nonumber
+	\boldsymbol{c}\cdot(\boldsymbol{a}\times\boldsymbol{b})=(x_0\boldsymbol{i}+y_0\boldsymbol{j}+z_0\boldsymbol{k})	
+	\begin{bmatrix}
+		\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k}\\
+		x_1 & y_1 & z_1\\
+		x_2 & y_2 & z_2\\
+	\end{bmatrix}=x_0\boldsymbol{i}
+	\begin{bmatrix}
+	\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k}\\
+	x_1 & y_1 & z_1\\
+	x_2 & y_2 & z_2\\
+\end{bmatrix}+y_0\boldsymbol{j}	
+\begin{bmatrix}
+\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k}\\
+x_1 & y_1 & z_1\\
+x_2 & y_2 & z_2\\
+\end{bmatrix}+z_0\boldsymbol{k}	
+\begin{bmatrix}
+\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k}\\
+x_1 & y_1 & z_1\\
+x_2 & y_2 & z_2\\
+\end{bmatrix}
+\end{equation}
+\begin{equation}
+	\nonumber
+	=\begin{bmatrix}
+		x_0\boldsymbol{i}\cdot\boldsymbol{i} & x_0\boldsymbol{i}\cdot\boldsymbol{j} & x_0\boldsymbol{i}\cdot\boldsymbol{k}\\
+	x_1 & y_1 & z_1\\
+	x_2 & y_2 & z_2\\
+	\end{bmatrix}+
+\begin{bmatrix}
+	y_0\boldsymbol{j}\cdot\boldsymbol{i} & y_0\boldsymbol{j}\cdot\boldsymbol{j} & y_0\boldsymbol{j}\cdot\boldsymbol{k}\\
+	x_1 & y_1 & z_1\\
+	x_2 & y_2 & z_2\\
+\end{bmatrix}+
+\begin{bmatrix}
+	z_0\boldsymbol{k}\cdot\boldsymbol{i} & z_0\boldsymbol{k}\cdot\boldsymbol{j} & z_0\boldsymbol{k}\cdot\boldsymbol{k}\\
+	x_1 & y_1 & z_1\\
+	x_2 & y_2 & z_2\\
+\end{bmatrix}=
+\begin{bmatrix}
+	x_0 & y_0 & z_0\\
+	x_1 & y_1 & z_1\\
+	x_2 & y_2 & z_2\\
+\end{bmatrix}
+\end{equation}
+(注：$\boldsymbol{i}\cdot\boldsymbol{i}=1,\boldsymbol{i}\cdot\boldsymbol{j}=0,\boldsymbol{i}\cdot\boldsymbol{k}=0$其余类似可得，本质上就是利用三个坐标轴上的单位向量相乘)
