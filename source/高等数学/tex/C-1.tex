@@ -262,7 +262,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 	\sec x -1 =\frac{1}{\cos x}-1 \sim \frac{x^2}{2}
 \end{equation}
 \begin{equation}
-	(1+x)^a-1 \sim 1-ax
+	(1+x)^a-1 \sim ax
 \end{equation}
 \begin{equation}
 	a^x-1 \sim \ln a \cdot x \,(a>0,a \ne 1)
@@ -525,7 +525,6 @@ $
 	即$x=-3$是函数$f(x)$的可去间断点.
 	\tcblower
 	\centering
-	\vspace*{1cm}
 	\includegraphics[width=\linewidth]{pic/C-1/可去间断点.pdf}
 \end{tcolorbox}
 
@@ -838,7 +837,7 @@ f(x)=1+\alpha x+\frac{\sin x}{x}+2x \quad \Rightarrow \quad \lim\limits_{x \to 0
 ]
 
 \subsection{求和式的极限}
-\texample[求和式的极限]\sj
+\texample[求和式的极限]
 求和式的极限在高等数学教材中目前有两种可行的方法:定积分法和夹逼定理法.\jg
 
 \noindent \highlights[1.定积分法]
@@ -885,12 +884,14 @@ f(x)=1+\alpha x+\frac{\sin x}{x}+2x \quad \Rightarrow \quad \lim\limits_{x \to 0
 
 \summarize
 [
-\kg 本题的被积函数为$f(x)=\dfrac{1}{1+x^2},$可以代入验证$\displaystyle f\left(\dfrac{k}{n} \right)=\dfrac{1}{1+\left(\frac{k}{n} \right)} $.
+\kg 本题的被积函数为$f(x)=\dfrac{1}{1+x^2},$可以代入验证$\displaystyle f\left(\dfrac{k}{n} \right)=\dfrac{1}{\textstyle 1+\left(\frac{k}{n} \right)} $.
 ]
-
+\clearpage
+\vspace*{-3em}
 \examples 求极限$\displaystyle \lim\limits_{n \to \infty}\sum_{k=1}^{n}\frac{k^4}{n^5 }$.
 
-\solve $\displaystyle \lim\limits_{n \to \infty}\sum_{k=1}^{n}\frac{k^4}{n^5 }=\lim\limits_{n \to \infty} \frac 1n \sum_{k=1}^{n}\frac{k^4}{n^4}=\lim\limits_{n \to \infty} \frac 1n \sum_{k=1}^{n}\left( \frac{k}{n}\right)^4=\int_{0}^{1}\left[\frac 15 x^5 \right]_0^1=\frac 15-0=\frac 15.$
+\solve $\displaystyle \lim\limits_{n \to \infty}\sum_{k=1}^{n}\frac{k^4}{n^5 }=\lim\limits_{n \to \infty} \frac 1n \sum_{k=1}^{n}\frac{k^4}{n^4}=\lim\limits_{n \to \infty} \frac 1n \sum_{k=1}^{n}\left( \frac{k}{n}\right)^4=\int_{0}^{1} x^4 \, \d x = \left[\frac 15 x^5 \right]_0^1=\frac 15-0=\frac 15.$
+\vspace{1em}
 
 \examples 求极限$\displaystyle \lim\limits_{n \to \infty}\sum_{k=1}^{n}\frac{2}{n}\cdot \left[3\left( 1+\dfrac{2k}{n}\right)  -6\right] $.
 
@@ -904,6 +905,7 @@ $
 \begin{align*}
 	&=3\int_{0}^{2}(1+x)^5\,\d(1+x)-6\int_{0}^{2}\,\d x=3\int_{1}^{3}t^5\,\d t-6\int_{0}^{2}\,\d x=3\left[\frac 16 t^6\right]_1^3-6[x]_0^2=\frac{1}{2}(3^6-1)-6(2-0)\\
 	&=\frac 12(729-1)-12=364-12=352.
+	\vspace*{-2em}
 \end{align*}
 
 \summarize
@@ -911,7 +913,6 @@ $
 \kg 此题被分割的区间上限不再是 1, 而是 2, 在做题需要注意分割区间($\lambda$的值),不要直接认为是 1.
 ]
 
-\vspace*{-2em}
 \examples 求极限$\displaystyle \lim\limits_{n \to \infty}\left[ \frac 1n +\frac {1}{n+1}+\cdots+\frac{1}{3n}\right] $.
 
 \solve 
@@ -924,6 +925,7 @@ $
 $
 \[
 =\int_{0}^{1}\frac{2}{1+2x}\,\d x=\big[\ln(1+2x)\,\big]_0^1=\ln 3.
+\vspace*{-0.5em}
 \]
 
 \summarize
@@ -933,19 +935,21 @@ $
 \begin{equation}
 	\lim\limits_{n \to \infty}\frac{1}{2n}\cdot\sum_{i=1}^{2n}f\left(\frac{i}{2n}\right)
 \end{equation}
-\kg 积分的上下限由变量$\frac{i}{n}$(本题$\frac{i}{2n}$)的范围所确定,如本题$i =1,2,\ldots,2n,\lim\limits_{n \to \infty}\dfrac{i}{2n}=0,1.$.因此积分的上下限是0,1.
+\kg 积分的上下限由变量$\dfrac{i}{n}$(本题$\dfrac{i}{2n}$)的范围所确定,如本题$i =1,2,\ldots,2n,\lim\limits_{n \to \infty}\dfrac{i}{2n}=0,1.$.因此积分的上下限是0,1.
 ]
+\vspace{1em}
 
 \noindent \highlights[2. 夹逼定理法]
 
 \vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =ForestGreen
 , colback =ForestGreen!15!white,boxrule=0.5mm,size=small,on line]{\color{ForestGreen}{{\CJKfamily{heiti}总思路}}}\hspace{1.5em}
-设求$\lim\limits_{n \to \infty}f(n),$其中$\lim\limits_{n \to \infty}f(n)$是无穷多个式子之和.\\[0.5em]
-(1) 将$f(n)$的所有项都缩小为所有项中的最小值求和化简得到式$f_{\min}(n)$,\\[0.3em]
-(2) 将$f(n)$的所有项都放大为所有项中的最大值求和化简得到式$f_{\max}(n)$,\\[0.3em]
-(3) 证明$\lim\limits_{n \to \infty}f_{\min}(n)=\lim\limits_{n \to \infty}f_{\max}(n)=c.$\\[0.5em]
+设求$\lim\limits_{n \to \infty}f(n),$其中$\lim\limits_{n \to \infty}f(n)$是无穷多个式子之和.\\[0.2em]
+\qquad (1) \quad 将$f(n)$的所有项都缩小为所有项中的最小值求和化简得到式$f_{\min}(n)$,\\[0.2em]
+\qquad (2) \quad 将$f(n)$的所有项都放大为所有项中的最大值求和化简得到式$f_{\max}(n)$,\\[0.2em]
+\qquad (3) \quad 证明$\lim\limits_{n \to \infty}f_{\min}(n)=\lim\limits_{n \to \infty}f_{\max}(n)=c.$\\[0.2em]
 从而$\lim\limits_{n \to \infty}f(n)=\lim\limits_{n \to \infty}f_{\min}(n)=\lim\limits_{n \to \infty}f_{\max}(n)=c.$
 
+\clearpage
 \examples 求极限$\displaystyle \lim\limits_{n \to \infty}\left(\frac{1}{n^2+n+1}+\frac{2}{n^2+n+2}+\cdots+\frac{n}{n^2+n+n}\right)$
 
 \solve 因为$1 \le i \le n$时,$\displaystyle \frac{i}{n^2+n+n}\le\frac{i}{n^2+n+i}\le \frac{i}{n^2+n+1}$,则
@@ -970,7 +974,7 @@ $
 \lim\limits_{n \to \infty}\left(\frac{1}{n^2+n+1}+\frac{2}{n^2+n+2}+\cdots+\frac{n}{n^2+n+n}\right)=\frac 12.
 \]
 
-\vspace*{-2em}
+\vspace*{-1.5em}
 \summarize
 [
 \kg 对于含有分式的和式,一般先观察式子,如果分母的次数比分子高2次(或者更高),那么夹逼法则一定能做.\\

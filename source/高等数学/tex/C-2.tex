@@ -16,21 +16,22 @@
 
 \texample[用函数极限定义证明以下函数的导数] \sj
 \examples 用函数极限定义证明以下函数的导数\vspace{0.8em} \\
-1.\enspace$f(x)=C$(C为常数)\vspace{0.8em}\\ 
-\solve $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}$=$\lim\limits_{h\to 0}$ $\di\frac{C-C}{h}$=0,即
+1.\enspace$f(x)=C$（$C$为常数）\vspace{0.8em}\\ 
+\solve $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}$=$\lim\limits_{h\to 0}$ $\di\frac{C-C}{h}=0$,即
 \vspace*{-0.5em}
 \begin{equation}
 	\nonumber
 	f'(x)=(C)'=0
 \end{equation}
-2.\enspace$f(x)=x^{\mu}$($\mu \in R$)
+2.\enspace$f(x)=x^{\mu}$（$\mu \in R$）
 \vspace{0.8em} \\ \solve $f'(x)=\lim\limits_{h\to 0} \di\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to 0}\di\frac{(x+h)^{\mu}-x^\mu}{h}=x^{\mu-1}\cdot \lim\limits_{h\to 0}\frac{(1+\frac{h}{x})^\mu-1}{\frac{h}{x}}\\
-\hspace*{7em}=x^{\mu-1}\cdot\lim\limits_{h\to 0}\frac{\mu\cdot\frac{h}{x}}{\frac{h}{x}}=\mu x^{\mu-1}$\vspace{0.8em}\\即
+\hspace*{7em}=x^{\mu-1}\cdot\lim\limits_{h\to 0}\frac{\textstyle \mu\cdot\frac{h}{x}}{\textstyle \frac{h}{x}}=\mu x^{\mu-1}$\vspace{0.8em}\\即
 \begin{equation}
 	\nonumber
 	f'(x)=(x^\mu)'=\mu x^{\mu-1}
 \end{equation}
-3.\enspace$f(x)=\sin x$
+\newpage                                                                 
+\noindent 3.\enspace$f(x)=\sin x$
 \vspace{0.8em} \\ \solve $f'(x)=\lim\limits_{h\to 0}\di\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to 0}\di\frac{\sin (x+h)-\sin x}{h}=\lim\limits_{h\to 0}\di\frac{1}{h}\cdot 2\cos\di\bigg(x+\frac{h}{2}\bigg)\cdot\sin\di\frac{h}{2}$\\  
 \hspace*{7em} $=\lim\limits_{h\to 0}\frac{\di\sin\frac{h}{2}}{\di\frac{h}{2}}\cdot\cos\bigg(x+\di\frac{h}{2}\bigg)\cdot\di\sin\frac{h}{2}=\cos x$
 \\即
@@ -38,6 +39,7 @@
 \begin{equation}
 	\nonumber
 	f'(x)=(\sin x)'=\cos x
+	\vspace*{0.5em}
 \end{equation}
 4.\enspace$f(x)=a^x(a>0,a\neq1)$
 \vspace{0.8em} \\ \solve
@@ -47,6 +49,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	\nonumber
 	f'(x)=(a^x)'=a^x\cdot\ln a
+	\vspace*{0.5em}
 \end{equation}
 5.\enspace$f(x)=\log_a x(a>0,a\neq1)$
 \vspace{0.8em} \\ \solve $f'(x)=\lim\limits_{h\to0}\di\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\di\frac{\log_a (x+h)-\log_a x}{h}=\lim\limits_{h\to0}\di\frac{1}{h}\cdot\log_a\bigg(1+\di\frac{h}{x}\bigg)=\di\frac{1}{h}\cdot\lim\limits_{h\to0}\di\frac{x}{h}\cdot\log_a\bigg(1+\di\frac{h}{x}\bigg)$\\
@@ -54,10 +57,11 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	\nonumber f'(x)=\frac{1}{x}\cdot\lim\limits_{h\to0}\frac{x}{h}\cdot\log_a\bigg(1+\frac{h}{x}\bigg)=\frac{1}{x}\cdot\lim\limits_{u\to0}\frac{1}{u}\cdot\log_a(1+u)=\frac{1}{x}\cdot\lim\limits_{u\to0}\log_a(1+u^{\frac{1}{u}})=\frac{1}{x}\cdot\lim\limits_{u\to0}\log_a e=\frac{1}{x}\cdot\frac{1}{\ln a}=\frac{1}{x\cdot\ln a}
 	\end{equation}
-即\\
+即
 \begin{equation}
 	\nonumber
 	f'(x)=(\log_a x)'=\frac{1}{x\cdot\ln a}
+	\vspace*{0.5em}
 \end{equation}
 \subsection{导函数与单侧导数}
 \tdefination[导数定义2]
@@ -95,22 +99,22 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 余切函数 \kg cot $x=\di\frac{1}{\tan x}$  \kg \kg 反三角函数\kg  $\arcsin x$,$\arccos x$,$\arctan x$,arccsc $x$,arcsec $x$,arccot $x$
 \subsection{基本函数的求导公式}\vspace*{-3em}
 \begin{flalign*}
- & 1.\enspace(C)'=0(C\text{为常数})   && 2.\enspace(x^\mu)'=\mu x^{\mu-1}\vspace{1em}&&\\
-& 3.\enspace(\sin x)'=\cos x   & &4.\enspace(\cos x)'=-\sin x\vspace{1em}&&\\
-& 5.\enspace(\tan x)'=\text{sec}^2 x   && 6.\enspace(\cot x)'=-\csc^2 x\vspace{1em}&&\\
-& 7.\enspace(\sec x)'=\sec x\cdot\tan x   && 8.\enspace(\csc x)'=-\csc x\cdot \tan x\vspace{1em}&&\\
-& 9.\enspace(a^x)'=a^x\cdot\ln a(a>0,a\neq1)   &&10.\enspace(\log_a x)'=\frac{1}{x\cdot\ln a}(a>0,a\neq1)\vspace{1em}&&\\
-& 11.\enspace(\arcsin x)'=\frac{1}{\sqrt{1-x^2}}   & &12.\enspace(\arccos x)'=-\frac{1}{\sqrt{1-x^2}}\vspace{1em}&&\\
-& 13.\enspace(\arctan x)'=\frac{1}{1+x^2}   
-& &14.\enspace(\text{arccot}\hspace{0.2em} x)'=-\frac{1}{1+x^2}\vspace{1em}&&\\
-&15.\enspace(\text{ch}\hspace{0.2em} x)'=\text{sh}\hspace{0.2em} x   & &16.\enspace(\text{sh}\hspace{0.2em} x)'=\text{ch}\hspace{0.2em} x\vspace{1em}&&\\
-&17.\enspace(\text{th}\hspace{0.2em}x)'=\frac{1}{\text{ch}^2x}&
+ \qquad & 1.\enspace(C)'=0(C\text{为常数})   && 2.\enspace(x^\mu)'=\mu x^{\mu-1}\vspace{1em}&&\\
+\qquad & 3.\enspace(\sin x)'=\cos x   & &4.\enspace(\cos x)'=-\sin x\vspace{1em}&&\\
+\qquad & 5.\enspace(\tan x)'=\text{sec}^2 x   && 6.\enspace(\cot x)'=-\csc^2 x\vspace{1em}&&\\
+\qquad & 7.\enspace(\sec x)'=\sec x\cdot\tan x   && 8.\enspace(\csc x)'=-\csc x\cdot \tan x\vspace{1em}&&\\
+\qquad & 9.\enspace(a^x)'=a^x\cdot\ln a(a>0,a\neq1)   &&10.\enspace(\log_a x)'=\frac{1}{x\cdot\ln a}(a>0,a\neq1)\vspace{1em}&&\\
+\qquad & 11.\enspace(\arcsin x)'=\frac{1}{\sqrt{1-x^2}}   & &12.\enspace(\arccos x)'=-\frac{1}{\sqrt{1-x^2}}\vspace{1em}&&\\
+\qquad & 13.\enspace(\arctan x)'=\frac{1}{1+x^2}   
+\qquad & &14.\enspace(\text{arccot}\hspace{0.2em} x)'=-\frac{1}{1+x^2}\vspace{1em}&&\\
+\qquad &15.\enspace(\text{ch}\hspace{0.2em} x)'=\text{sh}\hspace{0.2em} x   & &16.\enspace(\text{sh}\hspace{0.2em} x)'=\text{ch}\hspace{0.2em} x\vspace{1em}&&\\
+\qquad &17.\enspace(\text{th}\hspace{0.2em}x)'=\frac{1}{\text{ch}^2x}&
 \end{flalign*}
 \subsection{函数求导法则}
 设$f(x),g(x)$可导，则
 \begin{flalign*}
-&1.\enspace[f(x)+g(x)]'=f'(x)+g'(x) &2.&\enspace[Cf(x)]'=Cf'(x)(C\text{为常数})\vspace{1em}&&\\
-&3.\enspace[f(x)\cdot g(x)]'=f'(x)\cdot g(x)+f(x)\cdot g'(x) &4.&\enspace\bigg[\frac{f(x)}{g(x)}\bigg]'=\frac{f'(x)\cdot g(x)-f(x)\cdot g'(x)}{[g(x)]^2}&&
+\qquad &1.\enspace[f(x)+g(x)]'=f'(x)+g'(x) &2.&\enspace[Cf(x)]'=Cf'(x)(C\text{为常数})\vspace{1em}&&\\[0.5em]
+\qquad &3.\enspace[f(x)\cdot g(x)]'=f'(x)\cdot g(x)+f(x)\cdot g'(x) &4.&\enspace\bigg[\frac{f(x)}{g(x)}\bigg]'=\frac{f'(x)\cdot g(x)-f(x)\cdot g'(x)}{[g(x)]^2}&&
 \end{flalign*}
 \subsection{反函数的求导法则}
 设$x=f(y)$在区间$I_y$内单调、可导且$f'(y)$,则它的反函数$y=f^{-1}(x)$在$I_x=f(I_y)$内也可导，则
@@ -152,11 +156,15 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 	\Delta y=\d y+o(\d y)
 \end{equation}
 
-\kg 即$\d y$是$\Delta y $的主部\footnote{设$\alpha$,$ \beta$ 都是在同一个自变量的变化过程中的无穷小，如果$\beta=\alpha +o(\alpha)$,则称$\alpha$是$\beta$的主部}，又由于$\d y=f'(x_0)\Delta x$是$\Delta x$的线性函数。所以在$f'(x_0)\neq0$的条件下，我们说$\d y$是$\Delta x$的线性主部（当$\Delta x\to 0$时）。于是我们得到以下结论：
-\\  \kg 在$f'(x_0)\neq0$的条件下，以微分$\d y=f'(x_0)\Delta x$近似代替增量$\Delta y=f(x_0+\Delta x)-f(x_0)$时，其误差为$o(\d y)$
+即$\d y$是$\Delta y $的主部\footnote{设$\alpha$,$ \beta$ 都是在同一个自变量的变化过程中的无穷小，如果$\beta=\alpha +o(\alpha)$,则称$\alpha$是$\beta$的主部.}，又由于$\d y=f'(x_0)\Delta x$是$\Delta x$的线性函数。所以在$f'(x_0)\neq0$的条件下，我们说$\d y$是$\Delta x$的线性主部（当$\Delta x\to 0$时）。于是我们得到以下结论：
+\\  \kg 在$f'(x_0)\neq0$的条件下，以微分$\d y=f'(x_0)\Delta x$近似代替增量$\Delta y=f(x_0+\Delta x)-f(x_0)$时，其误差为$o(\d y).$
 \subsection{微分的几何意义}
-如，在直角坐标系中，函数$y=f(x)$的图形是一条曲线相对与某一固定的$x_0$值，曲线上有一个确定点$M(x_0,y_0)$,当自变量$x$有微小增量$\Delta x$时，就得到曲线上另一点$N(x_0+\Delta x,y_0+\Delta y)$,从图可知
-\begin{equation}
+如图 \ref{微分几何意义} 所示，在直角坐标系中，函数$y=f(x)$的图形是一条曲线相对与某一固定的$x_0$值，曲线上有一个确定点$M(x_0,y_0)$,当自变量$x$有微小增量$\Delta x$时，就得到曲线上另一点$N(x_0+\Delta x,y_0+\Delta y)$,
+
+\noindent
+\begin{minipage}{0.45\linewidth}
+\qquad 从图 \ref{微分几何意义} 可知,
+	\begin{equation}
 	\nonumber
 	MQ=\Delta x=\d x,NQ=\Delta y
 \end{equation}
@@ -170,7 +178,17 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 	\nonumber
 	\d y=QP
 \end{equation}
-\myitem{$\bullet${\normalsize\textbf{微分的几何意义的应用}}\vspace{0.5em}\\
+\end{minipage}
+\begin{minipage}{0.55\linewidth}
+	\centering
+	\includegraphics[width = 0.8\linewidth]{pic/C-2/微分几何意义.pdf}
+	\vspace*{-1em}
+	\captionof{figure}{微分的几何意义}
+	\label{微分几何意义}
+\end{minipage}
+\vspace*{1.5em}
+
+\myitem{$\bullet${\normalsize\textbf{微分的几何意义的应用}}\vspace{0.2em}\\
 \kg 对于可微函数$y=f(x)$而言，当$\Delta y$是曲线$y=f(x)$上的点的纵坐标的增量时，$\d y$就是曲线的切线上的点的纵坐标的相应增量，当$|\Delta x|$很小时，$|\Delta y-\d y|$比$|\Delta x|$小得多。因此在点$M$的邻近，我们可以用切线段来近似代替曲线段。在局部范围内用线性函数近似替代非线性函数，在几何上就是局部用切线段近似代替曲线段。这在数学上称为\textbf{非线性函数的局部线性化}。这是微分学的基本思想方法之一。这种思想方法在自然科学和工程问题的研究中是经常采用的。}
 \subsection{基本初等函数的微分公式}
 从函数的微分表达式
@@ -181,8 +199,8 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \subsection{微分运算法则}
 由函数和差商积的求导法则，可推得相应的微分法则。
 \begin{flalign*}
-	&1.\enspace d(u\pm v)=\d u+\d v &2.&\enspace \d(uv)=v\d u+u\d v&&\\
-	&3.\enspace\d(Cu)=C\d u &4.&\enspace\d\bigg(\frac{u}{v}\bigg)=\frac{v\d u-u\d v}{v^2}&&
+	\qquad &1.\enspace d(u\pm v)=\d u+\d v &2.&\enspace \d(uv)=v\d u+u\d v&&\\[0.5em]
+	\qquad &3.\enspace\d(Cu)=C\d u &4.&\enspace\d\bigg(\frac{u}{v}\bigg)=\frac{v\d u-u\d v}{v^2}&&
 \end{flalign*}
 设$y=f(u)$及$u=g(x)$都可导，则复合函数$y=f[g(x)]$的微分为
 \begin{equation}
@@ -193,6 +211,9 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \d y=f'(u)\,\d u\huo \d y=y'_u\,\d u
 \end{equation}
 \kg 由此可见，无论$u$是自变量还是中间变量。微分形式$\d y=f'(u)\,\d u$保持不变。这一性质称为微分形式不变性，这性质表明，当变换自变量时，微分形式$\d y=f'(u)\,\d u$并不改变。
+\clearpage
+
+\vspace*{-2.5em}
 \warn[\kg 微分形式不变性仅适用于一阶微分，对于二阶及以上的微分并不成立，这个在高阶导数和高阶微分中会详细说明。]
 \section{隐函数的导数}
 \subsection{隐函数与显函数的概念}
@@ -229,10 +250,15 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 即\begin{equation}
 	\frac{\d y}{\d x}=-\frac{y}{x+\e^y}(x+\e^y\neq0)
 \end{equation}
-\kg 有些时候对于复杂的显函数也可以用隐函数求导的方法进行求导，常见的方法就是\highlight{red}{\index{DSQDF@对数求导法}对数求导法}，下面给出两个典型例题：\vspace*{0.5em}\\
-\examples 求函数$y=\sin x$的导数
-\\ \solve 等式两边分别取对数，得$\ln y=\sin x\cdot \ln x$
-\\我们把方程两边分别对$x$求导数，得
+
+有些时候对于复杂的显函数也可以用隐函数求导的方法进行求导，常见的方法就是\highlight{red}{\index{DSQDF@对数求导法}对数求导法}，下面给出两个典型例题。
+\clearpage
+\vspace*{-2.5em}
+
+\examples 求函数$y=x^{\textstyle \sin x}$的导数
+
+\solve 等式两边分别取对数，得$\ln y=\sin x\cdot \ln x$\\[0.5em]
+我们把方程两边分别对$x$求导数，得
 \begin{equation}
 	\nonumber
 \frac{1}{y}y'=\cos x\cdot \ln x+\sin x\cdot \frac{1}{x}
@@ -240,8 +266,10 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 即\begin{equation}
 	\nonumber
 	y'=y\bigg(\cos x\cdot \ln x+\frac{\sin x}{x}\bigg)=x^{\sin x}\bigg(\cos x\cdot \ln x+\frac{\sin x}{x}\bigg)
+	\vspace*{1.5em}
 \end{equation}
-\examples 求函数$y=\sqrt{\di\frac{(x-1)(x-2)}{(x-3)(x-4)}}$的导数
+
+\noindent \examples 求函数$y=\sqrt{\di\frac{(x-1)(x-2)}{(x-3)(x-4)}}$的导数
 \\ \solve 等式两边取对数，得
 \sj
 \begin{equation}
@@ -282,6 +310,9 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	\frac{\d y}{\d x}=\frac{\d y}{\d t}\cdot \frac{\d t}{\d x}=\frac{\d y}{\d t}\cdot\frac{1}{\bigg(\di\frac{\d x}{\d t}\bigg)}=\frac{y'(t)}{x'(t)}
 \end{equation}
+\clearpage
+\vspace*{-1em}
+\begin{minipage}{0.57\linewidth}
 \examples 已知椭圆的参数方程为
 \begin{equation}
 	\nonumber
@@ -290,16 +321,26 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 		&\, y=b\sin t\\
 	\end{aligned}\right.
 \end{equation}
-求椭圆在$t=\di\frac{\pi}{4}$相应的点处的切线方程。\\
+	求椭圆在$t=\di\frac{\pi}{4}$相应的点处的切线方程。\\[0.5em]
 \solve 当$t=\di\frac{\pi}{4}$时，椭圆上相应的点$M_0$的坐标为
+\vspace*{-1.2em}
 \begin{equation}
 	\nonumber
 	\left\{ \begin{aligned}
-		&\, x_0=a\cos \frac{\pi}{4}=\frac{\sqrt{2}a}{2}\\
+		&\, x_0=a\cos \frac{\pi}{4}=\frac{\sqrt{2}a}{2}\\[0.5em]
 		&\, y_0=b\cos \frac{\pi}{4}=\frac{\sqrt{2}b}{2}\\
 	\end{aligned}\right.
 \end{equation}
-曲线在$M_0$的切线斜率为:
+\end{minipage}
+\begin{minipage}{0.35\linewidth}
+	\centering
+	\includegraphics[width=\linewidth]{pic/C-2/椭圆切线}
+	\vspace*{-2em}
+	\captionof{figure}{椭圆上$t = \dfrac{\pi}{4}$处的切线}
+\end{minipage}
+\vspace*{1em}
+
+\noindent 曲线在$M_0$的切线斜率为:
 \begin{equation}
 	\nonumber
 	\frac{\d y}{\d x}\bigg|_{t=\frac{\pi}{4}}=\frac{(b\sin t)'}{(a\cos t)'}\bigg|_{t=\frac{\pi}{4}}=\frac{b\cos t}{-a\sin t}\bigg|_{t=\frac{\pi}{4}}=-\frac{b}{a}
@@ -315,6 +356,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 	bx+ay-\sqrt{2}ab=0
 \end{equation}
 2.\enspace 参数方程的二阶导数
+
 对于一个由下列参数方程所确定的函数
 \begin{equation}
 	\nonumber
@@ -446,32 +488,74 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \kg(3)\enspace 在区间端点处的函数值相等，即$f(a)=f(b)$,\\
 那么，在$(a,b)$内至少有一点$\xi $,使得$f'(\xi)=0$.\vspace{0.5em}\\
 \proof 由于函数$f(x)$在闭区间$[a,b]$上连续，那么一定存在最大值$M$，最小值$m$.
-\\ (1)\enspace $M=m$\\
-\kg 当$M=m$时，这个时候函数的图像便是一条直线，那么，任意$\xi \in(a,b)$,都有$f(\xi)\leq f(x)$,由费马引理，得
+
+\begin{minipage}{0.5\linewidth}
+	(1)\enspace $M=m$\\
+\kg 当$M=m$时，这个时候函数的图像便是一条直线，如图 \ref{Roll1} 所示。那么，任意$\xi \in(a,b)$,都有$f(\xi)\leq f(x)$,由费马引理，得
 \begin{equation}
 \nonumber
 f'(\xi)=0\sj
 \end{equation}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+	\centering
+	\includegraphics[width = 0.9\linewidth]{pic/C-2/Roll_1}
+	\vspace*{-1em}
+	\captionof{figure}{$M = m$时的函数图像}
+	\label{Roll1}
+\end{minipage}
+
+
 (2)\enspace$M\geq m $\\
-\quad \circled{1} $M=f(a)=f(b)$.\\
-\kg 当$M=f(a)=f(b)$时，由于$M>m$,那么$x_m\neq a,x_m\neq b$,即有$f(x)\geq f(x_m)$.由费马引理，得
+\noindent \circled{1} $M=f(a)=f(b)$.\\
+\kg 如图 \ref{Roll2} 所示，当$M=f(a)=f(b)$时，由于$M>m$,那么$x_m\neq a,x_m\neq b$,即有$f(x)\geq f(x_m)$.由费马引理，得
 \begin{equation}
 	\nonumber
 	f'(x_m)=0
 \end{equation}
-取$\xi=x_m$即可。\\
-\quad \circled{2} $m=f(a)=f(b)$.\\
-\kg 当$m=f(a)=f(b)$时，由于$M>m$，那么$x_M\neq a,x_M\neq b$,即有$f(x_M)\geq f(x)$.由费马引理，得
+取$\xi=x_m$即可。
+
+\begin{figure}[!htb]
+\centering
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[width = 0.93\linewidth]{pic/C-2/Roll_3}
+		\vspace*{-1em}
+		\caption{$M = f(a) = f(b)$的函数图像}
+		\label{Roll2}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[width = 0.9\linewidth]{pic/C-2/Roll_2}
+		\vspace*{-1em}
+		\caption{$m = f(a) = f(b)$的函数图像}
+		\label{Roll3}
+	\end{minipage}
+\end{figure}
+
+\noindent \circled{2} $m=f(a)=f(b)$.\\
+\kg 如图 \ref{Roll3} 所示，当$m=f(a)=f(b)$时，由于$M>m$，那么$x_M\neq a,x_M\neq b$,即有$f(x_M)\geq f(x)$.由费马引理，得
 \begin{equation}
 	f'(x_M)=0
 \end{equation}
-取$\xi=x_M$即可。\\
-\quad \circled{3} $m<f(a)=f(b)<M$.\\
-\kg 当$m<f(a)=f(b)<M时$，$x_M,x_m\neq a,b.$.即有$f(x_M)\geq f(x)\geq f(x_m)$.那么由费马引理得
+取$\xi=x_M$即可。
+
+\noindent \begin{minipage}{0.6\linewidth}
+\noindent \circled{3} $m<f(a)=f(b)<M$.\\
+\kg 如图 \ref{Roll4} 所示，，当$m<f(a)=f(b)<M时$，$x_M,x_m\neq a,b.$.即有$f(x_M)\geq f(x)\geq f(x_m)$.那么由费马引理得
 \begin{equation}
 	f'(x_M)=0\kg f'(x_m)=0
 \end{equation}
-取$\xi=\big\lbrace x_M,x_m \big\rbrace$即可。
+取$\xi=\big\lbrace x_M,x_m \big\rbrace$即可。	
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\includegraphics[width=0.95\linewidth]{pic/C-2/Roll_4}
+	\vspace*{-1.5em}
+	\captionof{figure}{$m < f(a) = f(b) < M$时的函数图像}
+	\label{Roll4}
+\end{minipage}
+
 \subsection{拉格朗日中值定理}
 罗尔定理中$f(a)=f(b)$这个条件是相当特殊的，它使罗尔定理的应用受到限制。所以我们将罗尔定理推广到拉格朗日中值定理.\\
 
@@ -485,7 +569,8 @@ f'(\xi)=0\sj
 \begin{equation}
 	\frac{f(b)-f(a)}{b-a}=f'(\xi)\sj
 \end{equation}
-\\ \proof 既然是罗尔定理的推广，我们想办法构造罗尔定理的条件，即函数的端点值相等。那么我们只需要将原函数减去直线(有向向量)$AB$即可。设直线$AB$的方程为
+
+\noindent \proof 既然是罗尔定理的推广，我们想办法构造罗尔定理的条件，即函数的端点值相等。那么我们只需要将原函数减去直线(有向向量)$\bm{AB}$即可，如图 \ref{Lagrange} 所示。设直线$AB$的方程为
 \begin{equation}
 	\nonumber
 	L(x)=f(a)+\frac{f(b)-f(a)}{b-a}(x-a)
@@ -500,6 +585,7 @@ f'(\xi)=0\sj
 \nonumber
 	F(a)=f(a)-f(a)-\frac{f(b)-f(a)}{b-a}(a-a)=0-0=0
 \end{equation}
+从而，
 \begin{equation}
 	\nonumber
 	F(b)=f(b)-f(a)-\frac{f(b)-f(a)}{b-a}(b-a)=f(b)-f(a)-[f(b)-f(a)]=0
@@ -513,6 +599,17 @@ f'(\xi)=0\sj
 	\nonumber
 	\frac{f(b)-f(a)}{b-a}=f'(\xi)
 \end{equation}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width = 0.51\linewidth]{pic/C-2/Lagrange}
+	\vspace*{-1em}
+	\caption{拉格朗日定理的几何意义}
+	\label{Lagrange}
+\end{figure}
+
+\vspace*{3em}
 \myitem{\textbf{\normalsize 定理的几何意义}\vspace{0.5em}\\
-\kg 如图，由于$\di\frac{f(b)-f(a)}{b-a}$代表的是函数端点连线$AB$的斜率，而$f'(\xi)$代表的是函数在点$C$处的切线斜率。\\ 那么，拉格朗日中值定理的几何意义为:如果连续函数$y=f(x)$的弧$\wideparen{AB} $上除端点外处处具有不垂直于$x$轴的切线，那么这弧上至少有一点$C$,使曲线在点$C$处的切线平行于弦$AB$.}
-\
+\kg 如图 \ref{Lagrange} 所示，由于$\di\frac{f(b)-f(a)}{b-a}$代表的是函数端点连线$AB$的斜率，而$f'(\xi)$代表的是函数在点$C$处的切线斜率。\\ 
+	\kg 那么，拉格朗日中值定理的几何意义为:如果连续函数$y=f(x)$的弧$\wideparen{AB} $上除端点外处处具有不垂直于$x$轴的切线，那么这弧上至少有一点$C$,使曲线在点$C$处的切线平行于弦$AB$.}
+

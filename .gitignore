@@ -1,7 +1,9 @@
 README.html
 .DS_Store
 
-source/空间解析几何/图片源文件备份/*
+epstopdf/backup/*
+
+source/空间解析几何/picture/backup/*
 
 source/高等数学/高等数学.toc
 source/高等数学/高等数学.idx

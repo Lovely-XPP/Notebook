@@ -15,6 +15,7 @@
 \chapter{补充公式及基本化简方法}
 \thispagestyle{empty}
 \section{三角函数公式}
+\label{三角函数}
 \subsection{和差化积}
 \begin{equation}
 	\boxed{\sin \alpha + \sin \beta = 2 \sin \dfrac{\alpha + \beta}{2}  \cos  \dfrac{\alpha - \beta}{2} }
@@ -123,14 +124,102 @@ $= 2 \sin \dfrac{\alpha + \beta}{2}  \cos  \dfrac{\alpha - \beta}{2} $
 \end{align}
 
 \section{反三角函数公式}
+\subsection{反三角函数的运算法则（仅考虑一个周期）}
+\vspace*{-1em}
+\begin{equation}
+	\boxed{\cos \big( \arcsin x \big) = \sin \big( \arccos x \big) = \sqrt{1 - x^2}}
+\end{equation}
+\proof 设$t = \arcsin x$，则$x = \sin t$，那么\\[-2.2em]
+$$
+\cos \big(\arcsin x \big) = \cos t = \sqrt{1 - \sin^2 t} = \sqrt{1 - x^2}
+\vspace*{-0.5em}
+$$
+类似可证，
+$$
+\sin \big( \arccos x \big) = \sqrt{1 - x^2}
+$$
+
+\begin{equation}
+	\boxed{\arcsin (-x) = - \arcsin x}
+\end{equation}
+\proof 设$t = \arcsin x$，则$x = \sin t$，那么\\[-2.2em]
+$$
+\arcsin(-x) = \arcsin(- \sin t) = \arcsin \big[ \sin (-t) \big] = -t = - \arcsin x
+\vspace*{-0.5em}
+$$
+
+\begin{equation}
+	\boxed{\arccos(-x) = \pi - \arccos x}
+\end{equation}
+\proof 设$t = \arccos x$，则$x = \tan t$，那么\\[-2.2em]
+$$
+\arctan (-x) = \arctan(- \tan t) = \arctan \big[ \tan (-t) \big] = - t = - \arctan x
+\vspace*{-0.5em}
+$$
+
+\begin{equation}
+	\boxed{ \arccot (-x) = \pi - \arccot x}
+\end{equation}
+\proof 设$t = \arccot x$，则$x = \cot t$，那么\\[-2.2em]
+$$
+\arccot (-x) = \arccot(- \cot t) = \arccot (- \cot t) = \arccot \big[ \cot(\pi - t) \big] = \pi - t = \pi - \arccot x
+\vspace*{-0.5em}
+$$
+
+\begin{equation}
+	\boxed{\arcsin x + \arccos x = \arctan x + \arccot x = \dfrac{\pi}{2}}
+\end{equation}
+\proof 设$t = \arcsin x$，则$x = \sin t$，那么\\[-2.2em]
+$$
+\arcsin x + \arccos x = t + \arccos(\sin t) = t + \arccos \left[ \cos \left( \dfrac{\pi}{2} - t \right) \right] = t + \dfrac{\pi}{2} - t = \dfrac{\pi}{2}
+\vspace*{-0.5em}
+$$
+类似可证，
+$$
+\arctan x + \arccot x = \dfrac{\pi}{2}
+\vspace*{-0.5em}
+$$
+
+\begin{equation}
+	\boxed{\sin \big( \arcsin x \big) = \cos \big( \arccos x \big) = \tan \big( \arctan x \big) = \cot \big( \arccot x \big) = x}
+\end{equation}
+\vspace*{0.1em}
+
+\begin{tcolorbox}[title=记忆方法]
+\quad 观察反三角函数公式$\longrightarrow$联想对应的三角函数的公式$\longrightarrow$构造反三角函数$\longrightarrow$适当化简.\\
+\hspace*{1.5em} 下面给出一个例子.
+\begin{equation*}
+	\arcsin x + \arccos x = \dfrac{\pi}{2}
+\end{equation*}
+第一步，观察式子，可以发现坐标都含有$\sin x$和$\cos x$；\\
+第二步，我们可以联想到$\sin x$与$\cos x$的关系，即
+$$
+	\sin x = \cos \left( \dfrac{\pi}{2} - x \right) 
+$$
+第三步，构造反函数，即对上面的式子两边都取反函数，即
+$$
+	\arcsin t = \dfrac{\pi}{2} - \arccos t
+$$
+第四步，适当化简
+$$
+	\arcsin t + \arccos t = \dfrac{\pi}{2}
+$$
+经过这四个步骤，就可以很好理解并记忆反三角函数的运算法则。
+\end{tcolorbox}
+\vspace*{1em}
+
+
+
 \subsection{反三角函数的图像}
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.8\linewidth]{pic/C-F/arctan.pdf}
+	\includegraphics[width = 0.9\linewidth]{pic/C-F/arctan.pdf}
 	\vspace*{-1em}
 	\caption{$\arctan$函数的图像}
 	\label{atan}
 \end{figure}
+$y = \arctan x$的函数图像如图 \ref{atan} 所示，其定义域为$(-\infty, + \infty)$，值域为$(-\pi/2, \pi/2)$.
+
 \begin{figure}[!htb]
 	\begin{minipage}{0.49\linewidth}
 		\centering
@@ -145,13 +234,115 @@ $= 2 \sin \dfrac{\alpha + \beta}{2}  \cos  \dfrac{\alpha - \beta}{2} $
 		\label{acos}
 	\end{minipage}
 \end{figure}
+$y = \arcsin x$的函数图像如图 \ref{asin} 所示，其定义域为$[-1, 1]$，值域为$[-\pi/2, \pi/2]$.
+
+$y = \arccos x$的函数图像如图 \ref{acos} 所示，其定义域为$[-1, 1]$，值域为$[0, \pi)$.
+
+\section{基本公式}
+\vspace*{-2em}
+\begin{align}
+	\boxed{a^3 + b^3 = (a + b)(a^2 - ab + b^2)}\quad \quad  \\[0.5em]
+	\boxed{a^3 - b^3 = (a - b)(a^2 + ab + b^2)}\quad \quad \\[0.5em]
+	\boxed{(a + b)^2 = a^2 + 2ab + b^2 }\quad \quad \quad\,\,\\[0.5em]
+	\boxed{(a - b)^2 = a^2 - 2ab + b^2 }\quad \quad \quad\,\,\\[0.5em]
+	\boxed{(a-b)(a+b) = a^2 - b^2}\quad \quad \quad\,\,\\[0.5em]
+	\boxed{x^n - 1 = (x - 1)(x^{n-1} + x^{n-2} + \cdots + x + 1)}
+\end{align}
+\proof 由等比数列求和公式：$x^{n-1} + x^{n-2} + \cdots + x + 1 = \dfrac{x^n - 1}{x -1}$，即$x^n - 1 = (x - 1)(x^{n-1} + x^{n-2} + \cdots + x + 1).$
+
+\noindent 7. 当$n$为奇数时，$x^n + 1 = (x+1)(x^{n-1}- x^{n-2} + x^{n-3} - \cdots - x + 1)$；当$n$为偶数时，$x^n + 1$不能因式分解.
+
+\warn[\quad 在我们做题化简应用公式的时候，我们通常会正用而不会或不记得要逆用。]
+
+下面给出几个例子。\\[1em]
+1. $\displaystyle \sqrt[3]{a} - \sqrt[3]{b} = \dfrac{\big(\sqrt[3]{a} \big)^3 - \big(\sqrt[3]{b} \big)^3}{\sqrt[3]{a^2} + \sqrt[3]{a}\cdot\sqrt[3]{b} + \sqrt[3]{b^2}} = \dfrac{a-b}{\sqrt[3]{a^2} + \sqrt[3]{ab} + \sqrt[3]{b^2}} \xrightarrow{\textstyle \,\, b = 1 \,\,} \sqrt[3]{a} - 1 = \dfrac{a-1}{\sqrt[3]{a^2} + \sqrt[3]{a} + 1}$\\[0.5em]
+2. $\displaystyle \sqrt[3]{a} + \sqrt[3]{b} = \dfrac{\big(\sqrt[3]{a} \big)^3 + \big(\sqrt[3]{b} \big)^3}{\sqrt[3]{a^2} - \sqrt[3]{a}\cdot\sqrt[3]{b} + \sqrt[3]{b^2}} = \dfrac{a-b}{\sqrt[3]{a^2} -\sqrt[3]{ab} + \sqrt[3]{b^2}} \xrightarrow{\textstyle \,\, b = 1 \,\,} \sqrt[3]{a} + 1 = \dfrac{a+1}{\sqrt[3]{a^2} - \sqrt[3]{a} + 1}$\\[1em]
+\par 对于极限$\displaystyle \dfrac{\sqrt[3]{a} - \sqrt[3]{b}}{a - b}$的形式往往是$\dfrac{0}{0}$型，通过上面的简化后，可以直接化简为
+$$
+\dfrac{\sqrt[3]{a} - \sqrt[3]{b}}{a - b} = \dfrac{1}{\sqrt[3]{a^2} + \sqrt[3]{ab} + \sqrt[3]{b^2}}
+$$
+这就很容易求得$\displaystyle \dfrac{\sqrt[3]{a} - \sqrt[3]{b}}{a - b}$的极限。
+
+\begin{tcolorbox}[title=补充：平方差（和）为1的重要公式]
+	\begin{align}
+		\boxed{\sin^2 x + \cos^2 x = 1} \\[0.5em]
+		\boxed{\sec^2 x - \tan^2 x = 1} \\[0.5em]
+		\boxed{\ch x^2 - \sh^2 x = 1}\,\, \\[0.5em]
+		\boxed{\csc^2 x - \cot^2 x = 1}
+	\end{align}
+	\qquad 对于求含有根号且根号内的两个数具备平方差（和）的关系时的积分，通常可以利用这几个公式进行三角换元，从而达到去根号（化繁为简）的效果。
+\end{tcolorbox}
+\vspace*{0.5em}
+
+\section{有理化}
+有理化分为分子有理化、分母有理化和分子分母同时有理化。
+
+有理化在求极限中是十分常见的化简方法，因为它能将趋于0的减法根式变为不趋于0的加法根式并且可以构造约分。以下给出几个例子。
+
+\examples 求下列极限：\\[1em]
+1. $\displaystyle \lim\limits_{x \to 0} \dfrac{\sqrt{1+x} - \sqrt{1-x}}{x}$.\\[1em]
+\solve 原式$\displaystyle = \lim \limits_{x \to 0} \dfrac{\big(\sqrt{1+x} - \sqrt{1-x} \big)\big(\sqrt{1+x} + \sqrt{1-x}\big)}{x\big( \sqrt{1+x} + \sqrt{1-x} \big)} = \lim \limits_{x \to 0} \dfrac{2x}{x\big( \sqrt{1+x} + \sqrt{1-x} \big)} = \lim \limits_{x \to 0} \dfrac{2}{\big( \sqrt{1+x} + \sqrt{1-x} \big)} = 1.$\\[1em]
+2. $\displaystyle \lim \limits_{x \to \infty} \sqrt{1+x} - \sqrt{x}$\\[1em]
+\solve 原式$\displaystyle =\lim \limits_{x \to \infty} \dfrac{\big(\sqrt{1+x} - \sqrt{x}\big) \big( \sqrt{1+x} + \sqrt{x} \big)}{\sqrt{1+x} + \sqrt{x}} = \lim \limits_{x \to \infty} \dfrac{1}{\sqrt{1+x}+\sqrt{x}} = \dfrac{1}{\infty} = 0$\\[1em]
+3. $\displaystyle \lim \limits_{x \to 4} \dfrac{\sqrt{1+2x} - 3}{\sqrt{x} - 2}$\\[1em]
+\solve 原式$\displaystyle=\lim \limits_{x \to 4} \dfrac{\big( \sqrt{1+2x} - 3 \big) \big(\sqrt{1+2x} + 3 \big) \big(\sqrt{x} + 2 \big)}{\big(\sqrt{x} - 2\big) \big(\sqrt{x} + 2 \big) \big(\sqrt{1+2x} + 3 \big)} = \lim \limits_{x \to 4} \dfrac{\big(2x-8\big) \big(\sqrt{x} + 2 \big)}{\big( x - 4 \big) \big( \sqrt{1+2x} + 3 \big)} = \lim \limits_{x \to 4} \dfrac{2\big( \sqrt{x} + 2 \big)}{\sqrt{1+2x}+3} =\dfrac{4}{3}.$
+
+\section{常见不等式}
+不等式通常用于放缩证明。
+\subsection{三角不等式}
+\vspace*{-0.5em}
+\begin{equation}
+	\boxed{| \sin \theta | \le | \theta |}
+\end{equation}
+\noindent
+\begin{minipage}{0.7\linewidth}
+	\proof (1) \quad $|\theta| < \dfrac{\pi}{2}$时，有单位圆弧长大于弦长，如图 \ref{三角不等式} 所示，可以得到
+	$$
+	\wideparen{AD} > |AD| > |AB|
+	$$
+	(2) \quad $|\theta| > \dfrac{\pi}{2}$时，$|\theta| > 1 \ge |\sin \theta|.$\\[0.5em]
+	综上所述，$|\theta| \ge |\sin \theta|$.\\[2em]
+	\hspace*{2em} 当$\theta < \dfrac{\pi}{2}$时，还可以得到一个重要结论：
+\end{minipage}\qquad
+\begin{minipage}{0.25\linewidth}
+	\centering
+	\includegraphics[width = 0.9 \linewidth]{pic/C-F/三角不等式.pdf}
+	\vspace*{-1em}
+	\captionof{figure}{单位圆}
+	\label{三角不等式}
+\end{minipage}
+\vspace*{0.5em}
+\begin{equation}
+		\boxed{\tan \theta > \theta}
+		\vspace*{0.5em}
+\end{equation}
+\proof 由图可得$\displaystyle \text{S}_{\triangle OCD} > \text{S}_{\wideparen{OAD}}$，而$\textbf{S}_{\triangle OCD} = \dfrac{1}{2} \cdot |OD| \cdot |CD| = \dfrac{1}{2} \tan \theta, \,\text{S}_{\wideparen{OAD}} = \dfrac{1}{2} \theta$.所以，$\theta < \dfrac{\pi}{2}$时，$\tan \theta > \theta$.
+
+\subsection{均值不等式}
+\vspace*{-1.5em}
+\begin{equation}
+	\dfrac{n}{\textstyle \frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}} \le \sqrt[n]{a_1a_2\cdots a_n} \le \dfrac{a_1 + a_2 + \cdots + a_n}{n} \le \sqrt{\dfrac{a_1^2 + a_2^2 + \cdots + a_n^2}{n}}\qquad (a_1,a_2,\cdots,a_n > 0)
+	\vspace*{1em}
+\end{equation}
 
 
-
-
-
-
-
+\subsection{二元柯西不等式}
+\vspace*{-0.5em}
+\begin{equation}
+	\left( \sum_{i = 1}^n a_i b_i \right)^2 \le \sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2
+\end{equation}
+\proof 由$\displaystyle \sum_{i=1}^n \big(a_i + xb_i \big)^2 \ge 0$可得\\[-1.5em]
+$$
+\sum_{i = 1}^n b_i^2 \cdot x^2 + 2 \sum_{i=1}^n a_ib_i \cdot x + \sum_{i = 1}^n a_i^2 \ge 0
+$$
+将上面的式子看成是一个关于$x$的二次函数，由二次函数根的分布可以知道，根的判别式$\Delta < 0$，即
+$$
+4\left( \sum_{i = 1}^n a_i b_i \right)^2 - 4\sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2 \le 0
+$$
+即
+$$
+\left( \sum_{i = 1}^n a_i b_i \right)^2 \le \sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2
+$$
 
 
 
