@@ -3,15 +3,13 @@
 
 \usepackage{ctex}
 \usepackage{xeCJK}
-\usepackage[linesnumbered,boxed]{algorithm2e}
-\usepackage{ulem}
 \usepackage{yhmath}
-\usepackage{amssymb}
 \usepackage{makecell}
 \usepackage{verbatim}
 \usepackage{enumerate}%罗列专用宏包
 \usepackage{graphicx}%插入图片的宏包
-\usepackage{subfigure} 
+\usepackage{subfigure}
+\usepackage{capt-of}
 \let\widering\relax
 \usepackage{newtxtext}
 \usepackage{newtxmath}
@@ -21,13 +19,7 @@
 \usepackage{makeidx}%索引专用
 \makeindex  %添加索引
 \usepackage{fancyhdr}
-\usepackage{framed}
-\usepackage{amsfonts}
-\usepackage{wrapfig}
-\usepackage{textcomp}%树叶图案在这个包里
-\usepackage{bbding}%很多漂亮的图案
 \usepackage[dvipsnames, svgnames, x11names]{xcolor}%导入了所有颜色配置文件的宏包
-\usepackage{CJKfntef}
 \usepackage{geometry}%页边距调整
 \geometry{left=2cm,right=2cm,bottom=2cm,top=2cm}
 \usepackage{titletoc}%目录页的宏包
@@ -161,27 +153,6 @@
 %\newtheorem*{example}{\hspace{-0.16cm}\color{53a9ab}\label{#1} \mybox[53a9ab]{\color{53a9ab}例题\addtocounter{F}{1} \thesection.\arabic{F}}}
 
 
-%文章标题
-\title{
-	\Huge{高等数学$\,$\uppercase\expandafter{\romannumeral1}$\,$ 总结}\\
-	\quad\\
-	\quad\\
-	\quad\\
-	\quad\\
-	\quad\\
-	\quad\\
-	\quad\\
-	\quad\\
-	\quad\\
-}
-\author{
-	{\CJKfamily{kai} \large {易鹏\quad 蒋天宇}}\\
-	{\CJKfamily{kai} \large 中山大学$\,$航空航天学院}\vspace*{0.5em}\\
-	内部版本号：V9.32.68.089$\,\,$(内测版)\\
-}
-
-
-
 %调整间距（倍数）
 \linespread{1.5}
 
@@ -279,6 +250,25 @@
 \newcommand{\highlight}[2]{\colorbox{#1!17}{\hspace*{-0.25em}#2\hspace*{-0.25em}}}
 \newcommand{\highlightdark}[2]{\colorbox{#1!47}{\hspace*{-0.25em}#2\hspace*{-0.25em}}}
 %------------------------------------------------------------------------------------------------------------------------%
+
+%文章标题
+\title{
+	\Huge{高等数学$\,$\uppercase\expandafter{\romannumeral1}$\,$ 总结}\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+	\quad\\
+}
+\author{
+	{\CJKfamily{kai} \large {易鹏\quad 蒋天宇}}\\
+	{\CJKfamily{kai} \large 中山大学$\,$航空航天学院}\vspace*{0.5em}\\
+	内部版本号：V9.33.69.090$\,\,$(内测版)\\
+}
 
 %文档开始
 \begin{document}

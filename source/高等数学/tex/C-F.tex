@@ -280,14 +280,68 @@ $$
 
 \examples 求下列极限：\\[1em]
 1. $\displaystyle \lim\limits_{x \to 0} \dfrac{\sqrt{1+x} - \sqrt{1-x}}{x}$.\\[1em]
-\solve 原式$\displaystyle = \lim \limits_{x \to 0} \dfrac{\big(\sqrt{1+x} - \sqrt{1-x} \big)\big(\sqrt{1+x} + \sqrt{1-x}\big)}{x\big( \sqrt{1+x} + \sqrt{1-x} \big)} = \lim \limits_{x \to 0} \dfrac{2x}{x\big( \sqrt{1+x} + \sqrt{1-x} \big)} = \lim \limits_{x \to 0} \dfrac{2}{\big( \sqrt{1+x} + \sqrt{1-x} \big)} = 1.$
+\solve 原式$\displaystyle = \lim \limits_{x \to 0} \dfrac{\big(\sqrt{1+x} - \sqrt{1-x} \big)\big(\sqrt{1+x} + \sqrt{1-x}\big)}{x\big( \sqrt{1+x} + \sqrt{1-x} \big)} = \lim \limits_{x \to 0} \dfrac{2x}{x\big( \sqrt{1+x} + \sqrt{1-x} \big)} = \lim \limits_{x \to 0} \dfrac{2}{\big( \sqrt{1+x} + \sqrt{1-x} \big)} = 1.$\\[1em]
+2. $\displaystyle \lim \limits_{x \to \infty} \sqrt{1+x} - \sqrt{x}$\\[1em]
+\solve 原式$\displaystyle =\lim \limits_{x \to \infty} \dfrac{\big(\sqrt{1+x} - \sqrt{x}\big) \big( \sqrt{1+x} + \sqrt{x} \big)}{\sqrt{1+x} + \sqrt{x}} = \lim \limits_{x \to \infty} \dfrac{1}{\sqrt{1+x}+\sqrt{x}} = \dfrac{1}{\infty} = 0$\\[1em]
+3. $\displaystyle \lim \limits_{x \to 4} \dfrac{\sqrt{1+2x} - 3}{\sqrt{x} - 2}$\\[1em]
+\solve 原式$\displaystyle=\lim \limits_{x \to 4} \dfrac{\big( \sqrt{1+2x} - 3 \big) \big(\sqrt{1+2x} + 3 \big) \big(\sqrt{x} + 2 \big)}{\big(\sqrt{x} - 2\big) \big(\sqrt{x} + 2 \big) \big(\sqrt{1+2x} + 3 \big)} = \lim \limits_{x \to 4} \dfrac{\big(2x-8\big) \big(\sqrt{x} + 2 \big)}{\big( x - 4 \big) \big( \sqrt{1+2x} + 3 \big)} = \lim \limits_{x \to 4} \dfrac{2\big( \sqrt{x} + 2 \big)}{\sqrt{1+2x}+3} =\dfrac{4}{3}.$
+
+\section{常见不等式}
+不等式通常用于放缩证明。
+\subsection{三角不等式}
+\vspace*{-0.5em}
+\begin{equation}
+	\boxed{| \sin \theta | \le | \theta |}
+\end{equation}
+\noindent
+\begin{minipage}{0.7\linewidth}
+	\proof (1) \quad $|\theta| < \dfrac{\pi}{2}$时，有单位圆弧长大于弦长，如图 \ref{三角不等式} 所示，可以得到
+	$$
+	\wideparen{AD} > |AD| > |AB|
+	$$
+	(2) \quad $|\theta| > \dfrac{\pi}{2}$时，$|\theta| > 1 \ge |\sin \theta|.$\\[0.5em]
+	综上所述，$|\theta| \ge |\sin \theta|$.\\[2em]
+	\hspace*{2em} 当$\theta < \dfrac{\pi}{2}$时，还可以得到一个重要结论：
+\end{minipage}\qquad
+\begin{minipage}{0.25\linewidth}
+	\centering
+	\includegraphics[width = 0.9 \linewidth]{pic/C-F/三角不等式.pdf}
+	\vspace*{-1em}
+	\captionof{figure}{单位圆}
+	\label{三角不等式}
+\end{minipage}
+\vspace*{0.5em}
+\begin{equation}
+		\boxed{\tan \theta > \theta}
+		\vspace*{0.5em}
+\end{equation}
+\proof 由图可得$\displaystyle \text{S}_{\triangle OCD} > \text{S}_{\wideparen{OAD}}$，而$\textbf{S}_{\triangle OCD} = \dfrac{1}{2} \cdot |OD| \cdot |CD| = \dfrac{1}{2} \tan \theta, \,\text{S}_{\wideparen{OAD}} = \dfrac{1}{2} \theta$.所以，$\theta < \dfrac{\pi}{2}$时，$\tan \theta > \theta$.
+
+\subsection{均值不等式}
+\vspace*{-1.5em}
+\begin{equation}
+	\dfrac{n}{\textstyle \frac{1}{a_1} + \frac{1}{a_2} + \cdots + \frac{1}{a_n}} \le \sqrt[n]{a_1a_2\cdots a_n} \le \dfrac{a_1 + a_2 + \cdots + a_n}{n} \le \sqrt{\dfrac{a_1^2 + a_2^2 + \cdots + a_n^2}{n}}\qquad (a_1,a_2,\cdots,a_n > 0)
+	\vspace*{1em}
+\end{equation}
 
 
-
-
-
-
-
+\subsection{二元柯西不等式}
+\vspace*{-0.5em}
+\begin{equation}
+	\left( \sum_{i = 1}^n a_i b_i \right)^2 \le \sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2
+\end{equation}
+\proof 由$\displaystyle \sum_{i=1}^n \big(a_i + xb_i \big)^2 \ge 0$可得\\[-1.5em]
+$$
+\sum_{i = 1}^n b_i^2 \cdot x^2 + 2 \sum_{i=1}^n a_ib_i \cdot x + \sum_{i = 1}^n a_i^2 \ge 0
+$$
+将上面的式子看成是一个关于$x$的二次函数，由二次函数根的分布可以知道，根的判别式$\Delta < 0$，即
+$$
+4\left( \sum_{i = 1}^n a_i b_i \right)^2 - 4\sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2 \le 0
+$$
+即
+$$
+\left( \sum_{i = 1}^n a_i b_i \right)^2 \le \sum_{i = 1}^n a_i^2 \cdot \sum_{i = 1}^n b_i^2
+$$
 
 
 
