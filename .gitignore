@@ -3,7 +3,7 @@ README.html
 
 epstopdf/backup/*
 
-source/空间解析几何/图片源文件备份/*
+source/空间解析几何/picture/backup/*
 
 source/高等数学/高等数学.toc
 source/高等数学/高等数学.idx
@@ -18,7 +18,6 @@ source/高等数学/高等数学.ilg
 source/高等数学/pic/backup/*
 source/高等数学/tex/*.aux
 source/高等数学/tex/*.log
-source/高等数学/backup/*
 
 source/Principle of Automatic Control/Principle of Automatic Control.toc
 source/Principle of Automatic Control/Principle of Automatic Control.idx
