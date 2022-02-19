@@ -1,4 +1,5 @@
 README.html
+
 .DS_Store
 
 epstopdf/backup/*
@@ -18,6 +19,9 @@ source/高等数学/高等数学.ilg
 source/高等数学/pic/backup/*
 source/高等数学/tex/*.aux
 source/高等数学/tex/*.log
+source/高等数学/tex/*.bll
+sourse/高等数学/tex/*.blg
+
 
 source/Principle of Automatic Control/Principle of Automatic Control.toc
 source/Principle of Automatic Control/Principle of Automatic Control.idx
