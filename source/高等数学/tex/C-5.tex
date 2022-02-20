@@ -200,3 +200,303 @@ x_2 & y_2 & z_2\\
 \end{bmatrix}
 \end{equation}
 (注：$\boldsymbol{i}\cdot\boldsymbol{i}=1,\boldsymbol{i}\cdot\boldsymbol{j}=0,\boldsymbol{i}\cdot\boldsymbol{k}=0$其余类似可得，本质上就是利用三个坐标轴上的单位向量相乘)
+\subsection{方向角与方向余弦}
+\defination[方向角与方向余弦]
+记非零向量$\boldsymbol{r}$与三条坐标轴$(x,y,z)$的夹角$\alpha,\beta,\gamma$为向量$\boldsymbol{r}$的方向角。设$\boldsymbol{r}=\boldsymbol{OA}=(x,y,z)$,则
+\begin{equation}
+	\cos \alpha=\frac{x}{|OA|}=\frac{x}{\boldsymbol{|r|}}=\frac{x}{\sqrt{x^2+y^2+z^2}}
+\end{equation}
+\begin{equation}
+	\cos \beta=\frac{y}{|OA|}=\frac{y}{\boldsymbol{|r|}}=\frac{y}{\sqrt{x^2+y^2+z^2}}
+\end{equation}
+\begin{equation}
+	\cos \gamma=\frac{z}{|OA|}=\frac{z}{\boldsymbol{|r|}}=\frac{z}{\sqrt{x^2+y^2+z^2}}
+\end{equation}
+那么，向量$\boldsymbol{r}$方向上的方向向量可以表示成：
+\begin{equation}
+	\boldsymbol{e_r}=(\cos \alpha,\cos \beta,\cos \gamma)=\bigg(\frac{x}{|\boldsymbol{r}|},\frac{y}{|\boldsymbol{r}|},\frac{z}{|\boldsymbol{r}|}\bigg)=\frac{1}{|\boldsymbol{r}|}(x,y,z)=\frac{\boldsymbol{r}}{|\boldsymbol{r}|}
+\end{equation}
+\section{空间平面与空间直线}
+\subsection{平面的方程}
+平面的方程一般有四种表达方式：点法式、一般式、三点式、截距式。
+\\ 1.$\,$平面的点法式方程
+\par 设平面的法向量$\boldsymbol{n}$（即垂直于平面的向量）的坐标为(A,B,C(A,B,C不全为0))。设点$P_0(x_0,y_0,z_0)$在平面上，那么平面上任意一点$P(x,y,z)$满足：
+\begin{equation}
+	\nonumber
+	\boldsymbol{n}\cdot\boldsymbol{PP_0}=0
+\end{equation}
+即\begin{equation}
+	A(x-x_0)+B(y-y_0)+C(z-z_0)=0
+	\end{equation}
+同样地，如果空间中任何一点$P(x,y,z)$满足这个方程，那么这个点一定在平面上。
+\\ 这个方程是由平面的一个法向量及平面上一已知点的坐标确定的，故通常称为\highlight{red}{\index{PMDDFSFC@平面的点法式方程}平面的点法式方程}。\\
+2.$\,$平面的一般式方程
+\par 我们将点法式方程进一步化简，得：
+\begin{equation}
+	A(x-x_0)+B(y-y_0)+C(z-z_0)=0\Leftrightarrow Ax+By+Cz-Ax_0-By_0-Cz_0=0
+	\label{equ:5.16}
+\end{equation}
+设式\ref{equ:5.16}中，$D=-Ax_0-By_0-Cz_0$.上式变为:
+\begin{equation}
+	Ax+By+Cz+D=0
+\end{equation}
+那么，式\ref{equ:5.16}称为\highlight{red}{\index{PMDYBSFC@平面的一般式方程}平面的一般式方程}。\\
+3.$\,$平面的三点式方程
+\par 已知平面上的三点$P_1(x_1,y_1,z_1),P_2(x_2,y_2,z_2),P_3(x_3,y_3,z_3)$,要使这三点能够唯一地确定一个平面，那么这三个点必然不共线。即$\boldsymbol{P_1P_2}\times\boldsymbol{P_1P_3}\neq 0$。那么，平面上任意一点必满足：
+\begin{equation}
+	\boldsymbol{P_1P}\cdot(\boldsymbol{P_1P_2}\times\boldsymbol{P_1P_3})=0
+\end{equation}
+即\begin{equation}
+	\boldsymbol{P_1P}\cdot(\boldsymbol{P_1P_2}\times\boldsymbol{P_1P_3})=(x-x_1,y-y_1,z-z_1)\cdot
+	\begin{vmatrix}
+		\boldsymbol{i} & \boldsymbol{j} & \boldsymbol{k}\\
+		x_2-x_1 & y_2-y_1 & z_2-z_1\\
+		x_3-x_1 & y_3-y_1 & z_3-z_1\\
+	\end{vmatrix}=
+\begin{vmatrix}
+	x-x_1 & y-y_1 & z-z_1\\
+	x_2-x_1 & y_2-y_1 & z_2-z_1\\
+	x_3-x_1 & y_3-y_1 & z_3-z_1\\
+\end{vmatrix}=0
+\end{equation}
+即\begin{equation}
+	\begin{vmatrix}
+		x-x_1 & y-y_1 & z-z_1\\
+		x_2-x_1 & y_2-y_1 & z_2-z_1\\
+		x_3-x_1 & y_3-y_1 & z_3-z_1\\
+	\end{vmatrix}=0
+\label{equ:5-20}
+\end{equation}
+那么，式\ref{equ:5-20}称为\highlight{red}{\index{PMDSDSFC@平面的三点式方程}平面的三点式方程}。\\
+4.$\,$平面的截距式方程
+\par 我们将平面的一般方程$Ax+By+Cz+D=0$进一步变形，当$A,B,C,D\neq0$时，两边同时除以$-D$，得
+\begin{equation}
+	\displaystyle \frac{x}{-\frac{D}{A}}+\frac{y}{-\frac{D}{B}}+\frac{z}{-\frac{D}{C}}
+=1\end{equation}
+这个方程称为\highlight{red}{\index{PMDJJSFC@平面的截距式方程}平面的截距式方程}。从中也比较容易看出平面与截距的关系。\\
+当$D=0$时，说明平面一定过原点。\\
+当$A=0$时，平面$By+Cz+D=0$与$x$轴平行。\\
+当$B=0$时，平面$Ax+Cz+D=0$与$y$轴平行。\\
+当$C=0$时，平面$Ax+By+D=0$与$z$轴平行。\\
+当$A,B=0$时，平面$Cz+D=0$与平面$Oxy$轴平行。\\
+当$B,C=0$时，平面$Ax=0$与平面$Oyz$轴平行。\\
+当$A,C=0$时，平面$By=0$与平面$Oxz$轴平行。\\
+5.$\,$平面的方程总结
+\par 我们通过对比二维直线的表达式和三维平面的表达式来更好地理解和记忆三维平面方程。
+\begin{table}[h]
+	\centering
+	\setlength{\tabcolsep}{10mm}{
+	\begin{tabular}{ccc}
+		\toprule[1.5pt]
+		方程类型 & 二维直线表达式 & 三维平面表达式\\
+		\midrule[0.7pt]
+		点法式 & $A(x-x_0)+B(y-y_0)=0$ & $A(x-x_0)+B(y-y_0)+C(z-z_0)=0$\\[0.5em]
+		一般式 & $Ax+By+C=0$ & $Ax+By+Cz+D=0$\\[0.5em]
+		截距式 & $\displaystyle \frac{x}{a}+\frac{y}{b}=1$ & $\displaystyle \frac{x}{  -\frac{D}{A}}+\frac{y}{-\frac{D}{B}}+\frac{z}{-\frac{D}{C}}=1$\\[1em]
+		(两)三点式 & $\displaystyle y=kx+b,k=\frac{y_2-y_1}{x_2-x_1}$ & $\begin{vmatrix}
+				x-x_1 & y-y_1 & z-z_1\\
+			x_2-x_1 & y_2-y_1 & z_2-z_1\\
+			x_3-x_1 & y_3-y_1 & z_3-z_1\\
+		\end{vmatrix}=0$\\
+		\bottomrule[1.5pt]
+	\end{tabular}
+}
+\end{table}
+\subsection{直线的方程}
+直线的方程一般有三种表示方式：一般方程(两面式)、参数方程、标准方程。\\
+1.$\,$直线的点法式方程
+\par 在空间中，直线一般是由两个平面相交而得到的交线，因此，直线可以用两个平面的方程联立得倒。
+\par 设两个相交平面为：
+\begin{equation}
+	\nonumber
+	\Pi_1:A_1x+B_1y+C_1z+D_1=0
+\end{equation}
+\begin{equation}
+	\nonumber
+\Pi_2: A_2x+B_2y+C_2z+D_2=0
+\end{equation}
+联立得，
+\begin{equation}
+	L:\begin{cases}
+	\, A_1x+B_1y+C_1z+D_1=0\\
+	\, 	A_2x+B_2y+C_2z+D_2=0\\
+		\end{cases}
+	\label{equ:5.22}
+\end{equation}
+那么式\ref{equ:5.22}就称为\highlight{red}{\index{ZXDLMDFCHYBFC@直线的两面式方程或一般方程}直线的两面式方程或一般方程}。
+\\ 2.$\,$直线的参数方程
+\par 已知直线的一点$P_0(x_0,y_0,z_0)$，且直线的非零方向向量为$\boldsymbol{e}=(a,b,c)$,那么就存在一个实数$t$,使得直线上任意一点$P$都满足：
+\begin{equation}
+	\boldsymbol{P_0P}=t\boldsymbol{e}(-\infty<t<+\infty)
+\end{equation}
+即
+\begin{equation}
+	\begin{cases}
+		\, x-x_0=ta\\
+		\, y-y_0-tb\\
+		\, z-z_0=tc
+	\end{cases}
+(-\infty<t<+\infty)
+\label{equ:5.23}
+\end{equation}
+那么式\ref{equ:5.23}就称为\highlight{red}{\index{ZXDCSFC@直线的参数方程}直线的参数方程}。
+\\ 3.$\,$直线的标准方程
+\par 在直线的参数方程ref{equ:5.23}的基础上进一步消去参数，得
+\begin{equation}
+	\frac{x-x_1}{a}=\frac{y-y_1}{b}=\frac{z-z_1}{c}
+\label{equ:5.24}
+\end{equation}
+那么式\ref{equ:5.24}就称为\highlight{red}{\index{ZXDBZFC@直线的标准方程}直线的标准方程}。上述的写法只是一个形式上的写法，实际上完整的式子应该为：
+\begin{equation}
+	\begin{cases}
+		\, a(y-y_0)-b(x-x_0)=0\\
+		\, a(z-z_0)-c(x-x_0)=0\\
+	\end{cases}
+\end{equation}
+这时就不需要对$a,b,c$是不是0进行分类讨论。
+\\ 4*.$\,$平面束方程
+\par 设直线$L$由方程组：
+\begin{equation}
+	\begin{cases}
+\, A_1x+B_1y+C_1z+D_1=0\\
+\, A_2x+B_2y+C_2z+D_2=0\\
+\end{cases}
+\end{equation}
+确定。其中$A_1,B_1,C_1$与$A_2,B_2,C_2$不成比例。（目的是使两个平面不平行）那么我们建立三元一次方程
+\begin{equation}
+	A_1x+B_1y+C_1z+D_1+\lambda(A_2x+B_2y+C_2z)+D_2=0
+\label{equ:5-41}	
+\end{equation}
+其中$\lambda$为任意常数。进一步化简，可得
+\begin{equation}
+	(A_1+\lambda A_1)x+(B_1+\lambda B_2)y+(C_1+\lambda C_2Z)+(D_1+D_2)=0
+\end{equation}
+\par 由于$A_1,B-1,C_1$与$A_2,B_2,C_2$不成比例，$(A_1+\lambda A_1),(B_1+\lambda B_2),(C_1+\lambda C_2Z),(D_1+D_2)$都部为0.那么上述方程代表的就是一个平面，而由于$\lambda$不确定，而且直线$L$必定是这个方程的解，那么方程\ref{equ:5-41}就代表着所有通过定直线$L$的平面，称为通过直线$L$的\highlight{red}{\index{PMSDFC@平面束的方程}平面束的方程}。
+\subsection{平面与直线的夹角问题}
+1.$\,$平面与平面的夹角
+\par 已知两个平面$\Pi_1,\Pi_2$:
+\begin{equation}
+	\nonumber
+	\Pi_1:A_1x+B_1y+C_1z+D_1=0
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Pi_2: A_2x+B_2y+C_2z+D_2=0
+	\end{equation}
+那么它们的夹角$\theta$的余弦值为：
+\begin{equation}
+	\cos \theta=\cos\langle \boldsymbol{n_1},\boldsymbol{n_2}\rangle =\frac{\boldsymbol{n_1}\cdot\boldsymbol{n_2}}{|\boldsymbol{n_1}||\boldsymbol{n_2}|}=\frac{|A_1A_2+B_1B_2+C_1C_2|}{\sqrt{A_1^2+B_1^2+C_1^2}\cdot\sqrt{A_2^2+B_2^2+C_2^2}}
+\end{equation}
+那么，我们可以通过这个式子来判断平面之间的关系：\\
+(1)$\, \Pi_1\perp \Pi_2 \Leftrightarrow  A_1A_2+B_1B_2+C_1C_2=0$\\
+(2)$\, \Pi_1\parallel \Pi_2 \Leftrightarrow \displaystyle \frac{A_1}{A_2}=\frac{B_1}{B_2}=\frac{C_1}{C_2} $\\
+2.$\,$直线与直线的夹角
+\par 已知两条直线$L_1,L_2$:
+\begin{equation}
+	L_1: \frac{x-x_1}{m_1}=\frac{y-y_1}{n_1}=\frac{z-z_1}{p_1}
+\end{equation}
+\begin{equation}
+	L_2:\frac{x-x_2}{m_2}=\frac{y-y_2}{n_2}=\frac{z-z_2}{p_2}
+\end{equation}
+那么它们的夹角$\theta$的余弦值为：
+\begin{equation}
+\cos\langle L_1,L_2\rangle =\cos \langle \boldsymbol{e_1},\boldsymbol{e_2}\rangle =\frac{\boldsymbol{e_1}\cdot\boldsymbol{e_2}}{|\boldsymbol{e_1}||\boldsymbol{e_2}|}=\frac{|m_1m_2+n_1n_2+p_1p_2|}{\sqrt{m_1^2+n_1^2+p_1^2}\sqrt{m_2^2+n_2^2+p_2^2}}
+\end{equation}
+那么，我们可以通过这个式子来判断直线之间的关系：\\
+(1)$\, L_1\perp L_2 \Leftrightarrow  m_1m_2+n_1n_2+p_1p_2=0$\\
+(2)$\, L_1\parallel L_2 \Leftrightarrow \displaystyle \frac{m_1}{m_2}=\frac{n_1}{n_2}=\frac{p_1}{p_2} $\\
+3.$\,$直线与平面的夹角
+\par 已知直线$L$和平面$\Pi$:
+\begin{equation}
+	\nonumber
+	L:\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}
+\end{equation}
+\begin{equation}
+	\nonumber
+	\Pi:Ax+By+Cz+D=0
+\end{equation}
+那么它们的夹角$\theta$的正弦值为：
+\begin{equation}
+	\sin \varphi =\cos\bigg( \frac{\pi}{2}-\varphi\bigg)=\cos \theta=\cos \langle \boldsymbol{e},\boldsymbol{n}\rangle =\frac{|Am+Bn+Cp|}{\sqrt{A^2+B^2+C^2}\cdot\sqrt{m^2+n^2+p^2}}
+\end{equation}
+那么，我们可以通过这个式子来判断直线与平面之间的关系：\\
+(1)$\, L\perp \Pi \Leftrightarrow  Am+Bn+Cp=0$\\
+(2)$\, L\parallel \Pi \Leftrightarrow \displaystyle \frac{A}{m}=\frac{B}{n}=\frac{C}{p} $
+\subsection{平面与直线的距离问题}
+\noindent 1.$\,$点与点的距离
+\par 设点$M_1(x_1,y_1,z_1),M_2(x_2,y_2,z_2)$,那么两点间距离
+\begin{equation}
+	|M_1M_2|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}
+\end{equation}
+2.$\,$点到平面的距离
+\par 已知一个平面$Ax+By+Cz+D=0(A,B,C$不全为0)和平面外一点$P_1(x_1,y_1,z_1)$,取平面内一点$P_0(x_0,y_0,z_0)$,那么点$P_1$到平面的距离为：
+\begin{equation}
+	d=|\boldsymbol{P_0P_1}|\cos \langle \boldsymbol{P_0P_1}\cdot \boldsymbol{n} \rangle|=\frac{\boldsymbol{P_0P_1}\cdot \boldsymbol{n}}{\boldsymbol{n}}=\frac{|A(x_1-x_0)+B(y_1-y_0)+C(z_1-z_0)|}{\sqrt{A^2+B^2+C^2}}
+\end{equation}
+又$P_0$在平面$Ax+By+Cz+D=0$上，\\
+所以，$D=-Ax_0-By_0-Cz_0$，即
+\begin{equation}
+	d=\frac{|A(x_1-x_0)+B(y_1-y_0)+C(z_1-z_0)|}{\sqrt{A^2+B^2+C^2}}=\frac{|Ax_1+By_1+Cz_1+D|}{\sqrt{A^2+B^2+C^2}}
+\end{equation}
+\vspace*{-2.5em}
+\summarize[联想二维空间中点到直线的距离公式进行记忆：
+\begin{equation}
+	d=\frac{|Ax_1+By_1+C|}{\sqrt{A^2+B^2}}
+	\end{equation}]
+\noindent 3.$\,$直线到平面的距离/平面到平面的距离
+\par 我们只需要在直线或者平面上任取一个点，就变成点到平面的距离问题。\\
+4.$\,$点到直线的距离
+\par 已知一条直线
+\begin{equation}
+	L:\frac{x-x_0}{m}=\frac{y-y_0}{n}=\frac{z-z_0}{p}
+\end{equation}
+和直线外一点$P_1(x_1,y_1,z_1)$，过点$P_1$作平面垂直于直线$L$,交于点$P$,那么平面的方程为：
+\begin{equation}
+	m(x-x_1)+n(y-y_1)+p(z-z_1)=0
+\end{equation}
+那么联立平面与直线方程，得
+\begin{equation}
+	\begin{cases}
+		\, m(x-x_1)+n(y-y_1)+p(z-z_1)=0\\
+		\, m(y-y_0)-n(x-x_0)=0\\
+		\, m(z-z_0)-p(x-x_0)=0\\
+	\end{cases}
+\end{equation}
+然后解出$P$点的坐标，用两点间的距离公式计算出$d$的值。
+\\ 5.$\,$平行直线的距离
+\par 我们只需要在任意一条直线上任取一个点，就变成点到直线的距离问题。
+\section{空间曲面}
+\subsection{旋转曲面}
+
+\defination[旋转曲面]
+以一条平面曲线绕其平面上的一条直线旋转一周所成的曲面叫做\highlight{red}{\index{XZQM@旋转曲面}旋转曲面}，旋转曲线和定直线依次叫做旋转曲面的\highlight{red}{\index{MX@母线}母线}和\highlight{red}{\index{Z@轴}轴}。
+\par 设在$yOz$坐标面上有一已知曲面$C$,它的方程为
+\begin{equation}
+	f(y,z)=0
+\end{equation}
+把这条曲线绕$z$轴旋转一周，就得到一个以$z$轴为旋转轴的旋转曲面，它的方程可以用以下的方法求解。\\
+设$P_0(0,y_0,z_0)$为曲线$C$上任意一点，则有
+\begin{equation}
+	f(y_0,z_0)=0
+\end{equation}
+当曲线$C$绕$z$轴旋转时，$P_0(0,y_0,z_0)$旋转为$P(x,y,z)$，利用旋转前后点到$z$轴的距离不变，我们可以得到$x,y,z$与$y_0,z_0$的对应关系如下：
+\begin{equation}
+	\begin{cases}
+	\,  d=y_0=\pm\sqrt{x^2+y^2}\\
+	\, z_0=z\\
+	\end{cases}
+\end{equation}
+又$f(y_0,z_0)=0$,所以旋转后的曲面方程为：
+\begin{equation}
+	f(\pm\sqrt{x^2+y^2},z)=0
+\end{equation}
+同理可得，曲线$C$绕$y$轴旋转所得到的曲面方程为
+\begin{equation}
+	f(y,\pm \sqrt{x^2+z^2})=0
+\end{equation}
+\subsection{柱面}
+
+\defination[柱面]
+一般地，直线$L$沿定曲线$C$平行移动形成的轨迹叫做\highlight{red}{\index{ZM@柱面}柱面}，定曲线$C$叫做柱面的\highlight{red}{\index{ZX@准线}准线}，动直线$L$叫做柱面的\highlight{red}{\index{MX@母线}母线}。
+\par 一般地，只含$x,y$而缺$z$的方程$F(x,y)=0$在空间直角坐标系中表示母线平行于$z$轴的柱面，其准线是$xOy$面上的曲线$C$:$F(x,y)=0$
+\par 类似可知，只含$x,z$而缺$y$的方程$G(x,z)=0$和只含$y,z$而缺$x$的方程$H(y,z)=0$分别表示母线平行于$y$轴和$x$轴的柱面。
