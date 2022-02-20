@@ -1,6 +1,6 @@
 \chapter{常微分方程}
 \section{一阶微分方程}
-\sj
+\vspace*{-1em}
 \begin{equation}
 	\frac{\d y}{\d x}=f(x,y)
 \end{equation} 
@@ -48,15 +48,15 @@
 	\frac{\d y}{\d x}=f\left(\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}\right) 
 \end{equation}
 分两种情况讨论：
-\jg
+\vspace*{1em}
 \par 1. $\displaystyle \frac{a_1}{a_2}=\frac{b_1}{b_2}$.则存在常数$k$，使得$(a_2,b_2)=k(a_1,b_1)$,作变量替换$z=a_1x+b_1y$,则
 \begin{equation*}
 	\frac{\d z}{\d x}=a_1+b_1\frac{\d y}{\d x}=a_1+b_1f\left( \frac{z+c_1}{kz+c_2}\right) 
 \end{equation*}
 这是一个可分离变量的方程.
-\jg 
+\vspace*{1em} 
 \par 2. $\displaystyle \frac{a_1}{a_2} \ne \frac{b_1}{b_2}$.
-\jg
+\vspace*{1em}
 \par \quad \quad (1) 当$c_1=c_2$时,$f(x,y)$是齐次方程.
 \par \quad \quad (2) 当$c_1\ne c_2$时,将式子改写为:(可以用待定系数法求出$x_0,y_0$)
 \begin{equation*}
@@ -74,7 +74,7 @@
 	\frac{\d y}{\d x}+P(x)y=Q(x)
 \end{equation}
 的方程称为一阶线性微分方程.
-\jg
+\vspace*{1em}
 
 \subsection{一阶线性齐次微分方程}
 \begin{equation}
@@ -88,7 +88,7 @@
 
 \theorem[线性齐次微分方程通解定理]
 一阶线性齐次微分方程的通解包含了它的一切解.
-\jg
+\vspace*{1em}
 
 \subsection{一阶线性非齐次微分方程}
 \begin{equation}
@@ -100,13 +100,13 @@
 	y(x)=u(x)\e^{-\int_{x_0}^{x}P(t)\,\,\d t}
 \end{equation}
 求出一阶导数$y'$然后将$y,y'$反代回$y'+P(x)y=Q(x)$求出$u(x)$再反代回$y(x)$即可求出一阶线性非齐次微分方程的通解.
-\jg
+\vspace*{1em}
 
 \theorem[线性非齐次微分方程通解定理]
 线性非齐次方程的一个特解与相应的齐次方程的通解之和，构成非齐次方程的通解.
 \par 线性非齐次方程的两个特解之差构成齐次方程的通解.
 \par 线性非齐次方程的两个特解之和仍为 线性非齐次方程的特解.
-\jg
+\vspace*{1em}
 
 \example[伯努利方程]
 \begin{equation}
@@ -128,7 +128,7 @@
 	\frac{\d y}{\d x}=\frac{-P(x,y)}{Q(x,y)}
 \end{equation}
 它可以写成$P(x,y)\d x+Q(x,y)\d y=0$的形式.
-\jg
+\vspace*{1em}
 \subsection{全微分方程}
 如果$P(x,y)\d x+Q(x,y)\d y=0$满足
 \begin{equation}
@@ -144,10 +144,12 @@
 	u(x,y)=u_1(x,y)+\varphi (y)
 \end{equation*}
 然后将$u(x,y)$代入$\displaystyle \frac{\partial u}{\partial y}=Q$求出$\varphi(y)$后代入$u(x,y)$即可.
-\jg
+\vspace*{1em}
 
 \subsection{积分因子}
-\tdefination[积分因子]
+\vspace*{-1em}
+
+\defination[积分因子]
 设方程
 $$
 M(x,y)\d x+N(x,y)\d y=0
@@ -179,7 +181,7 @@ $$
 \end{equation}
 
 \section{可降阶的二阶微分方程}
-\sj
+\vspace*{-1em}
 \example[不显含未知函数$y$的方程]
 不显含未知函数$y$的方程
 \begin{equation}
@@ -217,7 +219,7 @@ $$
 	y''(x)+p(x)\,y'(x)+q(x)\,y(x)=f(x)
 \end{equation}
 其中$f(x)\equiv 0$,则为二阶线性齐次微分方程，若$f(x) \not \equiv 0$,则为二阶线性非齐次微分方程.
-\jg
+\vspace*{1em}
 
 \theorem[二阶线性微分方程解的唯一性定理]
 设函数$p(x),q(x),f(x)$在$[a,b]$上连续,则初值问题
@@ -228,7 +230,7 @@ $$
 	\end{cases}
 \end{equation}
 在区间$[a,b]$内存在唯一解$y(x)$.可以推广到一般$n$阶线性微分方程解的唯一性.
-\jg
+\vspace*{1em}
 
 \defination[线性相关性]
 设$m$个函数$\varphi_1(x),\varphi_2(x),\cdots,\varphi_m(x)$在区间$[a,b]$上有定义,若存在$m$个不全为0的常数$k_1,k_2,\cdots,k_m$,使
@@ -236,7 +238,7 @@ $$
 	k_1\varphi_1(x)+k_2\varphi_2(x)+\cdots+k_m\varphi_m(x)\equiv 0,\quad x\in[a,b]
 \end{equation}
 则称函数组$\varphi_1(x),\varphi_2(x),\cdots,\varphi_m(x)$在区间$[a,b]$上线性相关,否则称函数组$\varphi_1(x),\varphi_2(x),\cdots,\varphi_m(x)$在区间$[a,b]$上线性无关.
-\jg
+\vspace*{1em}
 \newpage
 \theorem[二阶线性齐次方程解的性质]
 若$y_1(x),y_2(x)$是二阶线性齐次方程的两个通解,则它们的任意一个线性组合($C_1,C_2$为任意常数)
@@ -261,7 +263,7 @@ $$
 	x \in (a,b)
 \end{equation}
 当$W(x)\not \equiv 0$时,$\varphi_1(x),\varphi_2(x)$在$(a,b)$上线性无关.
-\jg
+\vspace*{1em}
 
 \theorem[二阶线性齐次方程通解的结构]
 若$\varphi_1(x),\varphi_2(x)$是二阶线性齐次方程的两个线性无关解,则它们的任意一个线性组合($C_1,C_2$为任意常数)
@@ -269,7 +271,7 @@ $$
 	C_1\varphi_1(x)+C_2\varphi_2(x)
 \end{equation}
 也是这个二阶线性齐次方程的通解.
-\jg
+\vspace*{1em}
 
 \theorem[$n$阶线性齐次方程通解的结构]
 若$\varphi_1(x),\varphi_2(x),\cdots,\varphi_n(x)$是$n$阶线性齐次方程
@@ -281,17 +283,19 @@ $$
 	C_1\varphi_1(x)+C_2\varphi_2(x)+\cdots+C_n\varphi_n(x)
 \end{equation}
 是这个$n$阶线性齐次方程的通解,其中$C_1,C_2,\cdots,C_n$为任意常数.
-\jg
-\jg
+\vspace*{1em}
+\vspace*{1em}
 
 \subsection{二阶线性非齐次微分方程}
-\ttheorem[二阶线性非齐次方程通解的结构]
+\vspace*{-1em}
+
+\theorem[二阶线性非齐次方程通解的结构]
 若$y^*(x)$是二阶线性非齐次方程的一个特解,又$C_1\varphi_1(x)+C_2\varphi_2(x)$是对应的二阶线性齐次方程的通解($C_1,C_2$为任意常数),则
 \begin{equation}
 	y(x)=C_1\varphi_1(x)+C_2\varphi_2(x)+y^*(x)
 \end{equation}
 是这个二阶线性非齐次方程的通解.
-\jg
+\vspace*{1em}
 \newpage
 \theorem[二阶线性非齐次方程解的性质1]
 若$y_1(x),y_2(x)$是二阶线性非齐次方程的两个特解,则
@@ -303,7 +307,7 @@ $$
 	y_1(x)-y_2(x)
 \end{equation*}
 是这个二阶线性非齐次方程对应的二阶线性齐次方程的解.
-\jg
+\vspace*{1em}
 
 \theorem[二阶线性非齐次方程解的性质2]
 若$y_1(x),y_2(x)$分别是二阶线性非齐次方程
@@ -329,7 +333,9 @@ $$
 
 \section{二阶线性常系数微分方程}
 \subsection{二阶线性常系数齐次微分方程}
-\tdefination[特征根与与特征方程]
+\vspace*{-1em}
+
+\defination[特征根与与特征方程]
 考虑方程
 \begin{equation}
 	y''+py'+qy=0
@@ -347,7 +353,7 @@ $$
 	\lambda=\frac{1}{2}(-p\pm\sqrt{p^2-4q})
 \end{equation}
 称为特征根.
-\jg
+\vspace*{1em}
 \newpage
 
 \theorem[二阶线性常系数齐次微分方程的通解]
@@ -435,18 +441,20 @@ $$
 	\label{多种特殊线性常系数非齐次微分方程的特解}
 \end{table} 
 
-\tdefination[二阶线性常系数非齐次微分方程]
+\vspace*{-1em}
+
+\defination[二阶线性常系数非齐次微分方程]
 方程
 \begin{equation}
 	y''+py'+qy=f(x)
 \end{equation}
 其中,$p,q$为常数,$f(x)\not \equiv 0$.
-\jg
+\vspace*{1em}
 
 \theorem[多种特殊线性常系数非齐次微分方程的特解]
 $f(x)$满足一定特殊条件的情况下,可以求得特解如上页表\ref{多种特殊线性常系数非齐次微分方程的特解}.其中$P_n,Q_n,R_n$是$n$次多项式.可以用待定系数法代定系数然后反代回原线性常系数非齐次微分方程通过比对系数可以求出所有参数.
 \par 常系数非齐次微分方程的通解就等于其对应的常系数齐次微分方程的通解加上常系数非齐次微分方程的一个特解.
-\jg
+\vspace*{1em}
 
 \inference[常数变易法求二阶线性常系数非齐次微分方程的通解]
 1. 求出相应二阶线性常系数齐次微分方程$y''+p(x)y'+q(x)y=f(x)$的两个线性无关的解$\varphi_1(x),\varphi_1(x)$,即齐次方程的通解为($C_1,C_2$为任意常数)

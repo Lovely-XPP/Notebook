@@ -2,7 +2,9 @@
 \chapter{曲线积分和曲面积分}
 \section{第一型曲线积分}
 \subsection{第一型曲线积分的基本概念}
-\tdefination[第一型曲线积分的定义]
+\vspace*{-1em}
+
+\defination[第一型曲线积分的定义]
 设$f(x,y,z)$在分段光滑的曲线$L$上有定义，对$L$任意分割成$n$段，第$i$段的弧长为$\Delta s_i$及在第$i$段任意选择的$(\xi_i,\eta_i,\zeta_i)$，当$\lambda = \max\limits_{1 \le i \le n} {\Delta s_i}\rightarrow 0$时，极限
 \begin{equation}
 	\lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} f(\xi_i,\eta_i,\zeta_i)\,\Delta s_i
@@ -14,7 +16,9 @@
 \par 其中，$L$称作积分曲线，而$f(x,y,z)$称作被积函数，$\d s$称为弧积分.
 
 \subsection{第一型曲线积分的基本性质}
-\ttheorem[第一型曲线积分的三个基本性质]
+\vspace*{-1em}
+
+\theorem[第一型曲线积分的三个基本性质]
 1.可拆可和性
 \begin{equation}
 	\int_{L}[\,C_1f(x,y,z)+C_2g(x,y,z)\,]\,\,\d s =\int_{L}C_1f(x,y,z)\,\,\d s + \int_{L}C_2g(x,y,z)\,\,\d s
@@ -31,7 +35,9 @@
 \end{equation}
 
 \subsection{第一型曲线积分的计算}
-\ttheorem[直角坐标下平面曲线的积分]
+\vspace*{-1em}
+
+\theorem[直角坐标下平面曲线的积分]
 若曲线$L$由$y=y(x)$确定，且$y=y(x)$在$[a,b]$上有连续导数，$f(x,y)$在$L$上连续，则
 \begin{equation}
 	\int_{L}f(x,y)\,\,\d s =\int_{a}^{b}f[x,y(x)]\,\sqrt{1+[\,y'(x)\,]^2}\,\,\d x
@@ -67,23 +73,27 @@ $
 
 \section{第二型曲线积分}
 \subsection{第二型曲线积分的基本概念}
-\tdefination[第一型曲线积分的定义]
+\vspace*{-1em}
+
+\defination[第一型曲线积分的定义]
 $L$是从点$A$到点$B$的分段光滑有向曲线，向量函数$\bm{F}(x,y)=P(x,y)\bm{i}+Q(x,y)\bm{j}$在$L$上有定义，按照$L$的方向，对$L$的任意分割成$n$个有向的小线段$\overrightarrow{A_{i-1}A_i}$，记$\wideparen{A_{i-1}A_i}$的弧长为$\Delta s_i$及在第$i$段任意选择的$(\xi_i,\eta_i,\zeta_i)$，当$\lambda = \max\limits_{1 \le i \le n} {\Delta s_i}\rightarrow 0$时，极限
 \begin{equation}
 	\lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} \bm{F}(\xi_i,\eta_i,\zeta_i) \cdot \overrightarrow{A_{i-1}A_i} \,\Delta s_i = \lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} [P(\xi_i,\eta_i)\Delta x_i+Q(\xi_i,\eta_i)\Delta y_i] 
 \end{equation}
 总存在，则这个极限称为向量函数$\bm{F}(x,y)$沿曲线$L$从点$A$到点$B$的第二型曲线积分或对坐标的曲线积分，记做
 \begin{equation}
-	\int_{\wideparen{AB}}P\,\d x+Q\,\d y \huo \int_{\wideparen{AB}}\bm{F}(x,y) \,\, \d \bm{r}
+	\int_{\wideparen{AB}}P\,\d x+Q\,\d y \quad \mbox{或} \quad \int_{\wideparen{AB}}\bm{F}(x,y) \,\, \d \bm{r}
 \end{equation}
 \par 其中，$\d \bm{r}=(\d x,\d y)$，有向曲线$\wideparen{AB}$称为积分路径.
 \par 类似地，对于空间向量函数$\bm{F}(x,y,z)=P(x,y,z)\bm{i}+Q(x,y,z)\bm{j}+R(x,y,z)\bm{k}$，沿空间有向曲线$L$的第二型曲线积分为
 \begin{equation}
-	\int_{L}P\,\d x+Q\,\d y+R\,\d z \huo \int_{L}\bm{F}(x,y,z) \,\, \d \bm{r}
+	\int_{L}P\,\d x+Q\,\d y+R\,\d z \quad \mbox{或} \quad \int_{L}\bm{F}(x,y,z) \,\, \d \bm{r}
 \end{equation}
 
 \subsection{第二型曲线积分的基本性质}
-\ttheorem[第二型曲线积分的三个基本性质]
+\vspace*{-1em}
+
+\theorem[第二型曲线积分的三个基本性质]
 1.可拆可和性
 \begin{equation}
 	\int_{\wideparen{AB}}[k_1\bm{F}(M)+k_2\bm{G}(M)] \cdot \d \bm{r} = k_1\int_{\wideparen{AB}}\bm{F}(M) \cdot \d \bm{r} +k_2 \int_{\wideparen{AB}}\bm{G}(M) \cdot \d \bm{r} 
@@ -100,7 +110,9 @@ $L$是从点$A$到点$B$的分段光滑有向曲线，向量函数$\bm{F}(x,y)=P
 \end{equation}
 
 \subsection{第二型曲线积分的计算}
-\ttheorem[平面曲线下第二型曲线积分的计算]
+\vspace*{-1em}
+
+\theorem[平面曲线下第二型曲线积分的计算]
 设曲线$L$的参数方程为
 $
 \begin{cases}
@@ -117,7 +129,9 @@ $
 	\int_{\wideparen{AB}}P(x,y)\,\d x+Q(x,y)\,\d y = \int_{a}^{b}[\,P(x,g(x)) + Q(x,g(x))\,g'(x) \,]\,\d x
 \end{equation}
 
-\ttheorem[空间曲线下第二型曲线积分的计算]
+\vspace*{-1em}
+
+\theorem[空间曲线下第二型曲线积分的计算]
 设曲线$L$的参数方程为
 $
 \begin{cases}
@@ -147,23 +161,27 @@ $
 \newpage
 
 \subsection{第二型曲面积分与路径无关的判定}
-\tinference[第二型曲面积分与路径无关的判定]
+\vspace*{-1em}
+
+\inference[第二型曲面积分与路径无关的判定]
 1. 用于判定路径有关的方法(也适用于判断$P\,\d x+Q\,\d y$在$D$上不存在原函数)
 \par \quad \quad (1)\quad 存在一条分段光滑曲线$C\subset D,\displaystyle \oint_{C}P\,\d x+Q\,\d y\ne 0$.
-\jg
+\vspace*{1em}
 \par \quad \quad (2)\quad 存在$(x,y)\in D,\displaystyle \frac{\partial Q(x,y)}{\partial x}\ne \frac{\partial P(x,y)}{\partial y}$.
-\jg
+\vspace*{1em}
 \par 2. 用于判定路径无关的方法(方法(2),(3)可以用于判断$P\,\d x+Q\,\d y$在$D$上存在原函数)
 \par \quad \quad (1)\quad 求得$u(x,y)$使得$\d u=P(x,y)\,\d x+Q(x,y)\,\d y$任意$(x,y)\in D$.
-\jg
+\vspace*{1em}
 \par \quad \quad (2)\quad 若$D$是单连通的,又对于任意的$(x,y)\in D$都有$\displaystyle\frac{\partial Q}{\partial x} =\frac{\partial P}{\partial y}$.
-\jg
+\vspace*{1em}
 \par \quad \quad (3)\quad 若$D=D_0\setminus\left\lbrace M_0\right\rbrace,\,D_0 $是单连通的,$M_0\in D_0$.若对于任意的$(x,y)\in D$都有$\displaystyle\frac{\partial Q}{\partial x} =\frac{\partial P}{\partial y}$,且存在一条包围点$M_0$的分段光滑闭曲线$C_0$,使得$\displaystyle \oint_{C_0}P\,\d x+Q\,\d y= 0$.
 
 
 \section{第一型曲面积分}
 \subsection{第一型曲面的基本概念}
-\tdefination[第一型曲面积分的定义]
+\vspace*{-1em}
+
+\defination[第一型曲面积分的定义]
 设$f(x,y,z)$在分片光滑的曲面$S$上有定义，对$S$任意分割成互补重叠的$n$片，第$i$段的面积为$\Delta S_i$及在第$i$段任意选择的$(\xi_i,\eta_i,\zeta_i)$，当$\lambda = \max\limits_{1 \le i \le n} \left\lbrace \Delta S_i\mbox{的直径}\right\rbrace \rightarrow 0$时，极限
 \begin{equation}
 	\lim_{\lambda \rightarrow 0} \sum^{n}_{i=1} f(\xi_i,\eta_i,\zeta_i)\,\Delta S_i
@@ -178,7 +196,9 @@ $
 \end{equation}
 
 \subsection{第一型曲面积分的基本性质}
-\ttheorem[第一型曲面积分的三个基本性质]
+\vspace*{-1em}
+
+\theorem[第一型曲面积分的三个基本性质]
 1.可拆可和性
 \begin{equation}
 	\iint\limits_{S}[\,C_1f(x,y,z)+C_2g(x,y,z)\,]\,\,\d S =\iint\limits_{S}C_1f(x,y,z)\,\,\d S + \iint\limits_{S}C_2g(x,y,z)\,\,\d S
@@ -195,7 +215,9 @@ $
 \end{equation}
 
 \subsection{第一型曲面积分的计算}
-\ttheorem[二元函数下第一型曲面积分的计算]
+\vspace*{-1em}
+
+\theorem[二元函数下第一型曲面积分的计算]
 对于二元函数$z=z(x,y),y=y(x,z),x=x(y,z)$,
 \renewcommand\arraystretch{1.5}
 \begin{equation}
@@ -254,7 +276,9 @@ $
 	\iint\limits_{S} \bm{F}(x,y,z)\cdot \bm{n}(x,y,z)\,\,\Delta S
 \end{equation}
 
-\tdefination[曲面的方向]
+\vspace*{-1em}
+
+\defination[曲面的方向]
 对于不同曲面的方程形式,曲面方向判定见下表\ref{曲面方向的判定}.
 \begin{table}[!htb]
 	\centering
@@ -285,7 +309,9 @@ $
 
 
 \subsection{第二型曲面积分的基本性质}
-\ttheorem[第二型曲面积分的三个基本性质]
+\vspace*{-1em}
+
+\theorem[第二型曲面积分的三个基本性质]
 1.可拆可和性
 \begin{equation}
 	\iint\limits_{S}[\,C_1\bm{F}_1+C_2\bm{F}_2\,]\,\,\d \bm{S} =\iint\limits_{S}C_1\bm{F}_1\,\,\d \bm{S}  + \iint\limits_{S}C_2\bm{F}_2\,\,\d \bm{S} 
@@ -302,7 +328,9 @@ $
 \end{equation}
 
 \subsection{第二型曲面积分与第一型曲面积分的关系}
-\ttheorem[第二型曲面积分与第一型曲面积分的关系]
+\vspace*{-1em}
+
+\theorem[第二型曲面积分与第一型曲面积分的关系]
 设向量函数$\bm{F}(P(x,y,z),Q(x,y,z),R(x,y,z))$的单位法向量为$\bm{n}=(x,y,z)$,其方向余弦为
 \[
 \cos \alpha (x,y,z),\cos \beta (x,y,z),\cos \gamma(x,y,z)
@@ -342,7 +370,9 @@ $
 	\label{方向余弦}
 \end{table} 
 
-\ttheorem[直接转换为二重积分计算]
+\vspace*{-1em}
+
+\theorem[直接转换为二重积分计算]
 由上表\ref{方向余弦}并利用公式$\displaystyle \iint\limits_{S}\bm{F}\cdot \bm{n}\,\,\d S=\iint\limits_{S}(P\cos \alpha +Q\cos \beta +R\cos \gamma )\,\,\d S$可以得到转换公式如下表.
 \begin{table}[h]
 	\centering
@@ -399,7 +429,9 @@ $
 \end{equation}
 
 \section{斯托克斯公式}
-\ttheorem[斯托克斯公式]
+\vspace*{-1em}
+
+\theorem[斯托克斯公式]
 设$\Gamma$为分段光滑的空间有向闭曲线,$\Sigma$是以$\Gamma$为边界的分片光滑的有向曲面,$\Gamma$的正向与$\Sigma$的侧符合右手法则, 若函数$P(x, y, z),Q(x, y, z),R(x, y, z)$在曲面$\Sigma$(连同边界$\Gamma$)上具有一阶连续偏导数,则有
 \begin{equation}
 	\oint_{L^+}P\,\d x+Q\,\d y+R\,\d z=\iint\limits_{S^+}\left( \frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\,\d y\d z+\left( \frac{\partial P}{\partial z}-\frac{\partial R}{\partial x} \right) \,\d z \d x +\left( \frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) \, \d x\d y. 
@@ -416,7 +448,7 @@ $
 		P & Q & R
 	\end{array}
 	\right| 
-	\huo
+	\quad \mbox{或} \quad
 	\iint\limits_{S^+}
 	\left| 
 	\begin{array}{ccc}

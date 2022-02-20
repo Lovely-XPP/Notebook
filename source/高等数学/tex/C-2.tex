@@ -2,19 +2,21 @@
 \chapter{导数与微分}
 \section{导数的定义}
 \subsection{某点导数的基本定义}
-\tdefination[导数定义1]
+\vspace*{-1em}
+
+\defination[导数定义1]
 设函数$y=f(x)$在点$x_{0}$的某一邻域内有定义，当自变量$x$在$x_{0}$取得增量$\Delta x$(点$x_0+\Delta x$仍在该邻域内）时，相应地，因变量取得增量$\Delta y=f(x_0+\Delta x)-f(x_0)$;如果$\Delta y$与$\Delta x$之比当$\Delta x$ $\to$0时的极限存在，那么称函数$y=f(x)$在点$x_0$处\highlight{red}{可导}，并这个极限为函数$y=f(x)$\highlight{red}{在$x_0$点的导数\index{DS@导数}}，记为$f'(x_0)$,即
 \begin{equation}
 	f'(x_0)=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
 \end{equation}
 也可记作：
 \begin{equation}
-	y'|_{x=x_0} \huo \frac{\d y}{\d x}\bigg|_{x=x_0}\huo \frac{\d f(x)}{\d x}\bigg|_{x=x_0}
+	y'|_{x=x_0} \quad \mbox{或} \quad \frac{\d y}{\d x}\bigg|_{x=x_0}\quad \mbox{或} \quad \frac{\d f(x)}{\d x}\bigg|_{x=x_0}
 \end{equation}
-\kg 由于在以后的证明中很少用到函数极限定义证明，以下仅给出几道较典型的例题。\\
-\kg 在这些例题中有很多运用到了三角公式（可以在附章查阅）和等价无穷小的知识。\\ 
+\hspace*{2em} 由于在以后的证明中很少用到函数极限定义证明，以下仅给出几道较典型的例题。\\
+\hspace*{2em} 在这些例题中有很多运用到了三角公式（可以在附章查阅）和等价无穷小的知识。
 
-\texample[用函数极限定义证明以下函数的导数] \sj
+\example[用函数极限定义证明以下函数的导数] \vspace*{-1em}
 \examples 用函数极限定义证明以下函数的导数\vspace{0.8em} \\
 1.\enspace$f(x)=C$（$C$为常数）\vspace{0.8em}\\ 
 \solve $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}$=$\lim\limits_{h\to 0}$ $\di\frac{C-C}{h}=0$,即
@@ -64,39 +66,43 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 	\vspace*{0.5em}
 \end{equation}
 \subsection{导函数与单侧导数}
-\tdefination[导数定义2]
+\vspace*{-1em}
+
+\defination[导数定义2]
 如果函数$y=f(x)$在开区间$I$内的每点处都可导，那么就称函数$f(x)$在开区间$I$内可导。这时，对于任意$x\in I$,都对应着$f(x)$的一个确定的导数值。这样就构成了一个新的函数，这个函数叫做原来函数的导函数，简称导数。记作
 \begin{equation}
 	\nonumber
-	f'(x)\huo y'\huo \frac{\d y}{\d x}\huo \frac{\d f(x)}{\d x}
+	f'(x)\quad \mbox{或} \quad y'\quad \mbox{或} \quad \frac{\d y}{\d x}\quad \mbox{或} \quad \frac{\d f(x)}{\d x}
 \end{equation} 
 则$f(x)$在$x_0$处的导数也可表示为
 \begin{equation}
 	f'(x_0)=f'(x)|_{x=x_0}
 \end{equation} 
 \vspace{-2em}
-\warn[\kg $f'(x)$是导函数，也就是说$f'(x)$是函数，而$f'(x_0)$是$f(x)$在点$x_0$处的导数或者说$f'(x_0)$是导函数$f'(x)$在$x=x_0$处的值。]
-\tdefination[单侧导数]
+\warn[\hspace*{2em} $f'(x)$是导函数，也就是说$f'(x)$是函数，而$f'(x_0)$是$f(x)$在点$x_0$处的导数或者说$f'(x_0)$是导函数$f'(x)$在$x=x_0$处的值。]
+\vspace*{-1em}
+
+\defination[单侧导数]
 函数$y=f(x)$在点$x_0$处的\highlight{red}{\index{ZDS@左导数}左导数}，\highlight{red}{\index{ZDS@右导数}右导数}分别为
 \begin{equation}
-	f'_-(x_0)=\lim\limits_{\Delta x\to0^-}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x} \kg 	f'_+(x_0)=\lim\limits_{\Delta x\to0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
+	f'_-(x_0)=\lim\limits_{\Delta x\to0^-}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x} \hspace*{2em} 	f'_+(x_0)=\lim\limits_{\Delta x\to0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
 \end{equation}
 左导数与右导数统称为\highlight{red}{\index{DCDS@单侧导数}单侧导数}。\\
-\kg 函数$y=f(x)$在点$x_0$可导的充分必要条件为\textbf{左导数与右导数存在且相等}。\\
-\kg 如果函数$f(x)$在开区间$(a,b)$内可导，且$f'_+(a),f'_-(b)$都存在，那么就说$f(x)$在闭区间$[a,b]$内可导。
+\hspace*{2em} 函数$y=f(x)$在点$x_0$可导的充分必要条件为\textbf{左导数与右导数存在且相等}。\\
+\hspace*{2em} 如果函数$f(x)$在开区间$(a,b)$内可导，且$f'_+(a),f'_-(b)$都存在，那么就说$f(x)$在闭区间$[a,b]$内可导。
 \section{利用基本求导法则与导数公式求函数的导数}
 \subsection{几个补充的函数}\vspace*{0.5em}
 \noindent 1.\enspace 双曲函数与反双曲函数\vspace*{1em}\\
-双曲正弦函数 \kg sh $x=\di\frac{e^x-e^{-x}}{2}$  \kg \kg 反双曲正弦函数\kg arsh $x=\ln(x+\sqrt{x^2+1})$\vspace*{1em}\\
-双曲余弦函数 \kg ch $x=\di\frac{e^x+e^{-x}}{2}$  \kg \kg 反双曲余弦函数\kg arch $x=\ln(x\pm\sqrt{x^2+1})\left\{\begin{aligned}
+双曲正弦函数 \hspace*{2em} sh $x=\di\frac{e^x-e^{-x}}{2}$  \hspace*{2em} \hspace*{2em} 反双曲正弦函数\hspace*{2em} arsh $x=\ln(x+\sqrt{x^2+1})$\vspace*{1em}\\
+双曲余弦函数 \hspace*{2em} ch $x=\di\frac{e^x+e^{-x}}{2}$  \hspace*{2em} \hspace*{2em} 反双曲余弦函数\hspace*{2em} arch $x=\ln(x\pm\sqrt{x^2+1})\left\{\begin{aligned}
 		&  \, x>0:+\\
 		&  \, x<0:-\\
 		\end{aligned}\right.
 		$\vspace*{1em}\\
-双曲正切函数 \kg th $x=\di\frac{e^x-e^{-x}}{e^x+e^{-x}}$  \kg \kg 反双曲正切函数\kg arth $x=\di\frac{1}{2}\ln\di\frac{1+x}{1-x}$\vspace*{1em}\\
+双曲正切函数 \hspace*{2em} th $x=\di\frac{e^x-e^{-x}}{e^x+e^{-x}}$  \hspace*{2em} \hspace*{2em} 反双曲正切函数\hspace*{2em} arth $x=\di\frac{1}{2}\ln\di\frac{1+x}{1-x}$\vspace*{1em}\\
 2.\enspace 三角函数的补充函数\vspace*{1em}\\
-余割函数 \kg csc $x=\di\frac{1}{\sin x}$  \kg \kg 正割函数\kg sec $x=\di\frac{1}{\cos x}$\vspace*{1em}\\
-余切函数 \kg cot $x=\di\frac{1}{\tan x}$  \kg \kg 反三角函数\kg  $\arcsin x$,$\arccos x$,$\arctan x$,arccsc $x$,arcsec $x$,arccot $x$
+余割函数 \hspace*{2em} csc $x=\di\frac{1}{\sin x}$  \hspace*{2em} \hspace*{2em} 正割函数\hspace*{2em} sec $x=\di\frac{1}{\cos x}$\vspace*{1em}\\
+余切函数 \hspace*{2em} cot $x=\di\frac{1}{\tan x}$  \hspace*{2em} \hspace*{2em} 反三角函数\hspace*{2em}  $\arcsin x$,$\arccos x$,$\arctan x$,arccsc $x$,arcsec $x$,arccot $x$
 \subsection{基本函数的求导公式}\vspace*{-3em}
 \begin{flalign*}
  \qquad & 1.\enspace(C)'=0(C\text{为常数})   && 2.\enspace(x^\mu)'=\mu x^{\mu-1}\vspace{1em}&&\\
@@ -119,12 +125,12 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \subsection{反函数的求导法则}
 设$x=f(y)$在区间$I_y$内单调、可导且$f'(y)$,则它的反函数$y=f^{-1}(x)$在$I_x=f(I_y)$内也可导，则
 \begin{equation}
-	[f^{-1}(x)]'=\frac{1}{f'(y)}\huo \frac{\d y}{\d x}=\frac{1}{\di\frac{\d x}{\d y}}
+	[f^{-1}(x)]'=\frac{1}{f'(y)}\quad \mbox{或} \quad \frac{\d y}{\d x}=\frac{1}{\di\frac{\d x}{\d y}}
 \end{equation}
 \subsection{复合函数的求导法则}
 设$y=f(u),u=g(x)$,且$f(u),g(x)$都可导，则复合函数$y=f[g(x)]$的导数为；
 \begin{equation}
-	\frac{\d y}{\d x}=\frac{\d y}{\d u}\cdot\frac{\d u}{\d x}\huo y'(x)=f'(u)\cdot g'(x)
+	\frac{\d y}{\d x}=\frac{\d y}{\d u}\cdot\frac{\d u}{\d x}\quad \mbox{或} \quad y'(x)=f'(u)\cdot g'(x)
 \end{equation}
 \section{函数的微分}
 \subsection{微分的定义}
@@ -143,7 +149,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	\d y=A\Delta x
 \end{equation}
-\kg 函数$y=f(x)$在点$x_0$处可微的充分必要条件是函数$y=f(x)$在点$x_0$可导，且当$f(x)$在点$x_0$可微时，其微分一定是
+\hspace*{2em} 函数$y=f(x)$在点$x_0$处可微的充分必要条件是函数$y=f(x)$在点$x_0$可导，且当$f(x)$在点$x_0$可微时，其微分一定是
 \begin{equation}
 	\d y=f'(x_0)\Delta x
 \end{equation}
@@ -157,7 +163,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \end{equation}
 
 即$\d y$是$\Delta y $的主部\footnote{设$\alpha$,$ \beta$ 都是在同一个自变量的变化过程中的无穷小，如果$\beta=\alpha +o(\alpha)$,则称$\alpha$是$\beta$的主部.}，又由于$\d y=f'(x_0)\Delta x$是$\Delta x$的线性函数。所以在$f'(x_0)\neq0$的条件下，我们说$\d y$是$\Delta x$的线性主部（当$\Delta x\to 0$时）。于是我们得到以下结论：
-\\  \kg 在$f'(x_0)\neq0$的条件下，以微分$\d y=f'(x_0)\Delta x$近似代替增量$\Delta y=f(x_0+\Delta x)-f(x_0)$时，其误差为$o(\d y).$
+\\  \hspace*{2em} 在$f'(x_0)\neq0$的条件下，以微分$\d y=f'(x_0)\Delta x$近似代替增量$\Delta y=f(x_0+\Delta x)-f(x_0)$时，其误差为$o(\d y).$
 \subsection{微分的几何意义}
 如图 \ref{微分几何意义} 所示，在直角坐标系中，函数$y=f(x)$的图形是一条曲线相对与某一固定的$x_0$值，曲线上有一个确定点$M(x_0,y_0)$,当自变量$x$有微小增量$\Delta x$时，就得到曲线上另一点$N(x_0+\Delta x,y_0+\Delta y)$,
 
@@ -189,15 +195,15 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \vspace*{1.5em}
 
 \myitem{$\bullet${\normalsize\textbf{微分的几何意义的应用}}\vspace{0.2em}\\
-\kg 对于可微函数$y=f(x)$而言，当$\Delta y$是曲线$y=f(x)$上的点的纵坐标的增量时，$\d y$就是曲线的切线上的点的纵坐标的相应增量，当$|\Delta x|$很小时，$|\Delta y-\d y|$比$|\Delta x|$小得多。因此在点$M$的邻近，我们可以用切线段来近似代替曲线段。在局部范围内用线性函数近似替代非线性函数，在几何上就是局部用切线段近似代替曲线段。这在数学上称为\textbf{非线性函数的局部线性化}。这是微分学的基本思想方法之一。这种思想方法在自然科学和工程问题的研究中是经常采用的。}
+\hspace*{2em} 对于可微函数$y=f(x)$而言，当$\Delta y$是曲线$y=f(x)$上的点的纵坐标的增量时，$\d y$就是曲线的切线上的点的纵坐标的相应增量，当$|\Delta x|$很小时，$|\Delta y-\d y|$比$|\Delta x|$小得多。因此在点$M$的邻近，我们可以用切线段来近似代替曲线段。在局部范围内用线性函数近似替代非线性函数，在几何上就是局部用切线段近似代替曲线段。这在数学上称为\textbf{非线性函数的局部线性化}。这是微分学的基本思想方法之一。这种思想方法在自然科学和工程问题的研究中是经常采用的。}
 \subsection{基本初等函数的微分公式}
 从函数的微分表达式
 \begin{equation}
-	\d y=f'(x)\, \d x\huo \d f(x)=f'(x)\, \d x
+	\d y=f'(x)\, \d x\quad \mbox{或} \quad \d f(x)=f'(x)\, \d x
 \end{equation}
-\kg 可以看出，要计算函数的微分只需要计算函数的导数，再乘以自变量的微分，例如：$\d(\sin x)=\cos x \d x$,其它基本初等函数的微分也类似，故在此不再赘述。（参见基本函数求导公式）
+\hspace*{2em} 可以看出，要计算函数的微分只需要计算函数的导数，再乘以自变量的微分，例如：$\d(\sin x)=\cos x \d x$,其它基本初等函数的微分也类似，故在此不再赘述。（参见基本函数求导公式）
 \subsection{微分运算法则}
-由函数和差商积的求导法则，可推得相应的微分法则。
+由函数和差\vspace*{-2.5em}法则，可推得相应的微分法则。
 \begin{flalign*}
 	\qquad &1.\enspace d(u\pm v)=\d u+\d v &2.&\enspace \d(uv)=v\d u+u\d v&&\\[0.5em]
 	\qquad &3.\enspace\d(Cu)=C\d u &4.&\enspace\d\bigg(\frac{u}{v}\bigg)=\frac{v\d u-u\d v}{v^2}&&
@@ -208,13 +214,13 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \end{equation}
 由于$g(x)\,\d x=\d u$，所以，复合函数$y=f[g(x)]$的微分公式也可以写成
 \begin{equation}
-\d y=f'(u)\,\d u\huo \d y=y'_u\,\d u
+\d y=f'(u)\,\d u\quad \mbox{或} \quad \d y=y'_u\,\d u
 \end{equation}
-\kg 由此可见，无论$u$是自变量还是中间变量。微分形式$\d y=f'(u)\,\d u$保持不变。这一性质称为微分形式不变性，这性质表明，当变换自变量时，微分形式$\d y=f'(u)\,\d u$并不改变。
+\hspace*{2em} 由此可见，无论$u$是自变量还是中间变量。微分形式$\d y=f'(u)\,\d u$保持不变。这一性质称为微分形式不变性，这性质表明，当变换自变量时，微分形式$\d y=f'(u)\,\d u$并不改变。
 \clearpage
 
 \vspace*{-2.5em}
-\warn[\kg 微分形式不变性仅适用于一阶微分，对于二阶及以上的微分并不成立，这个在高阶导数和高阶微分中会详细说明。]
+\warn[\hspace*{2em} 微分形式不变性仅适用于一阶微分，对于二阶及以上的微分并不成立，这个在高阶导数和高阶微分中会详细说明。]
 \section{隐函数的导数}
 \subsection{隐函数与显函数的概念}
 \defination[显函数定义]
@@ -271,7 +277,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 
 \noindent \examples 求函数$y=\sqrt{\di\frac{(x-1)(x-2)}{(x-3)(x-4)}}$的导数
 \\ \solve 等式两边取对数，得
-\sj
+\vspace*{-1em}
 \begin{equation}
 	\nonumber
 	\ln y=\frac{1}{2}[\ln(x-1)+\ln(x-2)-\ln(x-3)-\ln(x-4)]
@@ -374,7 +380,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \defination[高阶导数定义]
 一般地，函数$y=f(x)$的导数$f'(x)$叫做函数$y=f(x)$的\highlight{red}{\index{YJDS@一阶导数}一阶导数}。类似地，一阶导数的导数叫做\highlight{red}{\index{EJDS@二阶导数}二阶导数}，二阶导数的导数是\highlight{red}{\index{SJDS@三阶导数}三阶导数} $\cdots\cdots$一般地，$(n-1)$阶导数的导数叫做\highlight{red}{$n$阶导数}，分别记作
 \begin{equation}
-	y',y'',y''',\cdots,y^{(n)}\huo \frac{\d y}{\d x},\frac{\d^2 y}{\d x^2},\frac{\d^3 y}{\d x^3},\cdots,\frac{\d^n y}{\d x^n},
+	y',y'',y''',\cdots,y^{(n)}\quad \mbox{或} \quad \frac{\d y}{\d x},\frac{\d^2 y}{\d x^2},\frac{\d^3 y}{\d x^3},\cdots,\frac{\d^n y}{\d x^n},
 \end{equation}
 函数$y=f(x)$具有$n$阶导数，也可以说函数$f(x)$为\highlight{red}{$n$阶可导}。如果函数$f(x)$在点$x$处具有$n$阶导数，那么$f(x)$在点$x$的某一领域内必定有一切低于$n$阶的导数。二阶及二阶以上的导数统称\highlight{red}{\index{GJDS@高阶导数}高阶导数}。
 \subsection{一般高阶导数的求法}
@@ -389,8 +395,8 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	y^n=\sin\bigg(x+n\cdot\frac{\pi}{2}\bigg)
 \end{equation}
-\sj\sj\sj
-\summarize[\kg 对于一般的函数求其$n$阶导数，都是先求其$1,2,3$阶导函数，找到其中的规律从而写出通式。常见函数$n$阶导函数有：
+\vspace*{-1em}\vspace*{-1em}\vspace*{-1em}
+\summarize[\hspace*{2em} 对于一般的函数求其$n$阶导数，都是先求其$1,2,3$阶导函数，找到其中的规律从而写出通式。常见函数$n$阶导函数有：
 \begin{equation}
 	(a^x)^{(n)}=a^x\cdot\ln^na(a>0,a\neq1)\xrightarrow{\di  a=\e}(\e^x)^{(n)}=\e^x
 	\end{equation}
@@ -412,12 +418,12 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
   \end{equation}]
 \subsection{函数运算的高阶导数}
 \noindent 1.\enspace 加减运算函数的$n$阶导数\\
-\kg 设函数$u=u(x),v=v(x)$在点$x$处有$n$阶导数，那么$u(x)+v(x),u(x)-v(x)$在点$x$处也具有$n$阶导数，且
+\hspace*{2em} 设函数$u=u(x),v=v(x)$在点$x$处有$n$阶导数，那么$u(x)+v(x),u(x)-v(x)$在点$x$处也具有$n$阶导数，且
 \begin{equation}
 	(u\pm v)^{(n)}=u^{(n)}+v^{(n)}
 \end{equation}
 2.\enspace 乘法运算函数的$n$阶导数
-\\ \kg 设函数$u=u(x),v=v(x)$在点$x$处具有$n$阶导数，
+\\ \hspace*{2em} 设函数$u=u(x),v=v(x)$在点$x$处具有$n$阶导数，
 \begin{equation}
 	\nonumber
 	(uv)'=u'v+uv'\vspace{-0.3em} 
@@ -448,11 +454,11 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \theorem[费马(Fermat)引理]
 设函数$f(x)$在点$x_0$的某邻域$U(x_0)$内有定义，并且在$x_0$处可导，如果对任意的$x\in U(x_0)$,有
 \begin{equation}
-	f(x)\leq f(x_0) \huo f(x)\geq f(x_0)
+	f(x)\leq f(x_0) \quad \mbox{或} \quad f(x)\geq f(x_0)
 \end{equation}
 那么$f'(x_0)=0$.
 \vspace{1em}\\  \proof 不妨设$x\in U(x_0)$时，$f(x)\leq f(x_0)$,于是，对于$x_0+\Delta x\in U(x_0)$,有
-\sj
+\vspace*{-1em}
 \begin{equation}
 	\nonumber
 	f(x_0+\Delta x)\leq f(x_0) \Rightarrow f(x_0+\Delta x)-f(x_0)\leq 0
@@ -480,21 +486,21 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 我们也通常称导数等于0的点为\highlight{red}{\index{ZD@驻点}驻点}（或\highlight{red}{\index{WDD@稳定点}稳定点}，\highlight{red}{\index{LJD@临界点}临界点}).
 \\ 
 
-\sj
+\vspace*{-1em}
 \theorem[罗尔(Rolle)定理]
 \noindent 设函数$f(x)$满足\\
-\kg(1)\enspace 在闭区间$[a,b]$上连续；\\
-\kg(2)\enspace 在开区间$[a,b]$内可导；\\
-\kg(3)\enspace 在区间端点处的函数值相等，即$f(a)=f(b)$,\\
+\hspace*{2em}(1)\enspace 在闭区间$[a,b]$上连续；\\
+\hspace*{2em}(2)\enspace 在开区间$[a,b]$内可导；\\
+\hspace*{2em}(3)\enspace 在区间端点处的函数值相等，即$f(a)=f(b)$,\\
 那么，在$(a,b)$内至少有一点$\xi $,使得$f'(\xi)=0$.\vspace{0.5em}\\
 \proof 由于函数$f(x)$在闭区间$[a,b]$上连续，那么一定存在最大值$M$，最小值$m$.
 
 \begin{minipage}{0.5\linewidth}
 	(1)\enspace $M=m$\\
-\kg 当$M=m$时，这个时候函数的图像便是一条直线，如图 \ref{Roll1} 所示。那么，任意$\xi \in(a,b)$,都有$f(\xi)\leq f(x)$,由费马引理，得
+\hspace*{2em} 当$M=m$时，这个时候函数的图像便是一条直线，如图 \ref{Roll1} 所示。那么，任意$\xi \in(a,b)$,都有$f(\xi)\leq f(x)$,由费马引理，得
 \begin{equation}
 \nonumber
-f'(\xi)=0\sj
+f'(\xi)=0\vspace*{-1em}
 \end{equation}
 \end{minipage}
 \begin{minipage}{0.5\linewidth}
@@ -508,7 +514,7 @@ f'(\xi)=0\sj
 
 (2)\enspace$M\geq m $\\
 \noindent \circled{1} $M=f(a)=f(b)$.\\
-\kg 如图 \ref{Roll2} 所示，当$M=f(a)=f(b)$时，由于$M>m$,那么$x_m\neq a,x_m\neq b$,即有$f(x)\geq f(x_m)$.由费马引理，得
+\hspace*{2em} 如图 \ref{Roll2} 所示，当$M=f(a)=f(b)$时，由于$M>m$,那么$x_m\neq a,x_m\neq b$,即有$f(x)\geq f(x_m)$.由费马引理，得
 \begin{equation}
 	\nonumber
 	f'(x_m)=0
@@ -534,7 +540,7 @@ f'(\xi)=0\sj
 \end{figure}
 
 \noindent \circled{2} $m=f(a)=f(b)$.\\
-\kg 如图 \ref{Roll3} 所示，当$m=f(a)=f(b)$时，由于$M>m$，那么$x_M\neq a,x_M\neq b$,即有$f(x_M)\geq f(x)$.由费马引理，得
+\hspace*{2em} 如图 \ref{Roll3} 所示，当$m=f(a)=f(b)$时，由于$M>m$，那么$x_M\neq a,x_M\neq b$,即有$f(x_M)\geq f(x)$.由费马引理，得
 \begin{equation}
 	f'(x_M)=0
 \end{equation}
@@ -542,9 +548,9 @@ f'(\xi)=0\sj
 
 \noindent \begin{minipage}{0.6\linewidth}
 \noindent \circled{3} $m<f(a)=f(b)<M$.\\
-\kg 如图 \ref{Roll4} 所示，，当$m<f(a)=f(b)<M时$，$x_M,x_m\neq a,b.$.即有$f(x_M)\geq f(x)\geq f(x_m)$.那么由费马引理得
+\hspace*{2em} 如图 \ref{Roll4} 所示，，当$m<f(a)=f(b)<M时$，$x_M,x_m\neq a,b.$.即有$f(x_M)\geq f(x)\geq f(x_m)$.那么由费马引理得
 \begin{equation}
-	f'(x_M)=0\kg f'(x_m)=0
+	f'(x_M)=0\hspace*{2em} f'(x_m)=0
 \end{equation}
 取$\xi=\big\lbrace x_M,x_m \big\rbrace$即可。	
 \end{minipage}
@@ -559,15 +565,15 @@ f'(\xi)=0\sj
 \subsection{拉格朗日中值定理}
 罗尔定理中$f(a)=f(b)$这个条件是相当特殊的，它使罗尔定理的应用受到限制。所以我们将罗尔定理推广到拉格朗日中值定理.\\
 
-\sj
+\vspace*{-1em}
 \theorem[拉格朗日(Lagrange)中值定理]
 
 \noindent 设函数$f(x)$满足：
-\\ \kg(1)\enspace 在闭区间$[a,b]$上连续；\\
-\kg (2)\enspace 在开区间$(a,b)$内可导；\\
+\\ \hspace*{2em}(1)\enspace 在闭区间$[a,b]$上连续；\\
+\hspace*{2em} (2)\enspace 在开区间$(a,b)$内可导；\\
 那么，在$(a,b)$内至少有一点$\xi(a<\xi<b)$使得
 \begin{equation}
-	\frac{f(b)-f(a)}{b-a}=f'(\xi)\sj
+	\frac{f(b)-f(a)}{b-a}=f'(\xi)\vspace*{-1em}
 \end{equation}
 
 \noindent \proof 既然是罗尔定理的推广，我们想办法构造罗尔定理的条件，即函数的端点值相等。那么我们只需要将原函数减去直线(有向向量)$\bm{AB}$即可，如图 \ref{Lagrange} 所示。设直线$AB$的方程为
@@ -610,6 +616,6 @@ f'(\xi)=0\sj
 
 \vspace*{3em}
 \myitem{\textbf{\normalsize 定理的几何意义}\vspace{0.5em}\\
-\kg 如图 \ref{Lagrange} 所示，由于$\di\frac{f(b)-f(a)}{b-a}$代表的是函数端点连线$AB$的斜率，而$f'(\xi)$代表的是函数在点$C$处的切线斜率。\\ 
-	\kg 那么，拉格朗日中值定理的几何意义为:如果连续函数$y=f(x)$的弧$\wideparen{AB} $上除端点外处处具有不垂直于$x$轴的切线，那么这弧上至少有一点$C$,使曲线在点$C$处的切线平行于弦$AB$.}
+\hspace*{2em} 如图 \ref{Lagrange} 所示，由于$\di\frac{f(b)-f(a)}{b-a}$代表的是函数端点连线$AB$的斜率，而$f'(\xi)$代表的是函数在点$C$处的切线斜率。\\ 
+	\hspace*{2em} 那么，拉格朗日中值定理的几何意义为:如果连续函数$y=f(x)$的弧$\wideparen{AB} $上除端点外处处具有不垂直于$x$轴的切线，那么这弧上至少有一点$C$,使曲线在点$C$处的切线平行于弦$AB$.}
 

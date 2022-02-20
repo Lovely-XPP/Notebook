@@ -1,43 +1,50 @@
 \chapter{函数与极限}
+\thispagestyle{empty}
 \section{利用定义证明极限}
 \subsection{自变量趋于有限值时函数的极限}
-\thispagestyle{empty}
-\tdefination[函数极限1]
+\vspace*{-1em}
+
+\defination[函数极限1]
 设函数$f(x)$在点$x_0$的某一去心邻域\index{QXLY@去心领域}\footnote{去心邻域指的是以$x_0$为中心的连续区间$U(x_0)$去掉中心$x_0$后的新区间,记为$U\degree (x_0 )$.特别注意的是,去心邻域仅在中心$x_0$处没有定义,其它点都有定义.}内有定义.如果存在常数$A$,对于任意给定的正数$\varepsilon$(不论它多么小),总存在正数$\delta$使得当$x$满足不等式$0<|x-x_0 |<\delta$时,对应的函数值$f(x)$都满足不等式
 \begin{equation}
 	|f(x)-A|<\varepsilon
 \end{equation}
 那么常数$A$就叫做函数$f(x)$当$x \to x_0$的\dy[极限]{JX},记作
 \begin{equation}
-	\lim\limits_{x\to x_0}f(x)=A \huo f(x)\to A(x \to x_0)
+	\lim\limits_{x\to x_0}f(x)=A \quad \mbox{或} \quad f(x)\to A(x \to x_0)
 \end{equation}
 \begin{figure}[!htb]
 	\begin{center}
 		\includegraphics[scale=0.8]{pic/C-1/极限1.pdf}
 	\end{center}
-	\sj \sj 
+	\vspace*{-1em} \vspace*{-1em} 
 	\caption{极限的定义图解}
 \end{figure}
-\sj
+\vspace*{-1em}
+
 \subsection{自变量趋于无穷大时函数的极限}
-\tdefination[函数极限2]
+\vspace*{-1em}
+
+\defination[函数极限2]
 设函数$f(x)$在当$|x|$大于某一正数时恒有定义.如果存在常数$A$,对于任意给定的正数$\varepsilon$(不论它多么小),总存在正数$X$使得当$x$满足不等式$|x|>X$时,对应的函数值$f(x)$都满足不等式
 \begin{equation}
 	|f(x)-A|<\varepsilon
 \end{equation}
 那么常数$A$就叫做函数$f(x)$当$x \to x_0$的\dy[极限]{JX},记作
 \begin{equation}
-	\lim\limits_{x\to \infty}f(x)=A \huo f(x)\to A(x \to \infty )
+	\lim\limits_{x\to \infty}f(x)=A \quad \mbox{或} \quad f(x)\to A(x \to \infty )
 \end{equation}
 
 \subsection{无穷小与无穷大}
-\tdefination[无穷小]
+\vspace*{-1em}
+
+\defination[无穷小]
 如果函数$f(x)$当$x\to x_0\left(\mbox{或}x \to \infty  \right) $时的极限为$0$,那么称函数$f(x)$为当$x\to x_0\left(\mbox{或}x \to \infty  \right) $时的\dy[无穷小]{WQX}.记为
 \begin{equation}
 	\lim\limits_{x \to x_0}f(x)=0,\lim\limits_{x\to \infty}f(x)=0.
 \end{equation}
 特别地,以$0$为极限的数列${x_n}$称为$n\to \infty$时的\dy[无穷小]{WQX}.
-\jg
+\vspace*{1em}
 
 \defination[无穷大]
 设函数$f(x)$在$x_0$的某一去心邻域内有定义(或$|x|$趋于某一正数时有定义).如果对于任意给定的正数$M$(不论它多么大),总存在正数$\delta$(或正数$X$),只要$x$适合不等式$0<|x-x_0|<\delta$(或$|x|>X$),对应函数值$f(x)$总满足不等式
@@ -50,20 +57,24 @@
 \end{equation}
 
 \subsection{单侧极限}
-\tdefination[左极限]
+\vspace*{-1em}
+
+\defination[左极限]
 在 $\lim\limits_{x \to x_0}f(x)=A$的定义中,把$0<|x-x_0 |<\delta$改为$x_0-\delta <x<x_0$ ,那么$A$就叫做函数$f(x)$当$x \to x_0$时的\dy[左极限]{ZJX}.记作
 \begin{equation}
-	\lim\limits_{x \to x_0^-}f(x)=A \huo f(x_0^-)=A \huo \lim\limits_{x \to x_0 - 0}f(x)=A
+	\lim\limits_{x \to x_0^-}f(x)=A \quad \mbox{或} \quad f(x_0^-)=A \quad \mbox{或} \quad \lim\limits_{x \to x_0 - 0}f(x)=A
 \end{equation}
 
 \defination[右极限]
 在 $\lim\limits_{x \to x_0}f(x)=A$的定义中,把$0<|x-x_0 |<\delta$改为$x_0 <x<x_0+\delta$ ,那么$A$就叫做函数$f(x)$当$x \to x_0$时的\dy[右极限]{YJX}.记作
 \begin{equation}
-	\lim\limits_{x \to x_0^+}f(x)=A \huo f(x_0^+)=A \huo \lim\limits_{x \to x_0 + 0}f(x)=A
+	\lim\limits_{x \to x_0^+}f(x)=A \quad \mbox{或} \quad f(x_0^+)=A \quad \mbox{或} \quad \lim\limits_{x \to x_0 + 0}f(x)=A
 \end{equation}
 
 \subsection{利用定义求函数的极限的解题方法}
-\texample[可以直接求得$\delta$与$\varepsilon$的关系]
+\vspace*{-1em}
+
+\example[可以直接求得$\delta$与$\varepsilon$的关系]
 任意一个$\varepsilon$满足$|f(x)-A|<\varepsilon$,都能找到一个正数$\delta$使$0 < |x - x_0| < \delta$或$|x| > \delta$ ,这就说明了$\varepsilon$与$\delta $有个对应关系,即
 \begin{equation}
 	\delta=\varphi(\varepsilon)
@@ -111,7 +122,9 @@
 故取$\displaystyle \delta = \min \left\lbrace  \frac{\varepsilon}{\frac{1}{2}+2|a|},\frac{1}{2} \right\rbrace $时成立,证毕.\hspace{26em}【取最小值】
 
 \subsection{证明函数的极限不存在的方法}
-\ttheorem[序列极限]
+\vspace*{-1em}
+
+\theorem[序列极限]
 设函数$f (x)$在$a$点的一个空心邻域内有定义,并且$\lim\limits_{x \to a}f(x)=l$.假若是一串在该空心邻域内取值的序列,且
 \begin{equation*}
 	\lim\limits_{n \to \infty}x_n=a
@@ -120,10 +133,10 @@
 \begin{equation}
 	\lim\limits_{n \to \infty}f(x_n)=l
 \end{equation}
-\par 这个定理为我们提供了一种\textbf{证明函数极限不存在的办法}:对于一个定义在$a$点的某空心邻域内的函数$f(x)$,如果能找到两串序列$\lbrace x'_n \rbrace $与$\lbrace x''_n\rbrace$它们都在$a$的该空心邻域内取值,且当$n\to \infty $时都以$a$为极限,而极限$\lim\limits_{n \to \infty }x'_n$与 $\lim\limits_{n \to \infty }x''_n$都存在但不相等,则$f(x)$在$x \to a$时不可能有极限.\jg
+\par 这个定理为我们提供了一种\textbf{证明函数极限不存在的办法}:对于一个定义在$a$点的某空心邻域内的函数$f(x)$,如果能找到两串序列$\lbrace x'_n \rbrace $与$\lbrace x''_n\rbrace$它们都在$a$的该空心邻域内取值,且当$n\to \infty $时都以$a$为极限,而极限$\lim\limits_{n \to \infty }x'_n$与 $\lim\limits_{n \to \infty }x''_n$都存在但不相等,则$f(x)$在$x \to a$时不可能有极限.\vspace*{1em}
 
 \example[证明函数的极限不存在]
-\sj \examples 证明:函数$\displaystyle \sin \frac{1}{x}$在$x\to 0$时没有极限.
+\vspace*{-1em} \examples 证明:函数$\displaystyle \sin \frac{1}{x}$在$x\to 0$时没有极限.
 
 \proof 取$\displaystyle x'_n=\frac{1}{2n\pi }$,则$\displaystyle \sin \frac{1}{x'_n}=0$；而取$\displaystyle x''_n=\frac{1}{2n\pi+\frac{\pi}{2} }$,则$\displaystyle \sin \frac{1}{x'_n}=1.$\\[0.5em]
 这时由于$n \to \infty \Rightarrow x'_n\to 0,x''_n \to 0, $且
@@ -134,7 +147,9 @@
 
 \section{利用极限运算法则和两个准则求极限}
 \subsection{极限运算法则}
-\ttheorem[极限运算法则1]
+\vspace*{-1em}
+
+\theorem[极限运算法则1]
 两个无穷小的和是无穷小.
 
 \tl 有限个无穷小的和是无穷小.
@@ -144,7 +159,7 @@
 
 \tl 常数与无穷小的乘积是无穷小.
 
-\tl 有限个无穷小的乘积是无穷小.\jg
+\tl 有限个无穷小的乘积是无穷小.\vspace*{1em}
 
 \theorem[极限运算法则3]
 如果$\lim f(x) = A, \lim g(x) = B$(这些函数都必须存在极限),那么
@@ -170,18 +185,22 @@
 \end{equation}
 
 \theorem[极限运算法则4]
-如果$\varphi(x) \ge \psi(x),$而$\lim \varphi(x)=A,\lim \psi(x)=B,$则$A \ge B.$\jg
+如果$\varphi(x) \ge \psi(x),$而$\lim \varphi(x)=A,\lim \psi(x)=B,$则$A \ge B.$\vspace*{1em}
 
 \subsection{极限运算准则}
-\ttheorem[单调有界数列极限一定存在]
+\vspace*{-1em}
+
+\theorem[单调有界数列极限一定存在]
 (1)  \quad 若$x_{n+1} \le x_n(n\mbox{为正整数})$,且$x_n \ge m,$则$\lim\limits_{n \to \infty }x_n = A $存在,且$A \ge m$;
 \par (2)  \quad 若$x_{n+1} \ge x_n(n\mbox{为正整数})$,且$x_n \le M,$则$\lim\limits_{n \to \infty }x_n = A $存在,且$A \le M$.
 
 \theorem[夹逼定理]
-设$g(x) \le f(x) \le h(x)$,若$\lim\limits_{x \to m}g(x)=A,\lim\limits_{x \to m}=A,(-\infty \le m \le +\infty)$则$\lim\limits_{x \to m}f(x)=A.$\jg
+设$g(x) \le f(x) \le h(x)$,若$\lim\limits_{x \to m}g(x)=A,\lim\limits_{x \to m}=A,(-\infty \le m \le +\infty)$则$\lim\limits_{x \to m}f(x)=A.$\vspace*{1em}
 
 \subsection{例题}
-\texample[利用极限运算法则和两个准则求极限]\sj
+\vspace*{-1em}
+
+\example[利用极限运算法则和两个准则求极限]\vspace*{-1em}
 \examples 证明:$\lim\limits_{n \to \infty}q^n=0.(|q|<1)$
 
 \proof 设$\displaystyle |q|=\frac{1}{1+a},a>0,$则$\displaystyle 0< q^n=\frac{1}{(1+a)^n}=\frac{1}{C^0_na^0=C^1_na^1+C^2_na^2+\cdots+C^n_na^n}<\frac{1}{C^1_na^1}=\frac{1}{na}.$\\[0.5em]
@@ -189,7 +208,7 @@
 \begin{equation*}
 	\lim\limits_{n\to \infty}0 \le \lim\limits_{n \to \infty}q^n \le \lim\limits_{n \to \infty}\frac{1}{na}
 \end{equation*}
-故$\lim\limits_{n \to \infty}q^n=0.$\jg
+故$\lim\limits_{n \to \infty}q^n=0.$\vspace*{1em}
 
 \examples 证明:$\displaystyle a_n=\frac{a^n}{n!}(a\mbox{是大于1的任意常数})$存在极限.
 
@@ -228,7 +247,9 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 
 \section{利用等价无穷小求极限}
 \subsection{无穷小的分类}
-\tdefination[无穷小的分类]
+\vspace*{-1em}
+
+\defination[无穷小的分类]
 设$\alpha,\beta $是同一变化过程中的无穷小,$\displaystyle \lim \frac{\beta}{\alpha}$是这一过程的极限,$c$为常数,那么\\[0.5em]
 \noindent (1) \quad $\displaystyle \lim \frac{\beta }{\alpha}=0$,则称$\beta $是$\alpha $的\dy[高阶无穷小]{GJWQX},记作$\beta = o(\alpha)$.\\[0.5em]
 \noindent (2) \quad  $\displaystyle \lim \frac{\beta }{\alpha}=\infty$,则称$\beta $是$\alpha $的\dy[低阶无穷小]{DJWQX1}.\\[0.5em]
@@ -244,7 +265,9 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 
 
 \subsection{常见的等价无穷小}
-\ttheorem[常见的等价无穷小]
+\vspace*{-1em}
+
+\theorem[常见的等价无穷小]
 以下等价无穷小均为$x \to 0$这一变化过程,其中$x$也可替换为一个函数,即$f(x) \to 0$的情况也适用.
 \begin{equation}
 	\tan x \sim \sin x \sim x \sim \arcsin x \sim \arctan x
@@ -270,7 +293,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \subsection{等价无穷小求极限的本质}
 等价无穷小求极限本质上是极限与1的相乘,而有等价无穷小的定义,1可以换成极限$\displaystyle 1=\lim\limits_{x \to x_0}\frac{\alpha }{\beta}$,再运用极限乘法运算法则计算即可.
 
-\example[等价无穷小的误用]\sj
+\example[等价无穷小的误用]\vspace*{-1em}
 \examples \label{例 1.8}求极限$\displaystyle \lim\limits_{x \to 0}\frac{\tan x -\sin x}{\sin^3 x}$.
 
 \errsolve  由于$\tan \sim \sin x \sim x$得$\displaystyle \lim\limits_{x \to 0}\frac{\tan x -\sin x}{\sin^3 x}=\lim\limits_{x \to 0}\frac{x-x}{\sin^3 x}=\lim\limits_{x \to 0}0=0.$
@@ -285,7 +308,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 而极限运算法则成立的条件是$\lim f(x),\lim g(x)$存在,而$\displaystyle \lim\limits_{x \to 0}\frac{\tan x}{\sin^3 x}$不存在,因此解题错误.
 
 \solve $\displaystyle \lim\limits_{x \to 0}\frac{\tan x -\sin x}{\sin^3 x}=\lim\limits_{x \to 0}\frac{\sin x(\sec x-1)}{\sin^3 x}=\lim\limits_{x \to 0}\frac{\sec x-1}{\sin^2 x} \cdot \lim\limits_{x \to 0}\frac{\frac{x^2}{2}}{\sec x -1} \cdot \lim\limits_{x \to 0}\frac{\sin x^2}{x^2}
-=\frac{\frac{x^2}{2}}{x^2}=\frac{1}{2}.$\jg
+=\frac{\frac{x^2}{2}}{x^2}=\frac{1}{2}.$\vspace*{1em}
 
 \examples 求极限$\displaystyle \lim_{x \to 0} \frac{\sin \left(x^2 \sin{\frac{1}{x}}\right) }{x}.$
 
@@ -317,7 +340,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \]
 
 \subsection{例题}
-\sj
+\vspace*{-1em}
 \example[等价无穷小的运用]
 在下面的例题中,为了方便,省略了含有等价无穷小本质的式子.但是建议读者在实际做题的过程中还是要写完整,方便利用定义检查式子的合理性.
 \examples 求极限$\displaystyle \lim_{x \to \infty}\left(\cos \frac{3}{x} \right)^{x^2} $
@@ -394,7 +417,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \therefore \lim_{x \to 0}\left[ \frac{(1+x)^{\frac{1}{x}}}{\e}\right]^{\frac{1}{x}}=\e^{\lim\limits_{x\to 0}\frac{(1+x)^\frac 1x-1}{x}}=\e^{-\frac{1}{2}}=\frac{\sqrt{\e}}{\e}.
 \]
 
-\inference[等价无穷小求极限]\sj
+\inference[等价无穷小求极限]\vspace*{-1em}
 \begin{enumerate}
 	\item 判断并构造等价无穷小的类型(7 种);
 	\item 利用等价无穷小求极限的本质列出计算式;
@@ -409,7 +432,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \warn[
 \hspace*{2em}1. 以上等价无穷小都只在$x\to 0$的情况下才成立,$x$趋于其它值时不成立.\\
 \hspace*{2em}2. 只有等价无穷小的定义式存在极限的前提下,即在函数$f (x)$的定义域内能找到一个完整的去心邻域,$x$才可以用任意函数$f(x)$替换.若等价无穷小的定义式都不存在极限,又谈何等价无穷小.\\
-下面给出常见的一些不可以用等价无穷小替换的函数.\jg\\
+下面给出常见的一些不可以用等价无穷小替换的函数.\vspace*{1em}\\
 \examples $\displaystyle x \to 0,\sin\left(x \sin \frac 1x\right) \not \sim x\sin \frac{1}{x},\sin\left(x\cos \frac 1x\right)\not \sim x \cos \frac 1x$\\
 \hspace*{2em}3. 在运用等价无穷小计算极限的时候要特别要注意在替换的过程中只有符合极限的运算法则,才可以进行
 替换(通常极限的运算法则不明显,需要仔细计算),前面已经给出了两个详细的例子.
@@ -417,7 +440,9 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 
 \section{函数连续性}
 \subsection{函数连续性的定义}
-\tdefination[函数在某点的连续性\uppercase\expandafter{\romannumeral1}]
+\vspace*{-1em}
+
+\defination[函数在某点的连续性\uppercase\expandafter{\romannumeral1}]
 设函数$y=f(x)$在点$x_0$的某一邻域内有定义,如果
 \begin{equation}
 	\lim\limits_{\Delta x \to 0}\Delta y=\lim\limits_{\Delta x \to 0}\big[f(x_0+\Delta x)-f(x_0)\big]=0.
@@ -429,7 +454,7 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \begin{equation}
 	\lim\limits_{x \to x_0} f(x)=f(x_0).
 \end{equation}
-那么就称函数$y=f(x)$在点$x_0$处\dy[连续]{LX}.\jg
+那么就称函数$y=f(x)$在点$x_0$处\dy[连续]{LX}.\vspace*{1em}
 
 即$f(x)$在点$x_0$处连续$\Longleftrightarrow \forall \varepsilon>0,\exists \delta>0,$当$|x-x_0|<\delta$时,都有$|f(x)-f(x_0)|<\varepsilon$
 
@@ -445,10 +470,12 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \defination[函数在某个区间的连续性]
 在区间上每一点都连续的函数,叫做在该区间上的连续函数,或者说函数在该区间上连续.如果区间包括端点,那么函数在右端点是指右端点的左连续,在左端点是指左端点的右连续.
 
-\blackbf[连续函数的图形是一条连续而不间断的线(可能是直线,也可能是曲线).]
+\textbf{连续函数的图形是一条连续而不间断的线(可能是直线,也可能是曲线).}
 
 \subsection{函数的间断点}
-\tdefination[函数的间断点]
+\vspace*{-1em}
+
+\defination[函数的间断点]
 设函数$y=f(x)$在点$x_0$的某一邻域内有定义.在此前提条件下,如果函数有下列三种情况之一:\\[0.5em]
 (1) 在$x=x_0$处没有定义;\hspace{12em}(2) 虽在$x=x_0$处有定义,但是$\displaystyle \lim\limits_{x \to x_0}f(x)$不存在;\\[0.5em]
 (3) 虽在$x=x_0$处有定义,$\displaystyle \lim\limits_{x \to x_0}f(x)$存在,但$\displaystyle \lim_{x \to x_0}f(x) \ne f(x_0)$.\\[0.5em]
@@ -475,22 +502,22 @@ a_n=(1+t)^n=1+nt+\frac{n(n-1)}{2!}t^2+\cdots+\frac{n(n-1)\cdot(n-k)}{(k+1)!}t^{k
 \vspace*{-3em}
 
 \defination[无穷间断点]
-若$x_0$是函数$f(x)$的间断点,且$\lim\limits_{x \to x_0}f(x)=\infty $,那么我们称点$x_0$是函数的\dy[无穷间断点]{WQJDD}.\jg
+若$x_0$是函数$f(x)$的间断点,且$\lim\limits_{x \to x_0}f(x)=\infty $,那么我们称点$x_0$是函数的\dy[无穷间断点]{WQJDD}.\vspace*{1em}
 
 \simpleexamples $\displaystyle x=\frac{\pi}{2}$是函数$y=\tan x$的无穷间断点.
 
 \defination[振荡间断点]
-若$x_0$是函数$f(x)$的间断点,且当$x \to x_0$时,函数值在多个值之间变动无穷多次,那么我们称点$x_0$是函数$f(x)$的\dy[振荡间断点]{ZDJDD}.\jg
+若$x_0$是函数$f(x)$的间断点,且当$x \to x_0$时,函数值在多个值之间变动无穷多次,那么我们称点$x_0$是函数$f(x)$的\dy[振荡间断点]{ZDJDD}.\vspace*{1em}
 
 \simpleexamples $\displaystyle x = 0$是函数$\displaystyle y =\sin\frac{1}{x}$的振荡间断点.
 \warn[
-\kg 若点$x_0$是函数$f(x)$的振荡间断点,那么在函数$f(x)$在点$x_0$处的任意的去心邻域都无确定的值.
+\hspace*{2em} 若点$x_0$是函数$f(x)$的振荡间断点,那么在函数$f(x)$在点$x_0$处的任意的去心邻域都无确定的值.
 进一步说,如果函数$f(x)$的导函数是$f'(x)$,点$x_0$是导函数$f'(x)$的振荡间断点,那么在$x_0$的任意去心邻域中函数$f(x)$的导数都不存在.
 ]
 \vspace*{-1em}
 
 \defination[可去间断点]
-若点$x_0$是函数$f(x)$的间断点,且$f(x)$在点$x_0$处没有定义,而$\lim\limits_{x \to x_0}f(x)=f(x_0),$那么我们称点$x_0$是函数$f(x)$的\dy[可去间断点]{KQJDD}.\jg
+若点$x_0$是函数$f(x)$的间断点,且$f(x)$在点$x_0$处没有定义,而$\lim\limits_{x \to x_0}f(x)=f(x_0),$那么我们称点$x_0$是函数$f(x)$的\dy[可去间断点]{KQJDD}.\vspace*{1em}
 
 \simpleexamples $\displaystyle x=1$是函数$\displaystyle y=\frac{x^2-1}{x-1}$的可去间断点.
 
@@ -510,7 +537,7 @@ $
 
 \begin{tcolorbox}[sidebyside,colframe=red!75!black, colback=yellow!10!white,title=注意,sidebyside align=top seam,
 	righthand width=4cm,fonttitle =\CJKfamily{heiti}]
-	\kg 可去间断点的定义是左右极限相等即可,与函数在该点处是否有定义无关.关于这个很容易犯错,下面给出一个例子详细说明.
+	\hspace*{2em} 可去间断点的定义是左右极限相等即可,与函数在该点处是否有定义无关.关于这个很容易犯错,下面给出一个例子详细说明.
 	\[
 	f(x)=
 	\begin{cases}
@@ -552,7 +579,9 @@ $
 \end{center}
 
 \subsection{连续函数的运算}
-\ttheorem[连续函数的加减乘除]
+\vspace*{-1em}
+
+\theorem[连续函数的加减乘除]
 设函数$f(x)$和$g(x)$在点$x_0$处连续,则它们的和(差)$f \pm g$、积$f \cot g$及商$\dfrac{f}{g}\,(g(x_0)\neq 0)$都在点$x_0$处连续.
 
 \theorem[反函数的连续性]
@@ -568,14 +597,14 @@ $
 
 \warn
 [
-\kg $g(x)$可以不在点$x=x_0$处有连续,但是必须有极限.
+\hspace*{2em} $g(x)$可以不在点$x=x_0$处有连续,但是必须有极限.
 ]
 
 \theorem[复合函数的连续性\uppercase\expandafter{\romannumeral2}]
-设函数$u=g(x)$在$x=x_0$处连续,且$g(x_0)=u_0$,函数$y=f(x)$在$x=u_0$处连续,则复合函数$y=f\big[g(x)\big]$也在$x=x_0$处连续.\jg
+设函数$u=g(x)$在$x=x_0$处连续,且$g(x_0)=u_0$,函数$y=f(x)$在$x=u_0$处连续,则复合函数$y=f\big[g(x)\big]$也在$x=x_0$处连续.\vspace*{1em}
 
 \theorem[初等函数的连续性]
-一切初等函数在其定义域内都是连续函数.\jg
+一切初等函数在其定义域内都是连续函数.\vspace*{1em}
 
 \subsection{连续函数的性质}
 
@@ -585,14 +614,14 @@ $
 f(x)\le f(x_0)\quad\big(\,f(x) \geq f(x_0) \,\big)
 \]
 那么我们称$f(x_0)$是函数$y=f(x)$在区间$I$上的最大值(最小值).
-\jg
+\vspace*{1em}
 
 \theorem[最大值最小值定理]
 在闭区间上连续的函数在该区间上一定有界且一定能取到它的最大值和最小值.
 
 \warn
 [
-\kg 如果函数在开区间内连续,或者在闭区间上有间断点,那么函数不一定有界且不一定能取到它的最大值或最小值.特别地,如果函数单调,且在开区间内连续,那么这个函数一定无界且无最大值和最小值.
+\hspace*{2em} 如果函数在开区间内连续,或者在闭区间上有间断点,那么函数不一定有界且不一定能取到它的最大值或最小值.特别地,如果函数单调,且在开区间内连续,那么这个函数一定无界且无最大值和最小值.
 ]
 
 
@@ -612,7 +641,9 @@ f(\xi)=C(a<\xi<b)
 
 \section{补充题型}
 \subsection{求递归数列的极限}
-\texample[求递归数列的极限]\sj
+\vspace*{-1em}
+
+\example[求递归数列的极限]\vspace*{-1em}
 \examples 已知$x_1>0,x_{n+1}=\dfrac{1}{2}\left(x_n+\dfrac{a}{x_n}\right),(a>0,n=1,2,\ldots),$证明$\lim\limits_{n \to \infty} x_n$存在,并求该极限.
 
 \solve $\displaystyle x_{n+1}=\frac 12\left(x_n+\frac{a}{x_n}\right)\ge \frac 12 \cdot 2\sqrt{x_n\cdot \frac{a}{x_n}}=\sqrt{a}$,所以$n>2$时,$x_n \ge \sqrt{a},$又
@@ -647,7 +678,7 @@ x_{n+1}=\sqrt{2+x_n} \quad \Rightarrow \quad c=\sqrt{2+c} \quad \Rightarrow \qua
 \inference[求递归数列的极限]
 \vspace*{1em} \noindent  \hspace*{0.2em}  \tcbox[colframe =ForestGreen
 , colback =ForestGreen!15!white,boxrule=0.5mm,size=small,on line]{\color{ForestGreen}{{\CJKfamily{heiti}题目模板}}}\hspace{1.5em}
-已知$x_1=a,x_{n+1}=f(x_n),$判断$\lim\limits_{n \to \infty }x_n$是否存在,若存在则求该极限.\jg\jg
+已知$x_1=a,x_{n+1}=f(x_n),$判断$\lim\limits_{n \to \infty }x_n$是否存在,若存在则求该极限.\vspace*{1em}\vspace*{1em}
 
 \noindent \highlights[第一步 \quad 找答案]
 
@@ -657,7 +688,7 @@ x_{n+1}=\sqrt{2+x_n} \quad \Rightarrow \quad c=\sqrt{2+c} \quad \Rightarrow \qua
 	\item 若无解,则$\lim\limits_{n \to \infty}x_n$不存在;
 	\item 若有解,注意判断解的合理性,通常只有一个解$c_0>0\big(x_n>0\big)$或$c_0<0\big(x_n<0\big)$,则$\lim\limits_{n \to \infty}x_n=c_0$.
 \end{enumerate}
-\jg
+\vspace*{1em}
 
 \noindent \highlights[第二步 \quad 证有界]
 
@@ -666,16 +697,16 @@ x_{n+1}=\sqrt{2+x_n} \quad \Rightarrow \quad c=\sqrt{2+c} \quad \Rightarrow \qua
 	\item 若数列$\{x_n\}$单调递增,则证$x_n \le c_0$;
 	\item 若数列$\{x_n\}$单调递减,则证$\max \{x_1,x_2\} \ge x_n \ge c_0$.
 \end{enumerate}
-\sj
+\vspace*{-1em}
 \warn
 [
-\kg 可以先不证明数列的单调性,但是要用赋值法先确定数列的单调性,就可以找到证明的方向,就可以容易用数学归纳法证明.
+\hspace*{2em} 可以先不证明数列的单调性,但是要用赋值法先确定数列的单调性,就可以找到证明的方向,就可以容易用数学归纳法证明.
 ]
-\jg
+\vspace*{1em}
 
 \noindent \highlights[第三步 \quad 证单调]
 
-证单调直接用定义即可:\sj
+证单调直接用定义即可:\vspace*{-1em}
 \begin{multicols}{2}
 	\noindent1.$\,\,x_{n+1}-x_n=f(x_n)-x_n$.
 	\begin{enumerate}[(i)]
@@ -688,23 +719,25 @@ x_{n+1}=\sqrt{2+x_n} \quad \Rightarrow \quad c=\sqrt{2+c} \quad \Rightarrow \qua
 		\item $x_{n+1}/x_n<1\Rightarrow \{x_n\}$是单调递减数列;
 	\end{enumerate}
 \end{multicols}
-\sj
+\vspace*{-1em}
 \warn
 [
-\kg 在有变号的数列中第二种方法不适用.
+\hspace*{2em} 在有变号的数列中第二种方法不适用.
 ]
-\jg
+\vspace*{1em}
 
 \noindent \highlights[第四步 \quad 求极限]
 
 由于$x_n$单调有界,由极限存在法则可知$\lim\limits_{x_n}$一定存在.$\lim\limits_{n \to \infty}x_n=\lim\limits_{n \to \infty}x_{n+1}=c>0,$即$c=f(c)$,求解这个方程后可以求出$c$的值,在步骤一中已经求出,可以直接写结果.
 \warn
 [
-\kg $\lim\limits_{n \to \infty}x_n=\lim\limits_{n \to \infty}x_{n+1}=c$成立的前提条件是数列${x_n}$单调有界(或$\{x_n\}$收敛).
+\hspace*{2em} $\lim\limits_{n \to \infty}x_n=\lim\limits_{n \to \infty}x_{n+1}=c$成立的前提条件是数列${x_n}$单调有界(或$\{x_n\}$收敛).
 ]
 
 \subsection{极限存在求参数}
-\texample[极限存在求参数]\sj
+\vspace*{-1em}
+
+\example[极限存在求参数]\vspace*{-1em}
 
 \examples 求实数$a,b$使得
 \[
@@ -773,8 +806,9 @@ $
 存在,且为$\dfrac{8}{3}.$
 
 \subsection{分数型极限}
+\vspace*{-1em}
 
-\texample[分数型极限]
+\example[分数型极限]
 关于这个题型先给出一个定理.
 
 \theorem[分数型极限]
@@ -796,7 +830,7 @@ $
 \end{equation}
 \warn
 [
-\kg 这个定理只适合变量趋于0或$\infty$的情况.
+\hspace*{2em} 这个定理只适合变量趋于0或$\infty$的情况.
 ]
 通常这种类型还有几种变形,下面给出一个例子.
 
@@ -811,12 +845,12 @@ $
 \vspace*{-2em}
 \summarize
 [
-\kg 其实看起来解题过程比较复杂,但是其实本质比较简单,弄清楚这种题型的做题方法如下:\\
+\hspace*{2em} 其实看起来解题过程比较复杂,但是其实本质比较简单,弄清楚这种题型的做题方法如下:\\
 1. 观察式子,判断题型是否为分数型;\\
 2. 确定为分数型题型后,判断分数的分母和分子最高的次数的大小;\\
 3. 运用定理运算极限即可.\\
-\kg 特别注意的是,有些时候不是很好判断是否为分数型,像上面的例题.这个时候可以观察分子分母是否是高次多项式.如果分子和分母都是高次多项式,那么就可以尝试用分数型的解题方法来尝试解题.\\
-\kg 可能还有的题需要换元以后才能得到这个分数型极限.
+\hspace*{2em} 特别注意的是,有些时候不是很好判断是否为分数型,像上面的例题.这个时候可以观察分子分母是否是高次多项式.如果分子和分母都是高次多项式,那么就可以尝试用分数型的解题方法来尝试解题.\\
+\hspace*{2em} 可能还有的题需要换元以后才能得到这个分数型极限.
 ]
 
 \subsection{已知一个极限式求另一极限式}
@@ -830,15 +864,17 @@ f(x)=1+\alpha x+\frac{\sin x}{x}+2x \quad \Rightarrow \quad \lim\limits_{x \to 0
 \[
 \lim\limits_{x \to 0}f(x)=\lim\limits_{x \to 0}\left( 1+ \alpha x +\frac{\sin x}{x} +2x\right) =1+0+1+0=2.
 \]
-\sj
+\vspace*{-1em}
 \summarize
 [
-\kg 这是一类知道含$f(x)$的多项式的极限,求$\lim f(x)$的一类题,很巧妙地运用了换元法.
+\hspace*{2em} 这是一类知道含$f(x)$的多项式的极限,求$\lim f(x)$的一类题,很巧妙地运用了换元法.
 ]
 
 \subsection{求和式的极限}
-\texample[求和式的极限]
-求和式的极限在高等数学教材中目前有两种可行的方法:定积分法和夹逼定理法.\jg
+\vspace*{-1em}
+
+\example[求和式的极限]
+求和式的极限在高等数学教材中目前有两种可行的方法:定积分法和夹逼定理法.\vspace*{1em}
 
 \noindent \highlights[1.定积分法]
 
@@ -884,7 +920,7 @@ f(x)=1+\alpha x+\frac{\sin x}{x}+2x \quad \Rightarrow \quad \lim\limits_{x \to 0
 
 \summarize
 [
-\kg 本题的被积函数为$f(x)=\dfrac{1}{1+x^2},$可以代入验证$\displaystyle f\left(\dfrac{k}{n} \right)=\dfrac{1}{\textstyle 1+\left(\frac{k}{n} \right)} $.
+\hspace*{2em} 本题的被积函数为$f(x)=\dfrac{1}{1+x^2},$可以代入验证$\displaystyle f\left(\dfrac{k}{n} \right)=\dfrac{1}{\textstyle 1+\left(\frac{k}{n} \right)} $.
 ]
 \clearpage
 \vspace*{-3em}
@@ -910,7 +946,7 @@ $
 
 \summarize
 [
-\kg 此题被分割的区间上限不再是 1, 而是 2, 在做题需要注意分割区间($\lambda$的值),不要直接认为是 1.
+\hspace*{2em} 此题被分割的区间上限不再是 1, 而是 2, 在做题需要注意分割区间($\lambda$的值),不要直接认为是 1.
 ]
 
 \examples 求极限$\displaystyle \lim\limits_{n \to \infty}\left[ \frac 1n +\frac {1}{n+1}+\cdots+\frac{1}{3n}\right] $.
@@ -930,12 +966,12 @@ $
 
 \summarize
 [
-\kg 本题没有给出和式表达式,需要我们自己写成和式的形式,以方便构造积分的形式.\\
-\kg 本题中和式的上限不是$n$而是$2n$,那么这个时候整个积分区间就不是被等分成$n$份,而是$2n$份,因此,我们要构造关于变量$\dfrac{i}{2n}$的函数,即
+\hspace*{2em} 本题没有给出和式表达式,需要我们自己写成和式的形式,以方便构造积分的形式.\\
+\hspace*{2em} 本题中和式的上限不是$n$而是$2n$,那么这个时候整个积分区间就不是被等分成$n$份,而是$2n$份,因此,我们要构造关于变量$\dfrac{i}{2n}$的函数,即
 \begin{equation}
 	\lim\limits_{n \to \infty}\frac{1}{2n}\cdot\sum_{i=1}^{2n}f\left(\frac{i}{2n}\right)
 \end{equation}
-\kg 积分的上下限由变量$\dfrac{i}{n}$(本题$\dfrac{i}{2n}$)的范围所确定,如本题$i =1,2,\ldots,2n,\lim\limits_{n \to \infty}\dfrac{i}{2n}=0,1.$.因此积分的上下限是0,1.
+\hspace*{2em} 积分的上下限由变量$\dfrac{i}{n}$(本题$\dfrac{i}{2n}$)的范围所确定,如本题$i =1,2,\ldots,2n,\lim\limits_{n \to \infty}\dfrac{i}{2n}=0,1.$.因此积分的上下限是0,1.
 ]
 \vspace{1em}
 
@@ -977,7 +1013,7 @@ $
 \vspace*{-1.5em}
 \summarize
 [
-\kg 对于含有分式的和式,一般先观察式子,如果分母的次数比分子高2次(或者更高),那么夹逼法则一定能做.\\
+\hspace*{2em} 对于含有分式的和式,一般先观察式子,如果分母的次数比分子高2次(或者更高),那么夹逼法则一定能做.\\
 如果分母的次数仅比分子高1次,那么我们可以尝试用方法一定积分来做.
 ]
 
@@ -994,5 +1030,5 @@ M=\sqrt[n]{M}\le \sqrt[n]{a_z^n+a_2^n+\cdots+a_m^n} \le \sqrt[n]{mM^n}=\sqrt[n]{
 
 \summarize
 [
-\kg 对于未知大小的元素之和,可以先规定最大值(最小值),方便计算.
+\hspace*{2em} 对于未知大小的元素之和,可以先规定最大值(最小值),方便计算.
 ]
