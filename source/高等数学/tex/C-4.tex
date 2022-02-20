@@ -4,9 +4,9 @@
 \begin{minipage}{0.55\linewidth}
 	\section{定积分的基本概念}
 	\subsection{曲边梯形的面积}
-\hspace*{2em} 设$y=f(x)$在区间$[a,b]$上连续非负。由直线$x=a$,$x=b$,$y=0$及曲线$y=f(x)$所围成的图形称为\highlight{red}{\index{QBTX@曲边梯形}曲边梯形}，其中曲线弧称为\highlight{red}{曲边}，如图 \ref{曲边梯形} 所示。
+\hspace*{2em} 设$y=f(x)$在区间$[a,b]$上连续非负。由直线$x=a$,$x=b$,$y=0$及曲线$y=f(x)$所围成的图形称为\highlight{dy}{\index{QBTX@曲边梯形}曲边梯形}，其中曲线弧称为\highlight{dy}{曲边}，如图 \ref{曲边梯形} 所示。
 
-\hspace*{2em} 下面用\highlight{red}{\index{YSF@元素法}元素法}详细地说明曲边梯形面积的求法。\\
+\hspace*{2em} 下面用\highlight{dy}{\index{YSF@元素法}元素法}详细地说明曲边梯形面积的求法。\\
 \hspace*{2em} (1)\enspace\textbf{分割}。用任意一组分点把区间$[a,b]$分成长度为$\Delta x_i$($i=1,2,\cdots,n$)的$n$的小区间$[x_{i-1},x_i]$，相应地把曲边梯形分成$n$个窄曲边梯形，第$i$个窄曲边梯形的面积设为$\Delta S_i$,则
 \end{minipage}
 \begin{minipage}{0.45\linewidth}
@@ -56,11 +56,11 @@
 \begin{equation}
 	S=\sum_{i=1}^{n}f(\xi_i)\Delta x_i
 \end{equation}
-\hspace*{2em} 记$\lambda=\text{max}\{\Delta x_i,1\leq i\leq n\}$\footnote{无特殊说明，在本章节中$\lambda$都表示$\max \{\Delta x_i,1\leq x_i\leq n\}$},如果$\lambda\to 0$时，上式的极限总存在，且与闭区间$[a,b]$的分法及点$\xi_i$的取法无关，那么称这个极限为函数$f(x)$在区间$[a,b]$上的\highlight{red}{\index{DJF@定积分}定积分}(简称\highlight{red}{\index{JF@积分}积分})，记作
+\hspace*{2em} 记$\lambda=\text{max}\{\Delta x_i,1\leq i\leq n\}$\footnote{无特殊说明，在本章节中$\lambda$都表示$\max \{\Delta x_i,1\leq x_i\leq n\}$},如果$\lambda\to 0$时，上式的极限总存在，且与闭区间$[a,b]$的分法及点$\xi_i$的取法无关，那么称这个极限为函数$f(x)$在区间$[a,b]$上的\highlight{dy}{\index{DJF@定积分}定积分}(简称\highlight{dy}{\index{JF@积分}积分})，记作
 \begin{equation}
 	\int_{a}^{b}f(x)\,\d x=\lim\limits_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i)\Delta x_i
 \end{equation}
-\hspace*{2em} 其中函数$f(x)$叫做\highlight{red}{\index{BJHS@被积函数}被积函数}，$f(x)\d x$叫做\highlight{red}{\index{BJBDS@被积表达式}被积表达式}，$x$叫做\highlight{red}{\index{JFBL@积分变量}积分变量}，$a$叫做\highlight{red}{\index{JFXX@积分下限}积分下限}，$b$叫做\highlight{red}{\index{JFSX@积分上限}积分上限}，$[a,b]$叫做\highlight{red}{\index{JFQJ@积分区间}积分区间}。\\
+\hspace*{2em} 其中函数$f(x)$叫做\highlight{dy}{\index{BJHS@被积函数}被积函数}，$f(x)\d x$叫做\highlight{dy}{\index{BJBDS@被积表达式}被积表达式}，$x$叫做\highlight{dy}{\index{JFBL@积分变量}积分变量}，$a$叫做\highlight{dy}{\index{JFXX@积分下限}积分下限}，$b$叫做\highlight{dy}{\index{JFSX@积分上限}积分上限}，$[a,b]$叫做\highlight{dy}{\index{JFQJ@积分区间}积分区间}。\\
 \hspace*{2em} 由于积分的定义与极限有关，故我们也可以用$\varepsilon-\delta$语言来表述定积分的定义。
 \\ \hspace*{2em} 设有常数$I$，如果对于任意给定的正数$\varepsilon$,总存在一个正数$\delta$,使得对于区间$[a,b]$的任何分法，不论$\xi_i$在$[x_{i-1},x_i]$中怎样选取，只要$\lambda=\max\{\Delta x_i,1\leq i\leq n\}<\delta$,总有
 \begin{equation}
@@ -236,7 +236,7 @@ f(\xi)=\frac{1}{b-a}\int_{a}^{b}f(x) \,\d x
 \begin{equation}
 	F(x)=\int_{a}^{x}f(x) \,\d x
 \end{equation}
-为\highlight{red}{\index{BSXJFHS@变上限定积分函数}变上限定积分函数}。由于定积分的值与标记变量无关，为了避免混淆，我们通常记作
+为\highlight{dy}{\index{BSXJFHS@变上限定积分函数}变上限定积分函数}。由于定积分的值与标记变量无关，为了避免混淆，我们通常记作
 \begin{equation}
 	F(x)=\int_{a}^{x}f(t)\,\d t
 \end{equation}

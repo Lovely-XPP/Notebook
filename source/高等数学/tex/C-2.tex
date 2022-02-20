@@ -5,7 +5,7 @@
 \vspace*{-1em}
 
 \defination[导数定义1]
-设函数$y=f(x)$在点$x_{0}$的某一邻域内有定义，当自变量$x$在$x_{0}$取得增量$\Delta x$(点$x_0+\Delta x$仍在该邻域内）时，相应地，因变量取得增量$\Delta y=f(x_0+\Delta x)-f(x_0)$;如果$\Delta y$与$\Delta x$之比当$\Delta x$ $\to$0时的极限存在，那么称函数$y=f(x)$在点$x_0$处\highlight{red}{可导}，并这个极限为函数$y=f(x)$\highlight{red}{在$x_0$点的导数\index{DS@导数}}，记为$f'(x_0)$,即
+设函数$y=f(x)$在点$x_{0}$的某一邻域内有定义，当自变量$x$在$x_{0}$取得增量$\Delta x$(点$x_0+\Delta x$仍在该邻域内）时，相应地，因变量取得增量$\Delta y=f(x_0+\Delta x)-f(x_0)$;如果$\Delta y$与$\Delta x$之比当$\Delta x$ $\to$0时的极限存在，那么称函数$y=f(x)$在点$x_0$处\highlight{dy}{可导}，并这个极限为函数$y=f(x)$\highlight{dy}{在$x_0$点的导数\index{DS@导数}}，记为$f'(x_0)$,即
 \begin{equation}
 	f'(x_0)=\lim\limits_{\Delta x\to 0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
 \end{equation}
@@ -83,11 +83,11 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \vspace*{-1em}
 
 \defination[单侧导数]
-函数$y=f(x)$在点$x_0$处的\highlight{red}{\index{ZDS@左导数}左导数}，\highlight{red}{\index{ZDS@右导数}右导数}分别为
+函数$y=f(x)$在点$x_0$处的\highlight{dy}{\index{ZDS@左导数}左导数}，\highlight{dy}{\index{ZDS@右导数}右导数}分别为
 \begin{equation}
 	f'_-(x_0)=\lim\limits_{\Delta x\to0^-}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x} \hspace*{2em} 	f'_+(x_0)=\lim\limits_{\Delta x\to0^+}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}
 \end{equation}
-左导数与右导数统称为\highlight{red}{\index{DCDS@单侧导数}单侧导数}。\\
+左导数与右导数统称为\highlight{dy}{\index{DCDS@单侧导数}单侧导数}。\\
 \hspace*{2em} 函数$y=f(x)$在点$x_0$可导的充分必要条件为\textbf{左导数与右导数存在且相等}。\\
 \hspace*{2em} 如果函数$f(x)$在开区间$(a,b)$内可导，且$f'_+(a),f'_-(b)$都存在，那么就说$f(x)$在闭区间$[a,b]$内可导。
 \section{利用基本求导法则与导数公式求函数的导数}
@@ -144,7 +144,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	\Delta y=A\Delta x+o(\Delta x)
 \end{equation}
-其中$A$是不依赖于$\Delta x$的常数，那么称函数$y=f(x)$在点$x_0$处是\highlight{red}{可微}的，而$A\Delta x$叫做函数在点$x_0$相应于自变量增量$\Delta x$的\highlight{red}{\index{WF@微分}微分}，记作$
+其中$A$是不依赖于$\Delta x$的常数，那么称函数$y=f(x)$在点$x_0$处是\highlight{dy}{可微}的，而$A\Delta x$叫做函数在点$x_0$相应于自变量增量$\Delta x$的\highlight{dy}{\index{WF@微分}微分}，记作$
 \d y$,即：
 \begin{equation}
 	\d y=A\Delta x
@@ -224,10 +224,10 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \section{隐函数的导数}
 \subsection{隐函数与显函数的概念}
 \defination[显函数定义]
-等号左端是因变量的符号，而右端是含有自变量的式子，当自变量取定义域内任一值时，由这式子能确定对应的函数值。用这种方式表达的函数叫做\highlight{red}{\index{XHS@显函数}显函数}，例：$y=x^3+3x^2+x+1,y=\sin x,y=\ln x+\sqrt{1-x^2}.$
+等号左端是因变量的符号，而右端是含有自变量的式子，当自变量取定义域内任一值时，由这式子能确定对应的函数值。用这种方式表达的函数叫做\highlight{dy}{\index{XHS@显函数}显函数}，例：$y=x^3+3x^2+x+1,y=\sin x,y=\ln x+\sqrt{1-x^2}.$
 
 \defination[隐函数定义]
-一般地，如果变量$x$和$y$满足一个方程$F(x,y)=0$,在一定条件下，当$x$取某区间的任一值时，相应地总有满足这方程的唯一的$y$值存在，那么就说方程$F(x,y)=0$在该区间内确定了一个\highlight{red}{\index{YHS@隐函数}隐函数}。把一个隐函数化成显函数，叫做\highlight{red}{\index{YHSDXH@隐函数的显化}隐函数的显化}。例：$x^2+y^3-1=0,e^{xy}+x+y-2=0.$
+一般地，如果变量$x$和$y$满足一个方程$F(x,y)=0$,在一定条件下，当$x$取某区间的任一值时，相应地总有满足这方程的唯一的$y$值存在，那么就说方程$F(x,y)=0$在该区间内确定了一个\highlight{dy}{\index{YHS@隐函数}隐函数}。把一个隐函数化成显函数，叫做\highlight{dy}{\index{YHSDXH@隐函数的显化}隐函数的显化}。例：$x^2+y^3-1=0,e^{xy}+x+y-2=0.$
 \subsection{隐函数的导数}
 对于任意一个隐函数$F(x,y)=0$,对其求导，只需两边同时对$x$求导，即
 \begin{equation}
@@ -257,7 +257,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 	\frac{\d y}{\d x}=-\frac{y}{x+\e^y}(x+\e^y\neq0)
 \end{equation}
 
-有些时候对于复杂的显函数也可以用隐函数求导的方法进行求导，常见的方法就是\highlight{red}{\index{DSQDF@对数求导法}对数求导法}，下面给出两个典型例题。
+有些时候对于复杂的显函数也可以用隐函数求导的方法进行求导，常见的方法就是\highlight{dy}{\index{DSQDF@对数求导法}对数求导法}，下面给出两个典型例题。
 \clearpage
 \vspace*{-2.5em}
 
@@ -294,14 +294,14 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \section{由参数方程所确定的函数的导数}
 \subsection{参数方程所确定的函数的定义}
 \defination[参数方程所确定的函数]
-一般地，若\highlight{red}{\index{CSFC@参数方程}参数方程}
+一般地，若\highlight{dy}{\index{CSFC@参数方程}参数方程}
 \begin{equation}
 	\left\{ \begin{aligned}
 		&\, x=\varphi(t)\\
 		&\, y=\psi (t)\\
 	\end{aligned}\right.
 \end{equation}
-确定$y$与$x$的关系，则称此函数关系所表达的函数为由上述\highlight{red}{参数方程所确定的函数}。
+确定$y$与$x$的关系，则称此函数关系所表达的函数为由上述\highlight{dy}{参数方程所确定的函数}。
 \subsection{参数方程所确定的函数的导数}
 \noindent1.\enspace 参数方程的一阶导数
 对于一个由下列参数方程所确定的函数
@@ -378,11 +378,11 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \section{高阶导数与高阶微分}
 \subsection{高阶导数的定义}
 \defination[高阶导数定义]
-一般地，函数$y=f(x)$的导数$f'(x)$叫做函数$y=f(x)$的\highlight{red}{\index{YJDS@一阶导数}一阶导数}。类似地，一阶导数的导数叫做\highlight{red}{\index{EJDS@二阶导数}二阶导数}，二阶导数的导数是\highlight{red}{\index{SJDS@三阶导数}三阶导数} $\cdots\cdots$一般地，$(n-1)$阶导数的导数叫做\highlight{red}{$n$阶导数}，分别记作
+一般地，函数$y=f(x)$的导数$f'(x)$叫做函数$y=f(x)$的\highlight{dy}{\index{YJDS@一阶导数}一阶导数}。类似地，一阶导数的导数叫做\highlight{dy}{\index{EJDS@二阶导数}二阶导数}，二阶导数的导数是\highlight{dy}{\index{SJDS@三阶导数}三阶导数} $\cdots\cdots$一般地，$(n-1)$阶导数的导数叫做\highlight{dy}{$n$阶导数}，分别记作
 \begin{equation}
 	y',y'',y''',\cdots,y^{(n)}\quad \mbox{或} \quad \frac{\d y}{\d x},\frac{\d^2 y}{\d x^2},\frac{\d^3 y}{\d x^3},\cdots,\frac{\d^n y}{\d x^n},
 \end{equation}
-函数$y=f(x)$具有$n$阶导数，也可以说函数$f(x)$为\highlight{red}{$n$阶可导}。如果函数$f(x)$在点$x$处具有$n$阶导数，那么$f(x)$在点$x$的某一领域内必定有一切低于$n$阶的导数。二阶及二阶以上的导数统称\highlight{red}{\index{GJDS@高阶导数}高阶导数}。
+函数$y=f(x)$具有$n$阶导数，也可以说函数$f(x)$为\highlight{dy}{$n$阶可导}。如果函数$f(x)$在点$x$处具有$n$阶导数，那么$f(x)$在点$x$的某一领域内必定有一切低于$n$阶的导数。二阶及二阶以上的导数统称\highlight{dy}{\index{GJDS@高阶导数}高阶导数}。
 \subsection{一般高阶导数的求法}
 
 \noindent 1.\enspace 多次连续求导；
@@ -444,7 +444,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \begin{equation}
 	(uv)^{(n)}=\sum_{k=0}^{n}C_{n}^{k}u^{(n-k)}v^{(k)}
 \end{equation}
-上式称为\highlight{red}{\index{LBNCGS@莱布尼茨公式}莱布尼茨公式}。我们可以用二项式定理来辅助记忆：
+上式称为\highlight{dy}{\index{LBNCGS@莱布尼茨公式}莱布尼茨公式}。我们可以用二项式定理来辅助记忆：
 \begin{equation}
 	(u+v)^{(n)}=\sum_{k=0}^{n}C_n^k u^{(n-k)}v^{(k)}=u^nv^0+nu^{(n-1)}v^1+\frac{n(n-1)}{2!}u^{(n-2)}v^2+\cdots+\frac{n(n-1)\cdots(n-k+1)}{k!}u^{(n-k)}v^k+\cdots+u^0v^n
 \end{equation}
@@ -483,7 +483,7 @@ $f'(x)=\lim\limits_{h\to 0}\di \frac{f(x+h)-f(x)}{h}=\lim\limits_{h\to0}\frac{a^
 \end{equation}
 所以$0\leq f'(x_0)\leq 0$,即$f'(x_0)=0$.
 \\同理可证$f(x)\geq f(x_0)$的情况。\\
-我们也通常称导数等于0的点为\highlight{red}{\index{ZD@驻点}驻点}（或\highlight{red}{\index{WDD@稳定点}稳定点}，\highlight{red}{\index{LJD@临界点}临界点}).
+我们也通常称导数等于0的点为\highlight{dy}{\index{ZD@驻点}驻点}（或\highlight{dy}{\index{WDD@稳定点}稳定点}，\highlight{dy}{\index{LJD@临界点}临界点}).
 \\ 
 
 \vspace*{-1em}
