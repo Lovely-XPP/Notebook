@@ -21,13 +21,12 @@
 目前正在更新的笔记有：
 
 ![License: GPL v3](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
-* 高等数学
-
 
 已完成的笔记有
 * 大学物理上册
 * 空间解析几何
 * 数学物理方法（Essential Mathematical Methods for Physicists）(尤其感谢我的授课老师和指导老师胡战超老师的指导和勘误)
+* 高等数学
 
 暂时停更的笔记有：
 
