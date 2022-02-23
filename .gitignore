@@ -6,16 +6,18 @@ epstopdf/backup/*
 
 source/空间解析几何/picture/backup/*
 
-source/高等数学/高等数学.toc
-source/高等数学/高等数学.idx
-source/高等数学/高等数学.ind
-source/高等数学/高等数学.log
-source/高等数学/高等数学.synctex.gz
-source/高等数学/高等数学.thm
-source/高等数学/高等数学.out
-source/高等数学/高等数学.aux
-source/高等数学/高等数学.pdf
-source/高等数学/高等数学.ilg
+source/高等数学/*.toc
+source/高等数学/*.idx
+source/高等数学/*.ind
+source/高等数学/*.log
+source/高等数学/*.synctex.gz
+source/高等数学/*.thm
+source/高等数学/*.out
+source/高等数学/*.aux
+source/高等数学/*.pdf
+source/高等数学/*.ilg
+source/高等数学/*.lof
+source/高等数学/*.lot
 source/高等数学/pic/backup/*
 source/高等数学/tex/*.aux
 source/高等数学/tex/*.log
@@ -36,28 +38,28 @@ source/Principle of Automatic Control/pic/backup/*
 source/Principle of Automatic Control/tex/*.aux
 source/Principle of Automatic Control/tex/*.log
 
-source/Matlab/Matlab.toc
-source/Matlab/Matlab.idx
-source/Matlab/Matlab.ind
-source/Matlab/Matlab.log
-source/Matlab/Matlab.synctex.gz
-source/Matlab/Matlab.thm
-source/Matlab/Matlab.out
-source/Matlab/Matlab.aux
-source/Matlab/Matlab.pdf
+source/Matlab/*.toc
+source/Matlab/*.idx
+source/Matlab/*.ind
+source/Matlab/*.log
+source/Matlab/*.synctex.gz
+source/Matlab/*.thm
+source/Matlab/*.out
+source/Matlab/*.aux
+source/Matlab/*.pdf
 source/Matlab/tex/*.aux
 source/Matlab/tex/*.log
 source/Matlab/pic/backup/*
 
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.toc
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.idx
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.ind
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.log
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.synctex.gz
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.thm
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.out
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.aux
-source/Engineering Thermodynamics and Heat Transfer/Engineering Thermodynamics and Heat Transfer.pdf
+source/Engineering Thermodynamics and Heat Transfer/*.toc
+source/Engineering Thermodynamics and Heat Transfer/*.idx
+source/Engineering Thermodynamics and Heat Transfer/*.ind
+source/Engineering Thermodynamics and Heat Transfer/*.log
+source/Engineering Thermodynamics and Heat Transfer/*.synctex.gz
+source/Engineering Thermodynamics and Heat Transfer/*.thm
+source/Engineering Thermodynamics and Heat Transfer/*.out
+source/Engineering Thermodynamics and Heat Transfer/*.aux
+source/Engineering Thermodynamics and Heat Transfer/*.pdf
 source/Engineering Thermodynamics and Heat Transfer/tex/*.aux
 source/Engineering Thermodynamics and Heat Transfer/tex/*.log
 source/Engineering Thermodynamics and Heat Transfer/pic/backup/*
