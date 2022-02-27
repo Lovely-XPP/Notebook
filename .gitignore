@@ -167,6 +167,24 @@ source/Orbital Mechanics/*.gz
 source/Orbital Mechanics/*.thm
 source/Orbital Mechanics/pic/backup/*
 
+source/Attitude Dynamics and Control of Spacecraft/*.toc
+source/Attitude Dynamics and Control of Spacecraft/*.idx
+source/Attitude Dynamics and Control of Spacecraft/*.ind
+source/Attitude Dynamics and Control of Spacecraft/*.log
+source/Attitude Dynamics and Control of Spacecraft/*.synctex.gz
+source/Attitude Dynamics and Control of Spacecraft/*.thm
+source/Attitude Dynamics and Control of Spacecraft/*.out
+source/Attitude Dynamics and Control of Spacecraft/*.aux
+source/Attitude Dynamics and Control of Spacecraft/*.pdf
+source/Attitude Dynamics and Control of Spacecraft/*.ilg
+source/Attitude Dynamics and Control of Spacecraft/*.lof
+source/Attitude Dynamics and Control of Spacecraft/*.lot
+source/Attitude Dynamics and Control of Spacecraft/pic/backup/*
+source/Attitude Dynamics and Control of Spacecraft/tex/*.aux
+source/Attitude Dynamics and Control of Spacecraft/tex/*.log
+source/Attitude Dynamics and Control of Spacecraft/tex/*.bll
+sourse/Attitude Dynamics and Control of Spacecraft/tex/*.blg
+
 epstopdf/backup
 epstopdf/*.pdf
 epstopdf/*.eps

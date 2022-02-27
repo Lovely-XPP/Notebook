@@ -10,6 +10,7 @@ notebook=(
 		  	"Aircraft structural mechanics"
 		  	"Aerodynamics"
 		  	"Orbital Mechanics"
+		  	"航天器姿态动力学与控制"
 		  )
 
 notebkcn=(	
@@ -22,6 +23,7 @@ notebkcn=(
 		  	"飞行器结构力学"
 		  	"空气动力学"
 		  	"轨道力学"
+		  	"航天器姿态动力学与控制"
 		  )
 for (( i = 0; i < ${#notebook[@]}; i++ )); do
 	source_file="./source/${notebook[i]}/${notebook[i]}.pdf"
