@@ -52,7 +52,7 @@ if [[ "${choose}" == "1" ]]; then
 		  	"Aerodynamics"
 		  	"Orbital Mechanics"
 		  	"高等数学"
-		  	"航天器姿态动力学与控制"
+		  	"Attitude Dynamics and Control of Spacecraft"
 		  )
 	j=0
 

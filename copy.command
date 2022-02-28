@@ -10,7 +10,7 @@ notebook=(
 		  	"Aircraft structural mechanics"
 		  	"Aerodynamics"
 		  	"Orbital Mechanics"
-		  	"航天器姿态动力学与控制"
+		  	"Attitude Dynamics and Control of Spacecraft"
 		  )
 
 notebkcn=(	
