@@ -455,7 +455,7 @@ F(x)=\int_{a}^{x}f(t) \,\d t
 	\centering
 	\includegraphics[width=0.9\linewidth]{pic/C-4/x旋转体积}
 	\vspace*{-1em}
-	\caption{绕$x$轴的旋转体体积的计算}
+	\caption{绕$x$轴旋转体体积的计算}
 	\label{x旋转}
 \end{figure}
 由于$\Delta x_i\to0$,不妨取$\xi_i=x_i$,那么式\eqref{equ:1}可以写成
@@ -481,25 +481,57 @@ F(x)=\int_{a}^{x}f(t) \,\d t
 	\centering
 	\includegraphics[width=0.7\linewidth]{pic/C-4/y旋转体积}
 	\vspace*{-1em}
-	\caption{绕$y$轴的旋转体体积的计算}
+	\caption{绕$y$轴旋转体体积的计算}
 	\label{y旋转}
 \end{figure}
 
-\textbf{3.$\,$绕定直线旋转的情形}
+\noindent \textbf{3.$\,$绕定直线旋转的情形}
 \par 通常我们只需考虑绕直线$x=c$或直线$y=c$（$c$为常数）的情况。
+
+
 \subsection{旋转体侧面积的计算}
-\par 设$A$为旋转体的侧面积，$s$为曲线的弧长，那么
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{pic/C-4/x旋转侧面积}
+	\vspace*{-1em}
+	\caption{绕$x$轴旋转体侧面积的计算}
+	\label{x旋转侧}
+\end{figure}
+\par 如图 \ref{x旋转侧} 所示，设$A$为旋转体的侧面积，$s$为曲线的弧长，那么对于旋转体的侧面积微元，其满足
 \begin{equation}
-	\d A=2\pi\, \d s
+	2\pi \big|f(x_{i})\big| \, \d s \le \d A \le 2\pi \big|f(x_{i-1})\big| \, \d s
+\end{equation}
+而$2\pi \big|f(x_{i-1})\big|\, \d s - 2\pi \big|f(x_{i})\big|\, \d s = 2 \pi \, \d y \, \d s$是二阶小量，可以忽略，所以不妨取
+\begin{equation}
+	\d A = 2\pi \big| f(x_{i}) \big| \, \d s
 \end{equation}
 若绕$x$轴旋转，那么得到的公式为
 \begin{equation}
-	 A=2\pi \int_{a}^{b}f(x)\,\d s=2\pi\int_{a}^{b}\sqrt{1+[f'(x)]^2}\,\d x
+	 A=2\pi \int_{a}^{b} \big|f(x)\big|\,\d s=2\pi\int_{a}^{b} \big|f(x)\big|\sqrt{1+[f'(x)]^2}\,\d x
 \end{equation}
 若绕$y$轴旋转，那么得到的公式为
 \begin{equation}
-	A=2\pi \int_{c}^{d}g(x)\,\d s=2\pi\int_{c}^{d}\sqrt{1+[g'(y)]^2}\,\d y
+	A=2\pi \int_{c}^{d} \big|g(y)\big|\,\d s=2\pi\int_{c}^{d}\big|g(y)\big|\sqrt{1+[g'(y)]^2}\,\d y
 \end{equation}
+
+若以参数方程表示，则得到的公式为
+\begin{equation}
+	A=2\pi\int_{a}^{b}\big| y(t) \big| \sqrt{[x'(t)]^2+[y'(t)]^2}\,\d t
+\end{equation}
+由于极坐标是特殊的参数方程，所以令
+\begin{equation*}
+	\begin{cases}
+		\, x(\theta) = r(\theta) \cos \theta \\
+		\, y(\theta) = r(\theta) \sin \theta
+	\end{cases}
+\end{equation*}
+可以得到极坐标下的旋转体侧面积公式为
+\begin{align}
+	A&=2\pi\int_{a}^{b}\big| y(t) \big| \sqrt{[x'(t)]^2+[y'(t)]^2}\,\d t \notag\\
+	& = 2\pi\int_{\theta_1}^{\theta_2}\big| r (\theta) \sin \theta\big| \sqrt{[r'(\theta) \cos \theta -r(\theta)\sin \theta ]^2+[r'(\theta)\sin \theta + r(\theta) \cos \theta]^2} \,\d \theta \notag \\
+	& = 2\pi\int_{\theta_1}^{\theta_2}\big| r (\theta) \sin \theta\big| \sqrt{[r(\theta)]^2+[r'(\theta)]^2} \,\d \theta
+\end{align}
+
 
 
 

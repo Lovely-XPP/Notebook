@@ -6,23 +6,23 @@ epstopdf/backup/*
 
 source/空间解析几何/picture/backup/*
 
-source/高等数学/*.toc
-source/高等数学/*.idx
-source/高等数学/*.ind
-source/高等数学/*.log
-source/高等数学/*.synctex.gz
-source/高等数学/*.thm
-source/高等数学/*.out
-source/高等数学/*.aux
-source/高等数学/*.pdf
-source/高等数学/*.ilg
-source/高等数学/*.lof
-source/高等数学/*.lot
-source/高等数学/pic/backup/*
-source/高等数学/tex/*.aux
-source/高等数学/tex/*.log
-source/高等数学/tex/*.bll
-sourse/高等数学/tex/*.blg
+source/Advanced Mathematics/*.toc
+source/Advanced Mathematics/*.idx
+source/Advanced Mathematics/*.ind
+source/Advanced Mathematics/*.log
+source/Advanced Mathematics/*.synctex.gz
+source/Advanced Mathematics/*.thm
+source/Advanced Mathematics/*.out
+source/Advanced Mathematics/*.aux
+source/Advanced Mathematics/*.pdf
+source/Advanced Mathematics/*.ilg
+source/Advanced Mathematics/*.lof
+source/Advanced Mathematics/*.lot
+source/Advanced Mathematics/pic/backup/*
+source/Advanced Mathematics/tex/*.aux
+source/Advanced Mathematics/tex/*.log
+source/Advanced Mathematics/tex/*.bll
+sourse/Advanced Mathematics/tex/*.blg
 
 
 source/Principle of Automatic Control/Principle of Automatic Control.toc
