@@ -1,190 +1,72 @@
 README.html
 
 .DS_Store
-
-epstopdf/backup/*
-
-source/空间解析几何/picture/backup/*
-
-source/Advanced Mathematics/*.toc
-source/Advanced Mathematics/*.idx
-source/Advanced Mathematics/*.ind
-source/Advanced Mathematics/*.log
-source/Advanced Mathematics/*.synctex.gz
-source/Advanced Mathematics/*.thm
-source/Advanced Mathematics/*.out
-source/Advanced Mathematics/*.aux
-source/Advanced Mathematics/*.pdf
-source/Advanced Mathematics/*.ilg
-source/Advanced Mathematics/*.lof
-source/Advanced Mathematics/*.lot
-source/Advanced Mathematics/pic/backup/*
-source/Advanced Mathematics/tex/*.aux
-source/Advanced Mathematics/tex/*.log
-source/Advanced Mathematics/tex/*.bll
-sourse/Advanced Mathematics/tex/*.blg
-
-
-source/Principle of Automatic Control/Principle of Automatic Control.toc
-source/Principle of Automatic Control/Principle of Automatic Control.idx
-source/Principle of Automatic Control/Principle of Automatic Control.ind
-source/Principle of Automatic Control/Principle of Automatic Control.log
-source/Principle of Automatic Control/Principle of Automatic Control.synctex.gz
-source/Principle of Automatic Control/Principle of Automatic Control.thm
-source/Principle of Automatic Control/Principle of Automatic Control.out
-source/Principle of Automatic Control/Principle of Automatic Control.aux
-source/Principle of Automatic Control/Principle of Automatic Control.pdf
-source/Principle of Automatic Control/pic/backup/*
-source/Principle of Automatic Control/tex/*.aux
-source/Principle of Automatic Control/tex/*.log
-
-source/Matlab/*.toc
-source/Matlab/*.idx
-source/Matlab/*.ind
-source/Matlab/*.log
-source/Matlab/*.synctex.gz
-source/Matlab/*.thm
-source/Matlab/*.out
-source/Matlab/*.aux
-source/Matlab/*.pdf
-source/Matlab/tex/*.aux
-source/Matlab/tex/*.log
-source/Matlab/pic/backup/*
-
-source/Engineering Thermodynamics and Heat Transfer/*.toc
-source/Engineering Thermodynamics and Heat Transfer/*.idx
-source/Engineering Thermodynamics and Heat Transfer/*.ind
-source/Engineering Thermodynamics and Heat Transfer/*.log
-source/Engineering Thermodynamics and Heat Transfer/*.synctex.gz
-source/Engineering Thermodynamics and Heat Transfer/*.thm
-source/Engineering Thermodynamics and Heat Transfer/*.out
-source/Engineering Thermodynamics and Heat Transfer/*.aux
-source/Engineering Thermodynamics and Heat Transfer/*.pdf
-source/Engineering Thermodynamics and Heat Transfer/tex/*.aux
-source/Engineering Thermodynamics and Heat Transfer/tex/*.log
-source/Engineering Thermodynamics and Heat Transfer/pic/backup/*
-
-source/Essential Mathematical Methods for Physicists/*.out
-source/Essential Mathematical Methods for Physicists/*.aux
-source/Essential Mathematical Methods for Physicists/*.pdf
-source/Essential Mathematical Methods for Physicists/tex/*.aux
-source/Essential Mathematical Methods for Physicists/tex/*.log
-source/Essential Mathematical Methods for Physicists/*.toc
-source/Essential Mathematical Methods for Physicists/*.idx
-source/Essential Mathematical Methods for Physicists/*.ind
-source/Essential Mathematical Methods for Physicists/*.log
-source/Essential Mathematical Methods for Physicists/*.gz
-source/Essential Mathematical Methods for Physicists/*.thm
-source/Essential Mathematical Methods for Physicists/pic/backup/*
-
-source/FEM/*.out
-source/FEM/*.aux
-source/FEM/*.pdf
-source/FEM/tex/*.aux
-source/FEM/tex/*.log
-source/FEM/*.toc
-source/FEM/*.idx
-source/FEM/*.ind
-source/FEM/*.log
-source/FEM/*.gz
-source/FEM/*.thm
-
-source/Missle Flight Dynamics/*.out
-source/Missle Flight Dynamics/*.aux
-source/Missle Flight Dynamics/*.pdf
-source/Missle Flight Dynamics/tex/*.aux
-source/Missle Flight Dynamics/tex/*.log
-source/Missle Flight Dynamics/*.toc
-source/Missle Flight Dynamics/*.idx
-source/Missle Flight Dynamics/*.ind
-source/Missle Flight Dynamics/*.log
-source/Missle Flight Dynamics/*.gz
-source/Missle Flight Dynamics/*.thm
-source/Missle Flight Dynamics/*.ilg
-source/Missle Flight Dynamics/pic/backup/*
-
-source/Aerodynamics/*.out
-source/Aerodynamics/*.aux
-source/Aerodynamics/*.pdf
-source/Aerodynamics/tex/*.aux
-source/Aerodynamics/tex/*.log
-source/Aerodynamics/*.toc
-source/Aerodynamics/*.idx
-source/Aerodynamics/*.ind
-source/Aerodynamics/*.log
-source/Aerodynamics/*.gz
-source/Aerodynamics/*.thm
-source/Aerodynamics/pic/backup/*
-
-source/Aircraft structural mechanics/*.out
-source/Aircraft structural mechanics/*.aux
-source/Aircraft structural mechanics/*.pdf
-source/Aircraft structural mechanics/tex/*.aux
-source/Aircraft structural mechanics/tex/*.log
-source/Aircraft structural mechanics/*.toc
-source/Aircraft structural mechanics/*.idx
-source/Aircraft structural mechanics/*.ind
-source/Aircraft structural mechanics/*.log
-source/Aircraft structural mechanics/*.gz
-source/Aircraft structural mechanics/*.thm
-source/Aircraft structural mechanics/pic/backup/*
-
-source/Orbital Mechanics/*.out
-source/Orbital Mechanics/*.aux
-source/Orbital Mechanics/*.pdf
-source/Orbital Mechanics/tex/*.aux
-source/Orbital Mechanics/tex/*.log
-source/Orbital Mechanics/*.toc
-source/Orbital Mechanics/*.idx
-source/Orbital Mechanics/*.ind
-source/Orbital Mechanics/*.log
-source/Orbital Mechanics/*.gz
-source/Orbital Mechanics/pic/backup/*
-
-source/Rocket Propulsion Theory/*.out
-source/Rocket Propulsion Theory/*.aux
-source/Rocket Propulsion Theory/*.pdf
-source/Rocket Propulsion Theory/tex/*.aux
-source/Rocket Propulsion Theory/tex/*.log
-source/Rocket Propulsion Theory/*.toc
-source/Rocket Propulsion Theory/*.idx
-source/Rocket Propulsion Theory/*.ind
-source/Rocket Propulsion Theory/*.log
-source/Rocket Propulsion Theory/*.gz
-source/Rocket Propulsion Theory/*.thm
-source/Rocket Propulsion Theory/pic/backup/*
-
-source/Orbital Mechanics/*.out
-source/Orbital Mechanics/*.aux
-source/Orbital Mechanics/*.pdf
-source/Orbital Mechanics/tex/*.aux
-source/Orbital Mechanics/tex/*.log
-source/Orbital Mechanics/*.toc
-source/Orbital Mechanics/*.idx
-source/Orbital Mechanics/*.ind
-source/Orbital Mechanics/*.log
-source/Orbital Mechanics/*.gz
-source/Orbital Mechanics/*.thm
-source/Orbital Mechanics/pic/backup/*
-
-source/Attitude Dynamics and Control of Spacecraft/*.toc
-source/Attitude Dynamics and Control of Spacecraft/*.idx
-source/Attitude Dynamics and Control of Spacecraft/*.ind
-source/Attitude Dynamics and Control of Spacecraft/*.log
-source/Attitude Dynamics and Control of Spacecraft/*.synctex.gz
-source/Attitude Dynamics and Control of Spacecraft/*.thm
-source/Attitude Dynamics and Control of Spacecraft/*.out
-source/Attitude Dynamics and Control of Spacecraft/*.aux
-source/Attitude Dynamics and Control of Spacecraft/*.pdf
-source/Attitude Dynamics and Control of Spacecraft/*.ilg
-source/Attitude Dynamics and Control of Spacecraft/*.lof
-source/Attitude Dynamics and Control of Spacecraft/*.lot
-source/Attitude Dynamics and Control of Spacecraft/pic/backup/*
-source/Attitude Dynamics and Control of Spacecraft/tex/*.aux
-source/Attitude Dynamics and Control of Spacecraft/tex/*.log
-source/Attitude Dynamics and Control of Spacecraft/tex/*.bll
-sourse/Attitude Dynamics and Control of Spacecraft/tex/*.blg
+*.blg
+*.toc
+*.idx
+*.ind
+*.log
+*.synctex.gz
+*.thm
+*.out
+*.aux
+*.ilg
+*.lof
+*.lot
+*.bbl
+*.gz
 
 epstopdf/backup
 epstopdf/*.pdf
 epstopdf/*.eps
+
+
+source/空间解析几何/picture/backup/*
+
+
+source/Advanced Mathematics/*.pdf
+source/Advanced Mathematics/pic/backup/*
+
+
+source/Principle of Automatic Control/Principle of Automatic Control.pdf
+source/Principle of Automatic Control/pic/backup/*
+
+
+source/Matlab/*.pdf
+source/Matlab/pic/backup/*
+
+
+source/Engineering Thermodynamics and Heat Transfer/*.pdf
+source/Engineering Thermodynamics and Heat Transfer/pic/backup/*
+
+
+source/Essential Mathematical Methods for Physicists/*.pdf
+source/Essential Mathematical Methods for Physicists/pic/backup/*
+
+
+source/Missle Flight Dynamics/*.pdf
+source/Missle Flight Dynamics/pic/backup/*
+
+
+source/Aerodynamics/*.pdf
+source/Aerodynamics/pic/backup/*
+
+
+source/Aircraft structural mechanics/*.pdf
+source/Aircraft structural mechanics/pic/backup/*
+
+
+source/Orbital Mechanics/*.pdf
+source/Orbital Mechanics/pic/backup/*
+
+
+source/Rocket Propulsion Theory/*.pdf
+source/Rocket Propulsion Theory/pic/backup/*
+
+
+source/Orbital Mechanics/*.pdf
+source/Orbital Mechanics/pic/backup/*
+
+source/Attitude Dynamics and Control of Spacecraft/*.pdf
+source/Attitude Dynamics and Control of Spacecraft/pic/backup/*
+

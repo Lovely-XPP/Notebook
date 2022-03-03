@@ -6,10 +6,13 @@
 \newcommand{\titleCN}{航天器姿态动力学与控制}
 %英文名
 \newcommand{\titleEN}{Attitude Dynamics and Control of Spacecraft}
+%版本号
+\newcommand{\version}{V1.04.008$\,\,$(内测版)}
 
 % ---------------------------- 宏包导入 ----------------------------  %
 \usepackage{ctex}
 \usepackage{xeCJK}
+\usepackage{cite}
 \usepackage{makecell}
 \usepackage{yhmath}
 \usepackage{verbatim}
@@ -141,13 +144,13 @@
 \end{tcolorbox}}
 
 %定理类
-\newcommand{\theorem}[2][]{\vspace{1em}\s \refstepcounter{theorem} \mybox[dl]{{\color{dl}\thetheorem\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em}  \par}
+\newcommand{\theorem}[2][]{\vspace{1em}\s \refstepcounter{theorem} \hspace*{0.15em} \mybox[dl]{{\color{dl}\thetheorem\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em}  \par}
 
 %推论类
-\newcommand{\inference}[2][]{\vspace{1em}\s \refstepcounter{inference} \mybox[inference]{{\color{inference}\theinference\hspace{1em}#1}\\ \hspace*{1.5em}#2}\vspace{0.5em}   \par}
+\newcommand{\inference}[2][]{\vspace{1em}\s \refstepcounter{inference} \hspace*{0.15em} \mybox[inference]{{\color{inference}\theinference\hspace{1em}#1}\\ \hspace*{1.5em}#2}\vspace{0.5em}   \par}
 
 %定义类
-\newcommand{\defination}[2][]{\vspace{1em}\s \refstepcounter{defination} \mybox[dy0]{{\color{dy0}\thedefination\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em} \par}
+\newcommand{\defination}[2][]{\vspace{1em}\s \refstepcounter{defination} \hspace*{0.15em} \mybox[dy0]{{\color{dy0}\thedefination\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em} \par}
 
 %题型类(无标签)
 \newcommand{\example}[1][]{\vspace{1em} \s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace{0.5em} \par }
@@ -179,6 +182,8 @@
 \newcommand{\vi}{\bm{i}}
 \newcommand{\vj}{\bm{j}}
 \newcommand{\vk}{\bm{k}}
+\newcommand{\norm}[1][]{\Vert #1 \Vert}
+\newcommand{\eqrefp}[1][]{第 \pageref{#1} 页的公式 \eqref{#1} }
 
 %% 定义索引类
 \newcommand{\dy}[2][]{{\color{dy}#1}\index{#2@#1}}
@@ -226,7 +231,7 @@
 	\author{
 		{  \large {易鹏}}\\
 		{  \large 中山大学}\vspace*{0.5em}\\
-		内部版本号：V0.02.002$\,\,$(内测版)\\
+		内部版本号：\version \\
 	}
 
 
@@ -248,15 +253,20 @@
 	% 第一章：航天器姿态运动学
 	\include{tex/C-1}
 	
+	% 附章：参考内容
+	\include{tex/C-F}
 	
-	%打印索引—————————————
+	
+	%附录输出—————————————
+	% 注意：参考文献和索引首页无页码需要在相应生成的文件中手动插入命令\thispagestyle{empty}
+	% 参考文献：*.bbl
+	% 索引：*.ind
 	\cleardoublepage
 	\addcontentsline{toc}{chapter}{附录}
-	\addcontentsline{toc}{section}{索引}
 	\color{titlepurplec}
-	\appendix
-	\thispagestyle{empty}
-	\printindex
+	\addcontentsline{toc}{section}{参考文献}
+	\bibliographystyle{IEEEtran}
+	\bibliography{ref}
 	\addcontentsline{toc}{section}{插图目录}
 	\renewcommand{\listfigurename}{插图目录}
 	\thispagestyle{empty}
@@ -265,6 +275,11 @@
 	\renewcommand{\listtablename}{表格目录}
 	\thispagestyle{empty}
 	\listoftables
+	\thispagestyle{empty}
+	\cleardoublepage
+	\addcontentsline{toc}{section}{索引}
+	\appendix
+	\printindex
 	%———————————————
 	
 \end{document}
