@@ -7,7 +7,7 @@
 %英文名
 \newcommand{\titleEN}{Attitude Dynamics and Control of Spacecraft}
 %版本号
-\newcommand{\version}{V1.04.008$\,\,$(内测版)}
+\newcommand{\version}{V1.04.010$\,\,$(内测版)}
 
 % ---------------------------- 宏包导入 ----------------------------  %
 \usepackage{ctex}
@@ -124,6 +124,7 @@
 \newcounter{inference}[chapter]
 \newcounter{examples}[chapter]
 \newcounter{tl}[chapter]
+\newcounter{lemma}[chapter]
 \newcounter{F}[section]
 \newcounter{G}[section]
 \newcounter{H}[section]
@@ -132,6 +133,7 @@
 \renewcommand{\theexample}{{ 题型} \textbf{\thechapter.\arabic{example}}}
 \renewcommand{\theinference}{{ 方法} \textbf{\thechapter.\arabic{inference}}}
 \renewcommand{\theexamples}{{ 例}  \textbf{\thechapter.\arabic{examples}}}
+\renewcommand{\thelemma}{{ 引理}  \textbf{\thechapter.\arabic{lemma}}}
 \renewcommand{\thetl}{{ 推论}  \textbf{\thechapter.\arabic{tl}}}
 \newcommand{\s}{\hspace*{-2.7em}}
 
@@ -151,6 +153,9 @@
 
 %定义类
 \newcommand{\defination}[2][]{\vspace{1em}\s \refstepcounter{defination} \hspace*{0.15em} \mybox[dy0]{{\color{dy0}\thedefination\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em} \par}
+
+%引理类
+\newcommand{\lemma}[1][]{\vspace{1em}\s \refstepcounter{lemma} \hspace*{0.15em} \mybox[inference]{{\color{inference}\thelemma\hspace{1em}}\\ \hspace*{1.5em}#1}\vspace{0.5em}   \par}
 
 %题型类(无标签)
 \newcommand{\example}[1][]{\vspace{1em} \s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace{0.5em} \par }

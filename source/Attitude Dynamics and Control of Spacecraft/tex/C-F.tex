@@ -3,22 +3,139 @@
 \thispagestyle{empty}
 \section{旋转四元数参数的化简}
 \label{旋转四元数参数的化简}
+旋转四元数原始表达式为
+\begin{align}
+	b &= b_\parallel + b_\perp \notag \\
+	&= a_\parallel + q a_\perp \qquad \mbox{（其中}\,\, q = \big[ \cos \varPhi, \sin \varPhi \bm{e}\big]\mbox{）}
+\end{align}
+
+在进一步化简前，我们需要证明几个引理：
+
+\lemma
+[
+	{
+		如果$q = \big[ \cos \varPhi, \sin \varPhi \bm{e} \big]$，而且$\bm{e}$为单位向量，那么$q^2 = qq = \big[ \cos (2 \varPhi) , \sin (2 \varPhi)\bm{a} \big].$
+	}
+	\label{lemma:1}
+]
+
+\proof 这个引理证明只需要用到Grassmann 积的定义和三角函数的公式。
+\begin{align*}
+	q^2 &= \big[ \cos \varPhi, \sin \varPhi \bm{e} \big] \cdot \big[ \cos \varPhi, \sin \varPhi \bm{e} \big] \\
+	&= \big[ \cos^2 \varPhi - (\sin \varPhi \bm{e} \cdot \sin \varPhi \bm{e}), (\cos \varPhi \sin \varPhi + \sin \varPhi \cos \varPhi) \bm{e} + (\sin \varPhi \bm{e} \times \sin \varPhi \bm{e}) \big] \\
+	&= \big[ \cos^2 \varPhi - \sin^2 \varPhi \norm[a]^2, 2\sin \varPhi \cos \varPhi \bm{e} + 0 \big] \\
+	&= \big[ \cos^2 \varPhi - \sin^2 \varPhi, 2 \sin \varPhi \cos \varPhi \bm{e} \big] \\
+	&= \big[ \cos (2 \varPhi), \sin (2\varPhi)\bm{e}\big]
+\end{align*}
+\hfill $\square$
+\vspace*{0.5em}
+
+这个引理的几何意义就是，如果绕着同一个轴$\bm{e}$连续旋转$\varPhi$度2次，那么所做出的的变换等同于直接绕着$\bm{a}$旋转$2 \varPhi$度。
+
+\lemma
+[
+	{
+		假设$a_{\parallel}=\big[ 0, \bm{a}_{\parallel}\big]$是一个纯四元数，而$q = \big[ \alpha, \beta \bm{e} \big]$，其中$\bm{e}$是一个单位向量且$\alpha, \beta \in \mathbb{R}$.在这种条件下，如果$\bm{a}_\parallel$ 平行于$\bm{e}$，那么$qa_\parallel= a_\parallel q.$
+	}
+	\label{lemma:2}
+]
+
+\proof 这个引理的证明同样用到了Grassmann 积，分别计算等式的左右两边。等式左边：
+\begin{align*}
+	\text{LHS} &= q \bm{a}_\parallel \\
+	&= \big[ \alpha, \beta \bm{e} \big] \cdot \big[ 0, \bm{a}_\parallel \big] \\
+	&= \big[ 0- \beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel + \bm{0} + \beta \bm{e}\times \bm{a}_\parallel \big] \\
+	&= \big[ - \beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel \big]  
+	&&\mbox{（}\bm{a}_\parallel \mbox{平行于} \bm{e} \mbox{，所以} \beta \bm{e} \times \bm{a}_\parallel = \bm{0} \mbox{）}
+\end{align*}
+
+等式右边：
+\begin{align*}
+	\text{RHS} &= a_\parallel q \\
+	&= \big[0, \bm{a}_\parallel \big] \cdot \big[ \alpha, \beta \bm{e} \big] \\
+	&= \big[ 0 -\bm{a}_\parallel \cdot \beta \bm{e}, \bm{0} + \alpha + \alpha \bm{a}_\parallel + \bm{a}_\parallel \times \beta \bm{e}\big] \\
+	&= \big[ - \bm{a}_\parallel \cdot \beta \bm{e}, \alpha \bm{a}_\parallel \big] 
+	&& \mbox{（}\bm{a}_\parallel \mbox{平行于} \bm{e} \mbox{，所以} \beta \bm{a}_\parallel \times \beta \bm{e}l = \bm{0} \mbox{）}\\
+	&= \big[ -\beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel \big] 
+	&& \hspace*{6.1em}\mbox{（点乘遵守交换律）}\\
+	& = \text{LHS}
+\end{align*}
+\hfill $\square$
 
 
+\lemma
+[
+{
+	假设$a_\perp = \big[ 0, \bm{a}_\perp \big]$是一个纯四元数，而$q = \big[ \alpha, \beta \bm{e} \big]$，其中$\bm{e}$是一个单位向量且$\alpha, \beta \in \mathbb{R}$.在这种条件下，如果$\bm{a}_\parallel$ 正交于$\bm{e}$，那么$qa_\parallel= a_\parallel q^*.$
+}
+	\label{lemma:3}
+]
 
+\proof 这个引理的证明和\textbf{\ref{lemma:2}} 类似。
+\begin{align*}
+	\text{LHS} &= e a_\perp \\
+	&= \big[ \alpha, \beta \bm{e} \big] \cdot \big[ 0, \bm{a}_\perp \big] \\
+	&= \big[ 0 - \beta \bm{e} \cdot \bm{a}_\perp, \alpha \bm{a}_\perp + \bm{0} + \beta \bm{e} \times \bm{a}_\perp \big] \\
+	&= \big[ 0, \alpha \bm{a}_\perp + \beta \bm{e} \times \bm{a}_\perp \big] 
+	&& \mbox{（}\bm{a}_\perp \mbox{正交于} \bm{e} \mbox{，所以} \beta \bm{e} \times \bm{a}_\perp = \bm{0} \mbox{）}
+\end{align*}
 
+\begin{align*}
+	\text{RHS} &= a_\perp q^* \\
+	&= \big[0, \bm{a}_\perp \big] \cdot \big[ \alpha, - \beta \bm{e} \big] \\
+	&= \big[0 + \bm{a}_\perp \cdot \beta\bm{e}, \bm{0} + \alpha \bm{a}_\perp + \bm{a}_\perp \times(-\beta \bm{e}) \big] \\
+	&= \big[ 0, \alpha \bm{a}_\perp + \bm{a}_\perp \times (-\beta \bm{e}) \big]
+	&& \mbox{（}\bm{a}_\perp \mbox{正交于} \bm{e} \mbox{，所以} \beta \bm{e} \times \bm{a}_\perp = \bm{0} \mbox{）} \\
+	&= \big[ 0, \alpha \bm{a}_\perp - (- \beta \bm{e} ) \times \bm{a}_\perp \big]
+	&& \hspace*{6.2em}\mbox{（} \bm{a} \times \bm{b} = - \bm{b} \times \bm{a}\mbox{）} \\
+	& = \big[0, \alpha \bm{a}_\perp + \beta \bm{e} \times \bm{a}_\perp \big] \\
+	& = \text{LHS}
+\end{align*}
+\hfill $\square$
 
+现在，我们利用引理对公式进行变形。首先，利用四元数逆的定义$qq^{-1} = 1$，可得
+\begin{align}
+	b &= a_\parallel + q a_\perp \notag \\
+	&= 1 \cdot a_\parallel + q a_\perp \notag \\
+	&= pp^{-1} a_\parallel + ppa_\perp
+	\label{旋转几何意义}
+\end{align}
+其中，引入了新的四元数$p$且
+\begin{align*}
+	q &= p^2 = \big[ \cos \varPhi, \sin \varPhi \bm{e} \big] \\
+	p &= \left[ \cos \left( \dfrac{1}{2} \varPhi \right), \sin \left( \dfrac{1}{2} \varPhi \right) \bm{e} \right]
+\end{align*}
 
+根据\textbf{\ref{lemma:1}} 可以验证其正确性：
+\begin{align*}
+	pp &= p^2 \\
+	& = \left[ \cos \left( 2 \cdot \dfrac{1}{2} \varPhi \right), \sin \left( 2 \cdot \dfrac{1}{2} \varPhi \right) \bm{e} \right] \\
+	& = \big[ \cos \varPhi, \sin \varPhi \bm{e} \big] = q
+\end{align*}
+同样的，容易得到$p$也是一个单位四元数，即
+\begin{equation*}
+	p^{-1} = p^*
+\end{equation*}
+那么
+\begin{align*}
+	b &= pp^{-1} a_\parallel + ppa_\perp \\
+	& = pp^* a_\parallel + pp a_\perp
+\end{align*}
 
-
-
-
-
-
-
-
-
-
+结合\textbf{\ref{lemma:2}} 和\textbf{\ref{lemma:3}} ，对公式再次变形
+\begin{align}
+	b & = pp^* a_\parallel + pp a_\perp \notag\\
+	&= p a_\parallel p^* + p a_\perp p^* \\
+	&= p(a_\parallel + a_\perp)p^*
+\end{align}
+由因为$a_\parallel, a_\perp$是$a$的分量，所以$a_\parallel + a_\perp = a$，即
+\begin{equation}
+	b = p a p^*
+\end{equation}
+其中，
+\begin{align}
+	p = \left[ \cos \left( \dfrac{1}{2} \varPhi \right), \sin \left( \dfrac{1}{2} \varPhi \right) \bm{e} \right]
+\end{align}
 
 
 
