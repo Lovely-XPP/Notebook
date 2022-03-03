@@ -582,7 +582,6 @@
 \noa[2] $q_2 q_1$\quad $q_1\,$\dy[右乘]{YC}$\,q_2$\quad 或\quad $q_2\,$\dy[左乘]{ZC}$\,q_1$.
 
 四元数的乘法满足结合律和分配律。
-\clearpage
 
 那么，如果有两个四元数$q_1 = \big[s, \bm{v}\big],\, q_2 = \big[ t, \bm{u} \big]$，则
 \begin{align}
@@ -622,13 +621,13 @@
 \caption{四元数基本向量的乘法计算表}
 \label{四元数基本乘法}
 \end{table}
-\vspace*{-1em}
+\vspace*{-2em}
 
 \summarize[
 \hspace{1em} 记忆方法：类似于向量的叉乘，将$i,j,k$理解为三维右手坐标系，则$i \times j =k , j \times i = -k$，其余类似。
 ]
 
-利用这个表格，可以将四元数乘法的结果化简为
+利用这个表 \ref{四元数基本乘法} ，可以将四元数乘法的结果化简为
 \begin{align}
 	q_1 q_2 & = ae + afi + agj + ak \notag \\
 & + bei + bfi^2 + bgij + bhik \notag \\
@@ -732,9 +731,7 @@ $，那么
 
 因为四元数不遵守交换律，所以类似于矩阵除法，四元数相除等价于乘以它的逆。同样地，也有左除和右除之分，即$pq^{-1}$或$q^{-1}p$，它们的结果一般不同。
 
-\clearpage
 
-\vspace*{-2em}
 \defination[四元数的逆]
 {
 	如果
@@ -794,7 +791,6 @@ $，那么
 	\end{equation}
 }
 
-\clearpage
 
 \sssection[纯四元数]
 \vspace*{-0.5em}
@@ -914,16 +910,13 @@ $
 \end{align}
 通过进一步的化简\footnote[1]{由于篇幅所限，此部分化简内容请参见 第 \ref{参考内容} 章 \link[参考内容]： \ref{旋转四元数参数的化简} \link[旋转四元数参数的化简]}，可以得到
 
-\clearpage 
-
-\vspace*{-2em}
 \theorem[旋转四元数参数]
 {
 	任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$度之后的向量$\bm{b}$可以用四元数表达。令$a = \big[ 0, \bm{a} \big], \, q = \left[ \cos \left(\dfrac{1}{2} \varPhi \right), \sin \left(\dfrac{1}{2} \varPhi \right) \bm{a} \right]$，那么
 	\begin{equation}
 		b = q a q^* = q a q^{-1}
 	\end{equation}
-	为了更好的理解这个公式的意义，我们可以得到\footnotemark[1]
+	为了更好的理解这个公式的意义，我们可以得到\footnotemark[2]
 	\begin{equation}
 		b = q a q^* = q q^* a_\parallel + qqa_\perp = a_\parallel + q^2 a_\perp
 		\label{旋转四元数的几何意义}
@@ -931,7 +924,7 @@ $
 	也就是说，$qaq^*$这个变换，实际上可以等价为，对$a$平行于坐标轴的分量$a_\parallel$实施的变换是$qq^*$，这两个变换是互逆的，完全抵消了，也就是没有旋转。而对于正交于旋转轴的分量$a_\perp$，则实施的是两次完全一样的变换$q^2 = qq$，将它旋转$\dfrac{\varPhi}{2} + \dfrac{\varPhi}{2} = \varPhi$度。
 }
 
-\footnotetext[1]{公式 \eqref{旋转四元数的几何意义} 是原式公式化简第一步的结果，详情请见\eqrefp[旋转几何意义]。}
+\footnotetext[2]{公式 \eqref{旋转四元数的几何意义} 是原式公式化简第一步的结果，详情请见\eqrefp[旋转几何意义]。}
 
 
 
