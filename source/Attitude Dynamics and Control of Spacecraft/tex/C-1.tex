@@ -309,18 +309,21 @@
 	\begin{minipage}{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.8\linewidth]{pic/ZXZ}
+		\vspace*{-1em}
 		\caption{$ZXZ$顺序欧拉角旋转}
 		\label{ZXZ}
 	\end{minipage}
 	\begin{minipage}{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.695\linewidth]{pic/ZXY}
+		\vspace*{-1em}
 		\caption{$ZXY$顺序欧拉角旋转}
 		\label{ZXY}
 	\end{minipage}
 \end{figure}
+\vspace*{-0.5em}
 由公式 \eqref{eq:zxz} 可知，若欧拉角$\theta = 0\degree$，则欧拉转动处于奇异状态，欧拉角$\psi, \varphi$不能唯一确定。因此，$\theta$的取值范围为$0\degree<\theta<180\degree$。
-\vspace*{1em}
+\vspace*{0.5em}
 
 \sssection[$ZXY$旋转顺序]
 
@@ -359,7 +362,7 @@
 
 \sssection[欧拉轴 / 角求方向余项矩阵]
 
-方向余项矩阵$\bm{C}_{ba}$可由欧拉轴 / 角参数$\bm{e}, \varPhi$得到，即
+方向余项矩阵$\bm{C}_{ba}$可由欧拉轴 / 角参数$\bm{e}, \varPhi$得到，即\footnote[1]{关于矩阵$\bm{e} \bm{e}^{\text{T}}$和叉乘矩阵$\bm{e}^\times$的由来，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}
 \begin{align}
 	\bm{C}_{ba} 
 	& = \cos \varPhi \bm{E}_e + \big( 1 - \cos \varPhi \big) \bm{e} \bm{e}^{\text{T}} - \sin \varPhi \bm{e}^{\times} \notag \\
@@ -462,7 +465,7 @@
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.4\linewidth]{pic/欧拉轴角变换}
+	\includegraphics[width=0.45\linewidth]{pic/欧拉轴角变换}
 	\vspace*{-1em}
 	\caption{欧拉转角与两个坐标系之间的几何关系}
 	\label{欧拉转角变换}
@@ -490,7 +493,7 @@
 
 
 \subsection{四元数}
-\sssection[四元数的定义\footnote{四元数章节中的部分内容参考Github上Krasjet的讲义Quaternion\cite{Quaternion}}]
+\sssection[四元数的定义{\footnote[1]{四元数章节中的部分内容参考Github上Krasjet的讲义Quaternion\cite{Quaternion}}}]
 
 \defination[四元数]
 {
@@ -618,7 +621,7 @@
 		\hline
 	\end{tabular}
 }
-\caption{四元数基本向量的乘法计算表}
+\caption{四元数基本向量的乘法计算表（左$\times$上）}
 \label{四元数基本乘法}
 \end{table}
 \vspace*{-2em}
@@ -627,7 +630,7 @@
 \hspace{1em} 记忆方法：类似于向量的叉乘，将$i,j,k$理解为三维右手坐标系，则$i \times j =k , j \times i = -k$，其余类似。
 ]
 
-利用这个表 \ref{四元数基本乘法} ，可以将四元数乘法的结果化简为
+利用表 \ref{四元数基本乘法} ，可以将四元数乘法的结果化简为
 \begin{align}
 	q_1 q_2 & = ae + afi + agj + ak \notag \\
 & + bei + bfi^2 + bgij + bhik \notag \\
@@ -710,12 +713,13 @@ $，那么
 	\end{vmatrix}
 = ({\color{orange} ch - dg}) \bm{i} + ({\color{orange} df - bh} )\bm{j} + ({\color{orange} bg - cf} )\bm{k}
 \end{align*}
-所以，$q_1q_2$的结果可以用向量点乘和叉乘的形式表示出来\footnote{其实按照历史的顺序来说，这里第一次提出叉乘的概念。}
+所以，$q_1q_2$的结果可以用向量点乘和叉乘的形式表示出来\footnote[1]{其实按照历史的顺序来说，这里第一次提出叉乘的概念。}
 \begin{equation}
 	q_1 q_2 = \big[ ae - \bm{v} \cdot \bm{u}, a\bm{u} +e \bm{v} + \bm{v} \times \bm{u} \big]
 \end{equation}
 
 这个结果称为\dy[Grassmann积]{GRASSMANNJ}，一般来说
+\clearpage
 
 \theorem[Grassmann 积]
 {
@@ -912,7 +916,7 @@ $
 
 \theorem[旋转四元数参数]
 {
-	任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$度之后的向量$\bm{b}$可以用四元数表达。令$a = \big[ 0, \bm{a} \big], \, q = \left[ \cos \left(\dfrac{1}{2} \varPhi \right), \sin \left(\dfrac{1}{2} \varPhi \right) \bm{a} \right]$，那么
+	任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$度之后的向量$\bm{b}$可以用四元数表达。令$a = \big[ 0, \bm{a} \big], \, q = \left[ \cos \left(\dfrac{1}{2} \varPhi \right), \sin \left(\dfrac{1}{2} \varPhi \right) \bm{e} \right]$，那么
 	\begin{equation}
 		b = q a q^* = q a q^{-1}
 	\end{equation}
@@ -925,6 +929,214 @@ $
 }
 
 \footnotetext[2]{公式 \eqref{旋转四元数的几何意义} 是原式公式化简第一步的结果，详情请见\eqrefp[旋转几何意义]。}
+
+由这个公式的由来，可以发现其和上一章节的欧拉轴 / 角的证明是类似的。实际上，旋转四元数参数和欧拉轴 / 角时完全等价的\footnote[3]{其证明见第 \ref{参考内容} 章 \link[参考内容]： \ref{旋转的欧拉轴 / 角参数表达和四元数表达的等价性} \link[旋转的欧拉轴 / 角参数表达和四元数表达的等价性]}，即
+\begin{equation}
+	b = qaq^* = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
+\end{equation}
+
+若已经知道旋转四元数参数$q=[q_0, \bm{q}]$，则可以很容易获得其对应的旋转角度和旋转轴向量
+\begin{align}
+	\dfrac{\varPhi}{2} &= \cos^{-1} q_0 \\
+	\bm{e} &= \dfrac{\bm{q}}{\sin \big( \cos^{-1} q_0 \big)}
+\end{align}
+
+
+\subsection{欧拉参数}
+\sssection[欧拉参数的定义和表示]
+
+为了和方向余弦矩阵具有一致的形式，我们可以将四元数写成矩阵的形式。在四元数的乘法中，我们计算过左乘矩阵和右乘矩阵，若乘数$q = q_0 + q_1i +q_2 j +q_3k$，那么左乘矩阵和右乘矩阵可以分别表示为
+\begin{equation}
+	L(q) = 
+	\begin{bmatrix}
+		q_0 & -q_1 & -q_2 & -q_3 \\
+		q_1 & q_0 & -q_3 & q_2 \\
+		q_2 & q_3 & q_0 & -q_1 \\
+		q_3 & -q_2 & q_1 & q_0
+	\end{bmatrix},
+\,\, \qquad 
+	R(q) =
+	\begin{bmatrix}
+		q_0 & -q_1 & -q_2 & -q_3 \\
+		q_1 & q_0 & q_3 & -q_2 \\
+		q_2 & -q_3 & q_0 & q_1 \\
+		q_3 & q_2 & -q_1 & q_0
+	\end{bmatrix}
+\end{equation}
+同时，对于四元数$q$的共轭$q^*$的乘数矩阵，有
+\begin{equation}
+	L(q^*) =
+	\begin{bmatrix}
+		q_0 & q_1 & q_2 & q_3 \\
+		-q_1 & q_0 & q_3 & -q_2 \\
+		-q_2 & -q_3 & q_0 & q_1 \\
+		-q_3 & q_2 & -q_1 & q_0
+	\end{bmatrix}
+	= [L(q)]^{\text{T}},
+	\,\,\qquad 
+	R(q^*) =
+	\begin{bmatrix}
+		q_0 & q_1 & q_2 & q_3 \\
+		-q_1 & q_0 & -q_3 & q_2 \\
+		-q_2 & q_3 & q_0 & -q_1 \\
+		-q_3 & -q_2 & q_1 & q_0
+	\end{bmatrix}，
+	= [R(q)]^{\text{T}}，
+\end{equation}
+
+取
+\begin{align*}
+	\begin{cases}
+		\, q = \big[q_0, \bm{q}\big] = \big[q_0 \quad q_1 \quad q_2 \quad q_3 \big]^{\text{T}}, \\[0.5em]
+		\, q_0 = \cos \dfrac{\varPhi}{2}, \qquad q_1 = e_x \sin \dfrac{\varPhi}{2} \\[0.5em]
+		\, q_2 = e_y \cos \dfrac{\varPhi}{2}, \qquad q_3 = e_z \sin \dfrac{\varPhi}{2}
+	\end{cases}
+\end{align*}
+其中，四元数$q$是旋转四元数参数，也称为\dy[欧拉参数]{OLCS}。那么我们可以得到
+\begin{flalign*}
+	b &= q a q^* = L(q)R(q^*)a \, \big[= R(q^*)L(q)a \,\, \big] &\\
+	&= 
+	\begin{bmatrix}
+		q_0 & -q_1 & -q_2 & -q_3 \\
+		q_1 & q_0 & -q_3 & q_2 \\
+		q_2 & q_3 & q_0 & -q_1 \\
+		q_3 & -q_2 & q_1 & q_0
+	\end{bmatrix}\,
+	\begin{bmatrix}
+		q_0 & q_1 & q_2 & q_3 \\
+		-q_1 & q_0 & -q_3 & q_2 \\
+		-q_2 & q_3 & q_0 & -q_1 \\
+		-q_3 & -q_2 & q_1 & q_0
+	\end{bmatrix}
+	a &\\[0.5em]
+	&=
+	\begin{bmatrix}
+		q_0^2 + q_1^2 + q_2^2 +q_3^2 & q_0q_1 - q_1q_0 -q_2q_3 + q_3q_2 & q_0q_2 + q_1q_3 - q_2q_0 - q_3q_1 & q_0q_3 - q_1q_2 + q_2q_1 - q_3q_0 \\
+		q_1q_0 - q_0q_1 + q_3q_2 -q_2q_3 & q_1^2 +q_0^2 - q_3^2 - q_2^2 & q_1q_2 - q_0q_3 - q_3q_0 + q_2q_1 & q_1q_3 + q_0q_2 + q_3q_1 + q_2q_0 \\
+		q_2q_0 - q_1q_3 - q_0q_2 + q_1q_3 & q_2q_1 + q_3q_0 + q_0q_3 + q_1q_2 & q_2^2 -q_3^2 + q_0^2 - q_1^2 & q_2q_3 + q_3q_2 - q_0q_1 - q_1q_0 \\
+		q_3q_0 + q_2q_1 - q_1q_2 - q_0q_3 & q_3q_1 - q_2q_0 + q_1q_3 - q_0q_2 & q_3q_2 + q_2q_3 +q_1q_0 + q_0q_1 & q_3^2 - q_2^2 - q_1^2 + q_0^2
+	\end{bmatrix}
+	a &
+\end{flalign*}
+由于$q_0^2 + q_1^2 + q_2^2 +q_3^2 = 1$（旋转四元数参数$q$是一个单位四元数），所以进一步化简为
+\begin{align}
+	b &= qaq^* =
+	\begin{bmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & q_0^2 +q_1^2 - q_2^2 - q_3^2 & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
+		0 & 2(q_1q_2 + q_3q_0)  & q_0^2 -q_1^2 + q_2^2 - q_3^2 & 2(q_2q_3 - q_1q_0) \\
+		0 & 2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & q_0^2 - q_1^2 - q_2^2 + q_3^2
+	\end{bmatrix}
+	\,
+	\begin{bmatrix}
+		a_0 \\
+		a_1 \\
+		a_2 \\
+		a_3
+	\end{bmatrix}
+\end{align}
+其中，$a = \big[a_0 \quad a_1 \quad a_2 \quad a_3 \big]$。由矩阵乘法可知，矩阵的最外圈不会对$a$进行任何变换，而代表$b$的方向仅取决于$\big[a_1 \quad a_2 \quad a_3 \big]^{\text{T}}$。因此，我们可以删去矩阵最外圈，得到一个$3 \times 3$的矩阵用于三维向量的旋转变换，即
+
+\theorem[欧拉参数表示的三维旋转矩阵]
+{
+	任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$角度之后的向量$\bm{b}$可以用矩阵乘法来获得
+	\begin{equation}
+		\begin{cases}
+			\, q_0 = \cos \dfrac{\varPhi}{2}\\[0.5em]
+			\, q_1 = e_x \sin \dfrac{\varPhi}{2} \\[0.5em]
+			\, q_2 = e_y \sin \dfrac{\varPhi}{2}\\[0.5em]
+			\, q_3 = e_z \sin \dfrac{\varPhi}{2}
+		\end{cases}
+		\qquad  \Longrightarrow \qquad
+		\bm{b} = 
+		\begin{bmatrix}
+			q_0^2 +q_1^2 - q_2^2 - q_3^2 & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
+			2(q_1q_2 + q_3q_0)  & q_0^2 -q_1^2 + q_2^2 - q_3^2 & 2(q_2q_3 - q_1q_0) \\
+			2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & q_0^2 - q_1^2 - q_2^2 + q_3^2
+		\end{bmatrix}
+	\bm{a}
+	\end{equation}
+}
+
+虽然三维旋转的矩阵形式（欧拉参数）可能不如四元数的形式简单，而且占用更多的空间，但是对于大批量的转换，使用\textbf{预先计算}好的矩阵是比四元数乘法更有效率的。
+\clearpage
+
+\sssection[欧拉参数与方向余弦矩阵之间的转换]
+
+由欧拉轴 / 角参数旋转可知
+\begin{equation*}
+	\bm{b} = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
+\end{equation*}
+为了写成矩阵形式，我们利用把向量的计算转换为矩阵的形式\footnote[1]{关于向量运算的矩阵表示的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
+\begin{align*}
+	\bm{e} \cdot \bm{a} \cdot \bm{e} &= 
+	\begin{bmatrix}
+		e_x \\
+		e_y \\
+		e_z
+	\end{bmatrix}
+	\,
+	\big[ e_x \quad e_y \quad e_z \big]
+	\,
+	\begin{bmatrix}
+		a_x \\
+		a_y \\
+		a_z
+	\end{bmatrix}
+	= \bm{e} \bm{e}^\text{T} \bm{a} \\[0.5em]
+	\bm{e} \times \bm{a} &=
+	\begin{bmatrix}
+		0 & -e_z & e_y \\
+		e_z & 0 & -e_x \\
+		-e_y & e_x & 0
+	\end{bmatrix}
+	\,
+	\begin{bmatrix}
+		a_x \\
+		a_y \\
+		a_z
+	\end{bmatrix}
+	= \bm{e}^\times \bm{a}
+\end{align*}
+代入可得
+\begin{equation}
+	\bm{b} =  \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) \bm{e} \bm{e}^\text{T} \bm{a} + \sin \varPhi \bm{e}^\times \bm{a} = \big[ \cos \varPhi +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times \big] \bm{a}
+\end{equation}
+所以
+\begin{equation}
+	\bm{b} = \bm{C}_{ba} \bm{a}, \qquad \bm{C}_{ba} = \cos \varPhi \bm{E}_3 +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times
+\end{equation}
+
+为了写成欧拉参数$\bm{q} = \big[ e_x \sin \dfrac{\varPhi}{2} \quad e_y \sin \dfrac{\varPhi}{2} \quad e_z \sin  \dfrac{\varPhi}{2} \big]^{\text{T}}$的形式，我们可以发现，
+\begin{align*}
+	\bm{q} &= \bm{e} \sin \dfrac{\varPhi}{2} \\[0.5em]
+	\bm{q}^{\text{T}} &= \bm{e}^{\text{T}} \sin \dfrac{\varPhi}{2} \\[0.5em]
+	\bm{q}^{\times} &= 
+	\begin{bmatrix}
+		0 & -e_z\sin \dfrac{\varPhi}{2} & e_y\sin \dfrac{\varPhi}{2} \\[0.8em]
+		e_z\sin \dfrac{\varPhi}{2} & 0 & -e_x\sin \dfrac{\varPhi}{2} \\[0.8em]
+		-e_y\sin \dfrac{\varPhi}{2} & e_x\sin \dfrac{\varPhi}{2} & 0
+	\end{bmatrix}
+	= \bm{e}^\times \sin \dfrac{\varPhi}{2} \\[0.5em]
+	\bm{q}^{\text{T}} \bm{q} &= 
+	\bigg[ e_x \sin \dfrac{\varPhi}{2} \quad e_y \sin \dfrac{\varPhi}{2} \quad e_z \sin  \dfrac{\varPhi}{2} \bigg]
+	\,
+	\begin{bmatrix}
+		e_x \sin \dfrac{\varPhi}{2} \\[0.8em]
+		 e_y \sin \dfrac{\varPhi}{2} \\[0.8em]
+		 e_z \sin  \dfrac{\varPhi}{2}
+	\end{bmatrix}
+	= (e_x^2 +e_y^2 + e_z^2)\sin^2 \dfrac{\varPhi}{2} = \sin^2 \dfrac{\varPhi}{2}
+\end{align*}
+对欧拉轴 / 角参数型进行变换，得
+\begin{align}
+	\bm{C}_{ba} &= \cos \varPhi \bm{E}_3 + (1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times \notag \\
+	&= \left( \cos^2 \dfrac{\varPhi}{2} - \sin^2 \dfrac{\varPhi}{2} \right) \bm{E}_3+ 2 \sin^2 \dfrac{\varPhi}{2} \bm{e}\bm{e}^{\text{T}} + 2 \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2} \bm{e}^\times \notag \\[0.5em]
+	&= \left( \cos^2 \dfrac{\varPhi}{2} - \sin^2 \dfrac{\varPhi}{2}\right) \bm{E}_3 + 2\left( \bm{e} \sin \dfrac{\varPhi}{2}\right)\left( \bm{e}^{\text{T}} \sin \dfrac{\varPhi}{2}\right) + 2 \cos \dfrac{\varPhi}{2} \left( \bm{e}^\times \sin \dfrac{\varPhi}{2} \right) \notag \\
+	& = \big( q_0^2 - \bm{q}^{\text{T}}\bm{q} \big) \bm{E}_3 + 2 \bm{q}\bm{q}^{\text{T}} + 2 q_0 \bm{q}^\times 
+\end{align}
+
+
 
 
 

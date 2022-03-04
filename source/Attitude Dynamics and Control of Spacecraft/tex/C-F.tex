@@ -11,13 +11,11 @@
 
 在进一步化简前，我们需要证明几个引理：
 
-\lemma
-[
+\lemma[]
 	{
 		如果$q = \big[ \cos \varPhi, \sin \varPhi \bm{e} \big]$，而且$\bm{e}$为单位向量，那么$q^2 = qq = \big[ \cos (2 \varPhi) , \sin (2 \varPhi)\bm{a} \big].$
 	}
 	\label{lemma:1}
-]
 
 \proof 这个引理证明只需要用到Grassmann 积的定义和三角函数的公式。
 \begin{align*}
@@ -32,13 +30,12 @@
 
 这个引理的几何意义就是，如果绕着同一个轴$\bm{e}$连续旋转$\varPhi$度2次，那么所做出的的变换等同于直接绕着$\bm{a}$旋转$2 \varPhi$度。
 
-\lemma
-[
-	{
+\lemma[]
+{
 		假设$a_{\parallel}=\big[ 0, \bm{a}_{\parallel}\big]$是一个纯四元数，而$q = \big[ \alpha, \beta \bm{e} \big]$，其中$\bm{e}$是一个单位向量且$\alpha, \beta \in \mathbb{R}$.在这种条件下，如果$\bm{a}_\parallel$ 平行于$\bm{e}$，那么$qa_\parallel= a_\parallel q.$
-	}
-	\label{lemma:2}
-]
+}
+\label{lemma:2}
+
 
 \proof 这个引理的证明同样用到了Grassmann 积，分别计算等式的左右两边。等式左边：
 \begin{align*}
@@ -63,13 +60,12 @@
 \hfill $\square$
 
 
-\lemma
-[
+\lemma[]
 {
 	假设$a_\perp = \big[ 0, \bm{a}_\perp \big]$是一个纯四元数，而$q = \big[ \alpha, \beta \bm{e} \big]$，其中$\bm{e}$是一个单位向量且$\alpha, \beta \in \mathbb{R}$.在这种条件下，如果$\bm{a}_\parallel$ 正交于$\bm{e}$，那么$qa_\parallel= a_\parallel q^*.$
 }
-	\label{lemma:3}
-]
+\label{lemma:3}
+
 
 \proof 这个引理的证明和\textbf{\ref{lemma:2}} 类似。
 \begin{align*}
@@ -103,13 +99,13 @@
 其中，引入了新的四元数$p$且
 \begin{align*}
 	q &= p^2 = \big[ \cos \varPhi, \sin \varPhi \bm{e} \big] \\
-	p &= \left[ \cos \left( \dfrac{1}{2} \varPhi \right), \sin \left( \dfrac{1}{2} \varPhi \right) \bm{e} \right]
+	p &= \left[ \cos \dfrac{\varPhi}{2}, \sin \dfrac{\varPhi}{2} \bm{e} \right]
 \end{align*}
 
 根据\textbf{\ref{lemma:1}} 可以验证其正确性：
 \begin{align*}
 	pp &= p^2 \\
-	& = \left[ \cos \left( 2 \cdot \dfrac{1}{2} \varPhi \right), \sin \left( 2 \cdot \dfrac{1}{2} \varPhi \right) \bm{e} \right] \\
+	& = \left[ \cos \left( 2 \cdot \dfrac{\varPhi}{2} \right), \sin \left( 2 \cdot \dfrac{\varPhi}{2} \right) \bm{e} \right] \\
 	& = \big[ \cos \varPhi, \sin \varPhi \bm{e} \big] = q
 \end{align*}
 同样的，容易得到$p$也是一个单位四元数，即
@@ -134,9 +130,238 @@
 \end{equation}
 其中，
 \begin{align}
-	p = \left[ \cos \left( \dfrac{1}{2} \varPhi \right), \sin \left( \dfrac{1}{2} \varPhi \right) \bm{e} \right]
+	p = \left[ \cos \dfrac{\varPhi}{2}, \sin \dfrac{\varPhi}{2} \bm{e} \right]
 \end{align}
+\vspace*{-1em}
 
+
+
+\section{旋转的欧拉轴 / 角参数表达和四元数表达的等价性}
+\label{旋转的欧拉轴 / 角参数表达和四元数表达的等价性}
+若定义这些旋转参数和向量为四元数
+\begin{align*}
+	a &= \big[ 0, \bm{a} \big]  && b = \big[ 0, \bm{b} \big] \\
+	e &= \big[0, \bm{e} \big] && q = \left[ \cos \dfrac{\varPhi}{2}, \sin \dfrac{\varPhi}{2} \bm{e} \right]
+\end{align*}
+其中，$\bm{e}$是旋转轴单位向量，$\varPhi$是旋转的角度。则
+\begin{equation}
+	b = q a q^* = \bm{b} = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
+\end{equation}
+\proof 首先，引入一个引理，即\dy[向量二重叉乘公式]{XLECCCGS}.
+
+\lemma[向量二重叉乘公式]
+{
+	向量$\bm{a}, \bm{b}, \bm{c}$满足
+	\begin{align}
+		(\bm{a} \times \bm{b}) \times \bm{c} = (\bm{c} \cdot \bm{a}) \bm{b} - (\bm{c} \cdot \bm{b}) \bm{a}\\
+		\bm{a} \times (\bm{b} \times \bm{c}) = (\bm{a} \cdot \bm{c}) \bm{b} - (\bm{a} \cdot \bm{b}) \bm{c}
+	\end{align}
+\vspace*{-2em}
+	\label{lemma:4}
+}
+这个引理的证明略。
+\clearpage
+下面我们开始推导旋转的欧拉轴 / 角参数表达和四元数表达的等价性，由Grassmann积，
+\begin{flalign*}
+	b &= qaq^* \\
+	&= \left[ \cos \dfrac{\varPhi}{2}, \sin \dfrac{\varPhi}{2} \bm{e} \right] \cdot  \big[ 0, \bm{a} \big] \cdot \left[ \cos \dfrac{\varPhi}{2}, -\sin \dfrac{\varPhi}{2} \bm{e} \right] & \\[0.5em]
+	&= \left[ 0 - \sin \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} , \cos \dfrac{\varPhi}{2} \bm{a} + \bm{0} + \sin \dfrac{\varPhi}{2} \bm{e} \times \bm{a} \right] \cdot \left[ \cos \dfrac{\varPhi}{2}, -\sin \dfrac{\varPhi}{2} \bm{e} \right] & \\[0.5em]
+	&= \left[- \sin \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} , \cos \dfrac{\varPhi}{2} \bm{a} +  \sin \dfrac{\varPhi}{2} \bm{e} \times \bm{a} \right] \cdot \left[ \cos \dfrac{\varPhi}{2}, -\sin \dfrac{\varPhi}{2} \bm{e} \right]& \\[0.5em]
+	& = \bigg[  - \sin\dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} - \left(- \sin \dfrac{\varPhi}{2} \bm{e} \cdot \left( \cos \dfrac{\varPhi}{2} \bm{a} +  \sin \dfrac{\varPhi}{2} \bm{e} \times \bm{a}  \right) \right),& \\[0.5em]
+	& \hspace*{1.6em} - \sin \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} \cdot \left(- \sin \dfrac{\varPhi}{2} \bm{e}\right) + \cos \dfrac{\varPhi}{2} \left( \cos \dfrac{\varPhi}{2} \bm{a} +  \sin \dfrac{\varPhi}{2} \bm{e} \times \bm{a} \right) +  \left( \cos \dfrac{\varPhi}{2} \bm{a} + \sin \dfrac{\varPhi}{2} \bm{e} \times \bm{a} \right)  \times \left(- \sin \dfrac{\varPhi}{2} \bm{e}\right) \bigg] &\\[0.5em]
+	&= \bigg[  - \sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} + \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2}\bm{e}  \cdot  \bm{a}  +  \sin^2 \dfrac{\varPhi}{2} \bm{e} \cdot (\bm{e} \times \bm{a}) , & \\[0.5em]
+	& \hspace*{1.6em} \sin^2 \dfrac{\varPhi}{2} (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \cos^2 \dfrac{\varPhi}{2} \bm{a} +  \sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2}  \bm{e} \times \bm{a} - \sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2}  \bm{a} \times \bm{e} - \sin^2 \dfrac{\varPhi}{2} (\bm{e} \times \bm{a})  \times \bm{e} \bigg]  &\\[0.5em]
+	&= \bigg[  - \sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} + \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2}\bm{e}  \cdot  \bm{a}  +  \sin^2 \dfrac{\varPhi}{2} \bm{e} \cdot (\bm{e} \times \bm{a}) , & \\[0.5em]
+	& \hspace*{1.6em} \sin^2 \dfrac{\varPhi}{2} (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \cos^2 \dfrac{\varPhi}{2} \bm{a} +  2\sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2}  \bm{e} \times \bm{a} - \sin^2 \dfrac{\varPhi}{2} (\bm{e} \times \bm{a})  \times \bm{e} \bigg]  &
+\end{flalign*}
+由于$\bm{e} \times \bm{a}$正交于$\bm{e}$，即
+\begin{equation*}
+	\bm{e} \cdot (\bm{e} \times \bm{a}) = 0
+\end{equation*}
+进一步化简得
+\begin{flalign*}
+	b &= \bigg[  - \sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} + \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2}\bm{e}  \cdot  \bm{a}  +  \sin^2 \dfrac{\varPhi}{2} \bm{e} \cdot (\bm{e} \times \bm{a}) , & \\[0.5em]
+	& \hspace*{1.6em} \sin^2 \dfrac{\varPhi}{2} (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \cos^2 \dfrac{\varPhi}{2} \bm{a} + 2 \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2}  \bm{e} \times \bm{a} - \sin^2 \dfrac{\varPhi}{2} (\bm{e} \times \bm{a}) \times \bm{e} \bigg]& \\[0.5em]
+	&= \bigg[  - \sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2} \bm{e} \cdot \bm{a} + \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2}\bm{e}  \cdot  \bm{a} , \sin^2 \dfrac{\varPhi}{2} (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \cos^2 \dfrac{\varPhi}{2} \bm{a} +  2\sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2}  \bm{e} \times \bm{a} - \sin^2 \dfrac{\varPhi}{2} (\bm{e} \times \bm{a})  \times \bm{e} \bigg] &\\[0.5em]
+	& = \bigg[ 0, \sin^2 \dfrac{\varPhi}{2} (\bm{e} \cdot \bm{a} )\cdot \bm{e} + \cos^2 \dfrac{\varPhi}{2} \bm{a} +  2\sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2}  \bm{e} \times \bm{a} - \sin^2 \dfrac{\varPhi}{2} (\bm{e} \times \bm{a})  \times \bm{e} \bigg] &
+\end{flalign*}
+利用倍角公式化简和\ref{lemma:4} 进一步化简得
+\begin{flalign*}
+	b &=\bigg[ 0, \sin^2 \dfrac{\varPhi}{2} (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \cos^2 \dfrac{\varPhi}{2} \bm{a} +  2\sin \dfrac{\varPhi}{2}\cos \dfrac{\varPhi}{2}  \bm{e} \times \bm{a} - \sin^2 \dfrac{\varPhi}{2} (\bm{e} \times \bm{a})  \times \bm{e} \bigg] & \\[0.5em]
+	&= \bigg[ 0, \dfrac{1 - \cos \varPhi}{2}  \bm{e} \cdot \bm{a} \cdot \bm{e} + \dfrac{1 + \cos \varPhi}{2} \bm{a} +  \sin \varPhi (\bm{e} \times \bm{a}) - \dfrac{1 - \cos \varPhi}{2} (\bm{e} \times \bm{a})  \times \bm{e} \bigg] &\\[0.5em]
+	& = \bigg[ 0, \dfrac{1 - \cos \varPhi}{2}  (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \dfrac{1 + \cos \varPhi}{2} \bm{a} +  \sin \varPhi ( \bm{e} \times \bm{a}) - \dfrac{1 - \cos \varPhi}{2} \big((\bm{e} \cdot \bm{e})\bm{a} - (\bm{e} \cdot \bm{a})\bm{e} \big) \bigg]  & \\[0.5em]
+	& = \bigg[ 0, \dfrac{1 - \cos \varPhi}{2}  (\bm{e} \cdot \bm{a}) \cdot \bm{e} + \dfrac{1 + \cos \varPhi}{2} \bm{a} +  \sin \varPhi  (\bm{e} \times \bm{a}) - \dfrac{1 - \cos \varPhi}{2} \big(\bm{a} - (\bm{e} \cdot \bm{a})\bm{e} \big) \bigg]  & \\[0.5em]
+	& =\bigg[ 0, (1 - \cos \varPhi)(\bm{e} \cdot \bm{a}) \cdot \bm{e} + \cos \varPhi \bm{a} +  \sin \varPhi( \bm{e} \times \bm{a}) \bigg] = \bm{b}
+\end{flalign*}
+\hfill $\square$
+
+
+
+\section{向量运算的矩阵表示}
+\label{向量运算的矩阵表示}
+\subsection{向量叉乘的矩阵表示}
+已知向量在三维坐标系下的表达为$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，其中，$\bm{i}, \bm{j}, \bm{k}$是单位标准正交基，且其运算满足表 \ref{向量叉乘} ，即满足右手系。
+\begin{table}[!htb]
+	\centering
+	\setlength{\tabcolsep}{2.5em}{
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\rowcolor{Azure2} $\times$  & $ \bm{i} $ & $ \bm{j} $ & $ \bm{k} $ \\
+			\hline
+			\cellcolor{Azure2}  $\bm{i}$ & $0$ &\cellcolor{MistyRose} $\bm{k}$ & \cellcolor{DarkSlateGray2} $-\bm{j}$ \\
+			\hline
+			\cellcolor{Azure2}  $\bm{j}$ & \cellcolor{MistyRose} $-\bm{k}$ & $0$ & \cellcolor{LightGoldenrod1} $\bm{i}$ \\
+			\hline
+			\cellcolor{Azure2}  $\bm{k}$ & \cellcolor{DarkSlateGray2} $\bm{j}$ &  \cellcolor{LightGoldenrod1} $-\bm{i}$ & $0$ \\
+			\hline
+		\end{tabular}
+	}
+	\caption{单位标准正交向量的叉乘计算表（左$\times$上）}
+	\label{向量叉乘}
+\end{table}
+
+那么，由向量叉乘的分配律及单位标准正交基的运算法则，
+\vspace*{-0.5em}
+\begin{align*}
+	\bm{u} \times \bm{v} &= (u_1\bm{i} +u_2\bm{j} +u_3\bm{k}) \times (v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}) \\
+	&= u_1v_1( \bm{i} \times \bm{i}) + u_1v_2 (\bm{i} \times \bm{j}) + u_1v_3 (\bm{i} \times \bm{k} )
+	+ u_2v_1 (\bm{j} \times \bm{i}) + u_2v_2 (\bm{j} \times \bm{j}) + u_2v_3 (\bm{j} \times \bm{k})
+	+ u_3v_1 (\bm{k} \times \bm{i}) + u_3v_2 (\bm{k} \times \bm{j}) + u_3v_3 (\bm{k} \times \bm{k}) \\
+	&= u_1v_2 \bm{k} + u_1v_3 (-\bm{j} )+ u_2v_1 (- \bm{k}) + u_2v_3 \bm{i} + u_3v_1 \bm{j} + u_3v_2 (-\bm{i}) \\
+	&= (u_2v_3 - u_3v_2)\bm{i} + (u_3v_1 - u_1v_3) \bm{j} + (u_1v_2 - u_2v_1)\bm{k} \\
+	&=
+	\begin{vmatrix}
+		\bm{i} & \bm{j} & \bm{k} \\
+		u_1 & u_2 & u_3 \\
+		v_1& v_2 & v_3
+	\end{vmatrix}
+\end{align*}
+将向量用矩阵表达，即
+\begin{align*}
+	\bm{u} \times \bm{v} &= 
+	\begin{bmatrix}
+		u_1 \\
+		u_2 \\
+		u_3
+	\end{bmatrix}
+	\times 
+	\begin{bmatrix}
+		v_1 \\
+		v_2 \\
+		v_3
+	\end{bmatrix} \\
+	& = (u_2v_3 - u_3v_2)\bm{i} + (u_3v_1 - u_1v_3) \bm{j} + (u_1v_2 - u_2v_1)\bm{k} \\
+	& = 
+	\begin{bmatrix}
+		u_2v_3 - u_3v_2 \\
+		u_3v_1 - u_1v_3 \\
+		u_1v_2 - u_2v_1
+	\end{bmatrix} \\
+	& =
+	\begin{bmatrix}
+		0 & -u_3 & u_2 \\
+		u_3 & 0 & -u_1 \\
+		-u_2  &  u_1 & 0
+	\end{bmatrix}
+	\, 
+	\begin{bmatrix}
+		v_1 \\
+		v_2 \\
+		v_3 
+	\end{bmatrix}
+\end{align*}
+所以，我们可以得到\dy[向量叉乘矩阵]{XLCCJZ}的定义
+
+\defination[向量叉乘矩阵]
+{
+	已知向量$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，其叉乘运算可以用矩阵表达
+	\begin{equation}
+		\bm{u} \times \bm{v} = \bm{u}^\times \bm{v} = 	
+		\begin{bmatrix}
+			0 & -u_3 & u_2 \\
+			u_3 & 0 & -u_1 \\
+			-u_2  &  u_1 & 0
+		\end{bmatrix}
+		\, 
+		\begin{bmatrix}
+			v_1 \\
+			v_2 \\
+			v_3 
+		\end{bmatrix}
+	\end{equation}
+}
+
+\clearpage
+
+
+
+\subsection{向量两边乘同一个向量运算的矩阵表示}
+已知向量在三维坐标系下的表达为$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，则
+\begin{align*}
+	\bm{u} \cdot \bm{v} \cdot \bm{u}  &= (u_1\bm{i} +u_2\bm{j} +u_3\bm{k}) \cdot (v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}) \bm{u} \\
+	& = (u_1v_1 + u_2v_2 + u_3v_3) \bm{u} \\
+	& =  (u_1v_1 + u_2v_2 + u_3v_3) (u_1\bm{i} +u_2\bm{j} +u_3\bm{k}) \\
+	& = (u_1^2 v_1 + u_1u_2v_2 + u_1u_3 v_3) \bm{i} + (u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3)\bm{k} + (u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3) \bm{j}
+\end{align*}
+用矩阵表达为
+\begin{align*}
+	\bm{u} \cdot \bm{v} \cdot \bm{u} &= (u_1^2 v_1 + u_1u_2v_2 + u_1u_3 v_3) \bm{i} + (u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3)\bm{k} + (u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3) \bm{j} \\
+	& =
+	\begin{bmatrix}
+		u_1^2v_1 + u_1u_2 v_2 + u_1u_3 v_3 \\
+		u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3 \\
+		u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3
+	\end{bmatrix}\\[0.5em]
+	& = 
+	\begin{bmatrix}
+		u_1^2 & u_1u_2 & u_1u_3 \\
+		u_1u_2 & u_2^2 & u_2u_3 \\
+		u_1u_3 & u_2u_3 & u_3^2
+	\end{bmatrix}
+	\,
+	\begin{bmatrix}
+		v_1 \\
+		v_2 \\
+		v_3
+	\end{bmatrix} \\[0.5em]
+& = 
+\begin{bmatrix}
+	u_1 \\
+	u_2 \\
+	u_3
+\end{bmatrix}
+\,
+\big[ u_1 \quad u_2 \quad u_3 \big]
+\,
+\begin{bmatrix}
+	v_1 \\
+	v_2 \\
+	v_3
+\end{bmatrix}
+\end{align*}
+所以，我们可以得到
+
+\theorem[向量两边乘同一个向量运算的矩阵表示]
+{
+	已知向量$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，则
+	\begin{equation}
+		\bm{u} \cdot \bm{v} \cdot \bm{u} = 
+		\begin{bmatrix}
+			u_1 \\
+			u_2 \\
+			u_3
+		\end{bmatrix}
+		\,
+		\big[ u_1 \quad u_2 \quad u_3 \big]
+		\,
+		\begin{bmatrix}
+			v_1 \\
+			v_2 \\
+			v_3
+		\end{bmatrix}
+		= \bm{u} \bm{u}^{\text{T}} \bm{v}
+	\end{equation}
+}
 
 
 
