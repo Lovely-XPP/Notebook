@@ -365,12 +365,12 @@
 方向余项矩阵$\bm{C}_{ba}$可由欧拉轴 / 角参数$\bm{e}, \varPhi$得到，即\footnote[1]{关于矩阵$\bm{e} \bm{e}^{\text{T}}$和叉乘矩阵$\bm{e}^\times$的由来，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}
 \begin{align}
 	\bm{C}_{ba} 
-	& = \cos \varPhi \bm{E}_e + \big( 1 - \cos \varPhi \big) \bm{e} \bm{e}^{\text{T}} - \sin \varPhi \bm{e}^{\times} \notag \\
+	& = \cos \varPhi \bm{E}_e + \big( 1 - \cos \varPhi \big) \bm{e} \bm{e}^{\text{T}} + \sin \varPhi \bm{e}^{\times} \notag \\
 	& = 
 	\begin{bmatrix}
-		\cos \varPhi + e_x^2 \big( 1 - \cos \varPhi \big) & e_x e_y \big( 1 - \cos \varPhi \big) + e_z \sin \varPhi & e_x e_z \big( 1 - \cos \varPhi \big) - e_y \sin \varPhi \\
-		e_x e_y \big( 1 - \cos \varPhi \big) - e_z \sin \varPhi & \cos \varPhi + e_y^2 \big( 1 - \cos \varPhi \big) & e_y e_z \big(1 - \cos \varPhi \big) + e_x \sin \varPhi \\
-		e_x e_z \big( 1 - \cos \varPhi \big) + e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) - e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
+		\cos \varPhi + e_x^2 \big( 1 - \cos \varPhi \big) & e_x e_y \big( 1 - \cos \varPhi \big) - e_z \sin \varPhi & e_x e_z \big( 1 - \cos \varPhi \big) + e_y \sin \varPhi \\
+		e_x e_y \big( 1 - \cos \varPhi \big) + e_z \sin \varPhi & \cos \varPhi + e_y^2 \big( 1 - \cos \varPhi \big) & e_y e_z \big(1 - \cos \varPhi \big) - e_x \sin \varPhi \\
+		e_x e_z \big( 1 - \cos \varPhi \big) - e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) + e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
 	\end{bmatrix}
 \end{align}
 \clearpage
@@ -420,17 +420,45 @@
 \begin{equation}
 	\bm{b} = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
 \end{equation}
-分别取$\bm{a} = \bm{i}_a, \bm{j}_a, \bm{k}_a; \bm{b} = \bm{i}_b, \bm{j}_b, \bm{k}_b$，可以得到
+为了写成矩阵形式，我们利用把向量的计算转换为矩阵的形式\footnote[1]{关于向量运算的矩阵表示的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
+\begin{align*}
+	\bm{e} \cdot \bm{a} \cdot \bm{e} = 
+	\begin{bmatrix}
+		e_x \\
+		e_y \\
+		e_z
+	\end{bmatrix}
+	\,
+	\big[ e_x \quad e_y \quad e_z \big]
+	\,
+	\begin{bmatrix}
+		a_x \\
+		a_y \\
+		a_z
+	\end{bmatrix}
+	= \bm{e} \bm{e}^\text{T} \bm{a} 
+	&& \bm{e} \times \bm{a} =
+	\begin{bmatrix}
+		0 & -e_z & e_y \\
+		e_z & 0 & -e_x \\
+		-e_y & e_x & 0
+	\end{bmatrix}
+	\,
+	\begin{bmatrix}
+		a_x \\
+		a_y \\
+		a_z
+	\end{bmatrix}
+	= \bm{e}^\times \bm{a}
+\end{align*}
+代入可得
 \begin{equation}
-	\begin{cases}
-		\, \bm{i}_b = \cos \varPhi \bm{i}_a+ ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{i}_a)\bm{e} + \sin \varPhi(\bm{e} \times \bm{i}_a) \\
-		\, \bm{j}_b = \cos \varPhi \bm{j}_a+ ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{j}_a)\bm{e} + \sin \varPhi(\bm{e} \times \bm{j}_a) \\
-		\, \bm{k}_b = \cos \varPhi \bm{k}_a+ ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{k}_a)\bm{e} + \sin \varPhi(\bm{e} \times \bm{k}_a)
-	\end{cases}
-	\label{eq:zj}
+	\bm{b} =  \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) \bm{e} \bm{e}^\text{T} \bm{a} + \sin \varPhi \bm{e}^\times \bm{a} = \big[ \cos \varPhi +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times \big] \bm{a}
 \end{equation}
-将$\bm{e}$在坐标系$S_a$中分解为$\bm{e} = e_x \bm{i}_a + e_y \bm{j}_a + e_z \bm{k}_a $，代入公式 \eqref{eq:zj} 合并即可。
-\vspace*{0.8em}
+所以
+\begin{equation}
+	\bm{b} = \bm{C}_{ba} \bm{a}, \qquad \bm{C}_{ba} = \cos \varPhi \bm{E}_3 +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times
+\end{equation}
 
 
 \sssection[由方向余弦矩阵确定欧拉轴 / 角参数]
@@ -440,13 +468,12 @@
 	\cos \varPhi = \dfrac{\text{tr} \bm{C}_{ba} - 1}{2} \\
 	\bm{e} = \dfrac{1}{2 \sin \varPhi} 
 	\begin{bmatrix}
-		C_{23} - C_{32} \\
-		C_{31} - C_{13} \\
-		C_{12} - C_{21}
+		C_{32} - C_{23} \\
+		C_{13} - C_{31} \\
+		C_{21} - C_{12}
 	\end{bmatrix}
 \end{align}
 其中，$\text{tr} \bm{C}_{ba}$是方向余弦矩阵的迹，$\text{tr} \bm{C}_{ba} = C_{11} + C_{12} + C_{13}$。绕任意轴转动相同的$\varPhi$角，方向余项矩阵的迹不变。
-\clearpage
 
 \noindent 将公式展开，对应得到以下3组解：
 
@@ -465,7 +492,7 @@
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.45\linewidth]{pic/欧拉轴角变换}
+	\includegraphics[width=0.42\linewidth]{pic/欧拉轴角变换}
 	\vspace*{-1em}
 	\caption{欧拉转角与两个坐标系之间的几何关系}
 	\label{欧拉转角变换}
@@ -1023,9 +1050,9 @@ $
 	b &= qaq^* =
 	\begin{bmatrix}
 		1 & 0 & 0 & 0 \\
-		0 & q_0^2 +q_1^2 - q_2^2 - q_3^2 & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
-		0 & 2(q_1q_2 + q_3q_0)  & q_0^2 -q_1^2 + q_2^2 - q_3^2 & 2(q_2q_3 - q_1q_0) \\
-		0 & 2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & q_0^2 - q_1^2 - q_2^2 + q_3^2
+		0 & 1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
+		0 & 2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
+		0 & 2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & 1 - 2(q_1^2 + q_2^2)
 	\end{bmatrix}
 	\,
 	\begin{bmatrix}
@@ -1047,68 +1074,30 @@ $
 			\, q_2 = e_y \sin \dfrac{\varPhi}{2}\\[0.5em]
 			\, q_3 = e_z \sin \dfrac{\varPhi}{2}
 		\end{cases}
-		\qquad  \Longrightarrow \qquad
+		\,\, \Longrightarrow \,\,
 		\bm{b} = 
-		\begin{bmatrix}
-			q_0^2 +q_1^2 - q_2^2 - q_3^2 & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
-			2(q_1q_2 + q_3q_0)  & q_0^2 -q_1^2 + q_2^2 - q_3^2 & 2(q_2q_3 - q_1q_0) \\
-			2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & q_0^2 - q_1^2 - q_2^2 + q_3^2
-		\end{bmatrix}
-	\bm{a}
+		\bm{C}_{ba}(\bm{q})
+	\bm{a},
+	\,\,
+	\bm{C}_{ba}(\bm{q}) = 
+	\begin{bmatrix}
+		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
+		2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
+		2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & 1 - 2(q_1^2 + q_2^2)
+	\end{bmatrix}
 	\end{equation}
 }
 
 虽然三维旋转的矩阵形式（欧拉参数）可能不如四元数的形式简单，而且占用更多的空间，但是对于大批量的转换，使用\textbf{预先计算}好的矩阵是比四元数乘法更有效率的。
 \clearpage
 
-\sssection[欧拉参数与方向余弦矩阵之间的转换]
-
-由欧拉轴 / 角参数旋转可知
-\begin{equation*}
-	\bm{b} = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
-\end{equation*}
-为了写成矩阵形式，我们利用把向量的计算转换为矩阵的形式\footnote[1]{关于向量运算的矩阵表示的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
-\begin{align*}
-	\bm{e} \cdot \bm{a} \cdot \bm{e} &= 
-	\begin{bmatrix}
-		e_x \\
-		e_y \\
-		e_z
-	\end{bmatrix}
-	\,
-	\big[ e_x \quad e_y \quad e_z \big]
-	\,
-	\begin{bmatrix}
-		a_x \\
-		a_y \\
-		a_z
-	\end{bmatrix}
-	= \bm{e} \bm{e}^\text{T} \bm{a} \\[0.5em]
-	\bm{e} \times \bm{a} &=
-	\begin{bmatrix}
-		0 & -e_z & e_y \\
-		e_z & 0 & -e_x \\
-		-e_y & e_x & 0
-	\end{bmatrix}
-	\,
-	\begin{bmatrix}
-		a_x \\
-		a_y \\
-		a_z
-	\end{bmatrix}
-	= \bm{e}^\times \bm{a}
-\end{align*}
-代入可得
+我们知道方向余弦矩阵的欧拉轴 / 角参数表述为
 \begin{equation}
-	\bm{b} =  \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) \bm{e} \bm{e}^\text{T} \bm{a} + \sin \varPhi \bm{e}^\times \bm{a} = \big[ \cos \varPhi +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times \big] \bm{a}
+	\bm{C}_{ba} = \cos \varPhi \bm{E}_3 +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times
 \end{equation}
-所以
-\begin{equation}
-	\bm{b} = \bm{C}_{ba} \bm{a}, \qquad \bm{C}_{ba} = \cos \varPhi \bm{E}_3 +(1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times
-\end{equation}
-
-为了写成欧拉参数$\bm{q} = \big[ e_x \sin \dfrac{\varPhi}{2} \quad e_y \sin \dfrac{\varPhi}{2} \quad e_z \sin  \dfrac{\varPhi}{2} \big]^{\text{T}}$的形式，我们可以发现，
+类似的，我们也可以将欧拉参数写成矩阵运算的形式，注意到
 \begin{align*}
+	q_0 &= \cos \dfrac{\varPhi}{2}\\[0.5em]
 	\bm{q} &= \bm{e} \sin \dfrac{\varPhi}{2} \\[0.5em]
 	\bm{q}^{\text{T}} &= \bm{e}^{\text{T}} \sin \dfrac{\varPhi}{2} \\[0.5em]
 	\bm{q}^{\times} &= 
@@ -1128,13 +1117,201 @@ $
 	\end{bmatrix}
 	= (e_x^2 +e_y^2 + e_z^2)\sin^2 \dfrac{\varPhi}{2} = \sin^2 \dfrac{\varPhi}{2}
 \end{align*}
-对欧拉轴 / 角参数型进行变换，得
+对欧拉轴 / 角参数型方向余弦矩阵进行变换，得
 \begin{align}
 	\bm{C}_{ba} &= \cos \varPhi \bm{E}_3 + (1 - \cos \varPhi)\bm{e}\bm{e}^{\text{T}} + \sin \varPhi \bm{e}^\times \notag \\
-	&= \left( \cos^2 \dfrac{\varPhi}{2} - \sin^2 \dfrac{\varPhi}{2} \right) \bm{E}_3+ 2 \sin^2 \dfrac{\varPhi}{2} \bm{e}\bm{e}^{\text{T}} + 2 \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2} \bm{e}^\times \notag \\[0.5em]
-	&= \left( \cos^2 \dfrac{\varPhi}{2} - \sin^2 \dfrac{\varPhi}{2}\right) \bm{E}_3 + 2\left( \bm{e} \sin \dfrac{\varPhi}{2}\right)\left( \bm{e}^{\text{T}} \sin \dfrac{\varPhi}{2}\right) + 2 \cos \dfrac{\varPhi}{2} \left( \bm{e}^\times \sin \dfrac{\varPhi}{2} \right) \notag \\
-	& = \big( q_0^2 - \bm{q}^{\text{T}}\bm{q} \big) \bm{E}_3 + 2 \bm{q}\bm{q}^{\text{T}} + 2 q_0 \bm{q}^\times 
+	&= \left( 1 - 2\sin^2 \dfrac{\varPhi}{2} \right) \bm{E}_3+ 2 \sin^2 \dfrac{\varPhi}{2} \bm{e}\bm{e}^{\text{T}} + 2 \sin \dfrac{\varPhi}{2} \cos \dfrac{\varPhi}{2} \bm{e}^\times \notag \\[0.5em]
+	&= \left( 1 - 2\sin^2 \dfrac{\varPhi}{2}\right) \bm{E}_3 + 2\left( \bm{e} \sin \dfrac{\varPhi}{2}\right)\left( \bm{e}^{\text{T}} \sin \dfrac{\varPhi}{2}\right) + 2 \cos \dfrac{\varPhi}{2} \left( \bm{e}^\times \sin \dfrac{\varPhi}{2} \right) \notag \\
+	& = \big( 1 - 2\bm{q}^{\text{T}}\bm{q} \big) \bm{E}_3 + 2 \bm{q}\bm{q}^{\text{T}} + 2 q_0 \bm{q}^\times 
 \end{align}
+\vspace*{0.5em}
+
+
+\sssection[欧拉参数与方向余弦矩阵之间的转换]
+
+通过比对欧拉参数矩阵和方向余弦矩阵系数
+\begin{equation}
+	\bm{C}_{ba} = 
+	\begin{bmatrix}
+		C_{11} & C_{12} & C_{13} \\
+		C_{21} & C_{22} & C_{23} \\
+		C_{31} & C_{32} & C_{33}
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
+		2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
+		2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & 1 - 2(q_1^2 + q_2^2)
+	\end{bmatrix}
+\end{equation}
+当方向余弦矩阵系数已知时，可以求出四元数$q$
+\begin{equation}
+	\begin{cases}
+		\, q_0 =  \pm \dfrac{1}{2} \sqrt{1 + C_{11} + C_{22} + C_{33}} \\[0.8em]
+		\, q_1 = \dfrac{1}{4q_0}(C_{32} - C_{23}) \\[0.8em]
+		\, q_2 = \dfrac{1}{4q_0}(C_{13} - C_{31}) \\[0.8em]
+		\, q_3 = \dfrac{1}{4q_0}(C_{21} - C_{12})
+	\end{cases}
+	\label{eq: q_0}
+\end{equation}
+
+当$q_0 = 0$时，公式 \eqref{eq: q_0} 是奇异的，无法求解$q_1, q_2, q_3$，通过比对系数还可以获得其余三组解：
+
+\clearpage
+
+\begin{equation}
+	\begin{cases}
+		\, q_1 = \pm \dfrac{1}{2} \sqrt{1 + C_{11} - C_{22} - C_{33}} \\[0.8em]
+		\, q_2 = \dfrac{1}{4q_1}(C_{12} + C_{21}) \\[0.8em]
+		\, q_3 = \dfrac{1}{4q_1}(C_{13} + C_{31}) \\[0.8em]
+		\, q_0 = \dfrac{1}{4q_1}(C_{32} - C_{23})
+	\end{cases}
+\end{equation}
+
+\begin{equation}
+	\begin{cases}
+		\, q_2 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} + C_{22} - C_{33}} \\[0.8em]
+		\, q_3 = \dfrac{1}{4q_2}(C_{23} + C_{32}) \\[0.8em]
+		\, q_0 = \dfrac{1}{4q_2}(C_{13} - C_{31}) \\[0.8em]
+		\, q_1 = \dfrac{1}{4q_2}(C_{12} + C_{21})
+	\end{cases}
+\end{equation}
+
+\begin{equation}
+	\begin{cases}
+		\, q_3 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} - C_{22} + C_{33}} \\[0.8em]
+		\, q_0 = \dfrac{1}{4q_3}(C_{21} - C_{12}) \\[0.8em]
+		\, q_1 = \dfrac{1}{4q_3}(C_{13} + C_{31}) \\[0.8em]
+		\, q_2 = \dfrac{1}{4q_3}(C_{23} + C_{32})
+	\end{cases}
+\end{equation}
+
+所以，一共有四种计算方法求解欧拉参数$q = \big[ q_0 \quad q_1 \quad q_2 \quad q_3 \big]^{\text{T}}$，为了降低计算结果的误差，我们选取奇异性最小的一组解，即通过计算
+\begin{equation}
+	\begin{cases}
+		\, q_0 =  \pm \dfrac{1}{2} \sqrt{1 + C_{11} + C_{22} + C_{33}} \\[0.8em]
+		\, q_1 = \pm \dfrac{1}{2} \sqrt{1 + C_{11} - C_{22} - C_{33}} \\[0.8em]
+		\, q_2 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} + C_{22} - C_{33}} \\[0.8em]
+		\, q_3 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} - C_{22} + C_{33}}
+	\end{cases}
+\end{equation}
+选取最大的一个作为解，即
+\begin{equation}
+	q_j = \max_{i = 1,2,3,4} q_i
+\end{equation}
+这样以后，后面计算用到的$\dfrac{1}{4q_j}$的奇异性最小，计算的精度最高。
+\vspace*{0.5em}
+
+上面计算得到的欧拉参数称为从坐标系$S_a$到坐标系$S_b$的欧拉参数，或者坐标系$S_b$相对于坐标系$S_a$的欧拉参数。为了更明确的显示坐标系的转换关系，将其记为$q_{ba}$。
+\vspace*{1em}
+
+
+\sssection[相继转动的欧拉参数表示]
+
+假设有两个表示沿着不同轴，不同角度旋转的非零四元数$q_{ba}, q_{cb}$，我们先对$a$进行$q_{ba}$变换得到$b$
+\begin{equation*}
+	b = q_{ba} a q_{ba}^*
+\end{equation*}
+再对$b$进行$q_{cb}$变换得到$c$
+\begin{align*}
+	c &= q_{cb} b q_{cb}^* \\
+	&= q_{cb}q_{ba} a q_{ba}^* q_{cb}^*
+\end{align*}
+下面给出一个引理
+
+\lemma[]
+{
+	对任意四元数$q_1 = \big[ s, \bm{u} \big],\, q_2 = \big[t, \bm{v} \big]$，有
+	\vspace*{-0.5em}
+	\begin{equation}
+		q_1^* q_2^* = (q_2q_1)^*
+	\end{equation}
+}
+\label{lemma:1-1}
+\proof 由Grassmann积，
+等式左边
+\begin{flalign*}
+	\text{LHS} &= q_1^*q_2^* &\\
+	&= \big[ s, -\bm{u} \big] \cdot \big[ t, -\bm{v} \big] &\\
+	&= \big[ st - (-\bm{u}) \cdot (-\bm{v}), s (-\bm{v}) + t (-\bm{u}) + (-\bm{u}) \times (-\bm{v}) \big] &\\
+	&= \big[ st - \bm{u} \cdot \bm{v}, -s\bm{v}- t \bm{u} + \bm{u} \times \bm{v} \big] &
+\end{flalign*}
+等式右边
+\vspace*{-0.5em}
+\begin{flalign*}
+	\text{RHS} &= (q_2q_1)^* &\\
+	&= \left( \big[ t, \bm{v} \big] \cdot \big[ s, \bm{u} \big] \right)^* &\\
+	&= \big[ ts - \bm{v} \cdot \bm{u}, t \bm{u} + s \bm{v} + \bm{v} \times \bm{u} \big]^* & \\
+	&= \big[st - \bm{u} \cdot \bm{v}, -s \bm{v} - t \bm{u} - \bm{v} \times \bm{u} \big] &\\
+	&= \big[ st - \bm{u} \cdot \bm{v}, -s\bm{v}- t \bm{u} + \bm{u} \times \bm{v} \big] = \text{LHS} &
+\end{flalign*}
+\hfill $\square$
+\vspace*{0.5em}
+
+所以，根据\ref{lemma:1-1} 可以得到
+\begin{align}
+	c &= q_{cb}q_{ba} a q_{ba}^* q_{cb}^* \notag \\
+	&= (q_{cb} q_{ba}) a (q_{cb}q_{ba})^* \notag \\
+	& = q_{ca} a q_{ca}^*
+\end{align}
+其中，$q_{ca} = q_{cb} \cdot q_{ba}$。也就是说，坐标系$S_a$通过两次旋转$q_{ba}, q_{cb}$后得到坐标系$S_c$等价于一次旋转$q_{ca}$。
+
+\warn
+[
+\textbf{\large 旋转顺序与四元数乘法顺序}\\
+\hspace*{1.8em} 我们先进行的是$q_{ba}$变换，再进行$q_{cb}$变换，其对应的四元数乘法为$q_{ca} = q_{cb} \cdot q_{ba}$，即先进行的变换放在后面，对于多旋转来说也符合这个计算顺序。
+]
+
+我们这个只是两个旋转的复合，很容易可以推广到多旋转，即
+\begin{equation}
+	d = q_{dc}(q_{cb} q_{ba}) a (q_{cb} q_{ba})^*q_3^* = (q_{dc} q_{cb} q_{ba}) a (q_{dc} q_{cb} q_{ba})^* = q_{da} a q_{da}^*
+\end{equation}
+
+\clearpage
+
+
+
+\subsection{其他类型的姿态参数}
+
+\sssection[罗德里格(Rodrigues)参数]
+
+\dy[罗德里格参数]{LDLGCS}是三个标量，也是从欧拉轴 / 角参数演化过来的，其定义是
+\begin{equation}
+	\bm{\rho} \triangleq \bm{e} \tan \dfrac{\varPhi}{2} = \dfrac{1}{q_0} \bm{q}
+\end{equation}
+
+罗德里格参数与欧拉参数相比，其优点是参数少；缺点是在某些时候（如$\varPhi$接近$\pm \pi$时），参数会接近无限大，而欧拉参数的绝对值不会超过1。
+
+罗德里格参数的方向余弦矩阵表示为
+\begin{align}
+	\bm{C}_{ba} &= 
+	\dfrac{(1 - \bm{\rho}^{\text{T}}\bm{\rho})\bm{E}_3 + 2 \bm{\rho} \bm{\rho}^{\text{T}} - 2 \bm{\rho}^\times}{1 + \bm{\rho}^{\text{T}}\bm{\rho} } \\[0.5em]
+	&=
+	\dfrac{1}{1 + \rho_1^2 + \rho_2^2 + \rho_3^2 }
+	\begin{bmatrix}
+		1 + \rho_1^2 - \rho_2^2 - \rho_3^2 & 2(\rho_1\rho_3 - \rho_3) & 2(\rho_!\rho_3 - \rho_2) \\
+		2(\rho_2 \rho_1 - \rho_3) & 1 - \rho_1^2 + \rho_2^2 - \rho_3^2 &2(\rho_2 \rho_3 + \rho_1) \\
+		2(\rho_3 \rho)1 + \rho_2) & 2(\rho_3\rho_2 - \rho_1) & 1 - \rho_1^2 - \rho_2^2 + \rho_3^2
+	\end{bmatrix}
+\end{align}
+\vspace*{0.5em}
+
+
+\sssection[修正的罗德里格参数]
+
+基于罗德里格参数在$\varPhi$接近$\pm \pi$时，参数会接近无限大的缺点，又提出了一种\dy[修正的罗德里格参数]{XZDLDLGCS}，其定义为
+\begin{equation}
+	\bm{\rho}^* \triangleq \bm{e} \tan \dfrac{\varPhi}{4} = \dfrac{\sin (\varPhi / 2)}{1 + \cos (\varPhi / 2)} \bm{e} = \dfrac{1}{1 + q_0} \bm{q}
+\end{equation}
+
+根据定义可知，修正的罗德里格参数只有在欧拉转角为$\pm 2 \pi$时才会变为奇异点，而实际应用中航天器相对参考坐标系的欧拉转角不需要表示到$\pm 2 \pi$，这经常在工程中使用。
+
+
+
+
+
+
+
 
 
 

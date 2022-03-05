@@ -38,27 +38,27 @@
 
 
 \proof 这个引理的证明同样用到了Grassmann 积，分别计算等式的左右两边。等式左边：
-\begin{align*}
-	\text{LHS} &= q \bm{a}_\parallel \\
-	&= \big[ \alpha, \beta \bm{e} \big] \cdot \big[ 0, \bm{a}_\parallel \big] \\
-	&= \big[ 0- \beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel + \bm{0} + \beta \bm{e}\times \bm{a}_\parallel \big] \\
+\begin{flalign*}
+	\text{LHS} &= q \bm{a}_\parallel &\\
+	&= \big[ \alpha, \beta \bm{e} \big] \cdot \big[ 0, \bm{a}_\parallel \big] &\\
+	&= \big[ 0- \beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel + \bm{0} + \beta \bm{e}\times \bm{a}_\parallel \big] &\\
 	&= \big[ - \beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel \big]  
 	&&\mbox{（}\bm{a}_\parallel \mbox{平行于} \bm{e} \mbox{，所以} \beta \bm{e} \times \bm{a}_\parallel = \bm{0} \mbox{）}
-\end{align*}
-
+\end{flalign*}
 等式右边：
-\begin{align*}
-	\text{RHS} &= a_\parallel q \\
-	&= \big[0, \bm{a}_\parallel \big] \cdot \big[ \alpha, \beta \bm{e} \big] \\
-	&= \big[ 0 -\bm{a}_\parallel \cdot \beta \bm{e}, \bm{0} + \alpha + \alpha \bm{a}_\parallel + \bm{a}_\parallel \times \beta \bm{e}\big] \\
+\vspace*{-0.5em}
+\begin{flalign*}
+	\text{RHS} &= a_\parallel q &\\
+	&= \big[0, \bm{a}_\parallel \big] \cdot \big[ \alpha, \beta \bm{e} \big] &\\
+	&= \big[ 0 -\bm{a}_\parallel \cdot \beta \bm{e}, \bm{0} + \alpha + \alpha \bm{a}_\parallel + \bm{a}_\parallel \times \beta \bm{e}\big] &\\
 	&= \big[ - \bm{a}_\parallel \cdot \beta \bm{e}, \alpha \bm{a}_\parallel \big] 
-	&& \mbox{（}\bm{a}_\parallel \mbox{平行于} \bm{e} \mbox{，所以} \beta \bm{a}_\parallel \times \beta \bm{e}l = \bm{0} \mbox{）}\\
+	& \mbox{（}\bm{a}_\parallel \mbox{平行于} \bm{e} \mbox{，所以} \beta \bm{a}_\parallel \times \beta \bm{e}l = \bm{0} \mbox{）}\\
 	&= \big[ -\beta \bm{e} \cdot \bm{a}_\parallel, \alpha \bm{a}_\parallel \big] 
-	&& \hspace*{6.1em}\mbox{（点乘遵守交换律）}\\
-	& = \text{LHS}
-\end{align*}
+	& \mbox{（点乘遵守交换律）} \\
+	& = \text{LHS}&
+\end{flalign*}
 \hfill $\square$
-
+\vspace*{1em}
 
 \lemma[]
 {
@@ -68,25 +68,26 @@
 
 
 \proof 这个引理的证明和\textbf{\ref{lemma:2}} 类似。
-\begin{align*}
-	\text{LHS} &= e a_\perp \\
-	&= \big[ \alpha, \beta \bm{e} \big] \cdot \big[ 0, \bm{a}_\perp \big] \\
-	&= \big[ 0 - \beta \bm{e} \cdot \bm{a}_\perp, \alpha \bm{a}_\perp + \bm{0} + \beta \bm{e} \times \bm{a}_\perp \big] \\
+\begin{flalign*}
+	\text{LHS} &= e a_\perp &\\
+	&= \big[ \alpha, \beta \bm{e} \big] \cdot \big[ 0, \bm{a}_\perp \big] &\\
+	&= \big[ 0 - \beta \bm{e} \cdot \bm{a}_\perp, \alpha \bm{a}_\perp + \bm{0} + \beta \bm{e} \times \bm{a}_\perp \big] &\\
 	&= \big[ 0, \alpha \bm{a}_\perp + \beta \bm{e} \times \bm{a}_\perp \big] 
 	&& \mbox{（}\bm{a}_\perp \mbox{正交于} \bm{e} \mbox{，所以} \beta \bm{e} \times \bm{a}_\perp = \bm{0} \mbox{）}
-\end{align*}
+\end{flalign*}
+\vspace*{-2.5em}
 
-\begin{align*}
-	\text{RHS} &= a_\perp q^* \\
-	&= \big[0, \bm{a}_\perp \big] \cdot \big[ \alpha, - \beta \bm{e} \big] \\
-	&= \big[0 + \bm{a}_\perp \cdot \beta\bm{e}, \bm{0} + \alpha \bm{a}_\perp + \bm{a}_\perp \times(-\beta \bm{e}) \big] \\
+\begin{flalign*}
+	\text{RHS} &= a_\perp q^* &\\
+	&= \big[0, \bm{a}_\perp \big] \cdot \big[ \alpha, - \beta \bm{e} \big] &\\
+	&= \big[0 + \bm{a}_\perp \cdot \beta\bm{e}, \bm{0} + \alpha \bm{a}_\perp + \bm{a}_\perp \times(-\beta \bm{e}) \big] &\\
 	&= \big[ 0, \alpha \bm{a}_\perp + \bm{a}_\perp \times (-\beta \bm{e}) \big]
 	&& \mbox{（}\bm{a}_\perp \mbox{正交于} \bm{e} \mbox{，所以} \beta \bm{e} \times \bm{a}_\perp = \bm{0} \mbox{）} \\
 	&= \big[ 0, \alpha \bm{a}_\perp - (- \beta \bm{e} ) \times \bm{a}_\perp \big]
 	&& \hspace*{6.2em}\mbox{（} \bm{a} \times \bm{b} = - \bm{b} \times \bm{a}\mbox{）} \\
-	& = \big[0, \alpha \bm{a}_\perp + \beta \bm{e} \times \bm{a}_\perp \big] \\
-	& = \text{LHS}
-\end{align*}
+	& = \big[0, \alpha \bm{a}_\perp + \beta \bm{e} \times \bm{a}_\perp \big] &\\
+	& = \text{LHS} &
+\end{flalign*}
 \hfill $\square$
 
 现在，我们利用引理对公式进行变形。首先，利用四元数逆的定义$qq^{-1} = 1$，可得
