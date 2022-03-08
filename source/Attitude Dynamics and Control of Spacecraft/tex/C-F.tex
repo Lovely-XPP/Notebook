@@ -225,12 +225,11 @@
 \vspace*{-0.5em}
 \begin{align*}
 	\bm{u} \times \bm{v} &= (u_1\bm{i} +u_2\bm{j} +u_3\bm{k}) \times (v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}) \\
-	&= u_1v_1( \bm{i} \times \bm{i}) + u_1v_2 (\bm{i} \times \bm{j}) + u_1v_3 (\bm{i} \times \bm{k} )
-	+ u_2v_1 (\bm{j} \times \bm{i}) + u_2v_2 (\bm{j} \times \bm{j}) + u_2v_3 (\bm{j} \times \bm{k})
-	+ u_3v_1 (\bm{k} \times \bm{i}) + u_3v_2 (\bm{k} \times \bm{j}) + u_3v_3 (\bm{k} \times \bm{k}) \\
+	&= u_1v_1( \bm{i} \times \bm{i}) + u_1v_2 (\bm{i} \times \bm{j}) + u_1v_3 (\bm{i} \times \bm{k} ) 
+	+ u_2v_1 (\bm{j} \times \bm{i}) + u_2v_2 (\bm{j} \times \bm{j}) + u_2v_3 (\bm{j} \times \bm{k}) \\
+	&+ u_3v_1 (\bm{k} \times \bm{i}) + u_3v_2 (\bm{k} \times \bm{j}) + u_3v_3 (\bm{k} \times \bm{k}) \\
 	&= u_1v_2 \bm{k} + u_1v_3 (-\bm{j} )+ u_2v_1 (- \bm{k}) + u_2v_3 \bm{i} + u_3v_1 \bm{j} + u_3v_2 (-\bm{i}) \\
-	&= (u_2v_3 - u_3v_2)\bm{i} + (u_3v_1 - u_1v_3) \bm{j} + (u_1v_2 - u_2v_1)\bm{k} \\
-	&=
+	&= (u_2v_3 - u_3v_2)\bm{i} + (u_3v_1 - u_1v_3) \bm{j} + (u_1v_2 - u_2v_1)\bm{k} =
 	\begin{vmatrix}
 		\bm{i} & \bm{j} & \bm{k} \\
 		u_1 & u_2 & u_3 \\
@@ -239,26 +238,16 @@
 \end{align*}
 将向量用矩阵表达，即
 \begin{align*}
-	\bm{u} \times \bm{v} &= 
-	\begin{bmatrix}
-		u_1 \\
-		u_2 \\
-		u_3
-	\end{bmatrix}
-	\times 
-	\begin{bmatrix}
-		v_1 \\
-		v_2 \\
-		v_3
-	\end{bmatrix} \\
-	& = (u_2v_3 - u_3v_2)\bm{i} + (u_3v_1 - u_1v_3) \bm{j} + (u_1v_2 - u_2v_1)\bm{k} \\
+	\bm{u} \times \bm{v} &= (u_2v_3 - u_3v_2)\bm{i} + (u_3v_1 - u_1v_3) \bm{j} + (u_1v_2 - u_2v_1)\bm{k} \\
 	& = 
+	\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 	\begin{bmatrix}
 		u_2v_3 - u_3v_2 \\
 		u_3v_1 - u_1v_3 \\
 		u_1v_2 - u_2v_1
-	\end{bmatrix} \\
-	& =
+	\end{bmatrix} 
+	=
+	\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 	\begin{bmatrix}
 		0 & -u_3 & u_2 \\
 		u_3 & 0 & -u_1 \\
@@ -277,7 +266,8 @@
 {
 	已知向量$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，其叉乘运算可以用矩阵表达
 	\begin{equation}
-		\bm{u} \times \bm{v} = \bm{u}^\times \bm{v} = 	
+		\bm{u} \times \bm{v} = 	
+		\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 		\begin{bmatrix}
 			0 & -u_3 & u_2 \\
 			u_3 & 0 & -u_1 \\
@@ -289,6 +279,23 @@
 			v_2 \\
 			v_3 
 		\end{bmatrix}
+	=\ubm{e}^\T \ubm{u}^\times \ubm{v} = \ubm{v}^\T (\ubm{u}^\times)^\T \ubm{e}
+	\end{equation}
+	同时，叉乘矩阵有一个很重要的性质，从其定义很容易可以发现
+	\begin{equation}
+		(\ubm{u}^\times )^\T = 
+		\begin{bmatrix}
+			0 & u_3 & -u_2 \\
+			-u_3 & 0 & u_1 \\
+			u_2  &  -u_1 & 0
+		\end{bmatrix}
+		= -
+		\begin{bmatrix}
+			0 & -u_3 & u_2 \\
+			u_3 & 0 & -u_1 \\
+			-u_2  &  u_1 & 0
+		\end{bmatrix}
+		= - \ubm{u}^\times
 	\end{equation}
 }
 
@@ -302,18 +309,20 @@
 	\bm{u} \cdot \bm{v} \cdot \bm{u}  &= (u_1\bm{i} +u_2\bm{j} +u_3\bm{k}) \cdot (v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}) \bm{u} \\
 	& = (u_1v_1 + u_2v_2 + u_3v_3) \bm{u} \\
 	& =  (u_1v_1 + u_2v_2 + u_3v_3) (u_1\bm{i} +u_2\bm{j} +u_3\bm{k}) \\
-	& = (u_1^2 v_1 + u_1u_2v_2 + u_1u_3 v_3) \bm{i} + (u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3)\bm{k} + (u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3) \bm{j}
+	& = (u_1^2 v_1 + u_1u_2v_2 + u_1u_3 v_3) \bm{i} + (u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3)\bm{j} + (u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3) \bm{k}
 \end{align*}
 用矩阵表达为
 \begin{align*}
-	\bm{u} \cdot \bm{v} \cdot \bm{u} &= (u_1^2 v_1 + u_1u_2v_2 + u_1u_3 v_3) \bm{i} + (u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3)\bm{k} + (u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3) \bm{j} \\
+	\bm{u} \cdot \bm{v} \cdot \bm{u} &= (u_1^2 v_1 + u_1u_2v_2 + u_1u_3 v_3) \bm{i} + (u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3)\bm{j} + (u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3) \bm{k} \\
 	& =
+	\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 	\begin{bmatrix}
 		u_1^2v_1 + u_1u_2 v_2 + u_1u_3 v_3 \\
 		u_1u_2v_1 + u_2^2 v_2 + u_2u_3v_3 \\
 		u_1u_3v_1 + u_2u_3v_2 + u_3^2v_3
 	\end{bmatrix}\\[0.5em]
 	& = 
+	\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 	\begin{bmatrix}
 		u_1^2 & u_1u_2 & u_1u_3 \\
 		u_1u_2 & u_2^2 & u_2u_3 \\
@@ -326,6 +335,7 @@
 		v_3
 	\end{bmatrix} \\[0.5em]
 & = 
+\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 \begin{bmatrix}
 	u_1 \\
 	u_2 \\
@@ -346,7 +356,8 @@
 {
 	已知向量$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，则
 	\begin{equation}
-		\bm{u} \cdot \bm{v} \cdot \bm{u} = 
+		\ubm{u} \cdot \ubm{v} \cdot \ubm{u} = 
+		\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
 		\begin{bmatrix}
 			u_1 \\
 			u_2 \\
@@ -360,9 +371,169 @@
 			v_2 \\
 			v_3
 		\end{bmatrix}
-		= \bm{u} \bm{u}^{\text{T}} \bm{v}
+		= \ubm{e}^\T \ubm{u} \ubm{u}^{\text{T}} \ubm{v} =\ubm{v}^\T \ubm{u} \ubm{u}^\T \ubm{e}
 	\end{equation}
 }
+
+
+
+\subsection{三维方阵与单位正交基的矩阵乘法}
+\label{三维方阵与单位正交基的矩阵乘法}
+三维方阵与单位正交基在坐标系$S_a$的矩阵运算表示为
+\begin{equation*}
+	\ubm{e}_a^\T 
+	\begin{bmatrix}
+		\ubm{A} \ubm{i}_a \\
+		\ubm{A} \ubm{j}_a \\
+		\ubm{A} \ubm{k}_a
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		\ubm{e}_a^\T \ubm{A} \ubm{i}_a \\
+		\ubm{e}_a^\T \ubm{A} \ubm{j}_a \\
+		\ubm{e}_a^\T \ubm{A} \ubm{k}_a
+	\end{bmatrix}
+	, \qquad
+	\ubm{A} = 
+	\begin{bmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bmatrix}
+	= \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big],
+	\quad 
+	\ubm{i}_a =
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		0
+	\end{bmatrix},
+	\quad 
+	\ubm{j}_a =
+	\begin{bmatrix}
+		0 \\
+		1 \\
+		0
+	\end{bmatrix},
+	\quad 
+	\ubm{k}_a =
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		1
+	\end{bmatrix}
+\end{equation*}
+其中，$\bm{a}_1, \bm{a}_2, \bm{a}_3$为列向量，容易得到
+\begin{equation*}
+	\ubm{A} \ubm{i}_a = \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]
+	\begin{bmatrix}
+		1 \\
+		0 \\
+		0
+	\end{bmatrix}
+	= \bm{a}_1,
+	\quad 
+	\ubm{A} \ubm{j}_a = \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]
+	\begin{bmatrix}
+		0 \\
+		1 \\
+		0
+	\end{bmatrix}
+	= \bm{a}_2,
+	\quad
+	\ubm{A} \ubm{k}_a = \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		1
+	\end{bmatrix}
+	= \bm{a}_3
+\end{equation*}
+所以，
+\begin{equation}
+	\ubm{e}_a^\T 
+	\begin{bmatrix}
+		\ubm{A} \ubm{i}_a \\
+		\ubm{A} \ubm{j}_a \\
+		\ubm{A} \ubm{k}_a
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\ubm{e}_a^\T \bm{a}_1 \\
+		\ubm{e}_a^\T \bm{a}_2 \\
+		\ubm{e}_a^\T \bm{a}_3 
+	\end{bmatrix}
+\end{equation}
+由向量分解，有$\ubm{e}_a^\T \bm{a} = \bm{a}^\T \ubm{e}_a$，则
+\begin{equation}
+	\ubm{e}_a^\T 
+	\begin{bmatrix}
+		\ubm{A} \ubm{i}_a \\
+		\ubm{A} \ubm{j}_a \\
+		\ubm{A} \ubm{k}_a
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		\bm{a}_1^\T \ubm{e}_a\\
+		\bm{a}_2^\T \ubm{e}_a\\
+		\bm{a}_3^\T \ubm{e}_a
+	\end{bmatrix}
+	= 
+	\begin{bmatrix}
+		\bm{a}_1^\T \\
+		\bm{a}_2^\T \\
+		\bm{a}_3^\T
+	\end{bmatrix}
+	\ubm{e}_a 
+	= \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]^\T \ubm{e}_a
+	= \ubm{A}^\T \ubm{e}_a
+\end{equation}
+
+\theorem[向量阵与单位正交基的乘法]
+{
+	三维方阵与单位正交基在坐标系$S_a$的矩阵运算为
+	\begin{equation*}
+		\ubm{e}_a^\T 
+		\begin{bmatrix}
+			\ubm{A} \ubm{i}_a \\
+			\ubm{A} \ubm{j}_a \\
+			\ubm{A} \ubm{k}_a
+		\end{bmatrix}
+	= \ubm{A}^\T \ubm{e}_a
+	\end{equation*}
+}
+\vspace*{-1.5em}
+
+\noindent
+\warn
+[
+\hspace*{1.8em}值得注意的是，不要误以为其结果为
+\begin{equation*}
+	\ubm{e}_a^\T 
+	\begin{bmatrix}
+		\ubm{A} \ubm{i}_a \\
+		\ubm{A} \ubm{j}_a \\
+		\ubm{A} \ubm{k}_a
+	\end{bmatrix}
+	= \ubm{e}_a^\T \ubm{A} 
+	\begin{bmatrix}
+		\ubm{i}_a \\
+		\ubm{j}_a \\
+		\ubm{k}_a
+	\end{bmatrix}
+\end{equation*}
+因为$\ubm{A}\bm{i_a}$是矩阵乘法，不是数乘，因此要先计算内部的矩阵乘法再化简。
+]
+
+
+
+
+
+
+
+
+
+
 
 
 

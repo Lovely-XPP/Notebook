@@ -44,6 +44,8 @@
 \usepackage{multirow}
 \usepackage{tikz}
 \usepackage{capt-of}
+\usepackage{nomencl}%符号说明包
+\makenomenclature%制作符号说明
 %\usepackage{longtable}
 %\usepackage{polynom}% 除法竖式
 \usetikzlibrary{shapes.geometric}
@@ -180,6 +182,7 @@
 \newcommand{\n}{{\rm{n}}}
 \renewcommand{\t}{\text{t}}
 \renewcommand{\j}{\text{j}}
+\newcommand{\T}{\text{T}}
 \def\degree{{}^{\circ}}
 \newcommand{\hvdots}{\hspace*{2mm}\vdots\hspace*{2mm}}
 \newcommand{\RMn}[1][]{\romannumeral#1}
@@ -188,6 +191,7 @@
 \newcommand{\vj}{\bm{j}}
 \newcommand{\vk}{\bm{k}}
 \newcommand{\norm}[1][]{\Vert #1 \Vert}
+\newcommand{\ubm}[1]{\underline{\bm{#1}}}
 \newcommand{\eqrefp}[1][]{第 \pageref{#1} 页的公式 \eqref{#1} }
 
 %% 定义索引类
@@ -249,6 +253,16 @@
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents
+	\cleardoublepage
+	
+	%符号说明
+	\addcontentsline{toc}{chapter}{符号说明}
+	\renewcommand{\nomname}{符号说明}
+	\renewcommand{\pagedeclaration}[1]{, #1}
+	\twocolumn%双栏
+	\setcounter{page}{1}
+	\printnomenclature
+	\onecolumn
 	
 	%正文部分
 	\cleardoublepage
