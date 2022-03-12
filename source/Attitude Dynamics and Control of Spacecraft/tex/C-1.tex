@@ -80,7 +80,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\bm{u} = u_s \bm{i} + u_y \bm{j} + u_z \bm{k}
 	\nomenclature{$\bm{u}$}{三维向量$\bm{u}$\nomrefpage}
 	\nomenclature{$\ubm{e}$}{三维向量基$\ubm{e}$\nomrefpage}
-	\nomenclature{$\underline{\bm{u}}$}{三维向量$\bm{u}$的分量矩阵，用于向量的矩阵运算，为了将向量和矩阵区别，后文中的矩阵加了下划线\nomrefpage}
+	\nomenclature{$\underline{\bm{u}}$}{三维向量$\bm{u}$的分量矩阵，用于向量的矩阵运算，为了将向量和矩阵区别，后文中的矩阵均加了下划线\nomrefpage}
 \end{equation}
 其中，$\bm{i}, \bm{j}, \bm{k}$分别称为向量$\bm{u}$在基向量上的3个分向量，3个标量系数$u_x,u_y,u_z$分别称为向量$\bm{u}$在3个基向量上的坐标。这3个坐标构成一个标量矩阵，称为向量$\bm{u}$在基向量$\underline{\bm{e}}$上的\dy[坐标阵]{ZBZ}（或\dy[分量矩阵]{FLJZ}），记为
 \begin{equation}
@@ -114,7 +114,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 \begin{equation*}
 	\bm{e}_b \bm{e}_b u_b = \bm{e}_b \bm{e}_a u_a \quad \Rightarrow \quad u_b = \bm{e}_b\bm{e}_au_a
 \end{equation*}
-为此我们定义坐标系$S_a$变换为坐标系$S_b$的\dy[方向余弦矩阵]{FXYXJZ}为
+为此我们定义坐标系$S_a$变换为坐标系$S_b$的\dy[方向余弦矩阵]{FXYXJZ}（\dy[坐标系旋转矩阵]{ZBXXZJZ}）为
 \begin{equation}
 	\ubm{C}_{ba} = \ubm{e}_{b} \ubm{e}_a
 	=
@@ -135,7 +135,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 		C_{21} & C_{22} & C_{23} \\
 		C_{31} & C_{32} & C_{33}
 	\end{bmatrix}
-	\nomenclature{$\ubm{C}_{ba}$}{坐标系$S_a$变换为坐标系$S_b$的方向余弦矩阵 \nomrefpage}
+	\nomenclature{$\ubm{C}_{ba}$}{坐标系$S_a$变换为坐标系$S_b$的方向余弦矩阵（坐标系旋转矩阵） \nomrefpage}
 \end{equation}
 方向余弦矩阵有以下几个特征：
 \vspace*{0.5em}
@@ -283,31 +283,30 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 			0 & 0 & 1
 		\end{bmatrix}
 	\end{equation}
-	{	
-		\centering
-		\begin{minipage}{0.34\linewidth}
-			\centering
-			\includegraphics[width=0.77\linewidth]{pic/x}
-			\vspace*{-0.5em}
-			\captionof{figure}{绕$x$轴旋转}
-			\label{x}
-		\end{minipage}
-		\begin{minipage}{0.3\linewidth}
-			\centering
-			\includegraphics[width=0.78\linewidth]{pic/y}
-			\vspace*{-0.5em}
-			\captionof{figure}{绕$y$轴旋转}
-			\label{y}
-		\end{minipage}
-		\begin{minipage}{0.34\linewidth}
-			\centering
-			\includegraphics[width=0.85\linewidth]{pic/z}
-			\vspace*{-0.5em}
-			\captionof{figure}{绕$z$轴旋转}
-			\label{z}
-		\end{minipage}
-	}
 }
+\begin{figure}[!htb]
+	\begin{minipage}{0.34\linewidth}
+		\centering
+		\includegraphics[width=0.77\linewidth]{pic/x}
+		\vspace*{-0.5em}
+		\caption{绕$x$轴旋转}
+		\label{x}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\centering
+		\includegraphics[width=0.78\linewidth]{pic/y}
+		\vspace*{-0.5em}
+		\caption{绕$y$轴旋转}
+		\label{y}
+	\end{minipage}
+	\begin{minipage}{0.34\linewidth}
+		\centering
+		\includegraphics[width=0.85\linewidth]{pic/z}
+		\vspace*{-0.5em}
+		\caption{绕$z$轴旋转}
+		\label{z}
+	\end{minipage}
+\end{figure}
 
 下面给出两种基元旋转矩阵表示的坐标变换。
 \vspace*{0.5em}
@@ -332,7 +331,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\end{cases}
 	\label{eq:zxz}
 \end{equation}
-
+由公式 \eqref{eq:zxz} 可知，若欧拉角$\theta = 0\degree$，则欧拉转动处于奇异状态，欧拉角$\psi, \varphi$不能唯一确定。因此，$\theta$的取值范围为$0\degree<\theta<180\degree$。
 \begin{figure}[!htb]
 	\begin{minipage}{0.5\linewidth}
 		\centering
@@ -349,15 +348,13 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 		\label{ZXY}
 	\end{minipage}
 \end{figure}
-\vspace*{-0.5em}
-由公式 \eqref{eq:zxz} 可知，若欧拉角$\theta = 0\degree$，则欧拉转动处于奇异状态，欧拉角$\psi, \varphi$不能唯一确定。因此，$\theta$的取值范围为$0\degree<\theta<180\degree$。
-\vspace*{0.5em}
+
 
 \sssection[$ZXY$旋转顺序]
 
 如图 \ref{ZXY} 所示，方向余弦矩阵和$ZXY$顺序欧拉角的关系
 \begin{equation}
-	\ubm{C}_{ba} = \ubm{C}_y(\theta)\ubm{C}_x(\varphi)\ubm{C_z(\psi)} =
+	\ubm{C}_{ba} = \ubm{C}_y(\theta)\ubm{C}_x(\varphi)\ubm{C}_z(\psi) =
 	\begin{bmatrix}
 		\cos \theta \cos \psi - \sin \varphi \sin \theta \sin \psi & \cos \theta \sin \psi + \sin \varphi \sin \theta \cos \psi & -\cos \varphi \sin \theta \\
 		-\cos \varphi \sin \psi & \cos \varphi \cos \psi & \sin \varphi \\
@@ -368,7 +365,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 \begin{equation}
 	\begin{cases}
 		\, \psi = -\tan^{-1}\left( \dfrac{C_{21}}{C_{22}} \right) \\
-		\, \theta = \sin^{-1}\big( C_{23} \big) \\
+		\, \theta = \sin^{-1}\big( C_{23} \big) \\[0.5em]
 		\, \varphi = \tan^{-1} \left( \dfrac{C_{13}}{C_{33}} \right)
 	\end{cases}
 	\label{eq:zxy}
@@ -390,20 +387,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 
 \sssection[欧拉轴 / 角求方向余项矩阵]
 
-方向余项矩阵$\ubm{C}_{ba}$可由欧拉轴 / 角参数$\bm{e}, \varPhi$得到，即\footnote[1]{关于矩阵$\ubm{e} \ubm{e}^\T$和叉乘矩阵$\ubm{e}^\times$的由来，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}
-\begin{align}
-	\ubm{C}_{ba} 
-	& = \cos \varPhi \ubm{E}_3 + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^{\times} \notag \\
-	& = 
-	\begin{bmatrix}
-		\cos \varPhi + e_x^2 \big( 1 - \cos \varPhi \big) & e_x e_y \big( 1 - \cos \varPhi \big) + e_z \sin \varPhi & e_x e_z \big( 1 - \cos \varPhi \big) - e_y \sin \varPhi \\
-		e_x e_y \big( 1 - \cos \varPhi \big) - e_z \sin \varPhi & \cos \varPhi + e_y^2 \big( 1 - \cos \varPhi \big) & e_y e_z \big(1 - \cos \varPhi \big) + e_x \sin \varPhi \\
-		e_x e_z \big( 1 - \cos \varPhi \big) + e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) - e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
-	\end{bmatrix}
-\end{align}
-
-\proof 如图 \ref{欧拉轴} 所示，设矢量$\bm{a}$是固定在坐标系$S_a$的任意矢量，矢量$\bm{b}$是固定于坐标系$S_b$中的矢量。将矢量$\bm{a}$绕轴$\bm{e}$旋转一个角度$\varPhi$后得到矢量$\bm{b}$。首先将矢量$\bm{a}$，矢量$\bm{b}$沿轴$\bm{e}$方向和垂直于轴$\bm{e}$方向分解，其平行分量$\bm{a}_{\parallel} = \bm{b}_{\parallel} = \bm{e}$相等，即旋转前后不变，可以发现旋转仅与垂直分量$\bm{a}_{\perp}, \bm{b}_{\perp}$有关。
-
+方向余项矩阵$\ubm{C}_{ba}$可由欧拉轴 / 角参数$\bm{e}, \varPhi$得到。
 \begin{figure}[!htb]
 	\begin{minipage}{0.31\linewidth}
 		\centering
@@ -426,7 +410,9 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\end{minipage}
 \end{figure}
 
-\noindent 将垂直分量$\bm{a}_{\perp}, \bm{b}_{\perp}$投影到垂直于轴$\bm{e}$的平面$\Pi$上，如图 \ref{欧拉轴2} 所示。定义单位正交矢量$\bm{u}, \bm{v}$
+如图 \ref{欧拉轴} 所示，设矢量$\bm{a}$是固定在坐标系$S_a$的任意矢量，矢量$\bm{b}$是固定于坐标系$S_b$中的矢量。将矢量$\bm{a}$绕轴$\bm{e}$旋转一个角度$\varPhi$后得到矢量$\bm{b}$。首先将矢量$\bm{a}$，矢量$\bm{b}$沿轴$\bm{e}$方向和垂直于轴$\bm{e}$方向分解，其平行分量$\bm{a}_{\parallel} = \bm{b}_{\parallel} = \bm{e}$相等，即旋转前后不变，可以发现旋转仅与垂直分量$\bm{a}_{\perp}, \bm{b}_{\perp}$有关。
+
+将垂直分量$\bm{a}_{\perp}, \bm{b}_{\perp}$投影到垂直于轴$\bm{e}$的平面$\Pi$上，如图 \ref{欧拉轴2} 所示。定义单位正交矢量$\bm{u}, \bm{v}$
 \begin{align*}
 	\bm{u} & = \bm{a}_{\perp} = \dfrac{\bm{e} \times \bm{a}}{\big| \bm{e} \times \bm{a} \big|} = \dfrac{1}{a \sin \theta}(\bm{e} \times \bm{a}) \\
 	\bm{v} & = \bm{e} \times \bm{u} = \dfrac{1}{a \sin \theta} \bm{e} \times (\bm{e} \times \bm{a})= \dfrac{1}{a \sin \theta}\big[ \bm{a} - (\bm{e} \cdot \bm{a})\bm{e} \big] 
@@ -446,7 +432,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 \begin{equation}
 	\bm{b} = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
 \end{equation}
-为了写成矩阵形式，我们利用把向量（在坐标系$S_a$的分量）的计算转换为矩阵的形式\footnote[1]{关于向量运算的矩阵表示的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
+为了写成矩阵形式，我们利用把向量（在坐标系$S_a$的分量）的计算转换为矩阵的形式\footnote[1]{关于$\ubm{e}\ubm{e}^\T$和叉乘矩阵$\ubm{e}^\times$的说明及向量运算矩阵表示的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
 \begin{align*}
 	\bm{e} \cdot \bm{a} \cdot \bm{e} = 
 	\big[ \bm{i}_a \quad \bm{j}_a \quad \bm{k}_a \big] \,
@@ -483,97 +469,54 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 \begin{equation}
 	\ubm{e}_a^\T \ubm{b} = \cos \varPhi \ubm{e}_a^\T\ubm{a} + ( 1 - \cos \varPhi ) \ubm{e}_a^\T \ubm{e} \ubm{e}^\text{T} \ubm{a} + \sin \varPhi \ubm{e}_a^\T \ubm{e}^\times \ubm{a}
 \end{equation}
-将基向量的三个向量基$\bm{i}, \bm{j}, \bm{k}$代入，得
+两边同时左乘$\big[ \ubm{e}_a^\T \big]^{-1}$，消去$\ubm{e}_a^\T$，可以得到
 \begin{align}
-	\ubm{e}_b =
-	\ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{i}_b \\
-		\ubm{j}_b \\
-		\ubm{k}_b
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-		\cos \varPhi \ubm{e}_a^\T\ubm{i}_a + ( 1 - \cos \varPhi ) \ubm{e}_a^\T \ubm{e} \ubm{e}^\text{T}\ubm{i}_a+ \sin \varPhi \ubm{e}_a^\T \ubm{e}^\times \ubm{i}_a \\
-		\cos \varPhi \ubm{e}_a^\T \ubm{j}_a + ( 1 - \cos \varPhi ) \ubm{e}_a^\T \ubm{e} \ubm{e}^\text{T}\ubm{j}_a + \sin \varPhi \ubm{e}_a^\T \ubm{e}^\times \ubm{j}_a \\
-		\cos \varPhi \ubm{e}_a^\T \ubm{k}_a + ( 1 - \cos \varPhi ) \ubm{e}_a^\T \ubm{e} \ubm{e}^\text{T}\ubm{k}_a + \sin \varPhi \ubm{e}_a^\T \ubm{e}^\times \ubm{k}_a
-	\end{bmatrix}
+	\ubm{b} &= \cos \varPhi \ubm{a} + (1 - \cos \varPhi)\ubm{e}\ubm{e}^\T \bm{a} + \sin \varPhi \ubm{e}_a^\T \ubm{e}^ \times \bm{a} \notag \\
+	& = \big[ \cos \varPhi \ubm{E}_3 + (1 - \cos \varPhi) \ubm{e} \ubm{e}^\T + \sin \varPhi \ubm{e}_a^\T \ubm{e}^ \times \big] \ubm{a}
 \end{align}
-所以
-\begin{equation}
-	\ubm{e}_b
-	=
-	\cos \varPhi 
-	\ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{i}_a \\
-		\ubm{j}_a \\
-		\ubm{k}_a
-	\end{bmatrix}
-	+ (1 - \cos \varPhi) \ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{e} \ubm{e}^\text{T}\ubm{i}_a \\
-		\ubm{e} \ubm{e}^\text{T}\ubm{j}_a \\
-		\ubm{e} \ubm{e}^\text{T}\ubm{k}_a
-	\end{bmatrix}
-	+ \sin \varPhi \ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{e}^\times \ubm{i}_a \\
-		\ubm{e}^\times \ubm{j}_a \\
-		\ubm{e}^\times \ubm{k}_a
-	\end{bmatrix}
-\end{equation}
-由于\footnote[1]{关于这个的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{三维方阵与单位正交基的矩阵乘法} \link[三维方阵与单位正交基的矩阵乘法]}
-\begin{equation*}
-	\ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{i}_a \\
-		\ubm{j}_a \\
-		\ubm{k}_a
-	\end{bmatrix}
-	= \begin{bmatrix}
-		\ubm{i}_a \\
-		\ubm{j}_a \\
-		\ubm{k}_a
-	\end{bmatrix}^\T \ubm{e}_a
-	=\big[\ubm{i}_a \quad \ubm{j}_a \quad \ubm{k}_a ] \ubm{e}_a
-	=
-	\begin{bmatrix}
-		1 & 0 & 0\\
-		0 & 1 & 0 \\
-		0 & 0 & 1 
-	\end{bmatrix} \ubm{e}_a 
-= \ubm{E}_3 \ubm{e}_a
-\end{equation*}
+可以得到
 
-\begin{equation*}
-	\ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{e} \ubm{e}^\text{T}\ubm{i}_a \\
-		\ubm{e} \ubm{e}^\text{T}\ubm{j}_a \\
-		\ubm{e} \ubm{e}^\text{T}\ubm{k}_a
-	\end{bmatrix}
-	= (\ubm{e} \ubm{e}^\T) \ubm{e}_a
-	= \ubm{e} \ubm{e}^\T \ubm{e}_a,
-	\quad 
-	\ubm{e}_a^\T
-	\begin{bmatrix}
-		\ubm{e}^\times \ubm{i}_a \\
-		\ubm{e}^\times \ubm{j}_a \\
-		\ubm{e}^\times \ubm{k}_a
-	\end{bmatrix}
-	= (\ubm{e}^\times)^\T \ubm{e}_a 
-	= - \ubm{e}^\times \ubm{e}_a
-\end{equation*}
-代入后可以得到
-\begin{equation*}
-	\ubm{e}_b = (\cos \varPhi \ubm{E}_e + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^{\times}) \ubm{e}_a
-\end{equation*}
-所以可以得到
-\begin{equation}
-	\ubm{C}_{ba} = \cos \varPhi \ubm{E}_e + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^{\times}
-\end{equation}
-\vspace*{1em}
+\theorem[欧拉轴 / 角参数下的向量旋转矩阵]
+{
+	在同一坐标系$S_a$下将向量$\bm{a}$绕轴$\bm{e}$旋转$\varPhi$角度得到向量$\bm{b}$，它们的关系为
+	\begin{equation}
+		\bm{b} = \ubm{R}_{ba} \bm{a}
+	\end{equation}
+	其中，\dy[向量旋转矩阵]{XLXZJZ}定义为
+	\begin{align}
+		\ubm{R}_{ba} 
+		& = \cos \varPhi \ubm{E}_3 + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T + \sin \varPhi \ubm{e}^{\times} \\
+		& = 
+		\begin{bmatrix}
+			\cos \varPhi + e_x^2 \big( 1 - \cos \varPhi \big) & e_x e_y \big( 1 - \cos \varPhi \big) - e_z \sin \varPhi & e_x e_z \big( 1 - \cos \varPhi \big) + e_y \sin \varPhi \\
+			e_x e_y \big( 1 - \cos \varPhi \big) + e_z \sin \varPhi & \cos \varPhi + e_y^2 \big( 1 - \cos \varPhi \big) & e_y e_z \big(1 - \cos \varPhi \big) - e_x \sin \varPhi \\
+			e_x e_z \big( 1 - \cos \varPhi \big) - e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) + e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
+		\end{bmatrix}
+		\nomenclature{$\ubm{E}_i$}{$i \times i$的单位矩阵 \nomrefpage}
+		\nomenclature{$\ubm{R}_{ba}$}{同一坐标系下向量$\bm{a}$旋转到向量$\bm{b}$的旋转矩阵  \nomrefpage}
+	\end{align}
+}
+
+而由向量旋转与坐标系旋转的对应关系，可以知道向量旋转矩阵和坐标系旋转矩阵（方向余弦矩阵）互为转置（逆），所以可以得到\footnote[2]{证明详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量旋转矩阵和坐标系旋转矩阵的关系} \link[向量旋转矩阵和坐标系旋转矩阵的关系]}
+
+\theorem[欧拉轴 / 角参数下的坐标系旋转矩阵（方向余弦矩阵）]
+{
+	欧拉轴 / 角参数下的坐标系旋转矩阵（方向余弦矩阵）为
+	\begin{align}
+		\ubm{C}_{ba} & = (\ubm{R}_{ba})^\T 
+		= \big[\cos \varPhi \ubm{E}_3 + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T + \sin \varPhi \ubm{e}^{\times}\big]^\T \notag \\
+		& = \cos \varPhi \ubm{E}_3 + \big( 1 - \cos \varPhi \big) (\ubm{e} \ubm{e}^\T)^\T + \sin \varPhi (\ubm{e}^{\times})^\T \notag \\
+		& = \cos \varPhi \ubm{E}_3 + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^\times \\
+		& = 
+		\begin{bmatrix}
+			\cos \varPhi + e_x^2 \big( 1 - \cos \varPhi \big) & e_x e_y \big( 1 - \cos \varPhi \big) + e_z \sin \varPhi & e_x e_z \big( 1 - \cos \varPhi \big) - e_y \sin \varPhi \\
+			e_x e_y \big( 1 - \cos \varPhi \big) - e_z \sin \varPhi & \cos \varPhi + e_y^2 \big( 1 - \cos \varPhi \big) & e_y e_z \big(1 - \cos \varPhi \big) + e_x \sin \varPhi \\
+			e_x e_z \big( 1 - \cos \varPhi \big) + e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) - e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
+		\end{bmatrix}
+		\nomenclature{$\ubm{E}_i$}{$i \times i$的单位矩阵 \nomrefpage}
+		\nomenclature{$\ubm{R}_{ba}$}{同一坐标系下向量$\bm{a}$旋转到向量$\bm{b}$的旋转矩阵  \nomrefpage}
+	\end{align}
+}
 
 
 \sssection[由方向余弦矩阵确定欧拉轴 / 角参数]
@@ -612,7 +555,6 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\caption{欧拉转角与两个坐标系之间的几何关系}
 	\label{欧拉转角变换}
 \end{figure}
-\vspace*{1em}
 
 
 \sssection[欧拉转角的几何意义]
@@ -694,7 +636,6 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\end{equation}
 	\textbf{注：由于四元数是四维向量，其没有明确的物理几何意义。}
 }
-\vspace*{0.5em}
 
 
 \sssection[四元数的加减运算]
@@ -1052,9 +993,9 @@ $
 \end{align}
 通过进一步的化简\footnote[1]{由于篇幅所限，此部分化简内容请参见 第 \ref{参考内容} 章 \link[参考内容]： \ref{旋转四元数参数的化简} \link[旋转四元数参数的化简]}，可以得到
 
-\theorem[旋转四元数参数]
+\theorem[向量旋转的四元数参数]
 {
-	任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$度之后的向量$\bm{b}$可以用四元数表达。令$a = \big[ 0, \bm{a} \big], \, q = \left[ \cos \left(\dfrac{1}{2} \varPhi \right), \sin \left(\dfrac{1}{2} \varPhi \right) \bm{e} \right]$，那么
+	在同一坐标系下，任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$度之后的向量$\bm{b}$可以用四元数表达。令$a = \big[ 0, \bm{a} \big], \, q = \left[ \cos \left(\dfrac{1}{2} \varPhi \right), \sin \left(\dfrac{1}{2} \varPhi \right) \bm{e} \right]$，那么
 	\begin{equation}
 		b = q a q^* = q a q^{-1}
 	\end{equation}
@@ -1175,9 +1116,35 @@ $
 \end{align}
 其中，$a = \big[a_0 \quad a_1 \quad a_2 \quad a_3 \big]$。由矩阵乘法可知，矩阵的最外圈不会对$a$进行任何变换，而代表$b$的方向仅取决于$\big[a_1 \quad a_2 \quad a_3 \big]$。因此，我们可以删去矩阵最外圈，得到一个$3 \times 3$的矩阵用于三维向量的旋转变换，即
 
-\theorem[欧拉参数表示的三维旋转矩阵]
+\theorem[欧拉参数表示的向量旋转矩阵]
 {
-	任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$角度之后的向量$\bm{b}$可以用矩阵乘法来获得
+	在同一坐标系下，任意向量$\bm{a}$沿着以单位向量定义的旋转轴$\bm{e}$旋转$\varPhi$角度之后的向量$\bm{b}$可以用矩阵乘法来获得
+	\begin{equation}
+		\begin{cases}
+			\, q_0 = \cos \dfrac{\varPhi}{2}\\[0.5em]
+			\, q_1 = e_x \sin \dfrac{\varPhi}{2} \\[0.5em]
+			\, q_2 = e_y \sin \dfrac{\varPhi}{2}\\[0.5em]
+			\, q_3 = e_z \sin \dfrac{\varPhi}{2}
+		\end{cases}
+		\,\, \Longrightarrow \,\,
+		\ubm{b} = 
+		\ubm{R}_{ba}(\ubm{q})
+	\ubm{a},
+	\,\,
+	\ubm{R}_{ba}(\ubm{q}) = 
+	\begin{bmatrix}
+		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
+		2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
+		2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & 1 - 2(q_1^2 + q_2^2)
+	\end{bmatrix}
+	\end{equation}
+}
+
+同样地，由向量旋转与坐标系旋转的对应关系，可以知道向量旋转矩阵和坐标系旋转矩阵（方向余弦矩阵）互为转置（逆），所以可以得到\footnote[1]{证明详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量旋转矩阵和坐标系旋转矩阵的关系} \link[向量旋转矩阵和坐标系旋转矩阵的关系]}
+
+\theorem[欧拉参数表示的坐标旋转矩阵（方向余弦矩阵）]
+{
+	欧拉参数表示的坐标旋转矩阵（方向余弦矩阵）为
 	\begin{equation}
 		\begin{cases}
 			\, q_0 = \cos \dfrac{\varPhi}{2}\\[0.5em]
@@ -1188,18 +1155,19 @@ $
 		\,\, \Longrightarrow \,\,
 		\ubm{b} = 
 		\ubm{C}_{ba}(\ubm{q})
-	\ubm{a},
-	\,\,
-	\ubm{C}_{ba}(\ubm{q}) = 
-	\begin{bmatrix}
-		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
-		2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
-		2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & 1 - 2(q_1^2 + q_2^2)
-	\end{bmatrix}
+		\ubm{a},
+		\,\,
+		\ubm{C}_{ba}(\ubm{q}) = 
+		\begin{bmatrix}
+			1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 + q_3q_0) & 2(q_1q_3 - q_2q_0)\\
+			2(q_1q_2 - q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 + q_1q_0) \\
+			2(q_3q_1 + q_2q_0)& 2(q_2q_3 - q_1q_0) & 1 - 2(q_1^2 + q_2^2)
+		\end{bmatrix}
 	\end{equation}
 }
 
 虽然三维旋转的矩阵形式（欧拉参数）可能不如四元数的形式简单，而且占用更多的空间，但是对于大批量的转换，使用\textbf{预先计算}好的矩阵是比四元数乘法更有效率的。
+
 
 我们知道方向余弦矩阵的欧拉轴 / 角参数表述为
 \begin{equation}
@@ -1216,7 +1184,9 @@ $
 		e_z\sin \dfrac{\varPhi}{2} & 0 & -e_x\sin \dfrac{\varPhi}{2} \\[0.8em]
 		-e_y\sin \dfrac{\varPhi}{2} & e_x\sin \dfrac{\varPhi}{2} & 0
 	\end{bmatrix}
-	= \ubm{e}^\times \sin \dfrac{\varPhi}{2} \\[0.5em]
+	= \ubm{e}^\times \sin \dfrac{\varPhi}{2}
+\end{align*}
+\begin{align*}
 	\ubm{q}^T \ubm{q} &= 
 	\bigg[ e_x \sin \dfrac{\varPhi}{2} \quad e_y \sin \dfrac{\varPhi}{2} \quad e_z \sin  \dfrac{\varPhi}{2} \bigg]
 	\,
@@ -1248,18 +1218,18 @@ $
 	\end{bmatrix}
 	= 
 	\begin{bmatrix}
-		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
-		2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
-		2(q_3q_1 - q_2q_0)& 2(q_2q_3 +q_1q_0) & 1 - 2(q_1^2 + q_2^2)
+		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 + q_3q_0) & 2(q_1q_3 - q_2q_0)\\
+		2(q_1q_2 - q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 + q_1q_0) \\
+		2(q_3q_1 + q_2q_0)& 2(q_2q_3 - q_1q_0) & 1 - 2(q_1^2 + q_2^2)
 	\end{bmatrix}
 \end{equation}
 当方向余弦矩阵系数已知时，可以求出四元数$q$
 \begin{equation}
 	\begin{cases}
 		\, q_0 =  \pm \dfrac{1}{2} \sqrt{1 + C_{11} + C_{22} + C_{33}} \\[0.8em]
-		\, q_1 = \dfrac{1}{4q_0}(C_{32} - C_{23}) \\[0.8em]
-		\, q_2 = \dfrac{1}{4q_0}(C_{13} - C_{31}) \\[0.8em]
-		\, q_3 = \dfrac{1}{4q_0}(C_{21} - C_{12})
+		\, q_1 = \dfrac{1}{4q_0}(C_{23} - C_{32}) \\[0.8em]
+		\, q_2 = \dfrac{1}{4q_0}(C_{31} - C_{13}) \\[0.8em]
+		\, q_3 = \dfrac{1}{4q_0}(C_{12} - C_{21})
 	\end{cases}
 	\label{eq: q_0}
 \end{equation}
@@ -1271,7 +1241,7 @@ $
 		\, q_1 = \pm \dfrac{1}{2} \sqrt{1 + C_{11} - C_{22} - C_{33}} \\[0.8em]
 		\, q_2 = \dfrac{1}{4q_1}(C_{12} + C_{21}) \\[0.8em]
 		\, q_3 = \dfrac{1}{4q_1}(C_{13} + C_{31}) \\[0.8em]
-		\, q_0 = \dfrac{1}{4q_1}(C_{32} - C_{23})
+		\, q_0 = \dfrac{1}{4q_1}(C_{23} - C_{32})
 	\end{cases}
 \end{equation}
 
@@ -1279,15 +1249,16 @@ $
 	\begin{cases}
 		\, q_2 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} + C_{22} - C_{33}} \\[0.8em]
 		\, q_3 = \dfrac{1}{4q_2}(C_{23} + C_{32}) \\[0.8em]
-		\, q_0 = \dfrac{1}{4q_2}(C_{13} - C_{31}) \\[0.8em]
+		\, q_0 = \dfrac{1}{4q_2}(C_{31} - C_{13}) \\[0.8em]
 		\, q_1 = \dfrac{1}{4q_2}(C_{12} + C_{21})
 	\end{cases}
 \end{equation}
-
+\clearpage
+\vspace*{-3em}
 \begin{equation}
 	\begin{cases}
 		\, q_3 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} - C_{22} + C_{33}} \\[0.8em]
-		\, q_0 = \dfrac{1}{4q_3}(C_{21} - C_{12}) \\[0.8em]
+		\, q_0 = \dfrac{1}{4q_3}(C_{12} - C_{21}) \\[0.8em]
 		\, q_1 = \dfrac{1}{4q_3}(C_{13} + C_{31}) \\[0.8em]
 		\, q_2 = \dfrac{1}{4q_3}(C_{23} + C_{32})
 	\end{cases}
@@ -1301,9 +1272,8 @@ $
 		\, q_2 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} + C_{22} - C_{33}} \\[0.8em]
 		\, q_3 = \pm \dfrac{1}{2} \sqrt{1 - C_{11} - C_{22} + C_{33}}
 	\end{cases}
-\end{equation}
-选取最大的一个作为解，即
-\begin{equation}
+\quad 
+\xrightarrow{\quad \textstyle \mbox{选取最大的一个作为解} \quad } \quad 
 	q_j = \max_{i = 1,2,3,4} q_i
 \end{equation}
 这样以后，后面计算用到的$\dfrac{1}{4q_j}$的奇异性最小，计算的精度最高。
@@ -1336,24 +1306,20 @@ $
 }
 \label{lemma:1-1}
 \proof 由Grassmann积，
-等式左边
 \begin{flalign*}
-	\text{LHS} &= q_1^*q_2^* &\\
-	&= \big[ s, -\bm{v} \big] \cdot \big[ t, -\bm{u} \big] &\\
-	&= \big[ st - (-\bm{v}) \cdot (-\bm{u}), s (-\bm{u}) + t (-\bm{v}) + (-\bm{v}) \times (-\bm{u}) \big] &\\
-	&= \big[ st - \bm{v} \cdot \bm{u}, -s\bm{u}- t \bm{v} + \bm{v} \times \bm{u} \big] &
+	\text{LHS} &= q_1^*q_2^* \\
+	&= \big[ s, -\bm{v} \big] \cdot \big[ t, -\bm{u} \big] \\
+	&= \big[ st - (-\bm{v}) \cdot (-\bm{u}), s (-\bm{u}) + t (-\bm{v}) + (-\bm{v}) \times (-\bm{u}) \big] \\
+	&= \big[ st - \bm{v} \cdot \bm{u}, -s\bm{u}- t \bm{v} + \bm{v} \times \bm{u} \big] 
 \end{flalign*}
-等式右边
-\vspace*{-0.5em}
 \begin{flalign*}
-	\text{RHS} &= (q_2q_1)^* &\\
-	&= \left( \big[ t, \bm{u} \big] \cdot \big[ s, \bm{v} \big] \right)^* &\\
-	&= \big[ ts - \bm{u} \cdot \bm{v}, t \bm{v} + s \bm{u} + \bm{u} \times \bm{v} \big]^* & \\
-	&= \big[st - \bm{v} \cdot \bm{u}, -s \bm{u} - t \bm{v} - \bm{u} \times \bm{v} \big] &\\
-	&= \big[ st - \bm{v} \cdot \bm{u}, -s\bm{u}- t \bm{v} + \bm{v} \times \bm{u} \big] = \text{LHS} &
+	\text{RHS} &= (q_2q_1)^* \\
+	&= \left( \big[ t, \bm{u} \big] \cdot \big[ s, \bm{v} \big] \right)^* \\
+	&= \big[ ts - \bm{u} \cdot \bm{v}, t \bm{v} + s \bm{u} + \bm{u} \times \bm{v} \big]^* \\
+	&= \big[st - \bm{v} \cdot \bm{u}, -s \bm{u} - t \bm{v} - \bm{u} \times \bm{v} \big] \\
+	&= \big[ st - \bm{v} \cdot \bm{u}, -s\bm{u}- t \bm{v} + \bm{v} \times \bm{u} \big] = \text{LHS} 
 \end{flalign*}
 \hfill $\square$
-\vspace*{0.5em}
 
 所以，根据\ref{lemma:1-1} 可以得到
 \begin{align}
@@ -1373,8 +1339,6 @@ $
 \begin{equation}
 	d = q_{dc}(q_{cb} q_{ba}) a (q_{cb} q_{ba})^*q_3^* = (q_{dc} q_{cb} q_{ba}) a (q_{dc} q_{cb} q_{ba})^* = q_{da} a q_{da}^*
 \end{equation}
-\vspace*{1em}
-
 
 
 \subsection{其他类型的姿态参数}
@@ -1424,7 +1388,56 @@ $
 \noa[1] $\bm{\omega}_{ba}$在参考坐标系$\bm{S}_a$中的分量矩阵$\omega_{ba}^a$.
 
 \noa[2] $\bm{\omega}_{ba}$在参考坐标系$\bm{S}_b$中的分量矩阵$\omega_{ba}^b$.
-\vspace*{1em}
+\vspace*{0.5em}
+
+\subsection{向量的时间导数}
+设坐标系$S_a$以角速度
+\begin{equation}
+	\bm{\omega}_a = \bm{\omega}_{xa} \bm{i}_a + \bm{\omega}_{ya} \bm{j}_a + \bm{\omega}_{za} \bm{k}_a 
+\end{equation}
+相对惯性空间旋转，$\bm{u}$为一个变化的向量
+\begin{equation*}
+	\bm{u} = \bm{u}_{xa} \bm{i}_a + \bm{u}_{ya} \bm{j}_a + \bm{u}_{za} \bm{k}_a
+\end{equation*}
+则矢量$\bm{u}$在惯性空间对时间$t$的导数为
+\begin{equation}
+	\dfrac{\d \bm{u}}{\d t} = \left( \dfrac{\d \bm{u}_{xa}}{\d t}\bm{i}_a + \dfrac{\d \bm{u}_{ya}}{\d t} \bm{j}_a + \dfrac{\d \bm{u}_{za}}{\d t} \bm{k}_a \right) + \left(\bm{u}_{xa} \dfrac{\d \bm{i}_a}{\d t} + \bm{u}_{ya} \dfrac{\d \bm{j}_A}{\d t} + \bm{u}_{za} \dfrac{\d \bm{k}_a}{\d t}\right)
+\end{equation}
+\vspace*{0.1em}
+
+\noindent
+\begin{minipage}{0.6\linewidth}
+	其中，等号右侧前3项表示在坐标系$S_a$下每一分量对时间的导数， 再求向量和，它表示向量$\bm{u}$相对于向量基$\bm{e}_a$的时间变化率，可以\\[0.2em]
+	写为$\dfrac{\delta \bm{u}}{\delta t}$ \nomenclature{$\dfrac{\delta  \bm{u}}{\delta t}$}{向量$\bm{u}$相对于运动向量基$\bm{e}_a$的时间变化率，相对导数 \nomrefpage}，表示\dy[相对导数]{XDDS}，以便与\dy[绝对导数]{JDDS}$\dfrac{\d \bm{u}}{\d t}$ \nomenclature{$\dfrac{\d \bm{u}}{\d t}$}{向量$\bm{u}$相对于惯性向量基的时间变化率，绝对导数 \nomrefpage}区分。等号右侧后三\\[0.2em]
+	项都是单位基向量对时间的导数，如图 \ref{基向量的转动} 所示。
+	
+	\qquad 设$\bm{e}$是固定在坐标系$S_a$中的单位基向量，$\bm{\omega}$是基向量转动的角速度。在$t = t_0$时刻，$\bm{e}$的末端位于$a$点，经过$\Delta t$时间后，$\bm{e}$转动到$\bm{e}'$，其末端相应的转动到$a'$点。记$aa'$的圆心为点$O$，$\bm{e}$与$\bm{\omega}$之间的夹角为$\theta$，则由图 \ref{基向量的转动} 可知$\angle aOa' = \bm{\omega} \Delta t,\, \, aa' = \bm{\omega}\Delta t |\bm{e}| \sin \theta$。当$\Delta t$趋近于0时，弧$\wideparen{aa'}$逼近弦长$aa'$，其方向趋近于圆在$a$点的切线$\bm{\tau}$。所以，$\Delta \to 0 \Rightarrow \wideparen{aa'} = aa' = \bm{\omega} \times \bm{e}\Delta t$。由向量导数的定义，有
+	\begin{equation}
+		\dfrac{\d \bm{e}}{\d t} = \lim\limits_{\Delta \to 0}\dfrac{\wideparen{aa'}}{\Delta t} = \lim\limits_{\Delta t \to 0} \dfrac{\bm{\omega} \times \bm{e} \Delta t}{\Delta t} = \bm{\omega} \times \bm{e}
+	\end{equation}
+\end{minipage}
+\begin{minipage}{0.4\linewidth}
+	\centering
+	\includegraphics[width=0.8\linewidth]{pic/向量转动}
+	\captionof{figure}{基向量的转动}
+	\label{基向量的转动}
+\end{minipage}
+\vspace*{0.5em}
+
+\noindent 展开可得
+\vspace*{0.5em}
+\begin{equation}
+	\dfrac{\d \bm{u}}{\d t} = \left( \dfrac{\d \bm{u}_{xa}}{\d t}\bm{i}_a + \dfrac{\d \bm{u}_{ya}}{\d t} \bm{j}_a + \dfrac{\d \bm{u}_{za}}{\d t} \bm{k}_a \right) + \bm{\omega}_a \times (\bm{u}_{xa} \bm{i}_a + \bm{u}_{xa}\bm{i}_a + \bm{u}_{ya}\bm{j}_a + \bm{u}_{za}\bm{k}_a)
+\end{equation}
+
+\noindent 即
+\vspace*{0.5em}
+\begin{equation}
+	\dfrac{\d \bm{u}}{\d t} = \dfrac{\delta \bm{u}}{\d t} + \bm{\omega}_a \times \bm{u}
+\end{equation}
+
+\newpage
+
 
 
 \subsection{方向余弦矩阵的微分方程}
@@ -1432,12 +1445,14 @@ $
 \begin{equation*}
 	\ubm{e}_a = \ubm{C}_{ab}\ubm{e}_b \, \xrightarrow{\quad \textstyle \mbox{两边取转置} \quad} \,  \ubm{e}_a^\T = \big( \ubm{C}_{ab} \ubm{e}_b \big)^\T  \quad \Rightarrow \quad \ubm{e}_a^\T = \ubm{e}_b^\T \ubm{C}_{ab}^\T = \bm{e}_b^\T \ubm{C}_{ba}
 \end{equation*}
+用$\dot{\,}$表示向量在坐标系$S_a$中的时间导数，则有$\dfrac{\d \bm{e}_a}{\d t} = \dot{\ubm{e}}_a = 0$，且根据向量的时间导数，可以得到
+\begin{equation}
+	\dot{\ubm{e}}_b^\T = \bm{\omega}_a \times \ubm{e}_b^\T
+\end{equation}
 在坐标系$\bm{S}_a$中对两边求导
 \begin{flalign*}
-	\ubm{0}^\T &= \ubm{C}_{ba} \dot{\ubm{e}}_b^\T + \dot{\ubm{C}}_{ba} \ubm{e}_b^\T \\
-	&=  \ubm{C}_{ba} (\bm{\omega}_{ba} \times \bm{e}_b)^\T + \dot{\ubm{C}}_{ba} \ubm{e}_b^\T\, \xrightarrow{\textstyle \quad \mbox{写成矩阵形式} \quad }\,  \ubm{C}_{ba} (\ubm{\omega}_{ba}^\times \ubm{e}_b)^\T + \dot{\ubm{C}}_{ba} \ubm{e}_b^\T \\
-	&= \big(\dot{\bm{C}}_{ab} + \bm{C}_{ab} \bm{\omega}_{ba}^\times \big)\bm{e}_b \qquad \qquad  \qquad \qquad  \qquad \qquad  \mbox{（矩阵乘法的结合律和分配律）} \\
-	& \Rightarrow \dot{\bm{C}}_{ab} + \bm{C}_{ab} \bm{\omega}_{ba}^\times = 0 
+	\ubm{0}^\T &= \dot{\ubm{e}}_b^\T \ubm{C}_{ba} + \bm{e}_b^\T \dot{\ubm{C}}_{ba} \\
+	&=
 \end{flalign*}
 于是可以得到方向余弦矩阵$\bm{C}_{ba}$的微分方程为
 \begin{equation}

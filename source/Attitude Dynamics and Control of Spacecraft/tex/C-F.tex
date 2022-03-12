@@ -264,7 +264,7 @@
 
 \defination[向量叉乘矩阵]
 {
-	已知向量$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，其叉乘运算可以用矩阵表达
+	已知向量$\bm{u} = u_1\bm{i} +u_2\bm{j} +u_3\bm{k}, \, \bm{v} = v_1\bm{i} + v_2\bm{j} + v_3 \bm{k}$，其在同一个坐标系下的叉乘运算可以用矩阵表达
 	\begin{equation}
 		\bm{u} \times \bm{v} = 	
 		\big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
@@ -300,6 +300,31 @@
 }
 
 \clearpage
+进一步，我们将叉乘运算进一步写为分量形式后可以定义\dy[广义向量叉乘运算]{GYXLCCYS}如下。
+
+\defination[广义向量叉乘运算]
+{
+	已知向量$\bm{u}, \bm{v}$在坐标系$S$下的分量形式为$\ubm{u}^\T \ubm{e}, \, \ubm{e}^\T \ubm{v}$，则
+	\begin{equation}
+		\ubm{u}^\T \ubm{e} \times \ubm{e}^\T \ubm{b} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big] \,
+		\begin{bmatrix}
+			0 & -u_3 & u_2 \\
+			u_3 & 0 & -u_1 \\
+			-u_2  &  u_1 & 0
+		\end{bmatrix}
+		\, 
+		\begin{bmatrix}
+			v_1 \\
+			v_2 \\
+			v_3 
+		\end{bmatrix}
+		=\ubm{e}^\T \ubm{u}^\times \ubm{v}
+	\end{equation}
+	定义广义向量叉乘运算为
+	\begin{equation}
+		\ubm{u}^\T \ubm{e} \times \ubm{e}^\T = \ubm{e}^\T \ubm{u}^\times
+	\end{equation}
+}
 
 
 
@@ -377,157 +402,71 @@
 
 
 
-\subsection{三维方阵与单位正交基的矩阵乘法}
-\label{三维方阵与单位正交基的矩阵乘法}
-三维方阵与单位正交基在坐标系$S_a$的矩阵运算表示为
+\section{向量旋转矩阵和坐标系旋转矩阵的关系}
+\label{向量旋转矩阵和坐标系旋转矩阵的关系}
+假设向量$\bm{a}$在坐标系$S_a, S_b$下的分量为
 \begin{equation*}
-	\ubm{e}_a^\T 
-	\begin{bmatrix}
-		\ubm{A} \ubm{i}_a \\
-		\ubm{A} \ubm{j}_a \\
-		\ubm{A} \ubm{k}_a
-	\end{bmatrix}
-	= 
-	\begin{bmatrix}
-		\ubm{e}_a^\T \ubm{A} \ubm{i}_a \\
-		\ubm{e}_a^\T \ubm{A} \ubm{j}_a \\
-		\ubm{e}_a^\T \ubm{A} \ubm{k}_a
-	\end{bmatrix}
-	, \qquad
-	\ubm{A} = 
-	\begin{bmatrix}
-		a_{11} & a_{12} & a_{13} \\
-		a_{21} & a_{22} & a_{23} \\
-		a_{31} & a_{32} & a_{33}
-	\end{bmatrix}
-	= \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big],
-	\quad 
-	\ubm{i}_a =
-	\begin{bmatrix}
-		1 \\
-		0 \\
-		0
-	\end{bmatrix},
-	\quad 
-	\ubm{j}_a =
-	\begin{bmatrix}
-		0 \\
-		1 \\
-		0
-	\end{bmatrix},
-	\quad 
-	\ubm{k}_a =
-	\begin{bmatrix}
-		0 \\
-		0 \\
-		1
-	\end{bmatrix}
+	\bm{a} = \ubm{u} \ubm{e}_a = \ubm{v} \ubm{e}_b
 \end{equation*}
-其中，$\bm{a}_1, \bm{a}_2, \bm{a}_3$为列向量，容易得到
+为了方便计算，这里向量均表示为分量阵列，即$\ubm{u}$和$\ubm{v}$都是$3 \times 3$的对角矩阵
 \begin{equation*}
-	\ubm{A} \ubm{i}_a = \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]
+	\bm{a} = 
 	\begin{bmatrix}
-		1 \\
-		0 \\
-		0
+		u_x & 0 & 0 \\
+		0 & u_y & 0 \\
+		0 & 0 & u_z
 	\end{bmatrix}
-	= \bm{a}_1,
-	\quad 
-	\ubm{A} \ubm{j}_a = \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]
 	\begin{bmatrix}
-		0 \\
-		1 \\
-		0
-	\end{bmatrix}
-	= \bm{a}_2,
-	\quad
-	\ubm{A} \ubm{k}_a = \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]
-	\begin{bmatrix}
-		0 \\
-		0 \\
-		1
-	\end{bmatrix}
-	= \bm{a}_3
-\end{equation*}
-所以，
-\begin{equation}
-	\ubm{e}_a^\T 
-	\begin{bmatrix}
-		\ubm{A} \ubm{i}_a \\
-		\ubm{A} \ubm{j}_a \\
-		\ubm{A} \ubm{k}_a
+		\bm{i}_a \\
+		\bm{j}_a \\
+		\bm{k}_a
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		\ubm{e}_a^\T \bm{a}_1 \\
-		\ubm{e}_a^\T \bm{a}_2 \\
-		\ubm{e}_a^\T \bm{a}_3 
+		v_x & 0 & 0 \\
+		0 & v_y & 0 \\
+		0 & 0 & v_z
 	\end{bmatrix}
-\end{equation}
-由向量分解，有$\ubm{e}_a^\T \bm{a} = \bm{a}^\T \ubm{e}_a$，则
-\begin{equation}
-	\ubm{e}_a^\T 
 	\begin{bmatrix}
-		\ubm{A} \ubm{i}_a \\
-		\ubm{A} \ubm{j}_a \\
-		\ubm{A} \ubm{k}_a
-	\end{bmatrix}
-	= 
-	\begin{bmatrix}
-		\bm{a}_1^\T \ubm{e}_a\\
-		\bm{a}_2^\T \ubm{e}_a\\
-		\bm{a}_3^\T \ubm{e}_a
-	\end{bmatrix}
-	= 
-	\begin{bmatrix}
-		\bm{a}_1^\T \\
-		\bm{a}_2^\T \\
-		\bm{a}_3^\T
-	\end{bmatrix}
-	\ubm{e}_a 
-	= \big[ \bm{a}_1 \quad \bm{a}_2 \quad \bm{a}_3 \big]^\T \ubm{e}_a
-	= \ubm{A}^\T \ubm{e}_a
-\end{equation}
-
-\theorem[向量阵与单位正交基的乘法]
-{
-	三维方阵与单位正交基在坐标系$S_a$的矩阵运算为
-	\begin{equation*}
-		\ubm{e}_a^\T 
-		\begin{bmatrix}
-			\ubm{A} \ubm{i}_a \\
-			\ubm{A} \ubm{j}_a \\
-			\ubm{A} \ubm{k}_a
-		\end{bmatrix}
-	= \ubm{A}^\T \ubm{e}_a
-	\end{equation*}
-}
-\vspace*{-1.5em}
-
-\noindent
-\warn
-[
-\hspace*{1.8em}值得注意的是，不要误以为其结果为
-\begin{equation*}
-	\ubm{e}_a^\T 
-	\begin{bmatrix}
-		\ubm{A} \ubm{i}_a \\
-		\ubm{A} \ubm{j}_a \\
-		\ubm{A} \ubm{k}_a
-	\end{bmatrix}
-	= \ubm{e}_a^\T \ubm{A} 
-	\begin{bmatrix}
-		\ubm{i}_a \\
-		\ubm{j}_a \\
-		\ubm{k}_a
+		\bm{i}_b \\
+		\bm{j}_b \\
+		\bm{k}_b
 	\end{bmatrix}
 \end{equation*}
-因为$\ubm{A}\bm{i_a}$是矩阵乘法，不是数乘，因此要先计算内部的矩阵乘法再化简。
-]
-
-
-
-
+考虑向量$\bm{a}$在绕轴$\bm{e}$旋转$\varPhi$后得到的向量$\bm{b}$在坐标系$S_b$的分量为$\ubm{u}$，即
+\begin{equation*}
+	\bm{b} = 
+	\begin{bmatrix}
+		u_x & 0 & 0 \\
+		0 & u_y & 0 \\
+		0 & 0 & u_z
+	\end{bmatrix}
+	\begin{bmatrix}
+		\bm{i}_a \\
+		\bm{j}_a \\
+		\bm{k}_a
+	\end{bmatrix}
+	= \ubm{u} \ubm{e}_b
+\end{equation*}
+且其中的向量旋转矩阵记为$\ubm{R}_{ba}$，坐标系旋转矩阵记为$\ubm{C}_{ba}$，那么
+\begin{equation}
+	\begin{cases}
+		\, \bm{b} = \ubm{u} \ubm{e}_b \\
+		\, \bm{b} = \ubm{R}_{ba} \bm{a} = \ubm{R}_{ba} \ubm{u} \ubm{e}_a \\
+	\end{cases}
+	\quad
+	\xrightarrow{\textstyle \quad \mbox{消去}\,\, \bm{b} \quad }
+	\quad
+	\ubm{u} \ubm{e}_b = \ubm{R}_{ba} \ubm{u} \ubm{e}_a
+	\quad
+	\xrightarrow{\textstyle \quad \ubm{e}_b  = \ubm{C}_{ba} \ubm{e}_a \quad }
+	\quad
+	\ubm{u} \ubm{C}_{ba} \ubm{e}_a = \ubm{R}_{ba} \ubm{u} \ubm{e}_a
+\end{equation}
+等式两边右乘$(\ubm{e}_a)^{-1}$，消去$\ubm{e}_a$，可得
+\begin{equation}
+	\ubm{u} \ubm{C}_{ba} = \ubm{R}_{ba} \ubm{u}
+\end{equation}
 
 
 
