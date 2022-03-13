@@ -45,6 +45,8 @@
 {
 	如图 \ref{地心旋转} 所示，\dy[地心赤道旋转坐标系]{DXCDXZZBX}，也叫\dy[地心第四赤道坐标系]{DXDSCDZBX}。$X$轴在赤道平面内，指向\dy[格林威治子午线]{GLNZZWX}，$Z$轴垂直于赤道平面，与地球自转角速度矢量方向一致。$\lambda$是地理经度，从格林威治子午线向东度量，$\phi$是地心纬度。
 }
+\nomenclature{$\lambda$}{地理经度 \nomrefpage}
+\nomenclature{$\phi$}{地理纬度 \nomrefpage}
 
 \begin{figure}[!htb]
 	\begin{minipage}{0.485\linewidth}
@@ -1441,23 +1443,281 @@ $
 
 
 \subsection{方向余弦矩阵的微分方程}
-由
+\sssection[方向余项矩阵的微分方程]
+
+\noindent 由
 \begin{equation*}
 	\ubm{e}_a = \ubm{C}_{ab}\ubm{e}_b \, \xrightarrow{\quad \textstyle \mbox{两边取转置} \quad} \,  \ubm{e}_a^\T = \big( \ubm{C}_{ab} \ubm{e}_b \big)^\T  \quad \Rightarrow \quad \ubm{e}_a^\T = \ubm{e}_b^\T \ubm{C}_{ab}^\T = \bm{e}_b^\T \ubm{C}_{ba}
 \end{equation*}
 用$\dot{\,}$表示向量在坐标系$S_a$中的时间导数，则有$\dfrac{\d \bm{e}_a}{\d t} = \dot{\ubm{e}}_a = 0$，且根据向量的时间导数，可以得到
 \begin{equation}
-	\dot{\ubm{e}}_b^\T = \bm{\omega}_a \times \ubm{e}_b^\T
+	\dot{\ubm{e}}_b^\T = \bm{\omega}_{ba} \times \ubm{e}_b^\T
 \end{equation}
-在坐标系$\bm{S}_a$中对两边求导
+对角速度$\bm{\omega}_{ba}$在$S_b$坐标系下的分解，并由广义向量叉乘运算\footnote[1]{关于广义向量叉乘运算的定义，详见 第 \ref{参考内容} 章 \link[参考内容]：\ref{广义向量叉乘运算}  \link[广义向量叉乘运算]}，可得
+\begin{equation}
+	\dot{\ubm{e}}_b^\T = \bm{\omega}_{ba}^\T \ubm{e}_b \times \ubm{e}_b^\T = \ubm{e}_b^\T \ubm{\omega}_{ba}^\times 
+\end{equation}
+在坐标系$\bm{S}_a$中对两边求导，
 \begin{flalign*}
 	\ubm{0}^\T &= \dot{\ubm{e}}_b^\T \ubm{C}_{ba} + \bm{e}_b^\T \dot{\ubm{C}}_{ba} \\
-	&=
+	&= \ubm{e}_b^\T \ubm{\omega}_{ba}^\times \ubm{C}_{ba} + \ubm{e}_b^\T \dot{\ubm{C}}_{ba} \\
+	& = \ubm{e}_b^\T \big( \ubm{\omega}_{ba}^\times \ubm{C}_{ba} + \dot{\ubm{C}}_{ba} \big) 
 \end{flalign*}
-于是可以得到方向余弦矩阵$\bm{C}_{ba}$的微分方程为
+于是可以得到
+
+\theorem[方向余弦矩阵的微分方程]
+{
+	方向余弦矩阵$\bm{C}_{ba}$的微分方程为
+	\begin{equation}
+		\dot{\ubm{C}}_{ba} = - \ubm{C}_{ba} \ubm{\omega}_{ba}^\times
+	\end{equation}
+	\textbf{\color{red} 注意：$\ubm{\omega}_{ba}$是$\bm{\omega}_{ba}$在坐标系$S_b$下的分量。}
+}
+
+
+也就是说，如果已知$\bm{\omega}(t)$，可以通过积分法求得方向余弦矩阵$\ubm{C}_{ba}(t)$的时间表达式。可以利用
+\begin{equation*}
+	\ubm{C}_{ba} \ubm{C}_{ba}^\T = \ubm{C}_{ab} \ubm{C}_{ab}^\T = \ubm{E}_3
+\end{equation*}
+求得$\ubm{\omega}_{ba}(t)$关于$\ubm{C}_{ba}(t)$的表达式
 \begin{equation}
-	\dot{\bm{C}}_{ba} = - \bm{C}_{ba}\bm{\omega}_{ba}^\times
+	\ubm{\omega}_{ba}^\times (t) = - \dot{\ubm{C}}_{ba} \ubm{C}_{ba}^\T = - \dot{\ubm{C}}_{ba} \ubm{C}_{ab} = \ubm{C}_{ba} \dot{\ubm{C}}_{ab}
 \end{equation}
+\vspace*{0.5em}
+
+
+\sssection[相继运动的角速度关系]
+
+设$\ubm{\omega}_{ba}$为坐标系$S_b$相对坐标系$S_a$的角速度，$\ubm{\omega}_{cb}$为坐标系$S_c$相对坐标系$S_b$的角速度，$\ubm{\omega}_{ca}$为坐标系$S_c$相对坐标系$S_a$的角速度，则
+\begin{equation}
+	\ubm{\omega}_{ba}^\times = - \dot{\ubm{C}}_{ba} \ubm{C}_{ba}, \qquad 
+	\ubm{\omega}_{cb}^\times = - \dot{\ubm{C}}_{cb} \ubm{C}_{cb}, \qquad 
+	\ubm{\omega}_{ca}^\times = - \dot{\ubm{C}}_{ca} \ubm{C}_{ca}
+\end{equation}
+所以，
+\begin{align*}
+	\ubm{\omega}_{ca}^\times &= -\left(\dot{\ubm{C}_{cb} \ubm{C}_{ba} + \ubm{C}_{cb}\dot{\ubm{C}}_{ba}}\right)\ubm{C}_{ac} 
+	= -\dot{\ubm{C}}_{ca} \ubm{C}_{bc} - \ubm{C}_{cb} \dot{\ubm{C}}_{ba} \ubm{C}_{ab} \ubm{C}_{bc} \\
+	&= \ubm{\omega}_{cb}^\times + \ubm{C}_{cb} \ubm{\omega}_{ba}^\times \ubm{C}_{bc}
+\end{align*}
+由叉乘矩阵恒等式\footnote[1]{关于叉乘矩阵恒等式的证明，详见 第 \ref{参考内容} 章 \link[参考内容]：\ref{叉乘矩阵的坐标变换}  \link[叉乘矩阵的坐标变换]}$\left( \ubm{C} \ubm{u} \right)^\times = \ubm{C} \ubm{u}^\times \ubm{C}^\T$，可得
+\begin{equation*}
+	\ubm{\omega}_{ca}^\times = \ubm{\omega}_{cb}^\times + \ubm{C}_{cb} \ubm{\omega}_{ba}^\times \ubm{C}_{bc} = \ubm{\omega}_{cb}^\times + \left( \ubm{C}_{cb} \ubm{\omega}_{ba} \right)^\times
+\end{equation*}
+可以得到
+\begin{equation}
+	\ubm{\omega}_{ca} = \ubm{\omega}_{cb} + \ubm{C}_{cb}\ubm{\omega}_{ba}
+\end{equation}
+其中，$\ubm{\omega}_{ca}, \ubm{\omega}_{cb}$都是在坐标系$S_c$下的分量，而$\ubm{\omega}_{ba}$是在坐标系$S_b$下的分量，因此$\ubm{C}_{cb}\ubm{\omega}_{ba}$代表的是$\ubm{\omega}_{ba}$是在坐标系$S_c$下的分量。所以，对上面的式子左乘$\ubm{e}_c^\T$，得
+\begin{equation*}
+	\ubm{e}_c^\T \ubm{\omega}_{ca} = \ubm{e}_c^\T \ubm{\omega}_{cb} + \ubm{e}_c^\T \ubm{C}_{cb}\ubm{\omega}_{ba}
+\end{equation*}
+即
+\begin{equation}
+	\bm{\omega}_{ca} = \bm{\omega}_{cb} + \bm{\omega}_{ba}
+\end{equation}
+所以\textbf{角速度具有可叠加性}。
+
+
+
+\subsection{欧拉角参数下的角速度和微分方程}
+
+\sssection[$ZXZ$的旋转顺序]
+
+对于$ZXZ$的旋转顺序，$S_b$和$S_a$之间的方向余弦矩阵可表示为
+\begin{equation*}
+	\ubm{C}_{ba} = \ubm{C}_z (\varphi) \ubm{C}_x (\theta) \ubm{C}_z (\psi) = \ubm{C}_3 \ubm{C}_2 \ubm{C}_1
+\end{equation*}
+三次旋转的顺序为$\ubm{e}_a \to \ubm{e}_1 \to \ubm{e}_2 \to \ubm{e}_b$，其对应的角速度向量叠加为$\bm{\omega}_{ba} = \bm{\omega}_1 + \bm{\omega}_2 + \bm{\omega}_3$，其中
+\begin{equation}
+	\bm{\omega}_1 = \ubm{e}_1^\T 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\psi}
+	\end{bmatrix},
+	\qquad 
+	\bm{\omega}_2 = \ubm{e}_2^\T 
+	\begin{bmatrix}
+		\dot{\theta} \\
+		0 \\
+		0
+	\end{bmatrix},
+	\qquad 
+	\bm{\omega}_3 = \ubm{e}_b^\T 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\varphi}
+	\end{bmatrix}
+\end{equation}
+则
+\begin{align}
+	\ubm{e}_b \cdot \bm{\omega}_{ba} &= \ubm{e}_b \cdot \ubm{e}_1^\T 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\psi}
+	\end{bmatrix}
+	+ \ubm{e}_b \cdot \ubm{e}_2^\T 
+	\begin{bmatrix}
+		\dot{\theta} \\
+		0 \\
+		0
+	\end{bmatrix}
+	+ \ubm{e}_b \cdot \ubm{e}_b^\T 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\varphi}
+	\end{bmatrix} \notag \\[0.5em]
+	& = \ubm{C}_3 \ubm{C}_2 \ubm{e}_1^\T 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\psi}
+	\end{bmatrix}
+	+ \ubm{C}_3 \ubm{e}_2 \cdot \ubm{e}_2^\T 
+	\begin{bmatrix}
+		\dot{\theta} \\
+		0 \\
+		0
+	\end{bmatrix}
+	+ \ubm{e}_b \cdot \ubm{e}_b^\T 
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\varphi}
+	\end{bmatrix} \notag \\[0.5em]
+	&=
+	\begin{bmatrix}
+		\cos \varPhi & \sin \varPhi & 0 \\
+		- \sin \varphi & \cos \varphi & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & \cos \theta & \sin \theta \\
+		0 & - \sin \theta  \cos \theta 
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\psi}
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		\cos \varphi & \sin \varphi & 0 \\
+		- \sin \varphi & \cos \varphi & 0 \\
+		0 & 0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		\dot{\theta} \\
+		0 \\
+		0
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		0 \\
+		0 \\
+		\dot{\varphi}
+	\end{bmatrix} \notag \\[0.5em]
+	&=
+	\begin{bmatrix}
+		\sin \varphi \sin \theta & \cos \varphi & 0 \\
+		\cos \varphi \sin \varphi & -\sin \varphi & 0\\
+		\cos \theta & 0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		\dot{\psi} \\
+		\dot{\theta} \\
+		\dot{\varphi}
+	\end{bmatrix}
+\end{align}
+
+进一步可以求出欧拉角参数的微分方程为
+\begin{equation}
+	\begin{bmatrix}
+		\dot{\psi} \\
+		\dot{\theta} \\
+		\dot{\varphi}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\sin \varphi \sin \theta & \cos \varphi & 0 \\
+		\cos \varphi \sin \varphi & -\sin \varphi & 0\\
+		\cos \theta & 0 & 1
+	\end{bmatrix}^{-1}
+	\ubm{\omega}_{ba} 
+	=
+	\dfrac{1}{\sin \theta}
+	\begin{bmatrix}
+		\sin \varphi & \cos \varphi & 0 \\
+		\cos \varphi \sin \theta & - \sin \varphi \sin \theta & 0 \\
+		- \sin \varphi \cos \theta & - \cos \varphi \cos \theta & \sin \theta
+	\end{bmatrix}
+	\ubm{\omega}_{ba}
+\end{equation}
+其中，$\varphi$为\dy[滚转角]{GZJ}，$\theta$为\dy[俯仰角]{FYJ}，$\psi$为\dy[偏航角]{PHJ}。容易发现，俯仰角$\theta \to 0$，角速率$\to \infty$，方程奇异。
+\nomenclature{$\varphi$}{滚转角 \nomrefpage}
+\nomenclature{$\theta$}{俯仰角 \nomrefpage}
+\nomenclature{$\psi$}{偏航角 \nomrefpage}
+\vspace*{1em}
+
+
+\sssection[$ZXY$旋转]
+
+对于$ZXY$的旋转顺序，$S_b$和$S_a$之间的方向余弦矩阵可表示为
+\begin{equation*}
+	\ubm{C}_{ba} = \ubm{C}_y (\theta) \ubm{C}_x (\varphi) \ubm{C}_z (\psi) = \ubm{C}_3 \ubm{C}_2 \ubm{C}_1
+\end{equation*}
+三次旋转的顺序为$\ubm{e}_a \to \ubm{e}_1 \to \ubm{e}_2 \to \ubm{e}_b$，其对应的角速度向量叠加为$\bm{\omega}_{ba} = \bm{\omega}_1 + \bm{\omega}_2 + \bm{\omega}_3$，同样可以计算得到
+\begin{equation}
+	\ubm{\omega}_{ba} = 
+	\begin{bmatrix}
+		\cos \theta & 0 & -\cos \varphi \sin \theta \\
+		0 & 1 & \sin \varphi \\
+		\sin \theta & 0 & \cos \theta \cos \varphi
+	\end{bmatrix}
+	\begin{bmatrix}
+		\dot{\varphi} \\
+		\dot{\theta} \\
+		\dot{\psi}
+	\end{bmatrix}
+\end{equation}
+从而可以进一步得到欧拉角参数的微分方程为
+\begin{equation}
+	\begin{bmatrix}
+		\dot{\varphi} \\
+		\dot{\theta} \\
+		\dot{\psi}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\cos \theta & 0 & -\cos \varphi \sin \theta \\
+		0 & 1 & \sin \varphi \\
+		\sin \theta & 0 & \cos \theta \cos \varphi
+	\end{bmatrix}^{-1} 
+	\ubm{\omega}_{ba} 
+	=
+	\dfrac{1}{\cos \varphi}
+	\begin{bmatrix}
+		\cos \varphi & 0 & \sin \theta \cos \varphi \\
+		\sin \varphi \sin \theta & \cos \varphi & -\sin \theta \cos \varphi \\
+		- \sin \theta & 0 & \cos \theta
+	\end{bmatrix}
+	\ubm{\omega}_{ba}
+\end{equation}
+容易发现，滚转角$\varphi \to \pm \dfrac{\pi}{2}$，角速率$\to \infty$，方程奇异。
+
+
+
+
+
+
+
+
+
 
 
 

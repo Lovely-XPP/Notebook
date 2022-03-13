@@ -325,7 +325,34 @@
 		\ubm{u}^\T \ubm{e} \times \ubm{e}^\T = \ubm{e}^\T \ubm{u}^\times
 	\end{equation}
 }
+\label{广义向量叉乘运算}
 
+
+
+\subsection{叉乘矩阵的坐标变换}
+\label{叉乘矩阵的坐标变换}
+对于向量叉乘运算$\bm{w} = \bm{u} \times \bm{v}$，在坐标系$S_a,\, S_b$下的矩阵形式分别为
+\begin{equation*}
+	\ubm{w}_a = \ubm{u}_a^\times \ubm{v}_a, \qquad \ubm{w}_b = \ubm{u}_b^\times \ubm{v}_b
+\end{equation*}
+由$\ubm{w}_a = \ubm{C}_{ab} \ubm{w}_b$，
+\begin{equation*}
+	\ubm{C}_{ab} \ubm{w}_b = \ubm{a}^\times \ubm{C}_{ab} \ubm{v}_b \quad \Rightarrow \quad \ubm{w}_b = \ubm{C}_{ba} \ubm{u}_a^\times \ubm{C}_{ab} \ubm{v}_b
+\end{equation*}
+通过对比前后两个式子可得
+
+\theorem[叉乘矩阵的坐标变换]
+{
+	$\bm{u}$在坐标系$S_a, \, S_b$下的叉乘矩阵的坐标变换关系为
+	\begin{equation}
+		\ubm{u}_b^\times = \left(\ubm{C}_{ba} \ubm{u}_a \right) = \ubm{C}_{ba} \ubm{u}_a^\times \ubm{C}_{ab}
+		= \ubm{C}_{ba} \ubm{u}_a^\times \ubm{C}_{ba}^\T
+	\end{equation}
+	进一步，可以扩展得到\dy[叉乘矩阵恒等式]{CCJZHDS}
+	\begin{equation}
+		\left( \ubm{C} \ubm{u} \right)^\times = \ubm{C} \ubm{u}^\times \ubm{C}^\T
+	\end{equation}
+}
 
 
 \subsection{向量两边乘同一个向量运算的矩阵表示}
