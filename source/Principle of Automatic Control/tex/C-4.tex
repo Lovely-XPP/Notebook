@@ -360,8 +360,7 @@
 	G(s)H(s) = \dfrac{K}{s(s+1)(T_a s + 1)}
 \end{align}
 尝试绘制当开环增益$K$为$0.5,1,2$时，时间常数$T_a : 0 \to \infty$时的根轨迹。
-\newpage
-\vspace*{-2.5em}
+
 \solve 
 \begin{itemize}
 	\item 系统特征方程为
@@ -510,8 +509,7 @@
 	\end{itemize}
 	
 \end{enumerate}
-
-\vspace*{-2.5em}
+\vspace*{-1em}
 
 \examples \label{4.3}已知正反馈系统的开环传递函数如下
 \begin{align}
@@ -546,7 +544,7 @@
 	\varphi_a = \dfrac{(k)}{3} \times 360\degree =
 	\begin{cases}
 		\,\, 0\degree, &k = 0\\
-		\,\, 120 \degree, & k = -1\\
+		\,\, 120 \degree, & k = 1\\
 		\,\, -120 \degree, & k = -1
 	\end{cases} 
 \end{align*}
@@ -564,12 +562,13 @@
 	\caption{\ref{4.3}根轨迹图}
 	\label{F4.3}
 \end{figure}
+\clearpage
 
 \subsection{非最小相位系统}
 若所有极点和零点均位于左半平面，称系统为\dy[最小相位]{ZXXW}的；若至少有一个零点或极点位于右半平面，则称系统为\dy[非最小相位]{FZXXW}的。
 
 对于非最小相位的根轨迹，只需要将表达式化成标准形式
-\footnote[1]{传递函数的标准形式（一二阶环节的标准形式见\pageref{一阶系统的标准形式}页）：每个环节$s$的系数均大于0，且开环增益系数$K>0$，满足标准形式后若多出一个负号则为零度根轨迹，否则为一般根轨迹。}
+\footnote[1]{传递函数的标准形式（一、二阶环节的标准形式见\pageref{一阶系统的标准形式}页）：每个环节$s$的系数均大于0，且开环增益系数$K>0$，满足标准形式后若多出一个负号则为零度根轨迹，否则为一般根轨迹。}
 再按照对应的系统根轨迹法则绘制即可。
 
 
@@ -594,7 +593,14 @@
 	G(s) = \dfrac{K}{s(s + 1)(0.5s + 1)}
 \end{align*}
 试应用根轨迹法分析系统的稳定性，并计算闭环主导极点具有阻尼比0.5时的性能指标。
-\vspace*{1em}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.58\linewidth]{pic/4.4.png}
+	\vspace*{-1.2em}
+	\caption{\ref{4.4}根轨迹图}
+	\label{F4.4}
+	\vspace*{-0.5em}
+\end{figure}
 
 \solve 
 \vspace*{-2.9em}
@@ -603,14 +609,6 @@
 \end{align*}
 
 按步骤作出系统的根轨迹，如图\ref{F4.4}所示。
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=0.62\linewidth]{pic/4.4.png}
-	\vspace*{-1.2em}
-	\caption{\ref{4.4}根轨迹图}
-	\label{F4.4}
-\end{figure}
 
 分析系统稳定性: 系统稳定的开环增益范围是 $0<K<3$.
 	
@@ -649,7 +647,6 @@
 	\sigma \% = \e ^{\zeta \pi / \sqrt{1 - \zeta^2}} &\times 100 \% = \e^{-0.5\times 3.14/\sqrt{1 - 0.5^2}} \times 100 \% = 16.3 \% \\
 	t_{\text{s}} &= \dfrac{3.5}{\zeta \omega_n} = \dfrac{3.5}{0.5 \times 0.667} = 10.5 \text{s}
 \end{align*}
-\vspace*{1em}
 
 \subsection{系统阶跃响应的根轨迹分析}
 \vspace*{-1em}
@@ -666,6 +663,8 @@
 	\caption{\ref{4.5} 系统结构图}
 	\label{F.4.5}
 \end{figure}
+\clearpage
+\vspace*{-2.5em}
 
 \solve 利用根轨迹的法则，可以画出这个带零点的二阶系统的根轨迹，其复数部分为一个圆，其圆心在开环零点处，半径为零点到分离点的距离。
 \begin{figure}[!htb]
@@ -704,6 +703,9 @@
 	\end{align*}
 	此时系统阶跃响应具有较好的平稳性。
 \end{itemize}
+\clearpage
+\vspace*{-2.5em}
+
 \warn[
 {
 	\begin{minipage}{0.6\linewidth}

@@ -40,7 +40,7 @@
 
 \newpage
 
-\noindent 1. 列写微分方程的一般步骤
+\noindent \textbf{1. 列写微分方程的一般步骤}
 \begin{enumerate}[\hspace*{2em}(1)]
 	\item 分析系统和各个元件的工作原理，找出各个物理量（变量）之间的关系，确定系统和各个元件的输入、输出变量。
 	\item 从输入端开始，按照信号的传递顺序，根据各个变量所遵循的物理（或化学）定律，列写动态关系式，通常为1个微分方程组。
@@ -48,7 +48,7 @@
 	\item 消除中间变量，写出关于输出、输入变量之间关系的数学表达式，即微分方程。
 \end{enumerate}
 
-\noindent 2. 线性系统
+\noindent \textbf{2. 线性系统}
 
 \defination[线性系统]
 一般地，如下形式微分方程描述的系统称为\dy[线性系统]{XXXT}：
@@ -115,7 +115,8 @@
 \begin{equation}
 	\Delta y = \left. \frac{\d f}{\d x}\right|_{x_0}\Delta x
 \end{equation}
-式中$\displaystyle \left. \frac{\d f}{\d x}\right|_{x_0}\Delta x$为$\dfrac{\d f(x)}{\d x}$在$A$点处的值，代表了曲线$f(x)$在点$A$处的斜率。令$\left. \dfrac{\d f}{\d x}\right|_{x_0} = k$，则在$x_0$附近输出和输入的增量满足以下关系
+式中$\displaystyle \left. \frac{\d f}{\d x}\right|_{x_0}\Delta x$为$\dfrac{\d f(x)}{\d x}$在$A$点处的值，代表了曲线$f(x)$在点$A$处的斜率。令$\left. \dfrac{\d f}{\d x}\right|_{x_0} = k$，则在$x_0$附近输出和输\\[0.3em]
+入的增量满足以下关系
 \begin{equation}
 	\Delta y = k \Delta x
 	\label{线性公式3}
@@ -280,10 +281,12 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 			\draw[arrows={-Stealth}](B) -- +(3cm,0) node[midway,above=-0.3cm,xshift = 18mm]{$C(s)$} ;
 			\draw[arrows={-Stealth}](2cm,-1.5cm) --+(0,-1cm) -- (O1) ;
 		\end{tikzpicture}
+		\vspace*{-0.5em}
 		\captionof{figure}{简单的动态结构图}
 		\label{简单的动态结构图}
 	\end{center}
 }
+\vspace*{-0.5em}
 
 \subsection{动态结构图的组成}
 \noindent 控制系统的动态结构图一般由以下四种基本单元组成：
@@ -296,6 +299,7 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 \end{myitemize}
 
 \begin{figure}[!htb]
+	\centering
 	\subfigure[信号线]{
 	\begin{minipage}[b]{0.15\linewidth}
 		\centering
@@ -344,6 +348,7 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 }
 \caption{动态结构图的四种基本组成单元}
 \end{figure}
+\vspace*{-0.5em}
 
 \subsection{结构动态图的等效变换}
 
@@ -380,6 +385,7 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 			\label{串联2}
 		\end{minipage}
 	}
+	\vspace*{-1em}
 	\caption{串联方框连接及其等效变换}
 \end{figure}
 
@@ -425,10 +431,15 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 			\label{并联2}
 		\end{minipage}
 	}
+	\vspace*{-0.5em}
 	\caption{并联方框连接及其等效变换}
+	\vspace*{-0.5em}
 \end{figure}
 
-\noindent 3. \textbf{引出点前后移动等效变换}
+\begin{figure}[!htb]
+	\noindent 3. \textbf{引出点前后移动等效变换}
+\end{figure}
+
 \begin{figure}[!htb]
 	\centering
 	\subfigure[引出点后移]{
@@ -482,13 +493,13 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 \caption{引出点前后移动变换等效}
 \end{figure}
 
-
 \noindent 4. \textbf{相邻引出点之间的移动}
 \begin{myitemize}
 	\item 相邻引出点之间互换位置是相互等效的。
 	\vspace*{0.3em}
 \end{myitemize}
-\vspace*{0.5em}
+\vspace*{1em}
+
 \noindent 5. \textbf{综合点前后移动等效变换}
 \begin{figure}[!htb]
 	\centering
@@ -557,7 +568,7 @@ Y(s) = G(s)R(s) = \frac{1}{s}R(s)
 	\item 相邻综合点之间互换位置是相互等效的，也可以把它们简化为一个综合点。
 	\vspace*{0.3em}
 \end{myitemize}
-\vspace*{0.5em}
+\vspace*{1em}
 
 \noindent 7. \textbf{方框反馈连接及其等效变换}
 \begin{figure}[!htb]

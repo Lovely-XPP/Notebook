@@ -51,9 +51,9 @@
 \titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
 \titleformat{\section}{\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
 \titleformat{\subsection}{\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
-\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
+%\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
 %格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
-\titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
+%\titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
 
 %目录调整
 \newcounter{mycontents}
@@ -297,10 +297,17 @@
 	%打印索引—————————————
 	\cleardoublepage
 	\addcontentsline{toc}{chapter}{附录}
-	\addcontentsline{toc}{section}{索引}
 	\color{titlepurplec}
+	\addcontentsline{toc}{section}{索引}
 	\appendix
 	\printindex
+	\addcontentsline{toc}{section}{插图目录}
+	\renewcommand{\listfigurename}{插图目录}
+	\listoffigures
+	\addcontentsline{toc}{section}{表格目录}
+	\renewcommand{\listtablename}{表格目录}
+	\listoftables
+	\cleardoublepage
 	%———————————————
 	
 \end{document}

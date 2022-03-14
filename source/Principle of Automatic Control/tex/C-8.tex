@@ -53,7 +53,7 @@
 	\centering
 	\includegraphics[width=0.7\linewidth]{pic/连续与离散信号.jpg}
 	\vspace*{-2em}
-	\caption{连续信号与离散信号的频谱($\omega_{\text{s}} < 2 \omega_\max$)}
+	\caption{连续信号与离散信号的频谱($\omega_{\text{s}} < 2 \omega_{\text{max}}$)}
 	\label{连续与离散信号}
 \end{figure}
 
@@ -72,12 +72,13 @@
 	\begin{minipage}{0.6\linewidth}
 		\includegraphics[width=\linewidth]{pic/连续与离散信号2.jpg}
 		\vspace*{-1em}
-		\caption{连续信号与离散信号的频谱($\omega_{\text{s}} \ge 2 \omega_\max$)}
+		\caption{连续信号与离散信号的频谱($\omega_{\text{s}} \ge 2 \omega_{\text{max}}$)}
 		\label{连续与离散信号2}
 	\end{minipage}
 	\begin{minipage}{0.4\linewidth}
-		\vspace*{11em}
+		\vspace*{5em}
 		\includegraphics[width=\linewidth]{pic/理想低通滤波器.pdf}
+		\vspace*{6em}
 		\vspace*{-1em}
 		\caption{理想低通滤波器}
 		\label{理想低通滤波器}
@@ -251,7 +252,8 @@
 \begin{align*}
 	F(z) &= \sum_{k=0}^{\infty} f^*(kT)z^{-k} = \sum_{k = 0}^{\infty} a^{k} z^{-k}= \lim\limits_{k \to \infty} \dfrac{1 - (az^{-1})^{k+1}}{1-az^{-1}} = \dfrac{1}{1 - az^{-1}} = \dfrac{z}{z-a}
 \end{align*}
-\vspace*{1em}
+\clearpage
+\vspace*{-2.5em}
 
 \examples 求$F(s) = \dfrac{a}{s(s+a)}$的$z$变换。
 
@@ -550,6 +552,7 @@ C(z) = \dfrac{z}{z^2 + 3z + 2} = \dfrac{z}{(z+1)(z+2)} = \dfrac{z}{z+1} - \dfrac
 \[
 c(k) = (-1)^k - (-2)^k\quad (k = 0,1,2,\cdots)
 \]
+\clearpage
 
 \section{脉冲传递函数}
 \subsection{脉冲传递函数的定义}
@@ -915,8 +918,10 @@ c(k) = (-1)^k - (-2)^k\quad (k = 0,1,2,\cdots)
 \end{enumerate}
 
 \examples \label{7.8}已知采样系统的闭环特征方程为
+\vspace*{-0.5em}
 \[
 D(z) = -0.125+0.75z-1.5z^2+z^3
+\vspace*{-0.5em}
 \]
 判断系统的稳定性。
 
@@ -943,10 +948,14 @@ D(z) = -0.125+0.75z-1.5z^2+z^3
 \vspace*{1em}
 
 \examples 已知系统的闭环特征方程为
+\vspace*{-0.5em}
 \[
 D(z) = 45z^3 -117z^2+119z-39 = 0
+\vspace*{-0.5em}
 \]
 判断系统的稳定性。
+\clearpage
+\vspace*{-2.5em}
 
 \solve 将$z = \dfrac{w+1}{w-1}$代入特征方程式，得
 \begin{align*}
@@ -998,25 +1007,23 @@ w^3 + 2w^2 + 2w + 40 = 0
 	c(mT) &= \dfrac{M(1)}{D(1)} + \sum_{k=1}^{n}c_kp_k^m \quad (m = 0,1,2,\cdots)
 	\label{稳态分量}
 \end{align}
-公式\eqref{稳态分量}中第一项为\dy[稳态分量]{WTFL}，第二项为\dy[瞬态分量]{STFL}。可以看出，稳态分量的变化规律取决于极点在$z$平面中的位置。
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.58\linewidth]{pic/极点与瞬态响应.jpg}
 	\vspace*{-1.5em}
 	\caption{不同极点所对应的瞬态响应}
 	\label{极点与瞬态响应}
-\end{figure}
-
-\noindent 如图\ref{极点与瞬态响应}，下面分五种情况进行讨论
+\end{figure} 
+公式\eqref{稳态分量}中第一项为\dy[稳态分量]{WTFL}，第二项为\dy[瞬态分量]{STFL}。可以看出，稳态分量的变化规律取决于极点在$z$平面中的位置。如图\ref{极点与瞬态响应}，下面分五种情况进行讨论
+\vspace*{-0.5em}
 \begin{enumerate}[\hspace*{2em}(a) ]
-	\item $0<p_k<1$\quad 极点所对应的瞬态分量是单调收敛的
-	\item $p_k>1$\quad 极点所对应的瞬态分量是单调发散的
-	\item $-1<p_k<0$ \quad 极点所对应的瞬态分量是正负交替的
-	\item $p_k<-1$\quad 极点所对应的瞬态分量是正负交替的
-	\item $p_k, p_{k+1}$为一对共轭复根，且$|p_k|<1$\quad 极点所对应的瞬态分量是按余弦规律振荡
-	\item $p_k, p_{k+1}$为一对共轭复根，且$|p_k|>1$\quad 极点所对应的瞬态分量是按余弦规律振荡
+	\item $0<p_k<1$\quad 极点所对应的瞬态分量是单调收敛的 \vspace*{-0.5em}
+	\item $p_k>1$\quad 极点所对应的瞬态分量是单调发散的 \vspace*{-0.5em}
+	\item $-1<p_k<0$ \quad 极点所对应的瞬态分量是正负交替的 \vspace*{-0.5em}
+	\item $p_k<-1$\quad 极点所对应的瞬态分量是正负交替的 \vspace*{-0.5em}
+	\item $p_k, p_{k+1}$为一对共轭复根，且$|p_k|<1$\quad 极点所对应的瞬态分量是按余弦规律振荡 \vspace*{-0.5em}
+	\item $p_k, p_{k+1}$为一对共轭复根，且$|p_k|>1$\quad 极点所对应的瞬态分量是按余弦规律振荡 \vspace*{-0.5em}
 \end{enumerate}
-\vspace*{1em}
 
 \subsection{稳态误差}
 
@@ -1153,6 +1160,8 @@ w^3 + 2w^2 + 2w + 40 = 0
 	\caption{稳态误差、静态误差系数与输入信号之间的关系}
 	\label{三个误差与输入信号的关系}
 \end{table}
+\clearpage
+\vspace*{-2.5em}
 
 \examples \label{7.11}已知采样系统的结构如图所示，其中
 $$
