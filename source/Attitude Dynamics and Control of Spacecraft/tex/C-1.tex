@@ -516,7 +516,6 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 			e_x e_z \big( 1 - \cos \varPhi \big) + e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) - e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
 		\end{bmatrix}
 		\nomenclature{$\ubm{E}_i$}{$i \times i$的单位矩阵 \nomrefpage}
-		\nomenclature{$\ubm{R}_{ba}$}{同一坐标系下向量$\bm{a}$旋转到向量$\bm{b}$的旋转矩阵  \nomrefpage}
 	\end{align}
 }
 
@@ -1320,8 +1319,7 @@ $
 	&= \big[ st - \bm{v} \cdot \bm{u}, -s\bm{u}- t \bm{v} + \bm{v} \times \bm{u} \big] 
 \end{flalign*}
 \begin{flalign*}
-	\text{RHS} &= (q_2q_1)^* \\
-	&= \left( \big[ t, \bm{u} \big] \cdot \big[ s, \bm{v} \big] \right)^* \\
+	\text{RHS} &= (q_2q_1)^* = \left( \big[ t, \bm{u} \big] \cdot \big[ s, \bm{v} \big] \right)^* \\
 	&= \big[ ts - \bm{u} \cdot \bm{v}, t \bm{v} + s \bm{u} + \bm{u} \times \bm{v} \big]^* \\
 	&= \big[st - \bm{v} \cdot \bm{u}, -s \bm{u} - t \bm{v} - \bm{u} \times \bm{v} \big] \\
 	&= \big[ st - \bm{v} \cdot \bm{u}, -s\bm{u}- t \bm{v} + \bm{v} \times \bm{u} \big] = \text{LHS} 
@@ -1376,7 +1374,7 @@ $
 
 \sssection[修正的罗德里格参数]
 
-基于罗德里格参数在$\varPhi$接近$\pm \pi$时，参数会接近无限大的缺点，又提出了一种\dy[修正的罗德里格参数]{XZDLDLGCS}，其定义为
+基于罗德里格参数在$\varPhi$接近$\pm \pi$时，参数会接近$\infty$的缺点，又提出了一种\dy[修正的罗德里格参数]{XZDLDLGCS}，其定义为
 \begin{equation}
 	\ubm{\rho}^* \triangleq \ubm{e} \tan \dfrac{\varPhi}{4} = \dfrac{\sin (\varPhi / 2)}{1 + \cos (\varPhi / 2)} \ubm{e} = \dfrac{1}{1 + q_0} \ubm{q}
 \end{equation}
@@ -1385,12 +1383,86 @@ $
 
 
 
+\subsection{无穷小角位移的姿态矩阵}
+当坐标系$S_a$相对于坐标系$S_b$仅限小角度位移时，其对应的姿态矩阵$\ubm{C}_{ba}$将是单位阵与无穷小量反对称矩阵的代数和。这个是线性化的重要应用。
+
+\sssection[用欧拉轴 / 角表示的姿态矩阵]
+
+旋转轴$\bm{e}$本身代表的是方向，仍然是单位向量，因此小量假设仅考虑转角$\varPhi$为小角度的情况，则
+\begin{equation}
+	\ubm{C}_{ba} = \cos \varPhi \ubm{E}_3 + \big( 1 - \cos \varPhi \big) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^\times \xrightarrow[ \textstyle \quad \cos \varPhi \approx 1 \quad ]{ \textstyle \quad \sin \varPhi \approx \varPhi \quad }
+	\ubm{C}_{ba} = \ubm{E}_3 - \varPhi \ubm{e}^\times 
+\end{equation}
+在无穷小角位移情况下，姿态矩阵的乘法是可以交换的，即当$\ubm{C}_{ba} = \ubm{C}_{ba}(\ubm{e}_1, \varPhi_1)$以及$\ubm{C}_{cb} = \ubm{C}_{cb} (\ubm{e}_2 \varPhi_2)$时，有
+\begin{equation}
+	\ubm{C}_{ca} = \ubm{C}_{ba} \ubm{C}_{cb} = \ubm{C}_{cb} \ubm{C}_{ba} = \ubm{E}_3 - \varPhi_1 \ubm{e}_1^\times - \varPhi_2 \ubm{e}_2^\times 
+\end{equation}
+
+
+\sssection[用欧拉参数表示的姿态矩阵]
+
+对于欧拉参数来说，姿态运动为无穷小角度位移时，$q_0 \approx 1, q_1, q_2, q_3$均为一阶小量，对
+\begin{equation*}
+	\ubm{C}_{ba}(q) = 
+	\begin{bmatrix}
+		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 + q_3q_0) & 2(q_1q_3 - q_2q_0)\\
+		2(q_1q_2 - q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 + q_1q_0) \\
+		2(q_3q_1 + q_2q_0)& 2(q_2q_3 - q_1q_0) & 1 - 2(q_1^2 + q_2^2)
+	\end{bmatrix}
+\end{equation*}
+忽略二阶小量，并取$q_0 = 1$，可以得到
+\begin{equation}
+	\ubm{C}_{ba}(q) = 
+	\begin{bmatrix}
+		1 & 2q_3 & -2q_2 \\
+		-2q_3 & 1 & 2q_1 \\
+		2q_2 & -2q_1 & 1
+	\end{bmatrix}
+	= \ubm{E}_3 - 2 \ubm{q}^\times
+\end{equation}
+
+\sssection[用欧拉角表示的姿态矩阵]
+
+在用欧拉角描述小量角运动时，有$\sin \alpha \approx \alpha, \cos \alpha \approx 1$（注：这里的$\alpha$指代任何一个欧拉角均成立），并忽略二阶小量，那么对于$zxz$顺序的转动，有
+\begin{equation}
+	\ubm{C}_{ba} = 
+	\begin{bmatrix}
+		1 & \psi + \varphi & 0 \\
+		- \psi - \varphi & 1 & \theta \\
+		0 & - \theta & 1
+	\end{bmatrix}
+	= 
+	\ubm{E}_3 = 
+	\begin{bmatrix}
+		\theta \\
+		0 \\
+		\psi + \theta 
+	\end{bmatrix}^\times
+\end{equation}
+可以看出，\textbf{在采用$zxz$顺序旋转时，在小角度下会丢失一个自由度}。（因为叉乘向量中$\bm{j}$分量为0）。
+
+对于$zxy$顺序转动，对应的方向余弦矩阵可以简化为
+\begin{equation}
+	\ubm{C}_{ba} = 
+	\begin{bmatrix}
+		1 & \psi & -\theta \\
+		-\psi & 1 & \varphi \\
+		\theta & - \varphi & 1
+	\end{bmatrix}
+	=
+	\ubm{E}_3 - 
+	\begin{bmatrix}
+		\varphi \\
+		\theta \\
+		\psi
+	\end{bmatrix}^\times
+\end{equation}
+
+
 
 \section{姿态运动学方程}
 
-研究\textbf{姿态参数的变化与角速度矢量$\bm{\omega}_{ba}$的关系}的学科称为\dy[姿态运动学]{ZTYDX}。实际上，$\omega_{ba}$的方向就是欧拉轴 / 角姿态参数中的瞬时旋转轴$\bm{e}$的方向，$\bm{\omega_{ba}}$的数值大小即为$\d \varPhi / \d t$。
-
-角速度$\bm{\omega}_{ba}$的表示方法有两种：
+研究\textbf{姿态参数的变化与角速度矢量$\bm{\omega}_{ba}$的关系}的学科称为\dy[姿态运动学]{ZTYDX}。实际上，$\omega_{ba}$的方向就是欧拉轴 / 角姿态参数中的瞬时旋转轴$\bm{e}$的方向，$\bm{\omega_{ba}}$的数值大小即为$\d \varPhi / \d t$。角速度$\bm{\omega}_{ba}$的表示方法有两种：
 
 \noa[1] $\bm{\omega}_{ba}$在参考坐标系$\bm{S}_a$中的分量矩阵$\omega_{ba}^a$.
 
@@ -1418,7 +1490,7 @@ $
 	写为$\dfrac{\delta \bm{u}}{\delta t}$ \nomenclature{$\dfrac{\delta  \bm{u}}{\delta t}$}{向量$\bm{u}$相对于运动向量基$\bm{e}_a$的时间变化率，相对导数 \nomrefpage}，表示\dy[相对导数]{XDDS}，以便与\dy[绝对导数]{JDDS}$\dfrac{\d \bm{u}}{\d t}$ \nomenclature{$\dfrac{\d \bm{u}}{\d t}$}{向量$\bm{u}$相对于惯性向量基的时间变化率，绝对导数 \nomrefpage}区分。等号右侧后三\\[0.2em]
 	项都是单位基向量对时间的导数，如图 \ref{基向量的转动} 所示。
 	
-	\qquad 设$\bm{e}$是固定在坐标系$S_a$中的单位基向量，$\bm{\omega}$是基向量转动的角速度。在$t = t_0$时刻，$\bm{e}$的末端位于$a$点，经过$\Delta t$时间后，$\bm{e}$转动到$\bm{e}'$，其末端相应的转动到$a'$点。记$aa'$的圆心为点$O$，$\bm{e}$与$\bm{\omega}$之间的夹角为$\theta$，则由图 \ref{基向量的转动} 可知$\angle aOa' = \bm{\omega} \Delta t,\, \, aa' = \bm{\omega}\Delta t |\bm{e}| \sin \theta$。当$\Delta t$趋近于0时，弧$\wideparen{aa'}$逼近弦长$aa'$，其方向趋近于圆在$a$点的切线$\bm{\tau}$。所以，$\Delta \to 0 \Rightarrow \wideparen{aa'} = aa' = \bm{\omega} \times \bm{e}\Delta t$。由向量导数的定义，有
+	\qquad 设$\bm{e}$是固定在坐标系$S_a$中的单位基向量，$\bm{\omega}$是基向量转动的角速度。在$t = t_0$时刻，$\bm{e}$的末端位于$a$点，经过$\Delta t$时间后，$\bm{e}$转动到$\bm{e}'$，其末端相应的转动到$a'$点。记$aa'$的圆心为点$O$，$\bm{e}$与$\bm{\omega}$之间的夹角为$\theta$，则由图 \ref{基向量的转动} 可知$\angle aOa' = \bm{\omega} \Delta t,\, \, aa' = \bm{\omega}\Delta t |\bm{e}| \sin \theta$。当$\Delta t$趋近于0时，弧$\wideparen{aa'}$逼近弦长$aa'$，其方向趋近于圆在$a$点的切线$\bm{\tau}$。所以，$\Delta \to 0 \Rightarrow \wideparen{aa'} = aa' = \bm{\omega} \times \bm{e}\Delta t$。由向量导数定义，有
 	\begin{equation}
 		\dfrac{\d \bm{e}}{\d t} = \lim\limits_{\Delta \to 0}\dfrac{\wideparen{aa'}}{\Delta t} = \lim\limits_{\Delta t \to 0} \dfrac{\bm{\omega} \times \bm{e} \Delta t}{\Delta t} = \bm{\omega} \times \bm{e}
 	\end{equation}
@@ -1442,8 +1514,6 @@ $
 \begin{equation}
 	\dfrac{\d \bm{u}}{\d t} = \dfrac{\delta \bm{u}}{\d t} + \bm{\omega}_a \times \bm{u}
 \end{equation}
-
-\newpage
 
 
 
@@ -1481,7 +1551,7 @@ $
 
 
 也就是说，如果已知$\bm{\omega}(t)$，可以通过积分法求得方向余弦矩阵$\ubm{C}_{ba}(t)$的时间表达式。可以利用
-\begin{equation*}
+\begin{equation*} 
 	\ubm{C}_{ba} \ubm{C}_{ba}^\T = \ubm{C}_{ab} \ubm{C}_{ab}^\T = \ubm{E}_3
 \end{equation*}
 求得$\ubm{\omega}_{ba}(t)$关于$\ubm{C}_{ba}(t)$的表达式
@@ -1910,27 +1980,115 @@ $
 
 
 
+\subsection{无穷小角位移运动的角速度}
+
+\textbf{核心假设：在无穷小角位移运动的条件下，角速度矢量$\bm{\omega}_{ba}$在坐标系$S_b$下的分量矩阵$\ubm{\omega}_{ba}$的各个元素看做一阶小量，一阶更高阶的小量均忽略。}
+\vspace*{1em}
+
+\sssection[方向余弦矩阵]
+
+在无穷小角位移假设下，有$C_{ii}  \approx 1, i = 1,2,3,\,\, C_{ij}(i \neq j, i,j = 1,2,3)$为一阶小量，则
+\begin{equation}
+	\dot{\ubm{C}}_{ba} = - \ubm{C}_{ba} \ubm{\omega}_{ba}^\times \quad \Rightarrow \quad 
+	\begin{cases}
+		\, \dot{C}_{11} = \omega_z C_{21} - \omega_y C_{31} \approx 0 \\
+		\, \dot{C}_{22} = \omega_x C_{32} - \omega_z C_{12} \approx 0 \\
+		\, \dot{C}_{33} = \omega_y C_{13} - \omega_x C_{23} \approx 0
+	\end{cases}
+\end{equation}
+以及
+\begin{equation}
+		\left \lbrace 
+		\begin{array}{l}
+			\left.
+			\begin{array}{l}
+				\hspace*{-1em} \dot{C}_{21} = \omega_x C_{31} - \omega_z C_{11} \approx - \omega_z \\
+				\hspace*{-1em} \dot{C}_{12} = \omega_z C_{22} - \omega_y C_{32} \approx \omega_z 
+			\end{array}
+			\right \rbrace \quad \Rightarrow \quad \omega_z \approx - \dot{C}_{21} = \dot{C}_{12} \\[1.5em]
+			\left.
+			\begin{array}{l}
+				\hspace*{-1em} \dot{C}_{31} = \omega_y C_{11} - \omega_x C_{21} \approx \omega_y \\
+				\hspace*{-1em} \dot{C}_{13} = \omega_x C_{23} - \omega_y C_{33} \approx - \omega_y
+			\end{array}
+			\right \rbrace \quad \Rightarrow \quad \omega_y \approx - \dot{C}_{13} = \dot{C}_{31} \\[1.5em]
+				\left.
+			\begin{array}{l}
+				\hspace*{-1em} \dot{C}_{32} = \omega_y C_{12} - \omega_x C_{22} \approx - \omega_x \\
+				\hspace*{-1em} \dot{C}_{23} = \omega_x C_{33} - \omega_y C_{13} \approx \omega_z 
+			\end{array}
+			\right \rbrace \quad \Rightarrow \quad \omega_x \approx - \dot{C}_{32} = \dot{C}_{23} \\
+		\end{array}
+		\right.
+\end{equation}
+
+\newpage
+
+\sssection[欧拉轴 / 角]
+
+无穷小角位移假设下有$\cos \varPhi \approx 1, \,\, \sin \varPhi \approx \varPhi$，则
+\begin{equation}
+	\ubm{\omega}_{ba} = \dot{\varPhi} \ubm{e} - (1 - \cos \varPhi) \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \dot{\ubm{e}} \quad 
+	\xrightarrow[\quad \textstyle \cos \varPhi \approx 1 \quad]{\quad \textstyle \sin \varPhi \approx \varPhi \quad} \quad 
+	\ubm{\omega}_{ba} \approx \dot{\varPhi}\ubm{e} + \varPhi \dot{\ubm{e}} \dot{\ubm{\varPhi}}
+\end{equation}
+其中， $\dot{\ubm{\varPhi}} = \varPhi \ubm{e}$
+\vspace*{1em}
 
 
+\sssection[欧拉参数]
+
+无穷小角位移假设下有$q_0 \approx 1, q_1, q_2, q_3$均为一阶小量，则
+\begin{equation}
+	\dot{\bm{q}} = \dfrac{1}{2} \left(\ubm{q}_0 \ubm{E}_3 + \ubm{q}^\times\right)\ubm{\omega}_{ba}
+	\approx 
+	\dfrac{1}{2} \ubm{\omega}_{ba}
+\end{equation}
+\vspace*{1em}
 
 
+\sssection[欧拉角]
 
+对于$zxy$顺序旋转，无穷角位移假设下有$\cos \alpha \approx 1, \,\, \sin \alpha \approx \alpha, \,\, \alpha = \varphi, \theta , \psi$，则
+\begin{equation}
+	\ubm{\omega}_{ba} =
+	\begin{bmatrix}
+		\cos \theta & 0 & - \cos \varphi \sin \theta \\
+		0 & 1 & \sin \varphi \\
+		\sin \theta & 0 & \cos \theta \cos \varphi
+	\end{bmatrix}
+	\begin{bmatrix}
+		\dot{\varphi} \\
+		\dot{\theta} \\
+		\dot{\psi}
+	\end{bmatrix}
+	\approx
+	\begin{bmatrix}
+		1 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0& 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		\dot{\varphi} \\
+		\dot{\theta} \\
+		\dot{\psi}
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\dot{\varphi} \\
+		\dot{\theta} \\
+		\dot{\psi}
+	\end{bmatrix}
+\end{equation}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\textbf{所以，在无穷小角位移假设下，采用$zxy$和$zyx$两种转动顺序欧拉角描述姿态运动，则$\ubm{\omega}_{ba}$近似等于姿态角速率向量。}同时，对比欧拉参数和欧拉角下的无穷小角位移运动的角速度表达，也可以得到
+\begin{equation}
+	\begin{cases}
+		\dot{\varphi} = 2 \dot{q}_1 \\
+		\dot{\theta} = 2 \dot{q}_2 \\
+		\dot{\psi} = 2 \dot{q}_3
+	\end{cases}
+\end{equation}
 
 
 
