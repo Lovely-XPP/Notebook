@@ -498,6 +498,119 @@
 
 
 
+\section{欧拉轴角向量恒等式的证明}
+\label{欧拉轴角向量恒等式的证明}
+\sssection[$\ubm{e}^\T \ubm{e} = 1$]
+\vspace*{-0.8em}
+
+\proof 由于欧拉轴向量$\bm{e}$是单位向量，所以
+\begin{equation}
+	\bm{e} \cdot \bm{e} = \ubm{e}^\T \ubm{e} = 1
+\end{equation}
+\hfill $\square$
+
+
+\sssection[$\ubm{e}^\times \ubm{e} = 0$]
+\vspace*{-0.8em}
+
+\proof 由于平行向量叉乘为0，所以
+\begin{equation}
+	\bm{e} \times \bm{e} = \ubm{e}^\times \ubm{e} = 0
+	\label{eq:eq2}
+\end{equation}
+\hfill $\square$
+
+
+\sssection[$\ubm{e}^\times \ubm{e} = 0$]
+\vspace*{-0.8em}
+
+\proof 对公式 \eqref{eq:eq2} 两边同时求导，有
+\begin{equation}
+	\big( \ubm{e}^\times \ubm{e} \big)' = 0 \quad \Rightarrow \quad \dot{\ubm{e}}^\times \ubm{e} + \ubm{e}^\times \dot{\ubm{e}} = 0 \quad \Rightarrow \quad \dot{\ubm{e}}^\times \ubm{e} =  -\ubm{e}^\times \dot{\ubm{e}}
+\end{equation}
+\hfill $\square$
+
+
+\sssection[$\dot{\ubm{e}^\times} \ubm{e}^\times = \ubm{e}\dot{\ubm{e}}^\T$]
+\vspace*{-0.8em}
+
+\proof 设$\ubm{e} = \big[ e_x \quad e_y \quad e_z \big]^\T$，则
+\begin{equation*}
+	\dot{\ubm{e}} =
+	\begin{bmatrix}
+		\dot{e}_x \\
+		\dot{e}_y \\
+		\dot{e}_z
+	\end{bmatrix},
+	\qquad 
+	\dot{\ubm{e}}^\times =
+	\begin{bmatrix}
+		0 & - \dot{e}_x & \dot{e}_y \\
+		\dot{e}_z & 0 & - \dot{e}_x \\
+		-\dot{e}_y & \dot{e}_x & 0
+	\end{bmatrix}
+\end{equation*}
+注意：$\dot{\ubm{e}}^\times$同样是反对称矩阵，即$\big( \dot{\ubm{e}}^\times \big)^\T = - \dot{\ubm{e}}^\times$，所以有
+\begin{equation}
+	\dot{\ubm{e}}^\times \ubm{e}^\times = 
+	\begin{bmatrix}
+		0 & - \dot{e}_z & \dot{e}_y \\
+		\dot{e}_z & 0 & - \dot{e}_x \\
+		-\dot{e}_y & \dot{e}_x & 0
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & e_z & e_y \\
+		e_z & 0 & -e_x \\
+		e_y & e_x & 0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		-\dot{e}_y e_y - \dot{e}_z e_z & \dot{e}_y e_x & \dot{e}_z e_x \\
+		\dot{e}_x e_y & - \dot{e}_x x - \dot{e}_z e_z & \dot{e}_z e_y \\
+		\dot{e}_x e_z & \dot{e}_y e_z & - \dot{e}_x x - \dot{e}_y y
+	\end{bmatrix}
+	\label{eq:eq3-1}
+\end{equation}
+由于向量的导数与向量正交（$\bm{u} = \bm{\omega} \times \bm{u}$），所以
+\begin{equation}
+	\dot{\bm{e}} \cdot \bm{e} = \dot{\ubm{e}}^\T \ubm{e} = \big[ \dot{e}_x \quad \dot{e}_y \quad \dot{e}_z \big] 
+	\begin{bmatrix}
+		e_x \\
+		e_y \\
+		e_z
+	\end{bmatrix}
+	= \dot{e}_x x + \dot{e}_y e_y + \dot{e}_z e_z = 0
+\end{equation}
+替换掉公式 \eqref{eq:eq3-1} 中的对角线元素，可以得到
+\begin{equation}
+	\dot{\ubm{e}}^\times \ubm{e}^\times = 
+	\begin{bmatrix}
+		-\dot{e}_y e_y - \dot{e}_z e_z & \dot{e}_y e_x & \dot{e}_z e_x \\
+		\dot{e}_x e_y & - \dot{e}_x x - \dot{e}_z e_z & \dot{e}_z e_y \\
+		\dot{e}_x e_z & \dot{e}_y e_z & - \dot{e}_x x - \dot{e}_y y
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\dot{e}_x e_x & \dot{e}_y e_x & \dot{e}_z e_x \\
+		\dot{e}_x e_y & \dot{e}_y e_y & \dot{e}_z e_y \\
+		\dot{e}_x e_z & \dot{e}_y e_z & \dot{e}_z z
+	\end{bmatrix}
+	=\dot{\ubm{e}} \ubm{e}^\T
+\end{equation}
+\hfill $\square$
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

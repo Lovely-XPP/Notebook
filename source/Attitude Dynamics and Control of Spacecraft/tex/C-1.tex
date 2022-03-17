@@ -434,7 +434,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 \begin{equation}
 	\bm{b} = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
 \end{equation}
-为了写成矩阵形式，我们利用把向量（在坐标系$S_a$的分量）的计算转换为矩阵的形式\footnote[1]{关于$\ubm{e}\ubm{e}^\T$和叉乘矩阵$\ubm{e}^\times$的说明及向量运算矩阵表示的证明，详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
+为了写成矩阵形式，我们利用把向量（在坐标系$S_a$的分量）的计算转换为矩阵的形式\footnote[1]{关于$\ubm{e}\ubm{e}^\T$和叉乘矩阵$\ubm{e}^\times$的说明及向量运算矩阵表示的证明，详见 第 \ref{参考内容} 章 ： \ref{向量运算的矩阵表示} \link[向量运算的矩阵表示]}，即
 \begin{align*}
 	\bm{e} \cdot \bm{a} \cdot \bm{e} = 
 	\big[ \bm{i}_a \quad \bm{j}_a \quad \bm{k}_a \big] \,
@@ -499,7 +499,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\end{align}
 }
 
-而由向量旋转与坐标系旋转的对应关系，可以知道向量旋转矩阵和坐标系旋转矩阵（方向余弦矩阵）互为转置（逆），所以可以得到\footnote[2]{证明详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量旋转矩阵和坐标系旋转矩阵的关系} \link[向量旋转矩阵和坐标系旋转矩阵的关系]}
+而由向量旋转与坐标系旋转的对应关系，可以知道向量旋转矩阵和坐标系旋转矩阵（方向余弦矩阵）互为转置（逆），所以可以得到\footnote[2]{证明详见 第 \ref{参考内容} 章 ： \ref{向量旋转矩阵和坐标系旋转矩阵的关系} \link[向量旋转矩阵和坐标系旋转矩阵的关系]}
 
 \theorem[欧拉轴 / 角参数下的坐标系旋转矩阵（方向余弦矩阵）]
 {
@@ -813,6 +813,7 @@ $，那么
 	对于任意四元数$q_1= \big[s, \bm{v} \big],\, q_2= \big[ t, \bm{u} \big]$，$q_1q_2$的结果为
 	\begin{equation}
 		q_1 q_2 = \big[ st - \bm{v} \cdot \bm{u}, s \bm{u} + t \bm{v} + \bm{v} \times \bm{u} \big]
+		\label{Grassmann}
 	\end{equation}
 }
 \vspace*{0.5em}
@@ -993,7 +994,7 @@ $
 	b &= b_\parallel + b_\perp \notag \\
 	&= a_\parallel + q a_\perp \qquad \mbox{（其中}\,\, q = \big[ \cos \varPhi, \sin \varPhi \bm{e}\big]\mbox{）}
 \end{align}
-通过进一步的化简\footnote[1]{由于篇幅所限，此部分化简内容请参见 第 \ref{参考内容} 章 \link[参考内容]： \ref{旋转四元数参数的化简} \link[旋转四元数参数的化简]}，可以得到
+通过进一步的化简\footnote[1]{由于篇幅所限，此部分化简内容请参见 第 \ref{参考内容} 章 ： \ref{旋转四元数参数的化简} \link[旋转四元数参数的化简]}，可以得到
 
 \theorem[向量旋转的四元数参数]
 {
@@ -1011,7 +1012,7 @@ $
 \footnotetext[2]{公式 \eqref{旋转四元数的几何意义} 是原式公式化简第一步的结果，详情请见\eqrefp[旋转几何意义]。}
 
 
-由这个公式的由来，可以发现其和上一章节的欧拉轴 / 角的证明是类似的。实际上，旋转四元数参数和欧拉轴 / 角时完全等价的\footnote[3]{其证明见第 \ref{参考内容} 章 \link[参考内容]： \ref{旋转的欧拉轴 / 角参数表达和四元数表达的等价性} \link[旋转的欧拉轴 / 角参数表达和四元数表达的等价性]}，即
+由这个公式的由来，可以发现其和上一章节的欧拉轴 / 角的证明是类似的。实际上，旋转四元数参数和欧拉轴 / 角时完全等价的\footnote[3]{其证明见第 \ref{参考内容} 章 ： \ref{旋转的欧拉轴 / 角参数表达和四元数表达的等价性} \link[旋转的欧拉轴 / 角参数表达和四元数表达的等价性]}，即
 \begin{equation}
 	b = qaq^* = \cos \varPhi \bm{a} + ( 1 - \cos \varPhi ) (\bm{e} \cdot \bm{a})\bm{e} + \sin \varPhi(\bm{e} \times \bm{a})
 \end{equation}
@@ -1130,10 +1131,10 @@ $
 		\end{cases}
 		\,\, \Longrightarrow \,\,
 		\ubm{b} = 
-		\ubm{R}_{ba}(\ubm{q})
+		\ubm{R}_{ba}(q)
 	\ubm{a},
 	\,\,
-	\ubm{R}_{ba}(\ubm{q}) = 
+	\ubm{R}_{ba}(q) = 
 	\begin{bmatrix}
 		1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 - q_3q_0) & 2(q_1q_3 + q_2q_0)\\
 		2(q_1q_2 + q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 - q_1q_0) \\
@@ -1142,7 +1143,7 @@ $
 	\end{equation}
 }
 
-同样地，由向量旋转与坐标系旋转的对应关系，可以知道向量旋转矩阵和坐标系旋转矩阵（方向余弦矩阵）互为转置（逆），所以可以得到\footnote[1]{证明详见 第 \ref{参考内容} 章 \link[参考内容]： \ref{向量旋转矩阵和坐标系旋转矩阵的关系} \link[向量旋转矩阵和坐标系旋转矩阵的关系]}
+同样地，由向量旋转与坐标系旋转的对应关系，可以知道向量旋转矩阵和坐标系旋转矩阵（方向余弦矩阵）互为转置（逆），所以可以得到\footnote[1]{证明详见 第 \ref{参考内容} 章 ： \ref{向量旋转矩阵和坐标系旋转矩阵的关系} \link[向量旋转矩阵和坐标系旋转矩阵的关系]}
 
 \theorem[欧拉参数表示的坐标旋转矩阵（方向余弦矩阵）]
 {
@@ -1155,16 +1156,20 @@ $
 			\, q_3 = e_z \sin \dfrac{\varPhi}{2}
 		\end{cases}
 		\,\, \Longrightarrow \,\,
-		\ubm{b} = 
-		\ubm{C}_{ba}(\ubm{q})
-		\ubm{a},
+		\ubm{e}_b = 
+		\ubm{C}_{ba}(q)
+		\ubm{e}_a,
 		\,\,
-		\ubm{C}_{ba}(\ubm{q}) = 
+		\ubm{C}_{ba}(q) = 
 		\begin{bmatrix}
 			1 - 2(q_2^2 + q_3^2) & 2(q_1q_2 + q_3q_0) & 2(q_1q_3 - q_2q_0)\\
 			2(q_1q_2 - q_3q_0)  & 1 - 2(q_1^2 + q_3^2) & 2(q_2q_3 + q_1q_0) \\
 			2(q_3q_1 + q_2q_0)& 2(q_2q_3 - q_1q_0) & 1 - 2(q_1^2 + q_2^2)
 		\end{bmatrix}
+	\end{equation}
+	同时对于四元数$e_a = [0, \bm{e}_a],\, e_b = [0, \bm{e}_b]$，有
+	\begin{equation}
+		e_b = q^* e_a q
 	\end{equation}
 }
 
@@ -1453,7 +1458,7 @@ $
 \begin{equation}
 	\dot{\ubm{e}}_b^\T = \bm{\omega}_{ba} \times \ubm{e}_b^\T
 \end{equation}
-对角速度$\bm{\omega}_{ba}$在$S_b$坐标系下的分解，并由广义向量叉乘运算\footnote[1]{关于广义向量叉乘运算的定义，详见 第 \ref{参考内容} 章 \link[参考内容]：\ref{广义向量叉乘运算}  \link[广义向量叉乘运算]}，可得
+对角速度$\bm{\omega}_{ba}$在$S_b$坐标系下的分解，并由广义向量叉乘运算\footnote[1]{关于广义向量叉乘运算的定义，详见 第 \ref{参考内容} 章 ：\ref{广义向量叉乘运算}  \link[广义向量叉乘运算]}，可得
 \begin{equation}
 	\dot{\ubm{e}}_b^\T = \bm{\omega}_{ba}^\T \ubm{e}_b \times \ubm{e}_b^\T = \ubm{e}_b^\T \ubm{\omega}_{ba}^\times 
 \end{equation}
@@ -1500,7 +1505,7 @@ $
 	= -\dot{\ubm{C}}_{ca} \ubm{C}_{bc} - \ubm{C}_{cb} \dot{\ubm{C}}_{ba} \ubm{C}_{ab} \ubm{C}_{bc} \\
 	&= \ubm{\omega}_{cb}^\times + \ubm{C}_{cb} \ubm{\omega}_{ba}^\times \ubm{C}_{bc}
 \end{align*}
-由叉乘矩阵恒等式\footnote[1]{关于叉乘矩阵恒等式的证明，详见 第 \ref{参考内容} 章 \link[参考内容]：\ref{叉乘矩阵的坐标变换}  \link[叉乘矩阵的坐标变换]}$\left( \ubm{C} \ubm{u} \right)^\times = \ubm{C} \ubm{u}^\times \ubm{C}^\T$，可得
+由叉乘矩阵恒等式\footnote[1]{关于叉乘矩阵恒等式的证明，详见 第 \ref{参考内容} 章 ：\ref{叉乘矩阵的坐标变换}  \link[叉乘矩阵的坐标变换]}$\left( \ubm{C} \ubm{u} \right)^\times = \ubm{C} \ubm{u}^\times \ubm{C}^\T$，可得
 \begin{equation*}
 	\ubm{\omega}_{ca}^\times = \ubm{\omega}_{cb}^\times + \ubm{C}_{cb} \ubm{\omega}_{ba}^\times \ubm{C}_{bc} = \ubm{\omega}_{cb}^\times + \left( \ubm{C}_{cb} \ubm{\omega}_{ba} \right)^\times
 \end{equation*}
@@ -1709,6 +1714,216 @@ $
 	\ubm{\omega}_{ba}
 \end{equation}
 容易发现，滚转角$\varphi \to \pm \dfrac{\pi}{2}$，角速率$\to \infty$，方程奇异。
+
+
+
+\subsection{欧拉轴 / 角参数的微分方程及角速度}
+\sssection[欧拉轴 / 角参数表示的角速度]
+
+由角速度的微分方程及欧拉轴 / 角参数下的方向余弦矩阵表示
+\begin{equation*}
+	\begin{cases}
+		\, \ubm{\omega}_{ba}^\times = - \ubm{\dot{C}}_{ba} \ubm{C}_{ba}^\T \\
+		\, \ubm{C}_{ba} = \cos \varPhi \ubm{E}_3 + (1 - \cos \varPhi) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^\times
+	\end{cases}
+\end{equation*}
+代入可得
+\begin{align*}
+	\ubm{\omega}_{ba}^\times &= - \ubm{\dot{C}}_{ba} \ubm{C}_{ba}^\T \\
+	&= - \dfrac{\d }{\d t} \big[ \cos \varPhi \ubm{E}_3 + (1 - \cos \varPhi) \ubm{e} \ubm{e}^\T - \sin \varPhi \ubm{e}^ \times \big] \cdot \big[ \cos \varPhi \ubm{E}_3 + (1 - \cos \varPhi)\ubm{e}\ubm{e}^\T - \sin \varPhi \ubm{e}^\times \big]^\T \\
+	&= \big[ -\sin \varPhi \dot{\varPhi} \ubm{E}_3 + \sin \varPhi \dot{\varPhi} \ubm{e} \ubm{e}^\T + (1 - \cos \varPhi)  (\dot{\ubm{e}} \ubm{e}^\T + \ubm{e} \dot{\ubm{e}}^\T) - \cos \varPhi \dot{\varPhi} \ubm{e}^\times - \sin \varPhi \dot{\ubm{e}}^\times \big] \cdot \big[ \cos \varPhi \ubm{E}_3 + (1 - \cos \varPhi)\ubm{e}\ubm{e}^\T + \sin \varPhi \ubm{e}^\times \big] \\
+	&= \dot{\varPhi}\ubm{e}^\times - (1 - \cos \varPhi) \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \dot{\ubm{e}}^\times
+\end{align*}
+注：这里的证明后补，实在是阴间化简。。。其中用到了恒等式如下\footnote[1]{关于恒等式的证明，详见 第 \ref{参考内容} 章：\ref{欧拉轴角向量恒等式的证明}  \link[欧拉轴角向量恒等式的证明]}
+\begin{align*}
+	\ubm{e}^\T \ubm{e} = 1 && \ubm{e}^\times \ubm{e} = \ubm{e}^\T \ubm{e}^\times = 0 \\
+	\dot{\ubm{e}}^\times \ubm{e} = - \ubm{e}^\times \dot{\ubm{e}} && \dot{\ubm{e}}^\times \ubm{e}^\times = \ubm{e} \dot{\ubm{e}}^\T \\
+	\ubm{e} \dot{\ubm{e}}^\T \ubm{e}^\times  + \ubm{e}^\times \ubm{e} \dot{\ubm{e}}^\T = - \dot{\ubm{e}}^\times && \dot{\ubm{e}} \ubm{e}^\T - \ubm{e}\dot{\ubm{e}}^\T = \big( \ubm{e}^\times \dot{\ubm{e}} \big)^\times
+\end{align*}
+所以，我们得到
+
+\theorem[欧拉轴 / 角参数的角速度]
+{
+	欧拉轴 / 角参数的角速度为
+	\begin{equation}
+		\ubm{\omega}_{ba} = \dot{\varPhi} \ubm{e} - (1 - \cos \varPhi) \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \dot{\ubm{e}}
+		\label{eq:eularw}
+	\end{equation}
+	当绕固定轴旋转时，即$\dot{\bm{e}} = 0$时，则化简为
+	\begin{equation}
+		\ubm{\omega}_{ba} = \dot{\varPhi}\ubm{e}
+	\end{equation}
+}
+
+
+\sssection[欧拉轴 / 角参数的微分方程]
+
+为了求得微分方程，将公式 \eqref{eq:eularw} 两边左乘$\ubm{e}^\T$，即
+\begin{flalign*}
+	\ubm{e}^\T \ubm{\omega}_{ba} &= \ubm{e}^\T \big( \dot{\varPhi} \ubm{e} - (1 - \cos \varPhi) \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \dot{\ubm{e}} \big) \\
+	&= \dot{\varPhi} \ubm{e}^\T \ubm{e} - (1 - \cos \varPhi)\ubm{e}^\T \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\T \dot{\ubm{e}} 
+	& \mbox{（}\ubm{e}^\T \ubm{e} = 1 \mbox{）} \\
+	&= \dot{\varPhi} - (1 - \cos \varPhi)\ubm{e}^\T \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\T \dot{\ubm{e}}
+	& \mbox{（向量叉乘为0，}\ubm{e}^\T \ubm{e}^\times = 0 \mbox{）} \\
+	&= \dot{\varPhi} + \sin \varPhi \ubm{e}^\T \dot{\ubm{e}}
+	& \mbox{（向量与向量的导数点乘为0，}\bm{e} \cdot \dot{\bm{e}} = \ubm{e}^\T \dot{\ubm{e}} = 0 \mbox{）}  \\
+	&= \dot{\varPhi}
+\end{flalign*}
+所以
+\begin{equation}
+	\dot{\varPhi} = \ubm{e}^\T \ubm{\omega}_{ba}
+\end{equation}
+为了进一步简化，我们先化简$\ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}}$，利用恒等式
+\begin{flalign*}
+	\ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}} &= \ubm{e}^\times \big( \ubm{e}^\times \dot{\ubm{e}} \big) 
+	& \mbox{（} \dot{\ubm{e}}^\times \ubm{e}  = -\ubm{e}^\times \dot{\ubm{e}} \mbox{）}   \\
+	& = \ubm{e}^\times \big( - \dot{\ubm{e}}^\times \ubm{e} \big) = - \big( \ubm{e}^\times \dot{\ubm{e}}^\times \big) \ubm{e} = -\big[ \big(\ubm{e}^\times \dot{\ubm{e}}^\times \big)^T \big]^\T\ubm{e} = -\big[ \big( \dot{\ubm{e}}^\times \big)^\T \big( \ubm{e}^\times \big)^\T \big]^\T \ubm{e}
+	& \mbox{（反对称矩阵的转置等于本身的相反数）} \\
+	& = -\big[ \big(-\dot{\ubm{e}}^\times \big) \big( - \ubm{e}^\times \big) \big]^\T \ubm{e} = -\big( \dot{\ubm{e}}^\times \ubm{e} \big)^\T \ubm{e}
+	& \mbox{（} \dot{\ubm{e}}^\times \ubm{e}^\times = \ubm{e} \dot{\ubm{e}}^\T \mbox{）}  \\
+	& = - \big( \ubm{e} \dot{\ubm{e}}^\T \big)^\T \ubm{e} = - \dot{\ubm{e}} \ubm{e}^\T \ubm{e} 
+	& \mbox{（}\ubm{e}^\T \ubm{e} = 1 \mbox{）} \\
+	& = - \dot{\ubm{e}}
+\end{flalign*}
+利用上面得到的化简式，将公式 \eqref{eq:eularw} 两边左乘$\ubm{e}^\times$，即
+\begin{flalign*}
+	\ubm{e}^\times \ubm{\omega}_{ba} &= \ubm{e}^\times \big( \dot{\varPhi} \ubm{e} - (1 - \cos \varPhi) \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \dot{\ubm{e}} \big) \\
+	& = \dot{\varPhi} \ubm{e}^\times \ubm{e} - (1 - \cos \varPhi)\ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\times \dot{\ubm{e}} 
+	& \mbox{（向量叉乘为0，}\ubm{e}^\T \ubm{e}^\times = 0 \mbox{）} \\
+	& = - (1 - \cos \varPhi)\ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\times \dot{\ubm{e}} 
+	& \mbox{（} \ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}} = - \dot{\ubm{e}} \mbox{）} \\
+	& = (1 - \cos \varPhi) \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\times \dot{\ubm{e}} 
+\end{flalign*}
+所以
+\begin{equation}
+	\ubm{e}^\times \ubm{\omega}_{ba} = (1 - \cos \varPhi) \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\times \dot{\ubm{e}}
+	\label{eq:1341}
+\end{equation}
+将公式 \eqref{eq:1341} 两边再左乘$\ubm{e}^\times$，即
+\begin{flalign*}
+	\ubm{e}^\times \ubm{e}^\times \ubm{\omega}_{ba} &= \ubm{e}^\times \left[ (1 - \cos \varPhi) \dot{\ubm{e}} + \sin \varPhi \ubm{e}^\times \dot{\ubm{e}} \right]\\
+	&= (1 - \cos \varPhi) \ubm{e}^\times\dot{\ubm{e}} + \sin \varPhi \ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}} 
+	& \mbox{（} \ubm{e}^\times \ubm{e}^\times \dot{\ubm{e}} = - \dot{\ubm{e}} \mbox{）} \\
+	&= (1 - \cos \varPhi) \ubm{e}^\times\dot{\ubm{e}} - \sin \varPhi \dot{\ubm{e}}
+\end{flalign*}
+综合以上公式
+\begin{equation}
+	\begin{cases}
+		\, \dot{\varPhi} = \ubm{e}^\T \ubm{\omega}_{ba} \\
+		\, \ubm{e}^\times \ubm{e}^\times \ubm{\omega}_{ba} = (1 - \cos \varPhi) \ubm{e}^\times\dot{\ubm{e}} - \sin \varPhi \dot{\ubm{e}}
+	\end{cases}
+	\label{eq:1342}
+\end{equation}
+以$\dot{\ubm{e}}$和$\ubm{e}^\times \dot{\ubm{e}}$为未知数，解方程 \eqref{eq:1342} 得
+
+\theorem[欧拉轴 / 角参数的微分方程]
+{
+	欧拉轴 / 角参数的微分方程为
+	\begin{equation}
+		\begin{cases}
+			\, \dot{\varPhi} = \ubm{e}^\T \ubm{\omega}_{ba} \\[0.5em]
+			\, \dot{\ubm{e}} = \dfrac{1}{2} \left( \ubm{e}^\times - \cot \dfrac{\varPhi}{2} \ubm{e}^\times \ubm{e}^\times \right) \ubm{\omega}_{ba}
+		\end{cases}
+	\end{equation}
+}
+
+
+
+\subsection{欧拉参数下的角速度和微分方程}
+设$q$为$S_b$相对于$S_a$的姿态四元数，则有
+\begin{align*}
+	\bm{r}_b = q \bm{r}_a q^* \\
+	\bm{r}_a = q^* \bm{r}_b q
+\end{align*}
+则
+\begin{align*}
+	\dfrac{\d \bm{r}_b}{\d t} 
+	&= \dfrac{\d q}{\d t} \bm{r}_a q^* + q \bm{r}_a \dfrac{\d q^*}{\d t} \\
+	&= \dfrac{\d q}{\d t} q^* \bm{r}_b q q^* + q q^* \bm{r}_b q \dfrac{\d q^*}{\d t} \\
+	&= \dfrac{\d q}{\d t} q^* \bm{r}_b + \bm{r}_b q \dfrac{\d q^*}{\d t}
+\end{align*}
+由于
+\begin{equation*}
+	\dfrac{\d (q q^*)}{\d t} = \dfrac{\d q}{\d t} q^* + q \dfrac{\d q^*}{\d t}
+\end{equation*}
+而$\dfrac{\d (q q^*)}{\d t} = \dfrac{\d 1}{\d t} = 0 \quad \Rightarrow \quad q \dfrac{\d q^*}{\d t} = - \dfrac{\d q}{\d t} q^*$，所以
+\begin{align*}
+	\dfrac{\d \bm{r}_b}{\d t} 
+	&= \dfrac{\d q}{\d t} q^* \bm{r}_b + \bm{r}_b q \dfrac{\d q^*}{\d t} \\
+	&= \dfrac{\d q}{\d t} q^* \bm{r}_b - \bm{r}_b \dfrac{\d q}{\d t} q^* \\
+	&= \dfrac{\d q}{\d t} q^* \bm{r}_b - \left( -\dfrac{\d q}{\d t} q^* \bm{r}_b \right) \\
+	&= 2 \dfrac{\d q}{\d t} q^* \bm{r}_b \\
+	&= 2 \text{vect}\left[\dfrac{\d q}{\d t} q^*\right] \times \bm{r}_b
+\end{align*}
+其中，$\text{vect} [q]$代表四元数$q$的\dy[虚部向量]{XBXL}
+\nomenclature{$\text{vect} [q]$}{四元数$q$的虚部向量 \nomrefpage}，所以我们知道
+\begin{equation}
+	\begin{cases}
+		\, \dfrac{\d \bm{r}_b}{\d t} = 2 \text{vect}\left[\dfrac{\d q}{\d t} q^*\right] \times \bm{r}_b \\[0.5em]
+		\, \dfrac{\d \bm{r}_b}{\d t} = \bm{\omega}_{ba} \times \bm{r}_b
+	\end{cases}
+\end{equation}
+比对可得
+\begin{equation}
+	\begin{cases}
+		\, \bm{\omega}_{ba} = 2 \text{vect}\left[\dfrac{\d q}{\d t} q^*\right] \\[0.5em]
+		\, \text{scal}\left[\dfrac{\d q}{\d t} q^*\right] = \dot{q}_0q_0 + \dot{q}_1 q_1 + \dot{q}_2 q_2 + \dot{q}_3 q_3 = 0
+	\end{cases}
+\end{equation}
+其中，$\text{scal} [q]$代表四元数$q$的\dy[实部标量]{XBXL}。
+\nomenclature{$\text{scal} [q]$}{四元数$q$的实部标量 \nomrefpage}
+
+定义纯四元数$\Omega_{ba}^a = [0,\bm{\omega}_{ba}]$，那么
+\begin{equation*}
+	\Omega_{ba}^a = 2 \dfrac{\d q}{\d t} q^*, \qquad \qquad \dfrac{\d q}{\d t} = \dfrac{1}{2} \Omega_{ba}^a q
+\end{equation*}
+又由于
+\begin{equation*}
+	\Omega_{ba}^b = q^* \Omega_{ba}^a q \quad \Rightarrow \quad \Omega_{ba}^a = q \Omega_{ba}^b q^*
+\end{equation*}
+进而得到
+\begin{equation}
+	\dfrac{\d q}{\d t} = \dfrac{1}{2} q \Omega_{ba}^b
+\end{equation}
+
+记欧拉参数$q = [q_0, \bm{q}]$，则由Grassmann积【\eqrefp[Grassmann]】得
+\begin{flalign*}
+	\dot{q} &= \dfrac{1}{2} [q_0, \bm{q}] \cdot [0,\bm{\omega}_{ba}] \\
+	&= \dfrac{1}{2} \left[q_0 *0 - \bm{q} \cdot \bm{\omega}_{ba}, q_0\bm{\omega}_{ba} + 0 * \bm{q} + \bm{q} \times \bm{\omega}\right] \\
+	&= \dfrac{1}{2} \left[- \bm{q} \cdot \bm{\omega}_{ba}, q_0 \bm{\omega}_{ba} + \bm{q} \times \bm{\omega}\right]
+\end{flalign*}
+将四元数$\dot{q}$分开写为标量$\dot{q}_0$和向量$\bm{\dot{q}}$的形式，并将向量写成矩阵的形式，则有
+
+\theorem[欧拉参数下的角速度和微分方程]{
+	欧拉参数下的微分方程为
+	\begin{equation}
+		\begin{cases}
+			\, \ubm{\dot{q}} = \dfrac{1}{2} \left(\ubm{q}_0 \ubm{E}_3 + \ubm{q}^\times\right)\ubm{\omega}_{ba} \\[0.5em]
+			\, \dot{q}_0 = - \dfrac{1}{2}\ubm{q}^\T \cdot \ubm{\omega}_{ba}
+		\end{cases}
+	\end{equation}
+	对应的，可以反解出欧拉参数下的角速度为
+	\begin{equation}
+		\ubm{\omega}_{ba} = 2 \left( \ubm{q}^\times + q_0 \ubm{E}_3 \right)^{-1} \dot{\ubm{q}} = 2 \left( \dfrac{q_0^2 \ubm{E}_3 - q_0 \ubm{q}^\times + \ubm{q} \ubm{q}^\T}{q_0} \right) \dot{\ubm{q}}
+	\end{equation}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
