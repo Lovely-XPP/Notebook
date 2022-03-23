@@ -21,6 +21,8 @@ README.html
 epstopdf/backup
 epstopdf/*.pdf
 epstopdf/*.eps
+希腊字母及常用符号.txt
+copy.command
 
 
 source/空间解析几何/picture/backup/*
