@@ -11,9 +11,10 @@
 '''
 # 版本号
 global ver 
-ver = "0.3"
+ver = "0.4"
 
-import os
+# 导入库
+import os, sys
 import shutil
 import argparse
 from termcolor import colored
@@ -91,7 +92,7 @@ def WriteFile(file, hit):
             else:
                 new.write(line)
     shutil.move(newfile, file)
-    output = "已经成功写入文件:" + " " + os.path.basename(file) + "!"
+    output = "已经成功写入文件: " + os.path.basename(file)
     Log("INFO", output)
 
 
@@ -109,16 +110,16 @@ def RemoveFirstPageNo(folder):
             continue
         handle = 1
         if hit == -1:
-            Log("WARNING", "文件已经处理过，无需再次处理:" + file_list)
+            Log("WARNING", "文件已经处理过，无需再次处理: " + file_list)
             continue
         WriteFile(file, hit)
     if handle == 0:
-        Log("WARNING", "该文件夹没有包含需要处理的文件！")
+        Log("WARNING", "工程 [" + os.path.basename(folder) + "] 没有包含需要处理的文件")
 
 
 # 添加命令行参数
 def GetArgs():
-    root = os.path.abspath(os.path.join(os.getcwd(), ".."))
+    root = os.path.join(sys.path[0], "..")
     source = os.path.join(root, 'source')
     descrip = '此脚本用于删除某些特殊部分的首页页码，其原理为自动写入 \\thispagestyle{empty} 到特殊的tex文件。\n目前支持的文件有：\n    1. 索引文件  \t.ind \n    2. 符号说明文件\t.nls\n    3. 表格引用文件\t.lot \n    4. 图片引用文件\t.lof \n    5. 目录文件  \t.toc \n    6. 参考文件文件\t.bbl'
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,description=descrip)
@@ -134,6 +135,7 @@ def GetArgs():
 
 # 主函数
 if __name__ == "__main__":
+    Log("INFO", "程序已经开始运行")
     args = GetArgs().parse_args()
     folders = []
     fd = 0
@@ -148,19 +150,38 @@ if __name__ == "__main__":
         folders.append(args.folder)
 
     if folders == [None]:
-        Log("ERROR", "没有需要处理的文件！\n")
+        Log("ERROR", "文件夹路径输入为空或输入错误")
+        Log("INFO", "出现错误，程序已退出\n")
         exit()
     if fd == 1:
-        Log("INFO", "选择的模式：多文件夹批处理")
-        Log("INFO", "输入的文件夹:" + args.folders)
+        Log("INFO", "选择的模式: 多文件夹批处理")
+        Log("INFO", "输入的文件夹:" + " " + args.folders)
     else:
-        Log("INFO", "选择的模式：单文件夹处理")
-        Log("INFO", "输入的文件夹:" + args.folder)
+        Log("INFO", "选择的模式: 单文件夹处理")
+        Log("INFO", "输入的文件夹:" + " " + args.folder)
     if not os.path.isdir(folders[0]):
-        Log("ERROR", "文件夹路径输入错误！\n")
+        Log("ERROR", "文件夹路径输入为空或输入错误")
+        Log("INFO", "出现错误，程序已退出\n")
         exit()
     
-    Log("INFO", "开始处理文件")
+    Log("INFO", "开始寻找并处理文件")
+    find = 0
     for folder in folders:
-        Log("INFO", "正在进行文件夹处理:" + " " +folder)
+        # 判断是否为 Tex 工程
+        tex = 0
+        for file_list in os.listdir(folder):
+            if os.path.splitext(file_list)[1] == ".tex":
+                tex = 1
+                break
+        if tex == 0:
+            continue
+        # 是的话就开始处理
+        Log("INFO", "正在处理 Tex 工程: " + colored(os.path.basename(folder),
+            "white", attrs=["bold"]))
         RemoveFirstPageNo(folder)
+        find = 1
+    if find == 0:
+        Log("ERROR", "输入文件夹中未找到任何的 Tex 工程")
+        Log("INFO", "出现错误，程序已退出\n")
+        exit()
+    Log("INFO", "所有文件处理完毕，程序已退出\n")
