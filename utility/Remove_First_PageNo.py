@@ -12,15 +12,29 @@
 
 import os
 import shutil
+import argparse
+from termcolor import colored
+
+
+# 添加信息输出样式
+def Log(status, log):
+    if status == "INFO":
+        prefix = colored("[INFO]", "green")
+    elif status == "ERROR":
+        prefix = colored("[ERROR]", "red", attrs=["blink", "bold"])
+    elif status == "WARNING":
+        prefix = colored("[WARNING]", "yellow", attrs=["blink"])
+    output = prefix + ' ' + log
+    print(output)
 
 
 # 判断是否为需要处理的文件
 # 是：返回 True  
 # 否：返回 False
-def IsTargetFile(filename):
+def IsTargetFile(file):
     Target_Files = ['.ind', '.nls', '.lot', '.lof', '.toc', '.bbl']
     for target in Target_Files:
-        if os.path.splitext(filename)[1] == target:
+        if os.path.splitext(file)[1] == target:
             return True
     return False
 
@@ -58,7 +72,7 @@ def IsEnv(file):
             judge = 1
 
 
-# 写入文件
+# 输入文件绝对路径，写入文件
 def WriteFile(file, hit):
     origin_filename = os.path.splitext(file)[0]
     origin_extend = os.path.splitext(file)[1]
@@ -74,25 +88,69 @@ def WriteFile(file, hit):
             else:
                 new.write(line)
     shutil.move(newfile, file)
-    #print('已经成功写入文件' + origin_filename + origin_extend + '!')
+    output = "已经成功写入文件:" + os.path.basename(file) + "!"
+    Log("INFO", output)
+
+
+# 输入tex文件夹绝对路径，完成整个过程（封装）
+def RemoveFirstPageNo(folder):
+    hit = 0
+    for file_list in os.listdir(folder):
+        file = os.path.join(folder, file_list)
+        if os.path.isdir(file):
+            continue
+        if IsTargetFile(file):
+            hit = IsEnv(file)
+        else:
+            continue
+        if hit == -1:
+            Log("WARNING", "文件已经处理过，无需再次处理:" + file_list)
+            continue
+        WriteFile(file, hit)
+
+
+# 添加命令行参数
+def GetArgs():
+    root = os.path.abspath(os.path.join(os.getcwd(), ".."))
+    source = os.path.join(root, 'source')
+    descrip = '此脚本用于删除某些特殊部分的首页页码，其原理为自动写入 \\thispagestyle{empty} 到特殊的tex文件。\n目前支持的文件有：\n    1. 索引文件  \t.ind \n    2. 符号说明文件\t.nls\n    3. 表格引用文件\t.lot \n    4. 图片引用文件\t.lof \n    5. 目录文件  \t.toc \n    6. 参考文件文件\t.bbl'
+    parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,description=descrip)
+    parser.add_argument('--version', action='version',
+                        version='RemoveFirstPageNo 0.2')
+    parser.add_argument('--folders', metavar="DIR",  nargs='?',
+                    help='输入包含多个tex工程（子文件夹）的文件夹，用于批处理',
+                    default=source)
+    parser.add_argument('--folder', metavar="DIR", nargs='?',
+                        help='输入单个tex工程文件夹，当 --folders 有参数时，此选项无效')
+    return parser
 
 
 # 主函数
-if __name__=="__main__":
-    root = os.path.abspath(os.path.join(os.getcwd(), "..")) 
-    source = os.path.join(root, 'source')
+if __name__ == "__main__":
+    args = GetArgs().parse_args()
     folders = []
-    for list in os.listdir(source):
-        dir = os.path.join(source, list)
-        if os.path.isdir(dir):
-            folders.append(dir)
+    fd = 0
+    source = args.folders
+    if os.path.isdir(source):
+        fd = 1
+        for folder_list in os.listdir(source):
+            dir = os.path.join(source, folder_list)
+            if os.path.isdir(dir):
+                folders.append(dir)
+    else:
+        folders.append(args.folder)
+
+    if folders == [None]:
+        Log("ERROR", "没有需要处理的文件！")
+        exit()
+    
+    if fd == 1:
+        Log("INFO", "选择的模式：多文件夹批处理")
+        Log("INFO", "输入的文件夹:" + args.folders)
+    else:
+        Log("INFO", "选择的模式：单文件夹处理")
+        Log("INFO", "输入的文件夹:" + args.folder)
+    Log("INFO", "开始处理文件")
     for folder in folders:
-        for list in os.listdir(folder):
-            file = os.path.join(folder, list)
-            if os.path.isdir(file):
-                continue
-            if IsTargetFile(file):
-                hit = IsEnv(file)
-                if hit == -1:
-                    continue
-                WriteFile(file, hit)
+        Log("INFO", "正在进行文件夹处理:" + folder)
+        RemoveFirstPageNo(folder)
