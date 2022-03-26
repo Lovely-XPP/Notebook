@@ -11,7 +11,7 @@
 '''
 # 版本号
 global ver 
-ver = "0.4"
+ver = "0.5"
 
 # 导入库
 import os, sys
@@ -26,8 +26,10 @@ def Log(status, log):
         prefix = colored("[INFO]", "green")
     elif status == "ERROR":
         prefix = colored("[ERROR]", "red", attrs=["blink", "bold"])
+        log = colored(log, "red")
     elif status == "WARNING":
-        prefix = colored("[WARNING]", "yellow", attrs=["blink"])
+        prefix = colored("[WARNING]", "blue", attrs=["blink"])
+        log = colored(log, "blue")
     output = prefix + ' ' + log
     print(output)
 
@@ -110,7 +112,7 @@ def RemoveFirstPageNo(folder):
             continue
         handle = 1
         if hit == -1:
-            Log("WARNING", "文件已经处理过，无需再次处理: " + file_list)
+            Log("WARNING", "文件已符合要求，无需处理: " + file_list)
             continue
         WriteFile(file, hit)
     if handle == 0:
@@ -135,7 +137,7 @@ def GetArgs():
 
 # 主函数
 if __name__ == "__main__":
-    Log("INFO", "程序已经开始运行")
+    Log("INFO", "程序开始运行")
     args = GetArgs().parse_args()
     folders = []
     fd = 0
@@ -151,17 +153,17 @@ if __name__ == "__main__":
 
     if folders == [None]:
         Log("ERROR", "文件夹路径输入为空或输入错误")
-        Log("INFO", "出现错误，程序已退出\n")
+        Log("INFO", "出现错误，程序退出\n")
         exit()
     if fd == 1:
-        Log("INFO", "选择的模式: 多文件夹批处理")
-        Log("INFO", "输入的文件夹:" + " " + args.folders)
+        Log("INFO", "已选择模式: 多文件夹批处理")
+        Log("INFO", "已输入文件夹:" + " " + args.folders)
     else:
-        Log("INFO", "选择的模式: 单文件夹处理")
-        Log("INFO", "输入的文件夹:" + " " + args.folder)
+        Log("INFO", "已选择模式: 单文件夹处理")
+        Log("INFO", "已输入文件夹:" + " " + args.folder)
     if not os.path.isdir(folders[0]):
         Log("ERROR", "文件夹路径输入为空或输入错误")
-        Log("INFO", "出现错误，程序已退出\n")
+        Log("INFO", "出现错误，程序退出\n")
         exit()
     
     Log("INFO", "开始寻找并处理文件")
@@ -181,7 +183,7 @@ if __name__ == "__main__":
         RemoveFirstPageNo(folder)
         find = 1
     if find == 0:
-        Log("ERROR", "输入文件夹中未找到任何的 Tex 工程")
-        Log("INFO", "出现错误，程序已退出\n")
+        Log("ERROR", "输入文件夹中未找到任何 Tex 工程")
+        Log("INFO", "出现错误，程序退出\n")
         exit()
-    Log("INFO", "所有文件处理完毕，程序已退出\n")
+    Log("INFO", "所有文件处理完毕，程序退出\n")

@@ -1,6 +1,7 @@
 README.html
 
 .DS_Store
+*.command
 *.blg
 *.toc
 *.idx
