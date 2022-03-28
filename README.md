@@ -10,11 +10,9 @@
 
 ├── copy.command ── 复制笔记文件的命令
 
-├── epstopdf —— 用于转换eps为pdf以增加文章图片的兼容性并减小文件大小（这个工具增加了对我这个笔记的适配）
+├── utility —— 笔记的实用工具
 
 ├── source ── 笔记的`tex`源文件
-
-├── 希腊字母及常用符号.txt —— 常用符号的文本文件，方便制图
 
 └── 笔记pdf ── 已经生成好的笔记文件，可以直接查看和下载
 
@@ -42,9 +40,9 @@
 
 ![License: GPL v3](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)
 
-基于相应的课本编写，如有错误，请联系：
+基于相应的课本和自己的心得编写，如有错误，请联系：
 
-![微信](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)   
+![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)   
 
 * sunray617550202@gmail.com
 
