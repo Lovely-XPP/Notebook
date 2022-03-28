@@ -20,6 +20,11 @@ import argparse
 from termcolor import colored
 
 
+# 默认执行文件夹:笔记源码集
+global root, source
+root = os.path.join(sys.path[0], "..")
+default_folders = os.path.join(root, 'source')
+
 # 添加信息输出样式
 def Log(status, log):
     if status == "INFO":
@@ -121,15 +126,13 @@ def RemoveFirstPageNo(folder):
 
 # 添加命令行参数
 def GetArgs():
-    root = os.path.join(sys.path[0], "..")
-    source = os.path.join(root, 'source')
     descrip = '此脚本用于删除某些特殊部分的首页页码，其原理为自动写入 \\thispagestyle{empty} 到特殊的tex文件。\n目前支持的文件有：\n    1. 索引文件  \t.ind \n    2. 符号说明文件\t.nls\n    3. 表格引用文件\t.lot \n    4. 图片引用文件\t.lof \n    5. 目录文件  \t.toc \n    6. 参考文件文件\t.bbl'
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,description=descrip)
     parser.add_argument('--version', action='version',
                         version='RemoveFirstPageNo ' + ver)
     parser.add_argument('--folders', metavar="DIR",  nargs='?',
                     help='输入包含多个tex工程（子文件夹）的文件夹，用于批处理',
-                    default=source)
+                    default=default_folders)
     parser.add_argument('--folder', metavar="DIR", nargs='?',
                         help='输入单个tex工程文件夹，当 --folders 有参数时，此选项无效')
     return parser
@@ -142,7 +145,7 @@ if __name__ == "__main__":
     folders = []
     fd = 0
     source = args.folders
-    if os.path.isdir(source):
+    if args.folder == None or args.folders != default_folders:
         fd = 1
         for folder_list in os.listdir(source):
             dir = os.path.join(source, folder_list)
@@ -150,7 +153,6 @@ if __name__ == "__main__":
                 folders.append(dir)
     else:
         folders.append(args.folder)
-
     if folders == [None]:
         Log("ERROR", "文件夹路径输入为空或输入错误")
         Log("INFO", "出现错误，程序退出\n")

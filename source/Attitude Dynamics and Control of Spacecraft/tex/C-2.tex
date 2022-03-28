@@ -158,13 +158,167 @@
 
 
 
+\section{并矢}
+为了更好理解并矢，我们先从简单的张量形式理解。
+\subsection{张量}
+实际上，\dy[张量]{ZL}是表示物理量的一种方式，具体而言就是用基向量表示一个物理量，张量的阶数$n$，表示物理量的基向量具有$n$个方向。常用的有：0阶张量，1阶张量，2阶张量。
+\vspace*{1em}
 
+\sssection[0阶张量]
 
+\dy[0阶张量]{0JZL}为无基向量的张量，说明其只有值而没有方向，即\dy[标量]{BL}，即
+\begin{equation}
+	A = \begin{cases}
+		A
+	\end{cases}
+\end{equation}
+在物理上，质量就是一个0阶张量，仅代表物体的质量，所以质点只能是一个点，因为它是0阶张量，没有方向。
 
+\vspace*{1em}
 
+\sssection[1阶张量]
 
+\dy[1阶张量]{1JZL}为仅\textbf{1个方向的$3^1 = 3$个基向量}决定的张量，即三维\dy[向量]{XL}，如图 \ref{一阶张量} 所示。任何一个1阶张量都可以用3个分量和3个基向量表示，即
+\begin{equation}
+	\bm{A} = 
+	\begin{cases}
+		A_x &\bm{x} \\
+		A_y &\bm{y} \\
+		A_z &\bm{z}
+	\end{cases}
+\end{equation}
+在物理上，一阶张量很常见，速度、加速度等都是一阶张量，具有大小的单个方向的物理量。
 
+\begin{figure}[!htb]
+	\centering
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[width=0.92\linewidth]{pic/一阶张量}
+		\captionof{figure}{1阶张量示意图}
+		\label{一阶张量}
+	\end{minipage}
+	\begin{minipage}{0.49\linewidth}
+		\centering
+		\includegraphics[width=0.92\linewidth]{pic/二阶张量}
+		\captionof{figure}{2阶张量示意图}
+		\label{二阶张量}
+	\end{minipage}
+\end{figure}
+\newpage
 
+\sssection[2阶张量]
+
+\dy[2阶张量]{2JZL}为有\textbf{2个方向的$3^2 = 9$个基向量}决定的张量，如图 \ref{二阶张量} 所示。任何一个2阶张量都可以用9个分量和9个基向量表示，如表 \ref{2-9-1}, \ref{2-9-2} 所示。
+\begin{table}[!htb]
+	\begin{minipage}{0.5\linewidth}
+		\centering
+		\renewcommand\arraystretch{1.29}
+		\setlength{\tabcolsep}{2.5em}{
+		\begin{tabular}{|c|c|c|}
+			\hline
+			$A_{xx}$ & $A_{xy}$ & $A_{xz} $ \\
+			\hline
+			$A_{yx}$ & $A_{yy}$ & $A_{yz} $ \\
+			\hline
+			$A_{zx}$ & $A_{zy}$ & $A_{zz} $ \\
+			\hline
+		\end{tabular}
+	}
+	\caption{2阶张量的9个分量}
+	\label{2-9-1}
+	\renewcommand\arraystretch{1}
+	\end{minipage}
+	\begin{minipage}{0.5\linewidth}
+		\centering
+			\begin{tabular}{|c|c|c|}
+				\hline
+				\begin{minipage}{0.23\columnwidth}
+					\centering
+					\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+						\path[draw,<-] (0,0) -- (0.8,0);
+						\path[draw,<-] (0,0.2) -- (0.8,0.2);
+					\end{tikzpicture}
+				\end{minipage}
+			 & 
+			 \begin{minipage}{0.23\columnwidth}
+			 	\centering
+			 	\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+			 		\path[draw,->] (0,0) -- (0.8,0);
+			 		\path[draw,<-] (0,0.2) -- (0.8,0.2);
+			 	\end{tikzpicture}
+			 \end{minipage}
+			 & 
+			 \begin{minipage}{0.23\columnwidth}
+			 	\centering
+			 	\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+			 		\path[draw,<-] (0,0) -- (0.8,0);
+			 		\path[draw,->] (0.4,-0.35) -- (0.4,0.45);
+			 	\end{tikzpicture}
+			 \end{minipage}\\
+				\hline
+				\begin{minipage}{0.23\columnwidth}
+					\centering
+					\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+						\path[draw,<-] (0,0) -- (0.8,0);
+						\path[draw,->] (0,0.2) -- (0.8,0.2);
+					\end{tikzpicture}
+				\end{minipage}
+				& 
+				\begin{minipage}{0.23\columnwidth}
+					\centering
+					\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+						\path[draw,->] (0,0) -- (0.8,0);
+						\path[draw,->] (0,0.2) -- (0.8,0.2);
+					\end{tikzpicture}
+				\end{minipage}
+				& 
+				\begin{minipage}{0.23\columnwidth}
+					\centering
+					\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+						\path[draw,->] (0,0) -- (0.8,0);
+						\path[draw,->] (0.4,-0.35) -- (0.4,0.45);
+					\end{tikzpicture}
+				\end{minipage}\\
+			\hline
+			\begin{minipage}{0.23\columnwidth}
+				\centering
+				\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+					\path[draw,<-] (0,0) -- (0.8,0);
+					\path[draw,->] (0.4,-0.35) -- (0.4,0.45);
+				\end{tikzpicture}
+			\end{minipage}
+			& 
+			\begin{minipage}{0.23\columnwidth}
+				\centering
+				\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+					\path[draw,->] (0,0) -- (0.8,0);
+					\path[draw,->] (0.4,-0.35) -- (0.4,0.45);
+				\end{tikzpicture}
+			\end{minipage}
+			& 
+			\begin{minipage}{0.23\columnwidth}
+				\centering
+				\begin{tikzpicture}[>={Stealth[scale=1.2]}]
+					\path[draw,->] (0,-0.4) -- (0,0.4);
+					\path[draw,->] (0.2,-0.4) -- (0.2,0.4);
+				\end{tikzpicture}
+			\end{minipage}\\
+				\hline
+			\end{tabular}
+		\caption{2阶张量9个基向量的方向}
+		\label{2-9-2}
+	\end{minipage}
+\end{table}
+
+在物理上，材料力学的\dy[应力张量]{YLZL}就是一个2阶张量。如图 \ref{二阶张量} 所示，在$x$轴为法向的面上收到三个力：沿着$x$轴方向的力，沿着$y$轴方向的力和沿着$z$轴方向的力，其他两个方向的面同理。也就是说，应力张量$\bm{\tau}$表示的是不同方向（$\bm{x}, \bm{y}, \bm{z}$）的面受到3个不同方向的力$\bm{\tau}_x, \bm{\tau}_y, \bm{\tau}_z$，因此其基向量具有两个方向，一个表示受力面的方向，另一个表示受力面所受力的方向，即
+\begin{equation}
+	\bm{\tau} = 
+	\begin{bmatrix}
+		\tau_{xx} & \tau_{xy} & \tau_{xz} \\
+		\tau_{yx} & \tau_{yy} & \tau_{yz} \\
+		\tau_{zx} & \tau_{zy} & \tau_{zz} 
+	\end{bmatrix}
+\end{equation}
 
 
 
