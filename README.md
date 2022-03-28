@@ -42,7 +42,7 @@
 
 基于相应的课本和自己的心得编写，如有错误，请联系：
 
-![微信](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)   
+![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)   
 
 * sunray617550202@gmail.com
 
