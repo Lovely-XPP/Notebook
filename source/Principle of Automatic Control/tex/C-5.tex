@@ -909,13 +909,14 @@
 \ttheorem[保形映射定理]
 对$s$平面上任一不经过奇点的闭围线，$F$平面上也对应于一条闭围线。\index{BXYS@保形映射}
 
-设$F(s)$是一个复变函数，在$s$平面熵任选一个复数$s$，通过函数$F(s)$的映射关系，可以在$F(s)$平面上找到响应的像。设
+设$F(s)$是一个复变函数，在$s$平面上任选一个复数$s$，通过函数$F(s)$的映射关系，可以在$F(s)$平面上找到响应的像。设
 \begin{align}
 	 F(s) = \dfrac{\displaystyle \prod_{i = 1}^{m}s - z_i}{\displaystyle \prod_{i=1}^{n} s- p_i}
 \end{align}
 设$s$沿着$\Gamma_s$移动时，$F(s)$相角变化为$\Delta \angle F(s) $,所以
 \begin{align}
 	\Delta \angle F(s) = \Delta \angle \left[\dfrac{\displaystyle \prod_{i = 1}^{m}s - z_i}{\displaystyle \prod_{i=1}^{n} s- p_i} \right]= \sum_{i = 1}^{m} \angle (s - z_i) - \sum_{j = 1}^{n} \angle (s - p_j)
+	\label{F(s)}
 \end{align}
 
 
@@ -926,10 +927,10 @@
 	\label{保形映射}
 \end{figure}
 
-由图\ref{保形映射}可知，闭合路径$\Gamma_s$包围了两个零点$z_1,z_2$和一个极点$s_1$，其余零点和极点都分布在$\Gamma_s$以外。因此，当$s$沿闭合路径$\Gamma_s$顺时针移动一周时，由于只有$s$和闭合路径包围内的零点、极点构成的向量顺时针旋转了一周，其余向量角度没有变化。所以$\angle (s - z_1) = -2\pi, \angle (s - z_2) = -2 \pi, \angle (s - p_1) = -2 \pi$（规定逆时针方向为正），即
+由图\ref{保形映射}可知，闭合路径$\Gamma_s$包围了两个零点$z_1,z_2$和一个极点$s_1$，其余零点和极点都分布在$\Gamma_s$以外。因此，当$s$沿闭合路径$\Gamma_s$顺时针移动一周时，由公式\eqref{F(s)}可知，\textbf{$F(s)$的转角等于$s$与各个零极点构成的向量转角之差}。而由于只有$s$和闭合路径包围内的零点、极点构成的向量顺时针旋转了一周，闭合路径之外的向量角度没有变化。所以$\angle (s - z_1) = -2\pi, \angle (s - z_2) = -2 \pi, \angle (s - p_1) = -2 \pi$（规定逆时针方向为正），即
 \[\Delta \angle F(s) = \angle (s - z_1) + \angle (s - z_2) = -2 \pi - \angle (s - p_1) = - 2 \pi\]
 
-说明$F(s)$绕曲线顺时针旋转了一圈。
+说明$F(s)$绕曲线顺时针旋转了一圈。由此，下面得到一般的结论。
 
 \theorem[幅角原理]
 如果闭轨线$\Gamma_s$内$F(s)$有$Z$个零点、$P$个$F(s)$的极点，则$s$依$\Gamma_s$顺时针转一圈时，在$F(s)$平面上，$F(s)$曲线\textbf{绕原点逆时针转}的圈数$N$为$P$和$Z$之差，即\index{FJYL@幅角原理}
@@ -1007,12 +1008,13 @@
 		\begin{itemize}
 			\item 如图\ref{转圈数}. 由于
 			\begin{align*}
-				\lim\limits_{s \to \infty} F(s) = \lim\limits_{s \to \infty} \dfrac{D(s) + N(s)}{D(s)} = 0
+				\lim\limits_{s \to \infty} F(s) = \lim\limits_{s \to \infty} \dfrac{D(s) + N(s)}{D(s)} = 1
 			\end{align*}
-			$s$沿半圆顺时针运动时， $F(s)$始终为0，即$F(s)$绕原点的圈数仅由$F(\j \omega), \,\, \omega : -\infty \to +\infty$确定。
-			
 		\end{itemize}
-		\item $Z$\quad 不稳定闭环极点的个数
+		$s$沿半圆顺时针运动时， $F(s)$始终为1（为直线），所以$F(s)$绕原点圈数仅由$F(\j \omega), \,\, \omega : -\infty \to +\infty$确定。
+			
+		
+		\item $Z$\quad 不稳定闭环极点的个数（因为$F(s) = 1 + G(s)H(s)$，所以$F(s)$的零点$Z$为系统的闭环极点）
 		\begin{itemize}
 			\item $Z=0$ \quad 系统稳定。
 			\item $Z>0$ \quad 系统不稳定且不稳定闭环极点的个数为$Z$。
