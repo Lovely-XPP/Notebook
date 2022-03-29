@@ -243,7 +243,7 @@
 		\item 对数相频特性
 		\vspace*{-0.5em}
 		\begin{align}
-			\textcolor{red}{\varphi(\omega) = -\arctan \left(\dfrac{\omega}{0}\right) = \text{sign}(\omega) \cdot 90 \degree = \, 
+			\textcolor{red}{\varphi(\omega) = -\arctan \left(\dfrac{\omega}{0}\right) = -\text{sign}(\omega) \cdot 90 \degree = \, 
 			\begin{cases}
 				\, -90 \degree, & \omega >0 \quad \mbox{（特别是}0^+\mbox{）}\\
 				\, 0 \degree, & \omega = 0\\
@@ -455,9 +455,9 @@
 		
 		\item 相频特性
 		\vspace*{-0.5em}
-		\begin{align}
-			\varphi(\omega) = \dfrac{\pi}{2}
-		\end{align}
+	\begin{align}
+		\textcolor{red}{\varphi(\omega) =  \arctan \left(\dfrac{\omega}{0}\right)}
+	\end{align}
 		\vspace*{-3em}
 	\end{enumerate}
 	\item 对数频率特性
@@ -471,7 +471,12 @@
 		\item 对数相频特性
 		\vspace*{-0.5em}
 		\begin{align}
-			\varphi(\omega) = \dfrac{\pi}{2}
+			\textcolor{red}{\varphi(\omega) = \arctan \left(\dfrac{\omega}{0}\right) = \text{sign}(\omega) \cdot 90 \degree = \, 
+				\begin{cases}
+					\, 90 \degree, & \omega >0 \quad \mbox{（特别是}0^+\mbox{）}\\
+					\, 0 \degree, & \omega = 0\\
+					\, -90 \degree, & \omega <0 \quad \mbox{（特别是}0^-,-\infty\mbox{）}
+			\end{cases}}
 		\end{align}
 		\vspace*{-3em}
 	\end{enumerate}
