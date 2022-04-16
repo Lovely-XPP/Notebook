@@ -422,7 +422,7 @@
 \subsection{向量双重叉乘与并矢}
 由向量叉乘公式，
 \begin{equation}
-    \bm{a} \times (\bm{b} \times \bm{c}) = \bm{b}(\bm{a}\cdot\bm{c}) - \bm{a}(\bm{b} \cdot \bm{c})
+    (\bm{a} \times \bm{b}) \times \bm{c} = \bm{b}(\bm{a}\cdot\bm{c}) - \bm{a}(\bm{b} \cdot \bm{c})
 \end{equation}
 由并矢的定义及并矢与向量的点乘的定义，那么
 \begin{equation}
@@ -434,7 +434,10 @@
     \bm{b}\bm{a} - \bm{a}\bm{b} = \ubm{e}^\T (\ubm{b}\ubm{a}^\T - \ubm{a}\ubm{b}^\T)\ubm{e}
 \end{equation*}
 
-
+而由于$\bm{c} = \ubm{e}^\T\ubm{c}$，那么
+\begin{equation}
+    (\bm{a} \times \bm{b}) \times \bm{c} = \ubm{e}^\T (\ubm{b}\ubm{a}^\T - \ubm{a}\ubm{b}^\T)\ubm{e} \ubm{e}^\T \ubm{c} = \ubm{e}^\T (\ubm{b}\ubm{a}^\T - \ubm{a}\ubm{b}^\T) \ubm{c}
+\end{equation}
 
 
 
