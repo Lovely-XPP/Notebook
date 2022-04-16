@@ -37,11 +37,11 @@
 
 ## 编译原始文件的说明
 
-**编写语言：`tex`**
+**编写语言：`Tex`**
 
-(1) 首先，如果没有下载`texlive`（`Windows`/`Linux` ）或`MacTex`（`MacOS`），建议前往清华镜像源下载：https://mirrors.tuna.tsinghua.edu.cn。
+(1) 首先，如果没有下载`Texlive`（`Windows`/`Linux` ）或`MacTex`（`MacOS`），建议前往清华镜像源下载：https://mirrors.tuna.tsinghua.edu.cn。
 
-(2) 如果已经安装好`texlive`或`MacTex`，请下载或克隆源码。
+(2) 如果已经安装好`Texlive`或`MacTex`，请下载或克隆源码。
 
 (3) 下载完成后，由于文档的字体是基于`MacOS`的内置字体，对于`Windows`和`Linux`系统的用户，还需将每个笔记源文件主目录中的`main.tex`文件中的以下代码（在导入宏包后的首个设置，一般在60行前）
 
@@ -57,7 +57,7 @@
 %\setCJKmainfont[BoldFont={PingFangSC-Medium}]{PingFangSC-Regular}
 ```
 
-
+(4) 编译方式请选择为`XeLaTeX`. 
 
 ## 联系方式
 
