@@ -1,0 +1,259 @@
+%!TeX program = xelatex
+
+%文章标题设置
+%中文名
+\newcommand{\titleCN}{航天器姿态动力学与控制}
+%英文名
+%\newcommand{\titleEN}{Attitude Dynamics and Control of Spacecraft}
+
+%%%%%%%%%%%%%%%%% DO NOT CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\documentclass[10pt, a4paper]{book}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[bookmarks=true,colorlinks,linkcolor=black]{hyperref}
+\usepackage{ctex}
+\usepackage{xeCJK}
+\usepackage{tikz}
+\usepackage{geometry}%页边距调整
+\geometry{left=2cm,right=2cm,bottom=3cm,top=2cm}
+\usepackage{newtxtext}
+\usepackage{newtxmath,bm}
+\DeclareMathSizes{10}{10}{5.5}{4}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{capt-of}
+\usepackage{titletoc}%目录页的宏包
+\usepackage{nomencl}%符号说明包s
+\makenomenclature%制作符号说明
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows,arrows.meta}
+\usetikzlibrary{circuits.ee.IEC}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+%\setmonofont{Consolas}    %设置字体为Consolas
+\lstset{                  %设置代码块
+	basicstyle=\footnotesize\ttfamily,% 基本风格
+	numbers=left,    % 行号
+	numbersep=10pt,  % 行号间隔 
+	tabsize=2,       % 缩进
+	extendedchars=true, % 扩展符号？
+	breaklines=true, % 自动换行
+	language=Matlab,
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	frame=leftline,  % 框架左边竖线
+	xleftmargin=19pt,% 竖线左边间距
+	showspaces=false,% 空格字符加下划线
+	showstringspaces=false,% 字符串中的空格加下划线
+	showtabs=false,  % 字符串中的tab加下划线
+}
+
+%\linespread{1.3}
+\definecolor{titlepurple}{HTML}{5758BB}%一级标题（目前：蓝紫色）
+\definecolor{titlepurpleb}{HTML}{3A006F}%二级标题（目前：深紫色）
+\definecolor{titlepurplec}{HTML}{006266}%三级标题（目前：墨绿色）
+\definecolor{tab1}{HTML}{9698ED}%表格1
+\definecolor{tab2}{HTML}{DBDCFF}%表格2
+\definecolor{dy0}{HTML}{EA7500}%小标题定义专用（目前：橙黄色）
+\definecolor{dl}{HTML}{007500}%小标题定理专用（目前：深绿色）
+\definecolor{inference}{HTML}{343300}%小标题推论专用（目前：墨绿色）
+\definecolor{ex}{HTML}{7158e2}%小标题例专用（目前：紫色）
+\definecolor{dy}{HTML}{BF0060}%夹杂在文本中的定义词的颜色1（目前：深红色）
+\definecolor{dy2}{HTML}{FF0000}%夹杂在文本中的定义词的颜色2（目前：红紫色）
+\definecolor{dya}{HTML}{FFFFFF}
+\definecolor{超链接}{HTML}{0000C6}%含超链接的文字专用色（目前：蓝紫色）
+\definecolor{文字底色}{HTML}{F8FF00}%强调的文字底色（目前：黄色）
+\definecolor{eq}{HTML}{F0F0F0}
+\definecolor{tl}{HTML}{D94600}
+
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=black,
+  linkbordercolor={0 0 1}
+}
+
+%字体设置
+%\setCJKmainfont[BoldFont={STHeiti}]{STSongti-SC-Regular}
+%\setCJKmainfont[BoldFont={PingFangSC-Semibold}]{PingFangSC-Regular}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% CHANGE HERE %%%%%%%%%%%%%%%%%%%% {
+\newcommand\course{\Large \textcolor[rgb]{0.12,0.33,0.12}{\textbf{\titleCN}}}
+\newcommand\semester{\large \textcolor[rgb]{0.12,0.33,0.12}{2022 年春季学期}}
+\newcommand\SchoolLogo{\includegraphics[scale=0.35]{./pic/SYSU_SAA_Logo.pdf}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% }
+%%固定格式
+%调整间距（倍数）
+\linespread{1.5}
+
+%章节或标题的样式
+\titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
+\titleformat{\section}{\Large\bfseries\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
+\titleformat{\subsection}{\large\bfseries\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
+%\titlespacing{\subsection}{0em}{0.5em}{1em}[1em]
+%格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
+\numberwithin{equation}{chapter}
+
+%目录调整
+\newcounter{mycontents}
+\newcommand{\thecontents}{\refstepcounter{mycontents} \alph{mycontents}.}
+%\titlecontents{标题名}[左间距]{标题格式}{标题标志}{无序号标题}{指引线与页码}[下间距]
+\titlecontents{chapter}
+[0cm]
+{\bf \large \vspace{0.8em} }{\contentspush{第 \thecontentslabel\ 章 \hspace*{0.8em}}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{section}[1.7cm]{\bf  \vspace{0.5em} }{\contentslabel{2.4em}}{\hspace*{-2.5em} \thecontents \hspace*{0.8em}}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+\titlecontents{subsection}[2.5cm]{\small \vspace{0.2em} }{\contentslabel{3em}}{}{\titlerule*[0.5pc]{$\cdot$}\contentspage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ---------------------------- 定义命令 ----------------------------  %
+%% 文本设置类
+\newcommand{\codelink}[1][]{第 \ref{代码章} 章: \hyperref[#1]{#1}，Page \pageref{#1}}
+\newcommand{\ds}[1][]{\colorbox{文字底色}{#1}}
+\newcommand{\red}[1][]{\textcolor{red}{#1}}
+\newcommand{\blue}[1][]{\textcolor{blue}{#1}}
+\newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}%文本高亮
+\newcounter{sssection}[subsection]
+\newcommand{\sssection}[1][]{\noindent \refstepcounter{sssection} \textbf{\thesssection. #1} \vspace*{0.5em}}
+\newcommand{\noa}[1][]{\par (#1) \hspace*{0.3em}}
+
+%% 公式字符类
+\renewcommand{\d}{{\rm{d}}}
+\newcommand{\e}{{\rm{e}}}
+\newcommand{\n}{{\rm{n}}}
+\renewcommand{\t}{\text{t}}
+\renewcommand{\j}{\text{j}}
+\newcommand{\w}{\text{w}}
+\newcommand{\T}{\text{T}}
+\def\degree{{}^{\circ}}
+\newcommand{\hvdots}{\hspace*{2mm}\vdots\hspace*{2mm}}
+\newcommand{\rmn}[1][]{\romannumeral#1}
+\newcommand{\Rmn}[1][]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\vi}{\bm{i}}
+\newcommand{\vj}{\bm{j}}
+\newcommand{\vk}{\bm{k}}
+\newcommand{\norm}[1][]{\Vert #1 \Vert}
+\newcommand{\ubm}[1]{\underline{\bm{#1}}}
+\newcommand{\eqrefp}[1][]{第 \pageref{#1} 页的公式 \eqref{#1} }
+
+%% 定义索引类
+\newcommand{\dy}[1][]{{\color{dy}#1}}
+\newcommand{\dya}[2][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}}  \index{#2@#1} \hspace*{1em}}
+\newcommand{\dyb}[1][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate, colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}} \hspace*{1em} }
+% ------------------------------------------------------------- %
+
+
+% 标题
+\title{\bf
+	\vspace*{-1.5cm}
+	\zihao{1}{飞行器制导与控制大作业}\\[6cm]
+	\Large
+	\bfseries
+	组\hspace*{2em}长：\underline{\hspace*{2.9em}19320125 \hspace*{1.7em} 易鹏\hspace*{2.9em}}\\[0.5em]
+	组\hspace*{2em}员：\underline{\hspace*{2.9em}17326017 \quad 胡光雄\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320035 \quad 黄泰和\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320999 \quad 陈晓东\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320092  \hspace*{1.7em} 王翔\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320112 \quad 谢泽楷\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320128 \quad 袁伟杰\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320132 \quad 张柏嘉\hspace*{2.9em}}\\[0.5em]
+	\hspace*{4.8em} \underline{\hspace*{2.9em}19320133 \quad 张博彧\hspace*{2.9em}}\\[0.5em]
+	指导老师：\underline{\hspace*{4em}张亮\quad 曾庆华\hspace*{4em}}\\[0.5em]
+	日\hspace*{2em}期：\underline{\hspace*{4.8em}2022.04.16\hspace*{4.8em}}
+}
+\date{}
+
+
+
+\begin{document}
+% 标题
+\maketitle
+\thispagestyle{empty} 
+\clearpage \phantom{s} \thispagestyle{empty} \clearpage
+
+%% 目录部分
+% 设置目录页眉页脚
+\pagestyle{fancyplain}
+\headheight 30pt
+\lhead{}
+\rhead{	
+	\quad \\[1em]
+	\begin{minipage}[l]{0.39\linewidth}
+		\hspace*{-1em}
+		\SchoolLogo
+	\end{minipage}
+	\begin{minipage}[r]{0.6\linewidth}
+		\vspace*{0.4em}\makecell[r]{\course \\[0.3em] \semester}
+	\end{minipage}\\[-1.15em]} 
+\setlength{\headsep}{3.5em}
+\setlength{\footskip}{2.5em}
+\renewcommand{\headrulewidth}{0mm}
+\rfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries \titleCN 大作业}}
+\cfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries 目录}} 
+\lfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries 2019级航空航天工程专业本科}} 
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\tableofcontents
+\cleardoublepage
+
+
+%% 正文部分
+\setcounter{page}{1}
+\pagenumbering{arabic}
+% 设置正文部分页眉页脚
+\pagestyle{fancyplain}
+\headheight 30pt
+\lhead{}
+\rhead{	
+	\quad \\[1em]
+	\begin{minipage}[l]{0.39\linewidth}
+		\hspace*{-1em}
+		\SchoolLogo
+	\end{minipage}
+	\begin{minipage}[r]{0.6\linewidth}
+		\vspace*{0.4em}\makecell[r]{\course \\[0.3em] \semester}
+	\end{minipage}\\[-1.15em]} 
+\setlength{\headsep}{3.5em}
+\setlength{\footskip}{2.5em}
+\renewcommand{\headrulewidth}{0mm}
+\rfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries \titleCN大作业}}
+\cfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries \thepage}} 
+\lfoot{\textcolor[rgb]{0.12,0.33,0.12}{\small \bfseries 2019级航空航天工程专业本科}} 
+
+%% --------------- 正文开始 ------------------ %%
+
+
+
+
+%% --------------- 正文结束 ------------------ %%
+
+
+% 附录
+\cleardoublepage
+\addcontentsline{toc}{chapter}{附录}
+\addcontentsline{toc}{section}{插图目录}
+\renewcommand{\listfigurename}{插图目录}
+\listoffigures
+\cleardoublepage
+\addcontentsline{toc}{section}{表格目录}
+\renewcommand{\listtablename}{表格目录}
+\listoftables
+\cleardoublepage
+\addcontentsline{toc}{section}{参考文献}
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+\end{document}
+
