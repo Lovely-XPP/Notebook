@@ -37,7 +37,7 @@
 	& = \dfrac{1}{T\tau}\cdot \dfrac{1}{- \j n \omega_{\text{S}}} \left(\e^{-\j n \omega_{\text{S}} \tau} - 1\right) = \dfrac{1}{T \tau} \cdot \dfrac{1}{-\j n \omega_{\text{S}}} \big(\cos n \omega_{\text{S}} \tau - \j \sin n \omega_{\text{S}} \tau - 1\big)\notag\\[0.5em]
 	& = \dfrac{1}{T\tau}\cdot \dfrac{1}{-\j n \omega_{\text{S}}}\Bigg[1 - 2 \sin^2 \left(\dfrac{n \omega_{\text{S}} \tau}{2} \right)- 2 \j \sin \left(\dfrac{n \omega_{\text{S}} \tau}{2} \right) \cos \left(\dfrac{n\omega_{\text{S}}\tau}{2}\right) - 1\Bigg] \notag \\[0.5em]
 	& = \dfrac{1}{T \tau} \cdot \dfrac{1}{-\j n \omega_{\text{S}}}(- 2 \j) \sin \left(\dfrac{n \omega_{\text{S}}\tau}{2}\right) \Bigg[\cos\left(\dfrac{n \omega_{\text{S}} \tau}{2}\right)- \j \sin \left(\dfrac{n \omega_{\text{S}} \tau}{2}\right)\Bigg]\notag\\[0.5em]
-	& = \dfrac{1}{T} \dfrac{\sin\big(n\omega_{\text{S}}\tau /2\big)}{n \omega_{\text{S}} \tau / 2}\e^{-\j m \omega_\s \tau/2}
+	& = \dfrac{1}{T} \dfrac{\sin\big(n\omega_{\text{S}}\tau /2 \big)}{n \omega_{\text{S}} \tau / 2} \e^{-\j m \omega_{\text{S}} \tau/2}
 \end{align}
 
 若连续信号$f(t)$的Fourier变换为$F(\j \omega)$，则采样信号$f_\tau^*(t)$的Fourier变换为
@@ -64,7 +64,7 @@
 \begin{equation}
 	\omega_{\text{s}} \ge 2\omega_{\max}
 \end{equation}
-其中，$\omega_\max$为连续信号频谱的上限频率，此时离散信号和连续信号的频谱如图\ref{连续与离散信号2}.
+其中，$\omega_{\text{max}}$为连续信号频谱的上限频率，此时离散信号和连续信号的频谱如图\ref{连续与离散信号2}.
 
 则经采样得到的脉冲序列可以无失真地恢复为原连续信号。
 

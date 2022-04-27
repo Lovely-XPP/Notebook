@@ -49,9 +49,9 @@
 %\theorembodyfont{\CJKfamily{song}}
 
 %章节或标题的样式
-\titleformat{\chapter}{\CJKfamily{hei}\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
-\titleformat{\section}{\CJKfamily{hei}\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
-\titleformat{\subsection}{\CJKfamily{hei}\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
+\titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
+\titleformat{\section}{\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
+\titleformat{\subsection}{\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
 \titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
 %格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
 \titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
@@ -155,9 +155,8 @@
 
 %文章标题
 		\title{
-	\Huge{概率统计总结}\\
-	\quad\\
-	\quad\\
+	\Huge{概率统计总结\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}}\\
+    \quad\\
 	\quad\\
 	\quad\\
 	\quad\\
@@ -167,8 +166,8 @@
 	\quad\\
 }
 \author{
-	{\CJKfamily{kai} \large {易鹏}}\\
-	{\CJKfamily{kai} \large 中山大学}\vspace*{0.5em}\\
+	{\large {易鹏}}\\
+	{\large 中山大学}\vspace*{0.5em}\\
 	内部版本号：V3.02.21(半正式版)\\
 }
 \date{2020年8月4日}
@@ -183,11 +182,11 @@
 \renewcommand{\sectionmark}[1]{\markright{\;\thesection\ #1\;}}
 \fancyhf{}
 %\fancyfoot[C]{\bfseries\thepage}
-\fancyhead[LO]{\small\CJKfamily{song}\rightmark}
-\fancyhead[RE]{\small\CJKfamily{song}\leftmark}
+\fancyhead[LO]{\small\rightmark}
+\fancyhead[RE]{\small\leftmark}
 \fancyhead[RO,LE]{\;\thepage\;}
-\fancyfoot[RO,LE]{\footnotesize\CJKfamily{heilight}{概率论与数理统计}}
-\fancyfoot[RE,LO]{\footnotesize\CJKfamily{heilight} Probability \& Statistics}
+\fancyfoot[RO,LE]{\footnotesize{概率论与数理统计}}
+\fancyfoot[RE,LO]{\footnotesize Probability \& Statistics}
 \renewcommand{\headrulewidth}{0.4pt} % 注意不用\setlength
 %\renewcommand{\footrulewidth}{0pt}
 \fancyheadoffset[LE,RO]{0cm}
@@ -207,7 +206,7 @@
 \newcommand{\ds}[1][]{\colorbox{文字底色}{#1}}
 \newcommand{\dy}[2][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dy}{\textbf{#1}}}  \index{#2@#1}\jg\par }
 \newcommand{\dya}[1][]{\tcbox[colframe =Chocolate, colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dy}{\textbf{#1}}} \quad }
-\renewcommand{\textbf}[1]{{\CJKfamily{heiti}#1}\jg \par }%
+\renewcommand{\textbf}[1]{{#1}\jg \par }%
 
 
 %文档开始
@@ -215,7 +214,9 @@
 %标题及目录
 \pagenumbering{Roman}
 \clearpage {\pagestyle{empty}}
-\maketitle
+\renewcommand{\thefootnote}{*}
+	\maketitle
+ \renewcommand{\thefootnote}{\arabic{footnote}}
 \setcounter{page}{1}
 \tableofcontents
 

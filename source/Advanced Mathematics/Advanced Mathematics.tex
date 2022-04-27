@@ -218,8 +218,7 @@
 
 %文章标题
 \title{
-	\Huge{高等数学$\,$\uppercase\expandafter{\romannumeral1}$\,$ 总结}\\
-	\quad\\
+	\Huge{高等数学$\,$\uppercase\expandafter{\romannumeral1}$\,$ 总结\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}}\\
 	\quad\\
 	\quad\\
 	\quad\\
@@ -241,7 +240,9 @@
 	%标题及目录
 	\pagenumbering{Roman}
 	\clearpage {\pagestyle{empty}}
+	\renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\setcounter{page}{1}
 	\tableofcontents
 	

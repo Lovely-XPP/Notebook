@@ -102,9 +102,9 @@
 %符号设置-------------------------------
 {\color{titlepurple}}
 %标题配置—————————————
-\title{{\Huge 大学物理上册}\\[1em]
+\title{\vspace*{-2em}{\Huge 大学物理上册}\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}\\[1em]
 	概念\&公式集
-\vspace{5cm}}
+\vspace{4cm}}
 \author{
 	\quad\\
 	\quad\\
@@ -178,7 +178,9 @@
 \numberwithin{equation}{chapter}
 \allowdisplaybreaks%强制自动换行
 \newgeometry{left=2cm,right=2cm,marginparwidth=0cm,marginparsep=0cm}%封面设置
-\maketitle
+\renewcommand{\thefootnote}{*}
+	\maketitle
+\renewcommand{\thefootnote}{\arabic{footnote}}
 \thispagestyle{empty}
 \cleardoublepage
 \thispagestyle{empty}

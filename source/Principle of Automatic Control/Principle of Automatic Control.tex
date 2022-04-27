@@ -161,8 +161,8 @@
 
 %文章标题
 \title{
-	\Huge{\textbf{自动控制原理}}
-	\vspace*{18em}
+	\Huge{\textbf{自动控制原理}\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}}
+	\vspace*{16em}
 }
 \author{
 	{  \large {易鹏}}\\
@@ -263,7 +263,9 @@
 \begin{document}
 	%标题及目录
 	\pagenumbering{Roman}
+	\renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents

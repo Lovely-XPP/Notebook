@@ -174,8 +174,8 @@
 
 %文章标题
 \title{
-	\Huge{\textbf{数学物理方法}}\\
-	\vspace*{17em}
+	\Huge{\textbf{数学物理方法}}\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}\\
+    \vspace*{15em}
 }
 \author{
 	{  \large {易鹏}}\\
@@ -275,7 +275,9 @@
 	%\tableofcontents
 	
 	\pagenumbering{Roman}
+	\renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents

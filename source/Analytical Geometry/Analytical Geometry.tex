@@ -2,27 +2,24 @@
 \documentclass[12pt,a4paper,twoside]{book}
 
 \usepackage{ctex}
-\usepackage[linesnumbered,boxed]{algorithm2e}
 \usepackage{ulem}
-\usepackage{makecell }
+\usepackage{makecell}
 \usepackage{verbatim}
 \usepackage{enumerate}%罗列专用宏包
 \usepackage{graphicx}%插入图片的宏包
 \usepackage{subfigure} 
-\usepackage{bm}
-\usepackage{amsmath,ntheorem,lmodern}
+\usepackage{newtxtext}
+\usepackage{amsmath,ntheorem}
+\usepackage{newtxmath,bm}
 \usepackage{makeidx}%索引专用
 \makeindex  %添加索引
 \usepackage{amsmath}
 \usepackage{fancyhdr}
 \usepackage{framed}
-\usepackage{amsfonts}
 \usepackage{wrapfig}
-\usepackage{amssymb}%数学符号宏包
 \usepackage{textcomp}%树叶图案在这个包里
 \usepackage{bbding}%很多漂亮的图案
 \usepackage[dvipsnames, svgnames, x11names,table,xcdraw]{xcolor}%导入了所有颜色配置文件的宏包
-\usepackage{CJKfntef}
 \usepackage{emptypage}
 \usepackage{geometry}%页边距调整
 \geometry{left=2cm,right=2cm,bottom=2cm,top=2cm}
@@ -31,7 +28,7 @@
 \usepackage[bookmarks=true,colorlinks,linkcolor=black]{hyperref}
 \usepackage{enumerate}%使用改宏包优化罗列环境
 \usepackage{tcolorbox}%box宏包
-\usepackage{multirow}
+\usepackage{multirow} 
 \usepackage{longtable}%跨页表格
 \usepackage{supertabular}%跨页表格
 \usepackage{tikz}
@@ -41,17 +38,12 @@
 %各类设置
 
 %字体设置
-\setCJKmainfont[BoldFont=思源宋体 CN]{Source Han Serif CN}%需要查看电脑字体查找对应字体的文件英文文件名
-\setCJKfamilyfont{song}{STZhongsong}
-\setCJKfamilyfont{kai}{STKaiti}%都是用来定义字体的(此处使用电脑自带楷书)
-\setCJKfamilyfont{hei}{Source Han Serif CN}
-\setCJKfamilyfont{heiti}{Source Han Sans SC-Medium}
-\setCJKfamilyfont{heilight}{Source Han Sans SC-Light}
+\setCJKmainfont[BoldFont=PingFangSC-Semibold]{PingFangSC-Regular}%需要查看电脑字体查找对应字体的文件英文文件名
 
 %章节或标题的样式
-\titleformat{\chapter}{\CJKfamily{hei}\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
-\titleformat{\section}{\CJKfamily{hei}\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
-\titleformat{\subsection}{\CJKfamily{hei}\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
+\titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
+\titleformat{\section}{\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
+\titleformat{\subsection}{\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
 \titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
 %格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
 \titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
@@ -152,19 +144,19 @@
 %\newtheorem*{example}{\hspace{-0.16cm}\color{53a9ab}\label{#1} \mybox[53a9ab]{\color{53a9ab}例题\addtocounter{F}{1} \thesection.\arabic{F}}}
 
 %文章标题
-		\title{
-			\Huge{空间解析几何总结}\\
+		\title{\vspace*{-2cm}
+			\Huge{空间解析几何总结}\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{6.36cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}\\
 			\quad\\
 \begin{center}
-	\includegraphics[width=15.5cm]{picture/cover6.png}
+	\includegraphics[width=15cm]{picture/cover6.png}
 	%\includegraphics[width=8cm]{cover2.png}
 	%\includegraphics[width=8cm]{cover3.png}
 	%\includegraphics[width=12cm]{cover4.png}
 \end{center}
 }
 		\author{
-		{\CJKfamily{kai} \large {易鹏}}\\
-		{\CJKfamily{kai} \large 中山大学}\vspace*{0.5em}\\
+		{  \large {易鹏}}\\
+		{  \large 中山大学}\vspace*{0.5em}\\
 		内部版本号：V4.62.84（正式版）
 }
 
@@ -178,11 +170,11 @@
 \renewcommand{\sectionmark}[1]{\markright{\;\thesection\ #1\;}}
 \fancyhf{}
 %\fancyfoot[C]{\bfseries\thepage}
-\fancyhead[LO]{\small\CJKfamily{song}\rightmark}
-\fancyhead[RE]{\small\CJKfamily{song}\leftmark}
+\fancyhead[LO]{\small\rightmark}
+\fancyhead[RE]{\small\leftmark}
 \fancyhead[RO,LE]{\;\thepage\;}
-\fancyfoot[RO,LE]{\footnotesize\CJKfamily{heilight}{空间解析几何}}
-\fancyfoot[RE,LO]{\footnotesize\CJKfamily{heilight}Analytic Geometry of Space}
+\fancyfoot[RO,LE]{\footnotesize {空间解析几何}}
+\fancyfoot[RE,LO]{\footnotesize Analytic Geometry of Space}
 \renewcommand{\headrulewidth}{0.4pt} % 注意不用\setlength
 %\renewcommand{\footrulewidth}{0pt}
 \fancyheadoffset[LE,RO]{0cm}
@@ -206,7 +198,9 @@
 %标题及目录
 \pagenumbering{Roman}
 \clearpage {\pagestyle{empty}}
+\renewcommand{\thefootnote}{*}
 \maketitle
+\renewcommand{\thefootnote}{\arabic{footnote}}
 \setcounter{page}{1}
 \tableofcontents
 
@@ -244,7 +238,6 @@
 \addcontentsline{toc}{section}{索引}
 \color{titlepurplec}
 \appendix
-\CJKfamily{kai}
 \printindex
 %———————————————
 

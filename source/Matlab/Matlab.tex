@@ -21,21 +21,27 @@
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 \newfontfamily\monaco{Monaco}
-\lstset{frame=tb,
+\lstset{                  %设置代码块
+	basicstyle=\footnotesize\ttfamily,% 基本风格
+	numbers=left,    % 行号
+	numbersep=10pt,  % 行号间隔 
+	tabsize=2,       % 缩进
+	extendedchars=true, % 扩展符号？
+	breaklines=true, % 自动换行
 	language=Matlab,
-	aboveskip=3mm,
-	belowskip=3mm,	
-	showstringspaces=false,
-	columns=flexible,
-	basicstyle={\small\monaco},
-	numbers=none,
-	numberstyle=\tiny\color{gray},
 	keywordstyle=\color{blue},
 	commentstyle=\color{dkgreen},
 	stringstyle=\color{mauve},
-	breaklines=true,
-	breakatwhitespace=true,
-	tabsize=3
+    frame=tlrb,
+    framerule=1pt,
+    framesep=3pt,
+    frameround = tttt,
+    backgroundcolor=\color[RGB]{255,251,251},
+    rulecolor=\color[RGB]{215,215,215},
+	xleftmargin=19pt,% 竖线左边间距
+	showspaces=false,% 空格字符加下划线
+	showstringspaces=false,% 字符串中的空格加下划线
+	showtabs=false,  % 字符串中的tab加下划线
 }
 \usepackage{makeidx}%索引专用
 \makeindex  %添加索引
@@ -187,8 +193,8 @@
 
 %文章标题
 \title{
-	\textbf{\Huge{Matlab 与 科学计算}}\\
-	\vspace*{27em}
+	\textbf{\Huge{Matlab 与 科学计算}\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}}\\
+	\vspace*{25em}
 }
 \author{
 	{  \large {易鹏}}\\
@@ -285,7 +291,9 @@
 	%\tableofcontents
 	
 	\pagenumbering{Roman}
+	\renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents

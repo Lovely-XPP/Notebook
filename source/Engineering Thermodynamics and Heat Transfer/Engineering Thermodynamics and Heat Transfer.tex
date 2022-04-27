@@ -159,7 +159,8 @@
 %文章标题
 \title{
 	\Huge{\textbf{{工程热力学与传热学}}}\\
-\vspace*{18em}
+    \thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}
+    \vspace*{16em}
 }
 \author{
 	{  \large {易鹏}}\\
@@ -269,7 +270,9 @@
 	%\tableofcontents
 	
 	\pagenumbering{Roman}
+	\renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents

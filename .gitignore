@@ -18,6 +18,7 @@ README.html
 *.gz
 *.nlo
 *.nls
+*.ai
 
 epstopdf/backup
 epstopdf/*.pdf

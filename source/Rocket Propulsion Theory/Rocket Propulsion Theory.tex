@@ -219,8 +219,8 @@
 \newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}
 
 \title{
-	\Huge{\textbf{火箭推进理论}}
-	\vspace*{18em}
+	\Huge{\textbf{火箭推进理论}\thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}}
+	\vspace*{16em}
 }
 \author{
 	{  \large {易鹏}}\\
@@ -233,7 +233,9 @@
 \begin{document}
 	%标题及目录
 	\pagenumbering{Roman}
+	\renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents
