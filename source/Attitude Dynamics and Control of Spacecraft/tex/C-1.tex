@@ -398,9 +398,10 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 		\caption{欧拉轴旋转分解图}
 		\label{欧拉轴}
 	\end{minipage}
-	\begin{minipage}{0.348\linewidth}
+	\begin{minipage}{0.33\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{pic/欧拉轴2}
+        \vspace*{-2.6em}
 		\caption{欧拉轴旋转投影图}
 		\label{欧拉轴2}
 	\end{minipage}
@@ -416,12 +417,12 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 
 将垂直分量$\bm{a}_{\perp}, \bm{b}_{\perp}$投影到垂直于轴$\bm{e}$的平面$\Pi$上，如图 \ref{欧拉轴2} 所示。定义单位正交矢量$\bm{u}, \bm{v}$
 \begin{align*}
-	\bm{u} & = \bm{a}_{\perp} = \dfrac{\bm{e} \times \bm{a}}{\big| \bm{e} \times \bm{a} \big|} = \dfrac{1}{a \sin \theta}(\bm{e} \times \bm{a}) \\
-	\bm{v} & = \bm{e} \times \bm{u} = \dfrac{1}{a \sin \theta} \bm{e} \times (\bm{e} \times \bm{a})= \dfrac{1}{a \sin \theta}\big[ \bm{a} - (\bm{e} \cdot \bm{a})\bm{e} \big] 
+	\bm{v} & = \bm{a}_{\perp} = \dfrac{\bm{e} \times \bm{a}}{\big| \bm{e} \times \bm{a} \big|} = \dfrac{1}{a \sin \theta}(\bm{e} \times \bm{a}) \\
+	\bm{u} & = \bm{v} \times \bm{e} = \dfrac{1}{a \sin \theta} (\bm{e} \times \bm{a}) \times \bm{e} = \dfrac{1}{a \sin \theta}\big[ \bm{a} - (\bm{e} \cdot \bm{a})\bm{e} \big] 
 \end{align*}
 将矢量$\bm{b}_{\perp}$分解，得
 \begin{equation*}
-	\bm{b}_{\perp} = \cos \varPhi \bm{u} + \sin \varPhi \bm{v} = \cos \varPhi \bm{a}_\perp + \sin \varPhi (\bm{a}_\perp \times \bm{e})
+	\bm{b}_{\perp} = \cos \varPhi \bm{u} + \sin \varPhi \bm{v} = \cos \varPhi (\bm{a}_\perp \times \bm{e}) + \sin \varPhi \bm{a}_\perp
 \end{equation*}
 将矢量$\bm{a}, \bm{b}$用上面的矢量表示为（注：$\bm{a}, \bm{b}$模长相等，即$a=b$）
 \begin{align}
