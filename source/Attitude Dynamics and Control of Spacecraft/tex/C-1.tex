@@ -528,12 +528,12 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy[�
 	\cos \varPhi = \dfrac{\text{tr} \ubm{C}_{ba} - 1}{2} \\
 	\ubm{e} = \dfrac{1}{2 \sin \varPhi} 
 	\begin{bmatrix}
-		C_{32} - C_{23} \\
-		C_{13} - C_{31} \\
-		C_{21} - C_{12}
+		C_{23} - C_{32} \\
+		C_{31} - C_{13} \\
+		C_{12} - C_{21}
 	\end{bmatrix}
 \end{align}
-其中，$\text{tr} \ubm{C}_{ba}$是方向余弦矩阵的迹，$\text{tr} \ubm{C}_{ba} = C_{11} + C_{12} + C_{13}$。绕任意轴转动相同的$\varPhi$角，方向余项矩阵的迹不变。
+其中，$\text{tr} \ubm{C}_{ba}$是方向余弦矩阵的迹，$\text{tr} \ubm{C}_{ba} = C_{11} + C_{22} + C_{33}$。绕任意轴转动相同的$\varPhi$角，方向余项矩阵的迹不变。
 
 \noindent 将公式展开，对应得到以下3组解：
 
@@ -1545,7 +1545,7 @@ $
 {
 	方向余弦矩阵$\bm{C}_{ba}$的微分方程为
 	\begin{equation}
-		\dot{\ubm{C}}_{ba} = - \ubm{C}_{ba} \ubm{\omega}_{ba}^\times
+		\dot{\ubm{C}}_{ba} = - \ubm{\omega}_{ba}^\times\ubm{C}_{ba} 
 	\end{equation}
 	\textbf{\color{red} 注意：$\ubm{\omega}_{ba}$是$\bm{\omega}_{ba}$在坐标系$S_b$下的分量。}
 }
@@ -1572,7 +1572,7 @@ $
 \end{equation}
 所以，
 \begin{align*}
-	\ubm{\omega}_{ca}^\times &= -\left(\dot{\ubm{C}_{cb} \ubm{C}_{ba} + \ubm{C}_{cb}\dot{\ubm{C}}_{ba}}\right)\ubm{C}_{ac} 
+	\ubm{\omega}_{ca}^\times &= -\left(\dot{\ubm{C}}_{cb} \ubm{C}_{ba} + \ubm{C}_{cb}\dot{\ubm{C}}_{ba}\right)\ubm{C}_{ac} 
 	= -\dot{\ubm{C}}_{ca} \ubm{C}_{bc} - \ubm{C}_{cb} \dot{\ubm{C}}_{ba} \ubm{C}_{ab} \ubm{C}_{bc} \\
 	&= \ubm{\omega}_{cb}^\times + \ubm{C}_{cb} \ubm{\omega}_{ba}^\times \ubm{C}_{bc}
 \end{align*}
