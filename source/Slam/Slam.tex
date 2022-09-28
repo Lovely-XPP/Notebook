@@ -10,6 +10,7 @@
 \newcommand{\version}{V1.12.028$\,\,$(内测版)}
 
 % ---------------------------- 宏包导入 ----------------------------  %
+\usepackage[utf8]{inputenc}
 \usepackage{ctex}
 \usepackage{xeCJK}
 \usepackage{cite}
@@ -35,7 +36,7 @@
 \usepackage{titletoc}%目录页的宏包
 \usepackage{titlesec}%改变章节或标题的样式的宏包
 \usepackage[bookmarks=true,colorlinks,linkcolor=black]{hyperref}
-\usepackage{enumerate}%使用改宏包优化罗列环境
+\usepackage{enumitem}
 \usepackage{tcolorbox}%box宏包
 \tcbuselibrary{most}
 \usepackage{xcolor}
@@ -46,12 +47,41 @@
 \usetikzlibrary{calc}
 \usepackage{capt-of}
 \usepackage{nomencl}%符号说明包
+\usepackage{makecell}
 \makenomenclature%制作符号说明
 %\usepackage{longtable}
 %\usepackage{polynom}% 除法竖式
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows,arrows.meta}
 %\usetikzlibrary{circuits.ee.IEC}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\newfontfamily\monaco{Monaco}
+\lstset{                  %设置代码块
+	basicstyle=\footnotesize\ttfamily,% 基本风格
+	numbers=left,    % 行号
+	numbersep=10pt,  % 行号间隔 
+	tabsize=2,       % 缩进
+	extendedchars=true, % 扩展符号？
+	breaklines=true, % 自动换行
+	language=C++,
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+    frame=tlrb,
+    framerule=1pt,
+    framesep=3pt,
+    frameround = tttt,
+    backgroundcolor=\color[RGB]{255,251,251},
+    rulecolor=\color[RGB]{215,215,215},
+	xleftmargin=19pt,% 竖线左边间距
+	showspaces=false,% 空格字符加下划线
+	showstringspaces=false,% 字符串中的空格加下划线
+	showtabs=false,  % 字符串中的tab加下划线
+}
 % ------------------------------------------------------------- %
 
 % ---------------------------- 基本设置 ----------------------------  %
@@ -82,8 +112,8 @@
 
 %章节或标题的样式
 \titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
-\titleformat{\section}{\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
-\titleformat{\subsection}{\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
+\titleformat{\section}{\bfseries\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
+\titleformat{\subsection}{\bfseries\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
 %\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
 %格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
 
@@ -175,6 +205,7 @@
 \newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}%文本高亮
 \newcounter{sssection}[subsection]
 \newcommand{\sssection}[1][]{\noindent \refstepcounter{sssection} \textbf{\thesssection. #1} \vspace*{0.5em}}
+\newcommand{\nob}[1][]{\par \noindent(#1) \hspace*{0.3em}}
 \newcommand{\noa}[1][]{\par (#1) \hspace*{0.3em}}
 
 %% 公式字符类
@@ -196,7 +227,7 @@
 \newcommand{\eqrefp}[1][]{第 \pageref{#1} 页的公式 \eqref{#1} }
 
 %% 定义索引类
-\newcommand{\dy}[2][]{{\color{dy}#1}\index{#2@#1}}
+\newcommand{\dy}[2]{{\bfseries\color{dy}#1}\index{#2@#1}}
 \newcommand{\dya}[2][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}}  \index{#2@#1} \hspace*{1em}}
 \newcommand{\dyb}[1][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate, colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}} \hspace*{1em} }
 % ------------------------------------------------------------- %
@@ -273,7 +304,7 @@
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 	
-	% 第一章：航天器姿态运动学
+	% 第一章：SLAM 简介
 	\include{tex/C-1}
 	
 	
@@ -285,9 +316,6 @@
 	\cleardoublepage
 	\addcontentsline{toc}{chapter}{附录}
 	\color{titlepurplec}
-	\addcontentsline{toc}{section}{参考文献}
-	\bibliographystyle{IEEEtran}
-	\bibliography{ref}
 	\addcontentsline{toc}{section}{插图目录}
 	\renewcommand{\listfigurename}{插图目录}
 	\thispagestyle{empty}

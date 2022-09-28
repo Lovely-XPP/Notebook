@@ -17,6 +17,7 @@ notebook=(
 		  	"Analytical Geometry"
 		  	"Probability Statistics"
 		  	"College Physics"
+			"Slam"
 		  )
 
 notebkcn=(	
@@ -34,6 +35,7 @@ notebkcn=(
 		  	"空间解析几何"
 		  	"概率论与数理统计"
 		  	"大学物理上册"
+			"视觉Slam笔记"
 		  )
 for (( i = 0; i < ${#notebook[@]}; i++ )); do
 	source_file="${Root}/source/${notebook[i]}/${notebook[i]}.pdf"

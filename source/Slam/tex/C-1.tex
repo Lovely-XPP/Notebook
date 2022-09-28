@@ -1,9 +1,10 @@
 \chapter{SLAM 简介}
 \section{SLAM 的目标}
-SLAM 的全称为 Simultaneous Localization and Mapping，中文翻译为即时定位于建图，所以SLAM的目标就是两个：
+\thispagestyle{empty}
+\dy{SLAM}{SLAM} 的全称为 Simultaneous Localization and Mapping，中文翻译为即时定位于建图，所以SLAM的目标就是两个：
 
-\noa[1] 我在什么地方？——定位
-\noa[2] 周围环境怎么样？——建图
+\noa[1] 我在什么地方？——\dy{定位}{DW}
+\noa[2] 周围环境怎么样？——\dy{建图}{JT}
 
 \section{视觉 SLAM}
 \subsection{SLAM 传感器}
@@ -16,7 +17,104 @@ SLAM 的全称为 Simultaneous Localization and Mapping，中文翻译为即时�
 
 \subsection{视觉SLAM的传感器}
 
-视觉SLAM主要的传感器就是\textbf{相机}，照片本质上是场景在相机的成像平面上的\textbf{投影}。它以\textbf{二维的形式记录了三维的世界}，在这个过程中丢掉了场景的一个维度：\textbf{深度}（距离）。相机主要有三类：
+视觉SLAM主要的传感器就是\textbf{相机}，照片本质上是场景在相机的成像平面上的\textbf{投影}。它以\textbf{二维的形式记录了三维的世界}，在这个过程中丢掉了场景的一个维度：\dy{深度}{SD}（距离）。相机主要有三类：
 
-\noa[1] 单目相机：只使用一个摄像头。在单张图像中，无法确定一个物体的真是大小。它可能是一个\textbf{很大但很远}的物体，也可能是一个\textbf{很近但很小}的物体。所以如果要回复三维结构，只能改变相机的视角。
-\noa[2] 
+\nob[1] \dy{单目相机}{DMXJ}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 组成：只使用一个摄像头。
+    \item 原理：在单张图像中，无法确定一个物体的真实大小。它可能是一个\textbf{很大但很远}的物体，也可能是一个\textbf{很近但很小}的物体。所以如果要恢复三维结构，只能改变相机的视角。所以在单目SLAM中，我们必须移动相机才能估计它的\dy{运动}{YD}（Motion），同时估计场景中物体的远近和大小，称为\dy{结构}{JG}（Structure）。从图像的变化可以得到相机的相对运动状态，同时我们还知道：\textbf{近处的物体移动块，远处的物体移动慢，极远处（无穷远处）的物体（如太阳、月亮）看上去是不动的}。所以物体在图像上的运动就形成了\dy{视差}{SC}（Disparity），通过视差就可以定量判断物体的距离远近。
+    \item 缺点：由于单张图像无法确定深度，所以得到的物体远近仅仅是一个相对值。也就是说，如果把相机的运动和场景放大同样的倍数，单目相机得到的像是一样的。所以，单目SLAM估计的轨迹和地图将与真实的轨迹和地图相差一个因子，即\dy{尺度}{CD}（Scale）。由于单目SLAM无法仅仅通过图像确定真实尺度，所以又称为\dy{尺度不确定性}{CDBQDX}（Scale Ambiguity）。
+\end{itemize}
+\vspace*{0.5em}
+
+\nob[2] \dy{双目相机}{SMXJ}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 目的：通过某种手段测量物体与相机之间的距离，克服单目相继无法知道距离的缺点。
+    \item 组成：两个单目相机，且两个相机之间的距离（\dy{基线}{JX}）已知。
+    \item 原理：和人眼相似，通过左右眼图像的差异判断物体的远近，具体定量用基线确定。
+    \item 缺点：需要大量计算才能近似（不太可靠）估计每一个像素点的深度，且深度的量程和精度受基线和分辨率所限，视差的计算需要消耗大量的计算资源。
+    \item 应用：室内室外
+\end{itemize}
+
+\vspace*{0.5em}
+
+\nob[3] \dy{深度相机}{SDXJ}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 目的：通过某种手段测量物体与相机之间的距离，克服单目相继无法知道距离的缺点。
+    \item 组成：深度相机又称 \dy{RGB-D相机}{RGBDXJ}，由激光传感器等组成。
+    \item 原理：通过红外结构光或Time-of-Flight（ToF）原理，像激光传感器那样，主动向物体发射并接受返回的光，测出物体与相机的距离，此为通过物理测量手段进行测量，可以节省大量的计算资源。
+    \item 缺点：测量范围窄、噪声大、视野小、易受日光干扰、无法测量透射物质。
+    \item 应用：室内
+\end{itemize}
+
+\section{经典的视觉SLAM框架}
+\begin{figure}[!htp]
+    \centering
+    \begin{tikzpicture}
+        \node(A) [draw,inner sep=3pt] {\makecell{传感器\\[-0.2em] \hspace*{1em}信息读取\hspace*{1em}}};
+        \node(B) [draw,right of = A, node distance = 4cm, inner sep=3pt] {\makecell{前端\\[-0.2em] \hspace*{1em}视觉里程计\hspace*{1em}}};
+        \node(C) [draw,right of = B, node distance = 4cm, inner sep=3pt] {\makecell{后端\\[-0.2em] \hspace*{1em}非线性优化\hspace*{1em}}};
+        \node(D) [draw,right of = C, node distance = 4cm, inner sep=3pt] {\makecell{\hspace*{1em}建图\hspace*{1em}}};
+        \node(E) [draw,below of = B, node distance = 2cm, inner sep=3pt] {\makecell{\hspace*{1em}回环检测\hspace*{1em}}};
+
+        %\draw[arrows={-Stealth}](0cm,1.5cm) -- (D)  node[midway,right = 0.5cm, above=0cm]{干扰};
+        \draw[arrows={-Stealth}] (A) -- (B);
+        \draw[arrows={-Stealth}] (B) -- (C);
+        \draw[arrows={-Stealth}] (C) -- (D);
+        \draw[arrows={-Stealth}] (A) -- +(0cm,-2cm) -- (E) -- +(4cm,0cm) --(C);
+    \end{tikzpicture}
+    \caption{经典的视觉SLAM框架}
+    \label{SLAM Frame}
+\end{figure}
+
+如图 \ref{SLAM Frame} 所示，经典的视觉SLAM框架包括以下几个流程。
+\begin{enumerate}
+    \setlength{\leftmargin}{1.2em} %左边界
+    \setlength{\parsep}{0ex} %段落间距
+    \setlength{\topsep}{0.5ex} %列表到上下文的垂直距离
+    \setlength{\itemsep}{0.2ex} %条目间距
+    \setlength{\labelsep}{0.5em} %标号和列表项之间的距离,默认0.5em
+    \setlength{\itemindent}{0.5em} %标签缩进量
+    \setlength{\listparindent}{0em} %段落缩进量
+
+    \item \dy{传感器信息读取}{CGQXXDQ}：相机图像信息的读取和预处理。在机器人中，还可能包括码盘、惯性传感器等信息的读取和同步。
+    \item \dy{前端视觉里程计}{QDSJLCJ}（Visual Odometery，\dy{VO}{VO}）：估算相邻图像间相机运动，以及局部地图的样子。VO 又称为\dy{前端}{QD}（Front End）。
+    \item \dy{后端非线性优化}{HDFXXYH}（Optimization）：接受不同时刻视觉里程计测量的相机位姿，以及回环检测的信息，对它们进行优化，得到全局一致的轨迹和地图。由于接在VO之后，又称为\dy{后端}{HD}（Back End）。
+    \item \dy{回环检测}{HHJC}（Loop Closure Detection）：回环检测判断机器人是否到达过先前的位置。如果检测到回环，它会把信息提供给后端进行处理。
+    \item \dy{建图}{JT}：根据估计的轨迹，建立与任务要求对应的地图。
+\end{enumerate}
+
+\newpage
+
+\textbf{在静态、刚体、光照变化不明显、没有人为干扰的场景下}，视觉SLAM技术已经相当成熟。
+
+\subsection{视觉里程计}
+视觉里程计是通过\textbf{相邻帧间的图像估计相机运动}，再通过\textbf{相机与空间点的几何关系}来估计当前时刻的相机运动，然后将相邻时刻的运动“串起来”，可以估计任意时刻的相机运动并恢复整个场景的空间结构。它称为“里程计”是因为它和实际的里程计一样，只计算相邻时刻的运动（不限于2帧，可以是5 $\sim$ 10 帧），而和过去的信息没有关联。
+
+但是，由于视觉里程计在最简单的情况下只估计极少量图像间的运动，每个时刻的估计都产生一定的误差，导致先前的误差会传递到下一时刻，误差会随时间不断累积，这就是\dy{累积漂移}{LJPY}（Accumulating Drift）。这将导致无法建立一致的地图。为了解决漂移问题，我们还需要后端优化和回环检测。回环检测负责吧“机器人回到原始位置”的事情检测出来，而后端优化则根据该信息，校正整个轨迹的形状。
+
+\subsection{后端优化}
+后端优化主要指助理SLAM过程中的\textbf{噪声}问题。任何传感器都会带一定的噪声，为此我们需要估计传感器带有多大的噪声，这些噪声是如何从上一时刻传递到下一时刻的，而我们又对当前的估计有多大的自信。后端优化要考虑的问题就是如何从这些带有噪声的数据中估计整个系统的状态，以及这个状态轨迹的不确定性有多大——这称为\dy{最大后验概率估计}{ZDHYGLGJ}（Maximum-a-Posteriori, MAP）。这里的状态既包括机器人自身的轨迹，也包含地图。
+
+前端给后端提供待优化的数据，后端只关心数据而不关心数据来自哪里。\textbf{在视觉SLAM中，前端和计算机视觉研究更为相关，比如图像的特征提取与匹配等，后端则主要是滤波与非线性算法}。
+
+后端：借助状态估计理论，把定位和建图的不确定性表达出来，然后采用滤波器或非线性优化，估计状态的均值和不确定性（方差）。
+
+\subsection{回环检测}
+回环检测又称闭环检测，主要解决\textbf{位置估计随时间漂移}的问题。这需要让机器人具有\textbf{识别到过的场景}的能力。视觉SLAM 一般采用\textbf{判断图像间的相似性}的方法来完成回环检测。所以视觉回环检测实质上是一种计算图像数据相似性的算法。机器人判断回到原点后，将数据重新更新为当时不含累积漂移的数据，同时后端根据这些新的信息，把轨迹和地图调整到符合回环检测结果的样子。所以，如果我们又充分而且正确的回环检测，则可以消除累积误差，得到全局一致的轨迹和地图。
+
+\subsection{建图}
+建图是指构件\dy{地图}{DT}的过程。地图是对环境的描述，但这个描述并不是固定的，需要视SLAM的应用而定。大体上讲，地图可以分为\textbf{度量地图}和\textbf{拓扑地图}两种。
+
+\nob[1] \dy{度量地图}{DMXJ}
+
+度量地图强调精确地表示地图中物体的位置关系，通常用稀疏（Sparse）与稠密（Dense）对其分类。
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item \dy{稀疏地图}{XSDT}：稀疏地图进行了一定程度的抽象，并不需要表达所有物体。例如，我们选择一部分具有代表意义的东西，称之为\dy{路标}{LB}（Landmark），那么一张稀疏地图就是由路标组成的地图，而不是路标的部分就可以忽略。
+    \item \dy{稠密地图}{CMDT}：稠密地图着重于建模所有看到的东西。稠密地图通常按照某种分辨率，由许多个小块组成，在二维度量地图中体现为许多个一般导航就是使用稠密地图。
+\end{itemize}
+相对地，
+
+
+
+
