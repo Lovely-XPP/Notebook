@@ -3,13 +3,16 @@
 
 %文章标题设置
 %中文名
-\newcommand{\titleCN}{航天器姿态动力学与控制}
+\newcommand{\titleCN}{视觉SLAM 笔记}
 %英文名
-\newcommand{\titleEN}{Attitude Dynamics and Control of Spacecraft}
+\newcommand{\titleEN}{Visual SLAM}
+%版本号
+\newcommand{\version}{V1.12.028$\,\,$(内测版)}
 
 % ---------------------------- 宏包导入 ----------------------------  %
 \usepackage{ctex}
 \usepackage{xeCJK}
+\usepackage{cite}
 \usepackage{makecell}
 \usepackage{yhmath}
 \usepackage{verbatim}
@@ -20,7 +23,7 @@
 \usepackage{newtxtext}
 \usepackage{newtxmath}
 \usepackage{bm}
-\DeclareMathSizes{10}{10}{5.5}{4}
+\DeclareMathSizes{10}{10}{5.5}{5}
 \usepackage{makeidx}%索引专用
 \makeindex  %添加索引
 \usepackage{fancyhdr}
@@ -40,7 +43,10 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \usepackage{capt-of}
+\usepackage{nomencl}%符号说明包
+\makenomenclature%制作符号说明
 %\usepackage{longtable}
 %\usepackage{polynom}% 除法竖式
 \usetikzlibrary{shapes.geometric}
@@ -50,7 +56,7 @@
 
 % ---------------------------- 基本设置 ----------------------------  %
 %字体设置
-\setCJKmainfont[BoldFont={PingFangSC-Medium}]{PingFangSC-Regular}
+\setCJKmainfont[BoldFont={PingFangSC-Semibold}]{PingFangSC-Regular}
 
 %调整间距（倍数）
 \linespread{1.5}
@@ -78,9 +84,9 @@
 \titleformat{\chapter}{\bfseries\Huge\color{titlepurple}}{第\ \thechapter\ 章\ \quad}{0pt}{}
 \titleformat{\section}{\Large\color{titlepurpleb}}{\bfseries{\thesection}\quad  }{0pt}{}
 \titleformat{\subsection}{\large\color{titlepurplec}}{\bfseries{\thesubsection}\quad  }{0pt}{}
-\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
+%\titlespacing{\subsection}{1.5em}{0.1em}{1em}[1em]
 %格式如下：\titlespacing*{章节名称}{左间距}{(前)行间距}{(后)行间距}[右间距(一般都没用，填0.1em即可，但不能不填)]
-\titlespacing*{\subsubsection}{2em}{3em}{1em}[1em]
+
 
 %目录调整
 \newcounter{mycontents}
@@ -121,6 +127,7 @@
 \newcounter{inference}[chapter]
 \newcounter{examples}[chapter]
 \newcounter{tl}[chapter]
+\newcounter{lemma}[chapter]
 \newcounter{F}[section]
 \newcounter{G}[section]
 \newcounter{H}[section]
@@ -129,6 +136,7 @@
 \renewcommand{\theexample}{{ 题型} \textbf{\thechapter.\arabic{example}}}
 \renewcommand{\theinference}{{ 方法} \textbf{\thechapter.\arabic{inference}}}
 \renewcommand{\theexamples}{{ 例}  \textbf{\thechapter.\arabic{examples}}}
+\renewcommand{\thelemma}{{ 引理}  \textbf{\thechapter.\arabic{lemma}}}
 \renewcommand{\thetl}{{ 推论}  \textbf{\thechapter.\arabic{tl}}}
 \newcommand{\s}{\hspace*{-2.7em}}
 
@@ -141,13 +149,16 @@
 \end{tcolorbox}}
 
 %定理类
-\newcommand{\theorem}[2][]{\vspace{1em}\s \refstepcounter{theorem} \mybox[dl]{{\color{dl}\thetheorem\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em}  \par}
+\newcommand{\theorem}[2][]{\vspace{1em}\s \refstepcounter{theorem} \hspace*{0.15em} \mybox[dl]{{\color{dl}\thetheorem\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em}  \par}
 
 %推论类
-\newcommand{\inference}[2][]{\vspace{1em}\s \refstepcounter{inference} \mybox[inference]{{\color{inference}\theinference\hspace{1em}#1}\\ \hspace*{1.5em}#2}\vspace{0.5em}   \par}
+\newcommand{\inference}[2][]{\vspace{1em}\s \refstepcounter{inference} \hspace*{0.15em} \mybox[inference]{{\color{inference}\theinference\hspace{1em}#1}\\ \hspace*{1.5em}#2}\vspace{0.5em}   \par}
 
 %定义类
-\newcommand{\defination}[2][]{\vspace{1em}\s \refstepcounter{defination} \mybox[dy0]{{\color{dy0}\thedefination\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em} \par}
+\newcommand{\defination}[2][]{\vspace{1em}\s \refstepcounter{defination} \hspace*{0.15em} \mybox[dy0]{{\color{dy0}\thedefination\hspace{1em}#1}\\[0.1em] \hspace*{2em}#2}\vspace{0.5em} \par}
+
+%引理类
+\newcommand{\lemma}[2][]{\vspace{1em}\s \refstepcounter{lemma} \hspace*{0.15em} \mybox[inference]{{\color{inference}\thelemma\hspace{1em}#1}\\ \hspace*{1.5em}#2}\vspace{0.5em}   \par}
 
 %题型类(无标签)
 \newcommand{\example}[1][]{\vspace{1em} \s \refstepcounter{example} \mybox[ex]{\color{ex}\theexample\hspace{1em}#1}\vspace{0.5em} \par }
@@ -157,14 +168,14 @@
 
 % ---------------------------- 定义命令 ----------------------------  %
 %% 文本设置类
-\newcommand{\link}[1]{\hyperref[#1] {\color{超链接}#1}}
-\newcommand{\ds}[1]{\colorbox{文字底色}{#1}}
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-\newcommand{\blue}[1]{\textcolor{blue}{#1}}
-\newcommand{\highlights}[1]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}%文本高亮
+\newcommand{\link}[1][]{\hyperref[#1]{#1}，Page \pageref{#1}}
+\newcommand{\ds}[1][]{\colorbox{文字底色}{#1}}
+\newcommand{\red}[1][]{\textcolor{red}{#1}}
+\newcommand{\blue}[1][]{\textcolor{blue}{#1}}
+\newcommand{\highlights}[1][]{\tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{white}{#1}}}%文本高亮
 \newcounter{sssection}[subsection]
-\newcommand{\sssection}[1]{\noindent \refstepcounter{sssection} \textbf{\thesssection. #1} \vspace*{0.5em}\par}
-\newcommand{\noa}[1]{\par (#1) \hspace*{0.3em}}
+\newcommand{\sssection}[1][]{\noindent \refstepcounter{sssection} \textbf{\thesssection. #1} \vspace*{0.5em}}
+\newcommand{\noa}[1][]{\par (#1) \hspace*{0.3em}}
 
 %% 公式字符类
 \renewcommand{\d}{{\rm{d}}}
@@ -172,20 +183,23 @@
 \newcommand{\n}{{\rm{n}}}
 \renewcommand{\t}{\text{t}}
 \renewcommand{\j}{\text{j}}
+\newcommand{\T}{\text{T}}
 \def\degree{{}^{\circ}}
 \newcommand{\hvdots}{\hspace*{2mm}\vdots\hspace*{2mm}}
-\newcommand{\RMn}[1]{\romannumeral#1}
-\newcommand{\RMN}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\rmn}[1][]{\romannumeral#1}
+\newcommand{\Rmn}[1][]{\uppercase\expandafter{\romannumeral#1}}
 \newcommand{\vi}{\bm{i}}
 \newcommand{\vj}{\bm{j}}
 \newcommand{\vk}{\bm{k}}
+\newcommand{\norm}[1][]{\Vert #1 \Vert}
+\newcommand{\ubm}[1]{\underline{\bm{#1}}}
+\newcommand{\eqrefp}[1][]{第 \pageref{#1} 页的公式 \eqref{#1} }
 
 %% 定义索引类
-\newcommand{\dy}[2]{{\color{dy}#1}\index{#2@#1}}
-\newcommand{\dya}[2]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}}  \index{#2@#1} \hspace*{1em}}
-\newcommand{\dyb}[1]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate, colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}} \hspace*{1em} }
+\newcommand{\dy}[2][]{{\color{dy}#1}\index{#2@#1}}
+\newcommand{\dya}[2][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate , colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}}  \index{#2@#1} \hspace*{1em}}
+\newcommand{\dyb}[1][]{\vspace*{0.7em} \noindent \tcbox[colframe =Chocolate, colback =Coral,boxrule=0.5mm,size=small,on line]{\color{dya}{\textbf{#1}}} \hspace*{1em} }
 % ------------------------------------------------------------- %
-
 
 %------------------------------- 图框定义 ------------------------------%
 %证明和解
@@ -222,12 +236,13 @@
 %文章标题
 	\title{
 		\Huge{\textbf{\titleCN}}
-		\vspace*{18em}
+        \thanks{本笔记已经开源，可以免费下载，github地址：https://github.com/Lovely-XPP/Notebook\\ \hspace*{5.24cm} gitee分流地址：https://gitee.com/sysu\_xpp/Notebook}
+		\vspace*{16em}
 	}
 	\author{
 		{  \large {易鹏}}\\
 		{  \large 中山大学}\vspace*{0.5em}\\
-		内部版本号：V0.02.002$\,\,$(内测版)\\
+		内部版本号：\version \\
 	}
 
 
@@ -236,28 +251,43 @@
 \begin{document}
 	%标题及目录
 	\pagenumbering{Roman}
+    \renewcommand{\thefootnote}{*}
 	\maketitle
+    \renewcommand{\thefootnote}{\arabic{footnote}}
 	\clearpage \phantom{s} \thispagestyle{empty} \clearpage
 	\setcounter{page}{1}
 	\tableofcontents
+	\cleardoublepage
+	
+	%符号说明
+	\addcontentsline{toc}{chapter}{符号说明}
+	\renewcommand{\nomname}{符号说明}
+	\renewcommand{\pagedeclaration}[1]{, #1}
+	\twocolumn%双栏
+	\setcounter{page}{1}
+	\printnomenclature
+	\onecolumn
 	
 	%正文部分
 	\cleardoublepage
 	\setcounter{page}{1}
 	\pagenumbering{arabic}
 	
-	% 插入每一章的文档
+	% 第一章：航天器姿态运动学
 	\include{tex/C-1}
 	
 	
-	%打印索引—————————————
+	
+	%附录输出—————————————
+	% 注意：参考文献和索引首页无页码需要在相应生成的文件中手动插入命令\thispagestyle{empty}
+	% 参考文献：*.bbl
+	% 索引：*.ind
 	\cleardoublepage
 	\addcontentsline{toc}{chapter}{附录}
-	\addcontentsline{toc}{section}{索引}
 	\color{titlepurplec}
-	\appendix
-	\thispagestyle{empty}
-	\printindex
+	\addcontentsline{toc}{section}{参考文献}
+	\bibliographystyle{IEEEtran}
+	\bibliography{ref}
 	\addcontentsline{toc}{section}{插图目录}
 	\renewcommand{\listfigurename}{插图目录}
 	\thispagestyle{empty}
@@ -266,6 +296,11 @@
 	\renewcommand{\listtablename}{表格目录}
 	\thispagestyle{empty}
 	\listoftables
+	\thispagestyle{empty}
+	\cleardoublepage
+	\addcontentsline{toc}{section}{索引}
+	\appendix
+	\printindex
 	%———————————————
 	
 \end{document}
