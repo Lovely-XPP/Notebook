@@ -16,8 +16,7 @@
 └── 笔记pdf ── 已经生成好的笔记文件，可以直接查看和下载
 
 ## 目前正在更新的笔记
-
-* 航天器姿态动力学与控制
+* 视觉SLAM笔记
 
 ## 已完成的笔记
 
@@ -32,6 +31,7 @@
 * 概率论与数理统计
 * 自动控制原理（Principle of Automatic Control）
 * 工程热力学和传热学（Engineering Thermodynamics and Heat Transfer）
+* 航天器姿态动力学与控制
 
 
 
