@@ -106,15 +106,194 @@
 \subsection{建图}
 建图是指构件\dy{地图}{DT}的过程。地图是对环境的描述，但这个描述并不是固定的，需要视SLAM的应用而定。大体上讲，地图可以分为\textbf{度量地图}和\textbf{拓扑地图}两种。
 
-\nob[1] \dy{度量地图}{DMXJ}
+\nob[1] \dy{度量地图}{DMXJ}\textbf{（Metric Map）}
 
 度量地图强调精确地表示地图中物体的位置关系，通常用稀疏（Sparse）与稠密（Dense）对其分类。
 \begin{itemize}[itemsep=0.1pt,topsep =2pt]
     \item \dy{稀疏地图}{XSDT}：稀疏地图进行了一定程度的抽象，并不需要表达所有物体。例如，我们选择一部分具有代表意义的东西，称之为\dy{路标}{LB}（Landmark），那么一张稀疏地图就是由路标组成的地图，而不是路标的部分就可以忽略。
-    \item \dy{稠密地图}{CMDT}：稠密地图着重于建模所有看到的东西。稠密地图通常按照某种分辨率，由许多个小块组成，在二维度量地图中体现为许多个一般导航就是使用稠密地图。
+    \item \dy{稠密地图}{CMDT}：稠密地图着重于建模所有看到的东西。稠密地图通常按照某种分辨率，由许多个小块组成，在二维度量地图中体现为许多个小\dy{格子}{GZ}（Grid），而在三维度量地图中则体现为许多小\dy{方块}{FK}（Voxel）。通常一个小块含有占据、空间、未知三种状态，以表达该格内是否有物体。当查询某个空间位置时，地图能够给出该位置是否可以通过的信息。一般导航就是使用稠密地图。缺点：耗费大量储存空间且很多细节是不需要的，而且大规模度量地图可能会出现一致性问题，很小的误差就可以导致物体重叠，使地图失效。
 \end{itemize}
-相对地，
+\vspace*{1em}
 
+\nob[2] \dy{拓扑地图}{TPDT}\textbf{（Topological Map）}
+
+相比于度量地图的精确性，拓扑地图更强调地图元素之间的关系。拓扑地图是一个\dy{图}{T}（Graph），由节点和边组成，只考虑节点之间的连通性，而不关注节点之间是如何连通的。
+
+优点：放松了地图对精确位置的需要，去掉了地图的细节，表达更紧凑。
+
+缺点：不擅长表达具有复杂结构的地图，如何将实际地图转换为拓扑地图，如何使用拓扑地图进行导航与路径规划，都是比较困难的。
+
+
+
+\section{SLAM 问题的数学表达}
+假设一个机器人携带一些传感器在位置环境里面运动。由于传感器是离散采样，记采样的时刻为（连续时间离散化）$t = 1, \cdots ,K$，机器人在各个时刻的位置记为$\bm{x}_1 , \cdots, \bm{x}_K$。假设地图是由许多个\textbf{路标}组成的，传感器在各个时刻测量到一部分路标点。假设路标点一共有$N$个，记为$\bm{y}_1, \cdots, \bm{y}_N$。
+
+我们需要描述的两个问题：运动与观测。
+
+\subsection{运动的数学表达}
+什么是运动？即考察$k-1 \to k$时刻，机器人位置$\bm{x}$的变化情况。机器人的运动状况是由上一个时刻的位置$\bm{x}_{k-1}$以及运动传感器的读数或输入$\bm{u}_k$，当然只要是传感器都会有噪声，所以噪声$\bm{\omega}_k$也会对当前时刻的位置造成影响。综上，我们可以用一个函数来表示通用、抽象的数学模型。
+
+\defination{运动方程}
+{
+    \dy{运动方程}{YDFC}定义如下：
+    \begin{equation}
+        \bm{x}_k = f(\bm{x}_{k-1}, \bm{u}_k, \bm{\omega}_k)
+    \end{equation}
+}
+
+噪声的存在使得这个模型变成了随机模型。因为每次运动过程中的噪声是随机的，如果忽略噪声的影响，只根据指令来估计位置，可能与实际位置相差很远。
+
+\subsection{观测的数学表达}
+什么是观测？即考察在$k$时刻时机器人在$\bm{x}_k$处观测到了某一个路标$\bm{y}_j$，如何描述这个事件。同样地，我们可以用一个抽象的函数来表示这个数学模型。
+
+\defination{观测方程}
+{
+    \dy{观测方程}{GCFC}定义如下：
+    \begin{equation}
+        \bm{z}_{k,j} = h (\bm{y}_j, \bm{x}_k, \bm{v}_{k,j})
+    \end{equation}
+}
+其中，$\bm{v}_{k,j}$是观测中的噪声。
+
+
+\subsection{参数化实例}
+对于不同的真实运动和传感器种类，存在很多\dy{参数化}{CSH}（Parameterization）方式。例如，假设机器人在平面内运动，那么它的位姿（位置和姿态）由两个位置参数和一个转角参数来描述，即
+\begin{equation}
+    \bm{x}_k = 
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        \theta
+    \end{bmatrix}_k
+\end{equation}
+其中，$x_1,x_2$为两个轴上的位置，而$\theta$为转角。同时，输入的指令是由两个时间间隔位置和转角的变化量来描述，即
+\begin{equation}
+    \bm{u}_k =
+    \begin{bmatrix}
+        \Delta x_1 \\
+        \Delta x_2 \\
+        \Delta \theta
+    \end{bmatrix}_k
+\end{equation}
+于是运动凡尘就可以具体化为
+\begin{equation}
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        \theta
+    \end{bmatrix}_k
+    =
+    \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        \theta
+    \end{bmatrix}_{k-1}
+    +
+    \begin{bmatrix}
+        \Delta x_1 \\
+        \Delta x_2 \\
+        \Delta \theta
+    \end{bmatrix}_k
+    + \bm{\omega}_k
+\end{equation}
+在这种情况下，运动方程就是简单的线性关系。但是，不是所有输入指令都是位移和角度的变化量。例如“油门”或“控制杆”的输入就是速度或加速度量，所以运动方程是多样化的，具体需要进行动力学分析。
+
+关于观测方程，以二维激光传感器为例。激光传感器观测2D路标时能够测量两个量：路标点与机器人之间的距离$r$和夹角$\phi$。记路标点，位姿和观测数据分别为
+\begin{equation}
+    \bm{y}_j = 
+    \begin{bmatrix}
+        y_1 \\
+        y_2
+    \end{bmatrix}_j
+    \qquad
+    \bm{x}_k =
+    \begin{bmatrix}
+        x_1 \\
+        x_2
+    \end{bmatrix}_k
+    \qquad
+    \bm{z}_{k,j} =
+    \begin{bmatrix}
+        r_{k,j} \\
+        \phi_{k,j}
+    \end{bmatrix}
+\end{equation}
+那么观测方程可以写为
+\begin{equation}
+    \begin{bmatrix}
+        r_{k,j} \\
+        \phi_{k,j}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \sqrt{(y_{1,j} - x_{1,k})^2 + (y_{2,j} - x_{2,k})^2}\\
+        \arctan \left(\dfrac{y_{2,j} - x_{2,k}}{y_{1,j} - x_{1,k}}\right)
+    \end{bmatrix}
+    + \bm{v}_{k,j}
+\end{equation}
+
+考虑视觉SLAM时，传感器是相机，那么观测方程就是“对路标点拍摄后，得到图像中的像素”的过程。
+
+所以，针对不同的传感器，运动方程和观测方程有不同的参数化形式。如果我们保持通用性，把它们取成通用的抽象形式，那么SLAM过程可总结为两个基本方程。
+
+\defination{SLAM 基本方程}
+{
+    SLAM 的两个基本方程为：
+    \begin{equation}
+        \begin{cases}
+            \, \bm{x}_k = f(\bm{x}_{k-1}, \bm{u}_k, \bm{\omega}_k) & k = 1,\cdots, K \\
+            \, \bm{z}_{k,j} = h(\bm{y}_j, \bm{x}_k, \bm{v}_{k,j}) & (k,j) \in \mathcal{O}
+        \end{cases}
+    \end{equation}
+    其中，$\mathcal{O}$是一个集合，记录这在哪个时刻观察到了哪个路标，通常不是每个路标在每个时刻都能看到的——我们在单个时刻很可能只看到一小部分。
+}
+
+这两个方程描述了最基本的SLAM问题：当制导运动测量的读数$\bm{u}$，以及传感器的读数$\bm{z}$时，如何求解定位问题（估计$\bm{x}$）和建图问题（估计$\bm{y}$）？这是我们就把SLAM问题建模成了一个\textbf{状态估计问题}：如何通过带有噪声的测量数据，估计内部的、隐藏着的状态变量。
+
+\subsection{问题总结}
+\begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}
+        \node(A) [draw,inner sep=5pt] {SLAM 基本方程
+        $
+            \begin{cases}
+                \, \bm{x}_k = f(\bm{x}_{k-1}, \bm{u}_k, \bm{\omega}_k) & k = 1,\cdots, K \\
+                \, \bm{z}_{k,j} = h(\bm{y}_j, \bm{x}_k, \bm{v}_{k,j}) & (k,j) \in \mathcal{O}
+            \end{cases}
+        $};
+        \node (B1) [draw, inner sep=5pt, below of = A, node distance = 3cm, xshift=-4cm]{方程具体形式};
+        \node (B2) [draw, inner sep=5pt, below of = A, node distance = 3cm,xshift=4cm]{噪声分布形式};
+        \node (D1) [draw, inner sep=5pt, below of = B1, node distance = 2cm, xshift=-2cm]{线性};
+        \node (D2) [draw, inner sep=5pt, below of = B1, node distance = 2cm, xshift=1.8cm]{非线性};
+        \node (D3) [draw, inner sep=5pt, below of = B2, node distance = 2cm, xshift=-2cm]{高斯分布};
+        \node (D4) [draw, inner sep=5pt, below of = B2, node distance = 2cm, xshift=1.9cm]{非高斯分布};
+        \node (E1) [draw, inner sep=5pt, below of = B1, node distance = 5cm]{\makecell{\dy{线性高斯系统}{XXGSXT}\\[-0.2em](Linear Gaussian, \dy{LG系统}{LGXT})}};
+        \node (E2) [draw, inner sep=5pt, below of = B2, node distance = 5cm]{\makecell{\dy{非线性非高斯系统}{FXXFGSXT}\\[-0.2em](Non-Linear Non-Gaussian, \dy{NLNG系统}{NLNGXT})}};
+        \node (F1) [draw, inner sep=5pt, below of = E1, node distance = 3cm] {\makecell{\dy{卡尔曼滤波器}{KEMLBQ}\\[-0.2em](Kalman Filter, \dy{KF}{KF})}};
+        \node (F2) [draw, inner sep=5pt, below of = E2, node distance = 3cm, xshift = -3cm] {\makecell{\dy{扩展卡尔曼滤波器}{KZKEMLBQ}\\[-0.2em](Extended Kalman Filter, \dy{EKF}{EKF})}};
+        \node (F3) [draw, inner sep=5pt, below of = E2, node distance = 3cm, xshift = 3cm] {\makecell{\dy{非线性优化}{FXXYH}\\[-0.2em](Nonlinear Optimization, \dy{NLO}{NLO})}};
+        \node (G1) [draw, inner sep=5pt, below of = F2, node distance = 3cm] {\makecell{\dy{粒子滤波器}{LZLBQ}\\[-0.2em](Particle Filter)}};
+        \node (G2) [draw, inner sep=5pt, below of = F3, node distance = 3cm] {\makecell{\dy{图优化}{TYH}\\[-0.2em](Graph Optimization)}};
+
+        %\draw[arrows={-Stealth}](0cm,1.5cm) -- (D)  node[midway,right = 0.5cm, above=0cm]{干扰};
+        \draw (A) -- (0cm, -1.8cm);
+        \draw[arrows={-Stealth}] (0cm, -1.8cm) --+ (-4cm, 0cm) -- (B1);
+        \draw[arrows={-Stealth}] (0cm, -1.8cm) --+ (4cm, 0cm) -- (B2);
+        \draw (B1) -- +(0cm, -1cm) -- +(-2cm,-1cm) -- (D1);
+        \draw (B1) -- +(0cm, -1cm) -- +(1.8cm,-1cm) -- (D2);
+        \draw (B2) -- +(0cm, -1cm) -- +(-2cm,-1cm) -- (D3);
+        \draw (B2) -- +(0cm, -1cm) -- +(1.9cm,-1cm) -- (D4);
+        \draw [blue,arrows={-Stealth}] (D1) -- +(0cm, -1.3cm) --+ (2cm, -1.3cm) -- (E1);
+        \draw [blue,arrows={-Stealth}] (D3) -- +(0cm, -1.3cm) --+ (-6cm, -1.3cm) -- (E1);
+        \draw [red,arrows={-Stealth}] (D2) -- +(0cm, -1cm) --+ (6.2cm, -1cm) -- (E2);
+        \draw [red,arrows={-Stealth}] (D4) -- +(0cm, -1cm) --+ (-1.9cm, -1cm) -- (E2);
+        \draw (E1) -- (F1);
+        \draw (E2) -- +(0cm, -1.5cm) -- +(-3cm,-1.5cm) -- (F2);
+        \draw (E2) -- +(0cm, -1.5cm) -- +(3cm,-1.5cm) -- (F3);
+        \draw[arrows={-Stealth}] (F2) -- (G1) node[midway, left = 0.1cm]{\makecell{\small 克服EKF的缺点\\[-0.4em]\small 线性化误差和噪声高斯分布假设}};
+        \draw[arrows={-Stealth}] (F3) -- (G2) node[midway, left = 0.1cm]{\small 代表优化技术};
+    \end{tikzpicture}
+\end{figure}
 
 
 
