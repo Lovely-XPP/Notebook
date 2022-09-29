@@ -322,3 +322,203 @@
 
 
 
+\section{环境配置与CMake基础}
+基本Linux环境：Ubuntu 20.04，安装教程略。
+\subsection{环境配置}
+\noindent \textbf{1. git}
+\begin{lstlisting}[style=bash]
+sudo apt install git
+\end{lstlisting}
+
+\noindent \textbf{2. vim}
+\begin{lstlisting}[style=bash]
+sudo apt install vim
+\end{lstlisting}
+
+\noindent \textbf{3. Slambook2}
+\begin{lstlisting}[style=bash]
+cd ~ && git clone https://github.com/gaoxiang12/slambook2/
+\end{lstlisting}
+
+\noindent \textbf{4. 编译器}
+\begin{lstlisting}[style=bash]
+sudo apt install gcc g++ cmake
+\end{lstlisting}
+
+\noindent \textbf{5. Eigen3}
+\begin{lstlisting}[style=bash]
+sudo apt install libeigen3-dev
+\end{lstlisting}
+
+\noindent \textbf{6. Pangolin}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 系统依赖
+\begin{lstlisting}[style=bash]
+sudo apt install libglew-dev libboost-dev libboost-thread-dev libboost-fileystem-dev
+\end{lstlisting}
+    \item 克隆仓库
+\begin{lstlisting}[style=bash]
+cd 3rdparty # if current dir is 3rdparty, skip this command
+git clone https://github.com/stevenlovegrove/Pangolin.git
+\end{lstlisting}   
+    \item CMake \& Install
+\begin{lstlisting}[style=bash]
+cd Pangolin
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+\end{lstlisting}   
+\end{itemize}
+
+\noindent \textbf{7. fmt}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 克隆仓库
+\begin{lstlisting}[style=bash]
+cd 3rdparty # if current dir is 3rdparty, skip this command
+git clone https://github.com/fmtlib/fmt.git
+cd fmt
+git checkout b6f4ceae
+\end{lstlisting}   
+    \item CMake \& Install
+\begin{lstlisting}[style=bash]
+cd fmt # if current dir is fmt, skip this command
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+\end{lstlisting}   
+\end{itemize}
+
+\noindent \textbf{8. Sophus}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 克隆仓库
+\begin{lstlisting}[style=bash]
+cd 3rdparty # if current dir is 3rdparty, skip this command
+git clone https://github.com/strasdat/Sophus
+\end{lstlisting}   
+    \item CMake \& Install
+\begin{lstlisting}[style=bash]
+cd Sophus # if current dir is Sophus, skip this command
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+\end{lstlisting}   
+\end{itemize}
+
+\noindent \textbf{9. g2o}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 系统依赖
+\begin{lstlisting}[style=bash]
+cd 3rdparty # if current dir is 3rdparty, skip this command
+sudo apt install libqt4-dev qt5-qmake libqglviewer-dev-qt5 libsuitesparse-dev libcxsparse3 libcholmod3
+\end{lstlisting}
+    \item 克隆仓库
+\begin{lstlisting}[style=bash]
+git clone https://github.com/RainerKuemmerle/g2o
+cd g2o
+git checkout 9b41a4ea
+\end{lstlisting}   
+    \item CMake \& Install
+\begin{lstlisting}[style=bash]
+cd g2o # if current dir is g2o, skip this command
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+\end{lstlisting}   
+\end{itemize}
+
+\noindent \textbf{10. DBow3}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 克隆仓库
+\begin{lstlisting}[style=bash]
+cd 3rdparty # if current dir is 3rdparty, skip this command
+git clone https://github.com/rmsalinas/DBow3
+cd DBow3
+git checkout c5ae539a
+\end{lstlisting}   
+    \item CMake \& Install
+\begin{lstlisting}[style=bash]
+cd DBow3 # if current dir is DBow3, skip this command
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+\end{lstlisting}   
+\end{itemize}
+
+\noindent \textbf{11. OpenCV 3}
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 系统依赖
+\begin{lstlisting}[style=bash]
+sudo apt install unzip build-essential libgtk2.0-dev libvtk6-dev libjpeg-dev libtiff5-dev libjasper-dev libopenexr-dev libtbb-dev
+\end{lstlisting}
+    \item 克隆仓库
+\begin{lstlisting}[style=bash]
+cd 3rdparty # if current dir is 3rdparty, skip this command
+wget https://github.com/opencv/opencv/archive/3.4.16.zip -O opencv3.zip
+unzip -q opencv3.zip
+\end{lstlisting}   
+    \item CMake \& Install
+\begin{lstlisting}[style=bash]
+cd opencv-3.4.16
+mkdir build && cd build
+cmake ..
+make -j4
+sudo make install
+\end{lstlisting}   
+\end{itemize}
+
+\subsection{CMake 基本介绍}
+理论上，任意一个C++程序都可以用g++来编译。但是当程序规模越来越大时，一个工程可能有许多个文件夹和源文件，这时输入的编译命令将越来越长。通常，一个小型C++项目可能还有十几个类，各类之间还存在复杂的依赖关系。其中一部分要编译成可执行文件，另一部分编译成库文件。如果仅依靠g++命令，则需要输入大量的编译指令，整个编译过程会变得异常繁琐。因此，对于C++项目，使用一些工程管理工具会更加高效，我们采用CMake管理源代码。
+
+在一个CMake工程中，我们会用cmake命令生成一个makefile文件，然后，用make命令根据这个makefile文件内容编译整个工程。CMake主要通过CMakeLists.txt文件来进行管理。以下用一个示例文件来说明CMakeLists的语法。
+\begin{lstlisting}[style=bash]
+#声明要求的cmake最低版本
+cmake_minimum_required(VERSION 3.2.0)
+
+# 指定cmake编译策略
+if(POLICY CMP0048)
+    cmake_policy(SET CMP0048 NEW)
+endif(POLICY CMP0048)
+
+# 声明一个cmake工程，包含版本和语言类型
+project(HelloSLAM VERSION 1.0.3 LANGUAGES CXX)
+
+# gcc 编译添加选项
+# add_definitions(-std=c++11) # 指定c++格式
+add_definitions(-g) # 添加其他编译选项 -g 代表debug
+
+# 头文件目录
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+# 寻找包
+find_package(OPENCV 3 REQUIRED)
+
+# 设置输出文件目录
+# 静态库输出
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Build/Lib)
+# 动态库输出
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Build/Lib)
+# 可执行二进制文件输出
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Build)
+
+# 需要额外的链接库文件
+# link_directories(${PROJECT_SOURCE_DIR})
+
+# 编译代码，SHARED代表动态库，STATIC代表静态库
+# 编译动态库
+add_library(hello_shared SHARED xxxxx) # xxxxx 为动态库源代码路径
+# 编译静态库
+# add_library(hello_static STATIC xxxxx) # xxxxx 为静态库源代码路径
+# 库依赖连接
+# add_library(hello_shared XXX)
+# add_library(hello_static XXX)
+
+# 生成可执行文件
+add_executable(helloSLAM xxxxx) # xxxxx 为可执行文件源代码路径
+target_link_libraries(helloSLAM hello_shared) # 链接动态库
+#target_link_libraries(hello_static hello_shared) # 链接静态库
+\end{lstlisting}
