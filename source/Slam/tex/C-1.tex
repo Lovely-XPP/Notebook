@@ -254,7 +254,7 @@
 \begin{figure}[!htb]
     \centering
     \begin{tikzpicture}
-        \node(A) [draw,inner sep=5pt] {SLAM 基本方程
+        \node(A) [draw,inner sep=5pt] {
         $
             \begin{cases}
                 \, \bm{x}_k = f(\bm{x}_{k-1}, \bm{u}_k, \bm{\omega}_k) & k = 1,\cdots, K \\
@@ -274,6 +274,7 @@
         \node (F3) [draw, inner sep=5pt, below of = E2, node distance = 3cm, xshift = 3cm] {\makecell{\dy{非线性优化}{FXXYH}\\[-0.2em](Nonlinear Optimization, \dy{NLO}{NLO})}};
         \node (G1) [draw, inner sep=5pt, below of = F2, node distance = 3cm] {\makecell{\dy{粒子滤波器}{LZLBQ}\\[-0.2em](Particle Filter)}};
         \node (G2) [draw, inner sep=5pt, below of = F3, node distance = 3cm] {\makecell{\dy{图优化}{TYH}\\[-0.2em](Graph Optimization)}};
+        \node (H)[draw, inner sep=5pt, below of=G1, node distance = 1.8cm, xshift=0.5cm] {\large \textbf{最优状态估计问题}};
 
         %\draw[arrows={-Stealth}](0cm,1.5cm) -- (D)  node[midway,right = 0.5cm, above=0cm]{干扰};
         \draw (A) -- (0cm, -1.8cm);
@@ -292,7 +293,31 @@
         \draw (E2) -- +(0cm, -1.5cm) -- +(3cm,-1.5cm) -- (F3);
         \draw[arrows={-Stealth}] (F2) -- (G1) node[midway, left = 0.1cm]{\makecell{\small 克服EKF的缺点\\[-0.4em]\small 线性化误差和噪声高斯分布假设}};
         \draw[arrows={-Stealth}] (F3) -- (G2) node[midway, left = 0.1cm]{\small 代表优化技术};
+
+        \begin{pgfonlayer}{background}
+            \path (A.west |- A.north)+(-0.5,0.25) node (a1) {};
+            \path (A.east |- A.south)+(+0.5,-0.25) node (a2) {}; 
+            \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a1) rectangle (a2);
+            \path (A.east |- A.south)+(3,1) node (u1)[draw, inner sep=5pt] {\large \textbf{SLAM 基本方程}};
+        \end{pgfonlayer}
+
+        \begin{pgfonlayer}{background}
+            \path (D1.west |- B1.north)+(-0.5,0.25) node (a1) {};
+            \path (D4.east |- D2.south)+(+0.5,-0.25) node (a2) {}; 
+            \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a1) rectangle (a2);
+            \path (D4.east |- B2.south)+(1.8,-0.8) node (u1)[draw, inner sep=5pt] {\large \textbf{参数化}};
+        \end{pgfonlayer}
+
+        \begin{pgfonlayer}{background}
+            \path (E1.west |- E1.north)+(-0.3,0.25) node (a1) {};
+            \path (F3.east |- G1.south)+(+0.3,-1.8) node (a2) {}; 
+            \path[fill=yellow!20,rounded corners, draw=black!50, dashed] (a1) rectangle (a2);
+        \end{pgfonlayer}
+
     \end{tikzpicture}
+    \vspace*{-2.5em}
+    \caption{SLAM 问题数学表述总结图}
+    \label{SLAM Summary}
 \end{figure}
 
 

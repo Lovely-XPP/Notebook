@@ -53,6 +53,9 @@
 %\usepackage{polynom}% 除法竖式
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{arrows,arrows.meta}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
 %\usetikzlibrary{circuits.ee.IEC}
 \usepackage{listings}
 \usepackage{color}
