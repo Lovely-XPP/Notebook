@@ -22,7 +22,7 @@
 \usepackage{subfigure}
 \let\widering\relax
 \usepackage{newtxtext}
-\usepackage{newtxmath}
+\usepackage{extarrows,newtxmath}
 \usepackage{bm}
 \DeclareMathSizes{10}{10}{5.5}{5}
 \usepackage{makeidx}%索引专用
@@ -157,7 +157,7 @@
 %自定义页眉页脚---------------
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\;第\ \thechapter\ 章\quad#1\;}{}}
-\renewcommand{\sectionmark}[1]{\markright{\;\thesection\ #1\;}}
+\renewcommand{\sectionmark}[1]{\markright{\;\thesection\ \ #1\;}}
 \fancyhf{}
 %\fancyfoot[C]{\bfseries\thepage}
 \fancyhead[LO]{\small\CJKfamily{song}\rightmark}
@@ -332,6 +332,12 @@
 	
 	% 第一章：SLAM 简介
 	\include{tex/C-1}
+
+    % 第二章：刚体的三维运动
+	\include{tex/C-2}
+
+    %  附章：一些证明
+	\include{tex/C-F}
 	
 	
 	
