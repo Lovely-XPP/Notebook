@@ -10,7 +10,6 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy{�
 	\bm{u} = u_s \bm{i} + u_y \bm{j} + u_z \bm{k}
 	\nomenclature{$\bm{u}$}{三维向量$\bm{u}$\nomrefpage}
 	\nomenclature{$\bm{e}$}{三维向量基$\bm{e}$\nomrefpage}
-	\nomenclature{$\underline{\bm{u}}$}{三维向量$\bm{u}$的分量矩阵，用于向量的矩阵运算，为了将向量和矩阵区别，后文中的矩阵均加了下划线\nomrefpage}
 \end{equation}
 其中，$\bm{i}, \bm{j}, \bm{k}$分别称为向量$\bm{u}$在基向量上的3个分向量，3个标量系数$u_x,u_y,u_z$分别称为向量$\bm{u}$在3个基向量上的坐标。这3个坐标构成一个标量矩阵，称为向量$\bm{u}$在基向量$\bm{e}$上的\dy{坐标阵}{ZBZ}（或\dy{分量矩阵}{FLJZ}），记为
 \begin{equation}
@@ -651,8 +650,7 @@ $\underline{\bm{e}} = \big[ \bm{i} \quad \bm{j} \quad \bm{k} \big]^\T $的\dy{�
 			e_x e_y \big( 1 - \cos \varPhi \big) + e_z \sin \varPhi & \cos \varPhi + e_y^2 \big( 1 - \cos \varPhi \big) & e_y e_z \big(1 - \cos \varPhi \big) - e_x \sin \varPhi \\
 			e_x e_z \big( 1 - \cos \varPhi \big) - e_y \sin \varPhi & e_y e_z \big( 1- \cos \varPhi \big) + e_x \sin \varPhi & \cos \varPhi + e_z^2 \big( 1- \cos \varPhi \big)
 		\end{bmatrix}
-		\nomenclature{$\bm{E}_i$}{$i \times i$的单位矩阵 \nomrefpage}
-		\nomenclature{$\bm{R}_{ba}$}{同一坐标系下向量$\bm{a}$旋转到向量$\bm{b}$的旋转矩阵  \nomrefpage}
+		\nomenclature{$\bm{R}_{ba}$}{坐标系$S_a$中的向量分量变换到坐标系$S_b$的旋转矩阵  \nomrefpage}
 	\end{align}
 }
 
@@ -1504,6 +1502,7 @@ $
 
 
 \section{欧式变换}
+\subsection{欧式变换}
 上面介绍的都是坐标系旋转的几种描述方式，实际上欧式变换中，除了旋转还有平移。考虑世界坐标系中的向量$\bm{a}$，经过一次旋转（这里用旋转矩阵$\bm{R}$描述）和一次平移$\bm{t}$后，得到了$\bm{a}'$，那么把旋转和平移合到一起，有
 \begin{equation}
     \bm{a}' = \bm{R}\bm{a} + \bm{t}
@@ -1554,6 +1553,276 @@ $
 \end{equation}
 
 这是一个数学技巧：我们在一个三维向量的末尾添加1，将其变成了四维向量，称为\dy{齐次坐标}{QCZB}。对于这个四维向量，我们可以把旋转和平移写在一个矩阵里，使得整个关系变成线性关系。矩阵$\bm{T}$称为\dy{变换矩阵}{BHJZ}。
+\nomenclature{$\bm{T}$}{变换矩阵\nomrefpage}
+
+那么记$\widetilde{\bm{a}}$表示$\bm{a}$的齐次坐标。依靠其次坐标和变换矩阵，两次变换的叠加就有很好的形式
+\begin{equation}
+    \tbm{b} = \bm{T}_1 \tbm{a},\, \tbm{c} = \bm{T}_2 \tbm{b} \quad \Rightarrow \tbm{c} = \bm{T}_1 \bm{T}_1 \tbm{a}
+\end{equation}
+为了方便表示，在不引起歧义的情况下，不区分齐次和非齐次坐标的符号。
+
+变换矩阵$\bm{T}$具有比较特别的结构：左上角为旋转矩阵，右侧为平移向量，左下角为$\bm{0}$向量，右下角为$1$。其逆矩阵表示为反向的变换，即
+\begin{equation}
+    \bm{T}^{-1} = 
+    \begin{bmatrix}
+        \bm{R}^{\text{T}} & - \bm{R}^{\text{T}} \bm{t} \\
+        \bm{0}^{\text{T}} & 1
+    \end{bmatrix}
+\end{equation}
+
+
+\section{相似、仿射、射影变换}
+除了欧式变换，3D空间还存在其他几种变换方式，只不过欧式变换是最简单的。它们一部分和测量几何有关。欧式变换保持了向量的长度和夹角，相当于我们把一个刚体原封不动地进行了移动或旋转，不改变它自身的样子。其他几种变换则会改变它的外形。
+
+\subsection{相似变换}
+\dy{相似变换}{XSBH}比欧式变换多了一个自由度，它允许物体进行均匀缩放，其矩阵表示为
+\begin{equation}
+    \bm{T}_S = 
+    \begin{bmatrix}
+        s \bm{R} & \bm{t} \\
+        \bm{0}^{\text{T}} & 1
+    \end{bmatrix}
+\end{equation}
+
+相似变换矩阵中的旋转部分多了一个缩放因子$s$，表示我们在对向量旋转之后，可以在$x,y,z$三个坐标上均匀缩放。由于含有缩放，相似变换不再保持图形的面积不变。
+
+
+\subsection{仿射变换}
+\dy{仿射变换}{FSBH}的矩阵表示为
+\begin{equation}
+    \bm{T}_A = 
+    \begin{bmatrix}
+        \bm{A} & \bm{t} \\
+        \bm{0}^{\text{T}} & 1
+    \end{bmatrix}
+\end{equation}
+
+与欧式变换不同的是，仿射变换只要求$\bm{A}$是一个可逆矩阵，而不必是正交矩阵。仿射变换也叫正交投影。经过仿射变换之后，立方体就不再是方的了，但各个面仍然是平行四边形。
+
+\subsection{射影变换}
+\dy{射影变换}{SYBH}是最一般的变换，其变换矩阵表示为
+\begin{equation}
+    \bm{T}_P = 
+    \begin{bmatrix}
+        \bm{A} & \bm{t} \\
+        \bm{a}^{\text{T}} & v
+    \end{bmatrix}
+\end{equation}
+
+它的左上角为可逆矩阵$\bm{A}$，右上角为平移矩阵$\bm{t}$，左下角为缩放$\bm{a}^{\text{T}}$。由于采用了齐次坐标，当$v \neq 0$时，我们可以对整个矩阵除以$v$得到一个右下角为1的矩阵；否则得到右下角为$0$的矩阵。因此，2D的射影变换一共有8个自由度，3D则有15个自由度。射影变换是最一般的变换。从真是世界到相机照片的变换可以看成一个摄影变换。一个原本方形的地板砖在照片中的变化：首先不是方形，其次由于金达远小的关系，它甚至不是平行四边形，是一个不规则的四边形。
+
+各个变换的性质如表 \ref{常见变换} 所示。注意在“不变性质”中，从上到下是由包含关系的。
+\begin{table}[!htb]
+    \centering
+    \setlength{\tabcolsep}{9mm}{
+    \begin{tabular}{cccc}
+        \toprule
+        \textbf{变换名称} & \textbf{矩阵形式} & \textbf{自由度} & \textbf{不变性质} \\
+        \midrule
+        &&&\\[-1.5em]
+        欧式变换 & $\begin{bmatrix}
+            \bm{R} & \bm{t} \\
+            \bm{0}^{\text{T}} & 1
+        \end{bmatrix}$ & 6 & 长度、夹角、体积 \\
+        &&&\\[-1em]
+        相似变换 & $\begin{bmatrix}
+            \bm{sR} & \bm{t} \\
+            \bm{0}^{\text{T}} & 1
+        \end{bmatrix}$ & 7 & 体积比 \\
+        &&&\\[-1em]
+        仿射变换 & $\begin{bmatrix}
+            \bm{A} & \bm{t} \\
+            \bm{0}^{\text{T}} & 1
+        \end{bmatrix}$ & 12 & 平行性、体积比 \\
+        &&&\\[-1em]
+        射影变换 & $\begin{bmatrix}
+            \bm{A} & \bm{t} \\
+            \bm{a}^{\text{T}} & v
+        \end{bmatrix}$ & 15 & 接触平面的相交和相切 \\
+        &&&\\[-1.5em]
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{常见变换的性质比较}
+    \label{常见变换}
+\end{table}
+
+
+
+
+
+
+
+\section{C++实践：Eigen库}
+C++实践主要基于教材和对应Github上的开源代码进行整理，下面将进行分块讲解，如果不需要分块讲解，可以直接跳往第 \ref{code} 章 \ref{Eigen} \link[Eigen].
+
+Eigen是一个 C++ 开源线性代数库。它提供了快速的有关矩阵的线性代数运算，还包括解方程等功能。在使用Eigen之前，需要将Eigen库文件目录导入到CMakeList.txt文件内。
+
+\begin{lstlisting}[style=bash]
+# 添加头文件
+include_directories("/usr/include/eigen3")
+\end{lstlisting}
+
+特别地，由于Eigen库只有头文件，所以不需要再用 \verb|target_link_libraries| 语句将程序链接到库上。使用Eigen只需要在程序中加入头文件即可。
+
+\begin{lstlisting}[style=C++]
+// Eigen 核心部分
+#include <Eigen/Core>
+// 稠密矩阵的代数运算（逆，特征值等）
+#include <Eigen/Dense>
+\end{lstlisting}
+
+\subsection{矩阵的定义}
+Eigen 中所有向量和矩阵都是Eigen::Matrix，它是一个模板类。它的前三个参数为：数据类型，行，列。例如
+
+\begin{lstlisting}[style=C++]
+// 声明一个2*3的float矩阵
+Eigen::Matrix<float, 2, 3> matrix_23;
+\end{lstlisting}
+
+同时，Eigen 通过 typedef 提供了许多内置类型，不过底层仍是Eigen::Matrix。
+
+例如 Vector3d 实质上是 Eigen::Matrix<double, 3, 1>，即三维向量。
+
+\begin{lstlisting}[style=C++]
+// 声明一个三维向量（列向量）
+Eigen::Vector3d v_3d;
+// 这是一样的
+Eigen::Matrix<float, 3, 1> vd_3d;
+// Matrix3d 实质上是 Eigen::Matrix<double, 3, 3>
+Eigen::Matrix3d matrix_33 = Eigen::Matrix3d::Zero(); //初始化为零
+\end{lstlisting}
+
+如果不确定矩阵大小，可以使用动态大小的矩阵，例如
+\begin{lstlisting}[style=C++]
+// 如果不确定矩阵大小，可以使用动态大小的矩阵
+Matrix<double, Dynamic, Dynamic> matrix_dynamic;
+// 更简单的
+MatrixXd matrix_x;
+\end{lstlisting}
+
+常用的几种矩阵定义就介绍到这里，还有很多其他类型的矩阵，这里就不一一列举了。
+
+
+\subsection{矩阵的基本操作}
+\begin{lstlisting}[style=C++]
+// 下面是对Eigen阵的操作
+// 输入数据
+matrix_23 << 1, 2, 3, 4, 5, 6;
+// 输出
+cout << "matrix 2x3 from 1 to 6: \n"
+        << matrix_23 << endl;
+
+// 用()访问矩阵中的元素，循环遍历输出各个元素
+cout << "print matrix 2x3: " << endl;
+for (int i = 0; i < 2; i++)
+{
+    for (int j = 0; j < 3; j++)
+        cout << matrix_23(i, j) << "\t";
+    cout << endl;
+}
+\end{lstlisting}
+
+\subsection{矩阵的基本运算}
+\begin{lstlisting}[style=C++]
+// 一些矩阵运算，四则运算就不演示了，直接用+-*/即可。
+matrix_33 = Eigen::Matrix3d::Random(); // 随机数矩阵
+cout << "random matrix: \n"
+     << matrix_33 << endl;
+cout << "transpose: \n"
+     << matrix_33.transpose() << endl;              // 转置
+cout << "sum: " << matrix_33.sum() << endl;         // 各元素和
+cout << "trace: " << matrix_33.trace() << endl;     // 迹
+cout << "times 10: \n"
+     << 10 * matrix_33 << endl;                     // 数乘
+cout << "inverse: \n"
+     << matrix_33.inverse() << endl;                // 逆
+cout << "det: " << matrix_33.determinant() << endl; // 行列式
+
+// 求解特征值
+// 实对称矩阵可以保证对角化成功
+SelfAdjointEigenSolver<Matrix3d> eigen_solver(matrix_33.transpose() * matrix_33);
+cout << "Eigen values = \n"
+     << eigen_solver.eigenvalues() << endl;  // 特征值
+cout << "Eigen vectors = \n"
+     << eigen_solver.eigenvectors() << endl; // 特征向量
+\end{lstlisting}
+这里要注意的是，在Eigen里你不能混合两种不同类型的矩阵，例如
+\begin{lstlisting}[style=C++]
+// 错误示范
+// Matrix<double, 2, 1> result_wrong_type = matrix_23 * v_3d;
+// 原因是 matrix_23 为float型，而 v_3d 为 double 型
+// 应该显式转换
+auto result = matrix_23.cast<double>() * v_3d;
+cout << "[1,2,3;4,5,6]*[3;2;1]=" << result.transpose() << endl;
+
+auto result2 = matrix_23 * vd_3d;
+cout << "[1,2,3;4,5,6]*[4;5;6]: " << result2.transpose() << endl;
+\end{lstlisting}
+同时需要注意矩阵乘法的维度，例如
+\begin{lstlisting}[style=C++]
+// 错误示范
+// Eigen::Matrix<double, 2, 3> result_wrong_dimension = matrix_23.cast<double>() * v_3d;
+// 正确写法
+Eigen::Matrix<double, 2, 1> result_correct_dimension = matrix_23.cast<double>() * v_3d;
+// 可以直接用 auto 类型，但是这样可能会造成后续不知道矩阵维度
+auto result_correct_dimension = matrix_23.cast<double>() * v_3d;
+\end{lstlisting}
+
+\subsection{利用矩阵求解线性方程}
+\begin{lstlisting}[style=C++]
+// 我们求解 matrix_NN * x = v_Nd 这个方程，直接求逆自然是最直接的，但是求逆运算量大
+
+#define MATRIX_SIZE 50
+Eigen::Matrix<double, MATRIX_SIZE, MATRIX_SIZE> matrix_NN = Eigen::MatrixXd::Random(MATRIX_SIZE, MATRIX_SIZE);
+matrix_NN = matrix_NN * matrix_NN.transpose(); // 保证半正定
+Eigen::Matrix<double, MATRIX_SIZE, 1> v_Nd = MatrixXd::Random(MATRIX_SIZE, 1);
+
+// 直接求逆
+clock_t time_stt = clock(); // 计时
+Eigen::MatrixXd x = matrix_NN.inverse() * v_Nd;
+cout << "time of normal inverse is "
+     << 1000 * (clock() - time_stt) / (double)CLOCKS_PER_SEC << "ms" << endl;
+cout << "x = " << x.transpose() << endl;
+
+// 通常用矩阵分解来求，例如QR分解，速度会快很多
+time_stt = clock();
+x = matrix_NN.colPivHouseholderQr().solve(v_Nd);
+cout << "time of Qr decomposition is "
+     << 1000 * (clock() - time_stt) / (double)CLOCKS_PER_SEC << "ms" << endl;
+cout << "x = " << x.transpose() << endl;
+
+// 对于正定矩阵，还可以用cholesky分解来解方程
+time_stt = clock();
+x = matrix_NN.ldlt().solve(v_Nd);
+cout << "time of ldlt decomposition is "
+     << 1000 * (clock() - time_stt) / (double)CLOCKS_PER_SEC << "ms" << endl;
+cout << "x = " << x.transpose() << endl;
+\end{lstlisting}
+
+
+
+\subsection{Eigen几何模块}
+
+Eigen中各个转换矩阵和几何参数的数据定义如下，每种类型都有单精度和双精度两种数据类型（末尾d：双精度，末尾f：单精度），而且不能由编译器自动转换。下面以双精度为例。
+\begin{itemize}[itemsep=0.1pt,topsep =2pt]
+    \item 旋转矩阵($3 \times 3$): \quad Eigen::Matrix3d
+    \item 旋转向量($3 \times 1$): \quad Eigen::AngleAxisd
+    \item 欧拉角($3 \times 1$): \quad Eigen::Vector3d
+    \item 四元数($4 \times 1$): \quad Eigen:::Quaterniond
+    \item 欧式变换矩阵($4 \times 4$): \quad Eigen::Isometry3d
+    \item 仿射变换矩阵($4 \times 4$): \quad Eigen::Affine3d
+    \item 射影变换矩阵($4 \times 4$): \quad Eigen::Projective3d
+\end{itemize}
+
+
+
+
+
+
+
+
+
 
 
 

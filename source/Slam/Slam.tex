@@ -71,7 +71,7 @@
 	extendedchars=true, % 扩展符号？
 	breaklines=true, % 自动换行
 	language=C++,
-    morekeywords={},
+    morekeywords={cout,cin,endl},
 	keywordstyle=\color{blue},
 	commentstyle=\color{dkgreen},
 	stringstyle=\color{mauve},
@@ -250,6 +250,7 @@
 \newcommand{\vk}{\bm{k}}
 \newcommand{\norm}[1][]{\Vert #1 \Vert}
 \newcommand{\ubm}[1]{\underline{\bm{#1}}}
+\newcommand{\tbm}[1]{\widetilde{\bm{#1}}}
 \newcommand{\eqrefp}[1][]{第 \pageref{#1} 页的公式 \eqref{#1} }
 
 %% 定义索引类
@@ -338,6 +339,9 @@
 
     %  附章：一些证明
 	\include{tex/C-F}
+
+    %  代码章
+	\include{tex/C-code}
 	
 	
 	
