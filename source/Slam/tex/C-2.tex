@@ -1654,7 +1654,7 @@ $
 
 
 \section{C++实践：Eigen库}
-C++实践主要基于教材和对应Github上的开源代码进行整理，下面将进行分块讲解，如果不需要分块讲解，可以直接跳往第 \ref{code} 章 \ref{Eigen} \link[Eigen].
+C++实践主要基于教材和对应Github上的开源代码进行整理，结合查找的资料进行归纳整理，下面将进行分块讲解，如果不需要分块讲解，可以直接跳往第 \ref{code} 章 \ref{Eigen} \link[Eigen] 查看例子源码.
 
 Eigen是一个 C++ 开源线性代数库。它提供了快速的有关矩阵的线性代数运算，还包括解方程等功能。在使用Eigen之前，需要将Eigen库文件目录导入到CMakeList.txt文件内。
 
@@ -1673,79 +1673,108 @@ include_directories("/usr/include/eigen3")
 \end{lstlisting}
 
 \subsection{矩阵的定义}
-Eigen 中所有向量和矩阵都是Eigen::Matrix，它是一个模板类。它的前三个参数为：数据类型，行，列。例如
+Eigen 中所有向量和矩阵都是Eigen::Matrix，它是一个模板类。它的前三个参数为：数据类型，行，列。
 
 \begin{lstlisting}[style=C++]
-// 声明一个2*3的float矩阵
-Eigen::Matrix<float, 2, 3> matrix_23;
+Matrix<double, 3, 3> A;                // 定义3x3double 矩阵
+Matrix<double, 3, Dynamic> A;          //定义3xn double 矩阵,列为动态变化
+Matrix<double, Dynamic, Dynamic>  A;   // 定义 double 矩阵,行、列为动态变化，由需要决定
+MatrixXd A;                            // 定义 double 矩阵,行、列为动态变化，由需要决定
+Matrix<double, 3, 3, RowMajor>  A;     // 定义3x3 double 矩阵,按行储存，默认按列储存效率较高。
+Matrix3f  A;                           // 定义3x3 float 矩阵A.
+Vector3f  A;                           // 定义3x1 float 列向量A.
+VectorXd  A;                           // 定义动态double列向量A
+RowVector3f  A;                        // 定义1x3 float 行向量A.
+RowVectorXd  A;                        // 定义动态double行向量A.
 \end{lstlisting}
-
-同时，Eigen 通过 typedef 提供了许多内置类型，不过底层仍是Eigen::Matrix。
-
-例如 Vector3d 实质上是 Eigen::Matrix<double, 3, 1>，即三维向量。
-
-\begin{lstlisting}[style=C++]
-// 声明一个三维向量（列向量）
-Eigen::Vector3d v_3d;
-// 这是一样的
-Eigen::Matrix<float, 3, 1> vd_3d;
-// Matrix3d 实质上是 Eigen::Matrix<double, 3, 3>
-Eigen::Matrix3d matrix_33 = Eigen::Matrix3d::Zero(); //初始化为零
-\end{lstlisting}
-
-如果不确定矩阵大小，可以使用动态大小的矩阵，例如
-\begin{lstlisting}[style=C++]
-// 如果不确定矩阵大小，可以使用动态大小的矩阵
-Matrix<double, Dynamic, Dynamic> matrix_dynamic;
-// 更简单的
-MatrixXd matrix_x;
-\end{lstlisting}
-
-常用的几种矩阵定义就介绍到这里，还有很多其他类型的矩阵，这里就不一一列举了。
-
 
 \subsection{矩阵的基本操作}
+\sssection{访问元素及大小}
 \begin{lstlisting}[style=C++]
 // 下面是对Eigen阵的操作
-// 输入数据
-matrix_23 << 1, 2, 3, 4, 5, 6;
-// 输出
-cout << "matrix 2x3 from 1 to 6: \n"
-        << matrix_23 << endl;
+A.size()        // 元素个数
+C.rows()        // 行个数
+C.cols()        // 列个数
 
-// 用()访问矩阵中的元素，循环遍历输出各个元素
-cout << "print matrix 2x3: " << endl;
-for (int i = 0; i < 2; i++)
-{
-    for (int j = 0; j < 3; j++)
-        cout << matrix_23(i, j) << "\t";
-    cout << endl;
-}
+A(i)            // x(i+1)           // 默认情况下列优先，访问(0,i)的元素
+C(i, j)         // C(i+1,j+1)       //访问（i, j）的元素。
+A.resize(4, 4); // 如果之前已经定义过形状则会报错。
+B.resize(4, 9); // 如果之前已经定义过形状则会报错。
+ 
+A << 1, 2, 3,     // 初始化矩阵A
+     4, 5, 6,     // 初始化的输入元素既可以是数字也可以是矩阵
+     7, 8, 9;     // 可以将矩阵合并为一个大矩阵
+B << A, A, A;     // 三个A矩阵按行排列合并为B
+A.fill(10);       // A所有元素都赋值10
+\end{lstlisting}
+
+\sssection{特殊的矩阵}
+\begin{lstlisting}[style=C++]
+// Eigen                                                
+//单位矩阵定义
+MatrixXd::Identity(rows,cols)       
+C.setIdentity(rows,cols)            
+//零矩阵定义
+MatrixXd::Zero(rows,cols)          
+C.setZero(rows,cols)              
+//全1矩阵定义
+MatrixXd::Ones(rows,cols)         
+C.setOnes(rows,cols)               
+//随即矩阵定义
+MatrixXd::Random(rows,cols)            
+C.setRandom(rows,cols)          
+//线性阵定义
+VectorXd::LinSpaced(size,low,high)  
+v.setLinSpaced(size,low,high)  
+\end{lstlisting}
+
+\sssection{矩阵分块操作}
+\begin{lstlisting}[style=C++]
+// 下面x为列或行向量，P为矩阵
+/**************************只能对向量操作**************************/
+x.head(n)                          // 列向量的前n个元素
+x.head<n>()                        // 行向量的前n个元素
+x.tail(n)                          // 列向量的倒数n个元素
+x.tail<n>()                        // 行向量的倒数n个元素
+x.segment(i, n)                    // 行向量从i开始的n个元素
+x.segment<n>(i)                    // 列向量从i开始的n个元素
+/**************************只能对矩阵操作**************************/
+P.block(i, j, rows, cols)          // 从i行j列开始的rows行cols列块。
+P.block<rows, cols>(i, j)          // 从i行j列开始的rows行cols列块
+P.row(i)                           // 矩阵P的第i行元素
+P.col(j)                           // 矩阵P的第j列元素
+P.leftCols<cols>()                 // P矩阵左边cols列元素
+P.leftCols(cols)                   // P矩阵左边cols列元素
+P.middleCols<cols>(j)              // P矩阵第j列开始的cols列元素
+P.middleCols(j, cols)              // P矩阵第j列开始的cols列元素
+P.rightCols<cols>()                // P矩阵右边cols列元素
+P.rightCols(cols)                  // P矩阵右边cols列元素
+P.topRows<rows>()                  // P矩阵前rows行元素
+P.topRows(rows)                    // P矩阵前rows行元素
+P.middleRows<rows>(i)              // P矩阵第i行开始的row行元素
+P.middleRows(i, rows)              // P矩阵第i行开始的row行元素
+P.bottomRows<rows>()               // P矩阵倒数row行
+P.bottomRows(rows)                 // P矩阵倒数row行
+P.topLeftCorner(rows, cols)        // P矩阵左上角rows行，cols列元素
+P.topRightCorner(rows, cols)       // P矩阵右上角rows行，cols列元素
+P.bottomLeftCorner(rows, cols)     
+P.bottomRightCorner(rows, cols)    
+P.topLeftCorner<rows,cols>()       
+P.topRightCorner<rows,cols>()      
+P.bottomLeftCorner<rows,cols>()    
+P.bottomRightCorner<rows,cols>()  
 \end{lstlisting}
 
 \subsection{矩阵的基本运算}
+\sssection{矩阵乘法}
 \begin{lstlisting}[style=C++]
-// 一些矩阵运算，四则运算就不演示了，直接用+-*/即可。
-matrix_33 = Eigen::Matrix3d::Random(); // 随机数矩阵
-cout << "random matrix: \n"
-     << matrix_33 << endl;
-cout << "transpose: \n"
-     << matrix_33.transpose() << endl;              // 转置
-cout << "sum: " << matrix_33.sum() << endl;         // 各元素和
-cout << "trace: " << matrix_33.trace() << endl;     // 迹
-cout << "times 10: \n"
-     << 10 * matrix_33 << endl;                     // 数乘
-cout << "inverse: \n"
-     << matrix_33.inverse() << endl;                // 逆
-cout << "det: " << matrix_33.determinant() << endl; // 行列式
-
-// 求解特征值
-// 实对称矩阵可以保证对角化成功
-SelfAdjointEigenSolver<Matrix3d> eigen_solver(matrix_33.transpose() * matrix_33);
-cout << "Eigen values = \n"
-     << eigen_solver.eigenvalues() << endl;  // 特征值
-cout << "Eigen vectors = \n"
-     << eigen_solver.eigenvectors() << endl; // 特征向量
+// 矩阵*向量      矩阵*矩阵        矩阵数乘
+y  = M*x;          R  = P*Q;        R  = P*s;
+a  = b*M;          R  = P - Q;      R  = s*P;
+a *= M;            R  = P + Q;      R  = P/s;
+                   R *= Q;          R  = s*P;
+                   R += Q;          R *= s;
+                   R -= Q;          R /= s;
 \end{lstlisting}
 这里要注意的是，在Eigen里你不能混合两种不同类型的矩阵，例如
 \begin{lstlisting}[style=C++]
@@ -1767,6 +1796,54 @@ cout << "[1,2,3;4,5,6]*[4;5;6]: " << result2.transpose() << endl;
 Eigen::Matrix<double, 2, 1> result_correct_dimension = matrix_23.cast<double>() * v_3d;
 // 可以直接用 auto 类型，但是这样可能会造成后续不知道矩阵维度
 auto result_correct_dimension = matrix_23.cast<double>() * v_3d;
+\end{lstlisting}
+\sssection{矩阵的基本运算}
+\begin{lstlisting}[style=C++]
+R.adjoint()                        // R矩阵的伴随矩阵
+R.transpose()                      // R矩阵的转置
+R.diagonal()                       // R矩阵的迹，用列表示
+x.asDiagonal()                     // 对角矩阵
+R.reverse()                        // R矩阵逆时针旋转180度(反转)
+R.colwise().reverse();             // R矩阵的列反转
+R.rowwise().reverse();             // R矩阵的行反转
+R.transpose().colwise().reverse(); // R矩阵逆时针旋转90度
+R.transpose().rowwise().reverse(); // R矩阵顺时针旋转90度
+R.conjugate()                      // conj(R)共轭矩阵
+\end{lstlisting}
+
+\subsection{矩阵内部元素运算}
+矩阵内部元素运算（比如两个矩阵对应元素相乘而不是矩阵乘法）主要用到\verb|array()|类方法。
+\begin{lstlisting}[style=C++]
+// 矩阵内部元素运算
+R = P.cwiseProduct(Q);      // R = P .* Q对应点乘
+R = P.array() * s.array();  // R = P .* s对应点乘
+R = P.cwiseQuotient(Q);     // R = P ./ Q对应点除
+R = P.array() / Q.array();  // R = P ./ Q对应点除
+R = P.array() + s.array();  // R = P + s  对应点加，和矩阵加法结果一致
+R = P.array() - s.array();  // R = P – s  对应点减，和矩阵减法结果一致
+R.array() += s;             // R = R + s
+R.array() -= s;             // R = R - s
+R.array() < Q.array();      // R < Q  ，Q矩阵元素比较，会在相应位置置0或1
+R.array() <= Q.array();     // R <= Q ，Q矩阵元素比较，会在相应位置置0或1
+R.cwiseInverse();           // 1 ./ R  1点除以R
+R.array().inverse();        // 1 ./ R  1点除以R
+R.array().sin()             // sin(R)
+R.array().cos()             // cos(R)
+R.array().pow(s)            // R .^ s
+R.array().square()          // R .^ 2
+R.array().cube()            // R .^ 3
+R.cwiseSqrt()               // sqrt(R)
+R.array().sqrt()            // sqrt(R)
+R.array().exp()             // exp(R)
+R.array().log()             // log(R)
+R.cwiseMax(P)               // max(R, P) 对应位置取大元素
+R.array().max(P.array())    // max(R, P) 
+R.cwiseMin(P)               // min(R, P) 对应位置取小元素
+R.array().min(P.array())    // min(R, P)
+R.cwiseAbs()                // abs(R)
+R.array().abs()             // abs(R)
+R.cwiseAbs2()               // abs(R.^2)
+R.array().abs2()            // abs(R.^2)
 \end{lstlisting}
 
 \subsection{利用矩阵求解线性方程}
