@@ -1880,19 +1880,25 @@ cout << "x = " << x.transpose() << endl;
 
 
 \subsection{Eigen几何模块}
+\sssection{几何参数定义与初始化}
 
 Eigen中各个转换矩阵和几何参数的数据定义如下，每种类型都有单精度和双精度两种数据类型（末尾d：双精度，末尾f：单精度），而且不能由编译器自动转换。下面以双精度为例。
-\begin{itemize}[itemsep=0.1pt,topsep =2pt]
-    \item 旋转矩阵($3 \times 3$): \quad Eigen::Matrix3d
-    \item 旋转向量($3 \times 1$): \quad Eigen::AngleAxisd
-    \item 欧拉角($3 \times 1$): \quad Eigen::Vector3d
-    \item 四元数($4 \times 1$): \quad Eigen:::Quaterniond
-    \item 欧式变换矩阵($4 \times 4$): \quad Eigen::Isometry3d
-    \item 仿射变换矩阵($4 \times 4$): \quad Eigen::Affine3d
-    \item 射影变换矩阵($4 \times 4$): \quad Eigen::Projective3d
-\end{itemize}
 
+\begin{lstlisting}[style=C++]
+Eigen::Matrix3d      // 旋转矩阵（3*3）
+Eigen::AngleAxisd    // 旋转向量（3*1）
+Eigen::Vector3d      // 欧拉角（3*1）
+Eigen::Quaterniond   // 四元数（4*1）
+Eigen::Isometry3d    // 欧式变换矩阵（4*4）
+Eigen::Affine3d      // 放射变换矩阵（4*4）
+Eigen::Projective3d  // 射影变换矩阵（4*4）
+\end{lstlisting}
 
+对应的常用初始化方法如下。
+\begin{lstlisting}[style=C++]
+// 旋转向量初始化：角+轴
+Eigen::AngleAxisd aa(angle_in_radian, Vector3d(ax,ay,az));
+\end{lstlisting}
 
 
 
